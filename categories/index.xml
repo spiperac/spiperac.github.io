@@ -10,5 +10,14 @@
 	<atom:link href="http://spiperac.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Ctf</title>
+      <link>http://spiperac.github.io/categories/ctf/</link>
+      <pubDate>Tue, 04 Dec 2018 01:21:35 +0100</pubDate>
+      
+      <guid>http://spiperac.github.io/categories/ctf/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

@@ -1,35 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>badarg`s blog</title>
-    <link>http://spiperac.github.io/</link>
-    <description>Recent content on badarg`s blog</description>
+    <title>Ctf on badarg`s blog</title>
+    <link>http://spiperac.github.io/categories/ctf/</link>
+    <description>Recent content in Ctf on badarg`s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 06 Dec 2018 20:55:55 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 04 Dec 2018 01:21:35 +0100</lastBuildDate>
     
-	<atom:link href="http://spiperac.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://spiperac.github.io/categories/ctf/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Ctf</title>
-      <link>http://spiperac.github.io/ctf/</link>
-      <pubDate>Thu, 06 Dec 2018 20:55:55 +0100</pubDate>
-      
-      <guid>http://spiperac.github.io/ctf/</guid>
-      <description>This is the list of writeups from various CTFs i played.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>http://spiperac.github.io/about/</link>
-      <pubDate>Thu, 06 Dec 2018 20:45:58 +0100</pubDate>
-      
-      <guid>http://spiperac.github.io/about/</guid>
-      <description>Hi,
-i&amp;rsquo;m a programmer working mostly with c, cpp, python, go and other tools and toys.
-I&amp;rsquo;m playing CTFs, and hosting one at BalCCon.</description>
-    </item>
     
     <item>
       <title>Smasher HTB (50pts)</title>
