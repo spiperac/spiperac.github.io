@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Ctf</title>
+      <title>CTF</title>
       <link>http://spiperac.github.io/ctf/</link>
       <pubDate>Thu, 06 Dec 2018 20:55:55 +0100</pubDate>
       
@@ -32,11 +32,11 @@ I&amp;rsquo;m playing CTFs, and hosting one at BalCCon.</description>
     </item>
     
     <item>
-      <title>Smasher HTB (50pts)</title>
-      <link>http://spiperac.github.io/post/2018-12-04-smasher-htb-50pts/</link>
+      <title>Smasher VM - HTB</title>
+      <link>http://spiperac.github.io/post/2018-12-04-smasher-vm-htb/</link>
       <pubDate>Tue, 04 Dec 2018 01:21:35 +0100</pubDate>
       
-      <guid>http://spiperac.github.io/post/2018-12-04-smasher-htb-50pts/</guid>
+      <guid>http://spiperac.github.io/post/2018-12-04-smasher-vm-htb/</guid>
       <description>Smasher Friend of mine suggested me this box as a good &amp;ldquo;inspiration&amp;rdquo; for a task for our upcomming CTF at BalCCon congress. I was immediately hooked by the idea of setting a web challenge as entry gate for a binary exploitation challenge where target is web server.
 That twist gives it a little bit of &amp;lsquo;real world&amp;rsquo; feeling ( not really), and a better path for libc &amp;lsquo;leaking&amp;rsquo;, unlike ususal &amp;lsquo;here you go, download libc from here&amp;rsquo; way.</description>
     </item>
