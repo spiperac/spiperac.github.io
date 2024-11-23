@@ -297,7 +297,7 @@ Buffer overflow occures when url_decoder() tries to 'decode' filename sent with 
 	GET /payloadpayloadpayload
 
 Note: we won't count first slash '/' from GET request in payload length, because it get trimed before processing.
-![](/images/smasher/tiny_process.png)
+![request get](/images/smasher/tiny_process.png)
 
 from the picture above we can calculate that our buffer is at:
 	
