@@ -1,0 +1,138 @@
+
+/* General Styles */
+body {
+    background-color: #1d2021; 
+    color: #ebdbb2;           /* Light Gruvbox foreground */
+    font-family: "Hack Nerd Font", monospace;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #b8bb26;           /* Yellow Gruvbox for links */
+    text-decoration: none;
+}
+
+menu-a {
+    color: #d79921; /* Gruvbox orange */
+}
+
+a:hover {
+    color: #fabd2f;           /* Brighter yellow for hover */
+    text-decoration: underline;
+}
+
+/* Header */
+header {
+    background-color: #1d2021; 
+    padding: 1em;
+    text-align: center;
+    /* border-bottom: 1px solid #504945; */
+}
+
+header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    /* gap: 1em; */
+}
+
+header li {
+    display: inline;
+}
+
+/* Container */
+.container {
+    max-width: 750px;
+    width: 88%;
+    margin: 2em auto;
+    padding: 1em;
+    /* border: 1px solid #504945; /* Terminal-like border */
+    background-color: #282828; /* Dark Gruvbox background */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #1d2021; 
+    color: #a89984;
+    font-size: 0.9em;
+}
+
+/* Posts */
+h1, h2, h3 {
+    color: #fabd2f;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 1em;
+    padding: 0.5em;
+    background: #32302f;
+    /* border: 1px solid #504945; */
+}
+
+li h2 {
+    margin: 0;
+}
+
+li p {
+    margin: 0.5em 0 0 0;
+}
+
+/* Highlighting for terminal-style look */
+code {
+    color: #b8bb26;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    white-space: pre-wrap; /* Wraps lines */
+    word-wrap: break-word; /* Breaks long words */
+}
+
+
+/* Remove background from the code element inside pre */
+pre code {
+    background: none; /* Removes the inner code background */
+    color: inherit;   /* Ensures text color is consistent */
+    font-size: inherit; /* Matches parent font size */
+}
+
+/* Apply the desired background and styling only to pre */
+pre {
+    background-color: #282828; /* Gruvbox dark background */
+    color: #ebdbb2;           /* Gruvbox light foreground */
+    padding: 10px;            /* Adds padding inside the code block */
+    border-radius: 4px;       /* Rounded corners for a smoother look */
+    overflow-x: auto;         /* Horizontal scrolling for long lines */
+    margin: 20px 0;           /* Space above and below code blocks */
+    border: 1px solid #3c3836; /* Subtle border to differentiate block */
+}
+
+
+@font-face {
+    font-family: "Hack Nerd Font";
+    src: url("fonts/HackNerdFont-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon {
+    font-family: "Hack Nerd Font", monospace;
+}
+
+
+/* Ensure images do not overflow the post body */
+.post-body img {
+    max-width: 100%; /* Restrict the image width to its container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove inline image spacing */
+    margin: 0 auto; /* Center images horizontally (optional) */
+}
+
+
