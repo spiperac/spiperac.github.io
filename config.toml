@@ -23,4 +23,6 @@ highlight_code = true
 # Put all your custom variables here
 codeblock = true
 author = "spiperac"
+github = "spiperac"
+email = "spiperac@denkei.org"
 
