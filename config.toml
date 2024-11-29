@@ -3,7 +3,6 @@ author = "spiperac"
 base_url = "https://spiperac.github.io"
 theme = "zola-gruvbox"
 default_language = "en"
-authors = ["spiperac"]
 
 # Title
 title = "spiperac's blog"
