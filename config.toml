@@ -1,8 +1,12 @@
 # The URL the site will be built for
+author = "spiperac"
 base_url = "https://spiperac.github.io"
 theme = "zola-gruvbox"
 default_language = "en"
+authors = ["spiperac"]
 
+# Title
+title = "spiperac's blog"
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
@@ -14,8 +18,10 @@ taxonomies = [
     {name = "categories", feed = true},
     {name = "tags", feed = true},
 ]
+
 generate_feeds = true
 feed_filenames = ["atom.xml"]
+generate_sitemap = true
 
 [markdown]
 # Whether to do syntax highlighting
