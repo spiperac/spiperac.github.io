@@ -1,6 +1,6 @@
 # The URL the site will be built for
 author = "spiperac"
-base_url = "https://spiperac.github.io"
+base_url = "https://spiperac.dev"
 theme = "zola-gruvbox"
 default_language = "en"
 
