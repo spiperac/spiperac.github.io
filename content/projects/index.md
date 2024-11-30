@@ -7,10 +7,13 @@ template = "projects.html"
 <ul>
     <!-- Add custom content about projects -->
     <li>
-        <a href="https://github.com/spiperac/bCTF" target="_blank" rel="noopener noreferrer">bCTF</a> - CTF scoreboard and framework in django.
+        <a href="https://github.com/spiperac/bCTF" target="_blank" rel="noopener noreferrer">bCTF</a> - CTF scoreboard and framework in django. - Archived</u>
     </li>
     <li>
-        <a href="https://github.com/spiperac/armroper" target="_blank" rel="noopener noreferrer">armroper</a> -  ARM rop chain gadget searcher
+        <a href="https://github.com/spiperac/armroper" target="_blank" rel="noopener noreferrer">armroper</a> -  ARM rop chain gadget searcher - <u>Archived</u>
+    </li>
+    <li>
+        <a href="https://github.com/spiperac/virtapi" target="_blank" rel="noopener noreferrer">virtAPI ( libvirt) </a> -  libvirt/KVM python API wrapper with CLI - <u>Archived</u>
     </li>
 </ul>
 
