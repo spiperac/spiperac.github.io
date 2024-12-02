@@ -16,6 +16,11 @@ generate_feeds = true
 feed_filenames = ["atom.xml"]
 generate_sitemap = true
 
+taxonomies = [
+    # You can enable/disable RSS
+    {name = "tags", feed = true},
+]
+
 [markdown]
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
@@ -28,7 +33,4 @@ author = "spiperac"
 github = "spiperac"
 email = "spiperac@denkei.org"
 
-taxonomies = [
-    # You can enable/disable RSS
-    {name = "tags", feed = true},
-]
+
