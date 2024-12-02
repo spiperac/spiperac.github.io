@@ -12,11 +12,6 @@ compile_sass = true
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
 
-taxonomies = [
-    # You can enable/disable RSS
-    {name = "tags", feed = true},
-]
-
 generate_feeds = true
 feed_filenames = ["atom.xml"]
 generate_sitemap = true
@@ -33,3 +28,7 @@ author = "spiperac"
 github = "spiperac"
 email = "spiperac@denkei.org"
 
+taxonomies = [
+    # You can enable/disable RSS
+    {name = "tags", feed = true},
+]

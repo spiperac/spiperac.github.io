@@ -2,7 +2,7 @@
 title = "Smasher HTB 50pts"
 date = 2018-11-22
 description = "Writeup for the Smasher HTB challenge."
-tags = ["hackthebox", "writeup"]
+tags = ["ctf"]
 +++
 
 ## Smasher
