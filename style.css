@@ -1,0 +1,266 @@
+
+/* General Styles */
+body {
+    background-color: #1c1b1b; 
+    color: #ebdbb2;           /* Light Gruvbox foreground */
+    font-family: "Hack Nerd Font", monospace;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #b8bb26;           /* Yellow Gruvbox for links */
+    text-decoration: none;
+}
+
+menu-a {
+    color: #d79921; /* Gruvbox orange */
+}
+
+a:hover {
+    color: #fabd2f;           /* Brighter yellow for hover */
+    text-decoration: underline;
+}
+
+/* Header */
+header {
+    background-color: #1c1b1b; 
+    text-align: center;
+    width: 88%;
+    border-bottom: 1px solid #b8bb26;
+    max-width: 750px;
+    margin: 1em auto; /* put nav and main menu in center */
+}
+
+header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    gap: 1em;
+}
+
+header li {
+    display: inline;
+}
+
+nav {
+    display: flex;
+    padding: 0;
+}
+
+.logo {
+    width: 20%;
+}
+
+.main-menu {
+    list-style-type: none;
+    width: 50%;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+}
+
+.social {
+    display: flex;
+    align-items: flex-end;
+    margin-left: auto;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+
+.social-img {
+      width: 20px;
+      height: 20px;
+      vertical-align: bottom;
+}
+
+/* Container */
+.container {
+    max-width: 750px;
+    width: 88%;
+    margin: 2em auto;
+    padding: 1em;
+    /* border: 1px solid #504945; /* Terminal-like border */
+    background-color: #282828; /* Dark Gruvbox background */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #1c1b1b; 
+    color: #a89984;
+    font-size: 1.0em;
+}
+
+/* Posts */
+h1, h2, h3 {
+    color: #fabd2f;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 0em;
+    padding: 0.5em;
+}
+
+.post-li {
+    /* border-bottom: 1px solid #504945; */
+}
+
+li h2 {
+    margin: 0;
+}
+
+li p {
+    margin: 0.5em 0 0 0;
+}
+
+/* Highlighting for terminal-style look */
+code {
+    color: #b8bb26;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    white-space: pre-wrap; /* Wraps lines */
+    word-wrap: break-word; /* Breaks long words */
+}
+
+
+/* Remove background from the code element inside pre */
+pre code {
+    background: none; /* Removes the inner code background */
+    color: inherit;   /* Ensures text color is consistent */
+    font-size: inherit; /* Matches parent font size */
+}
+
+/* Apply the desired background and styling only to pre */
+pre {
+    background-color: #282828; /* Gruvbox dark background */
+    color: #ebdbb2;           /* Gruvbox light foreground */
+    padding: 10px;            /* Adds padding inside the code block */
+    border-radius: 4px;       /* Rounded corners for a smoother look */
+    overflow-x: auto;         /* Horizontal scrolling for long lines */
+    margin: 20px 0;           /* Space above and below code blocks */
+    border: 1px solid #3c3836; /* Subtle border to differentiate block */
+}
+
+
+@font-face {
+    font-family: "Hack Nerd Font";
+    src: url("fonts/HackNerdFont-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon {
+    font-family: "Hack Nerd Font", monospace;
+}
+
+.post-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Ensure images do not overflow the post body */
+.post-body img {
+    max-width: 100%; /* Restrict the image width to its container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove inline image spacing */
+    margin: 0 auto; /* Center images horizontally (optional) */
+}
+
+
+
+@media screen and (min-width: 769px) {
+    .menu-toggle {
+        display: none; /* Hide [menu] button on desktop */
+    }
+}
+
+/* Mobile: Hide full menu by default, show [menu] button */
+@media screen and (max-width: 768px) {
+    .post-title {
+        display: inline;
+    }
+
+    .post-title h2 {
+        font-size: 1.2rem; /* Adjust as needed */
+    }
+
+    .post-title p {
+        font-size: 0.9rem;
+        right: 20px;
+    }
+
+    .menu-toggle {
+        display: flex; /* Show the toggle button on mobile */
+        font-family: "Hack Nerd Font", monospace;
+        background: none;
+        border: 1px solid #b8bb26; /* White border like your menu items */
+        color: #b8bb26;
+        font-size: 20px; /* Same size as your icons */
+        padding: 5px 10px;
+        cursor: pointer;
+        white-space: nowrap; /* Prevent text from wrapping */
+        max-width: 100%; /* Prevent the button from exceeding screen width */
+        text-align: center; /* Center the text */
+        margin-left: auto;
+    }
+
+    .menu-items {
+        display: none; /* Hide menu items by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 100px; /* Adjust as per your header height */
+        right: 10px;
+        background: #282828; /* Menu background */
+        border: 1px solid #444; /* Optional border */
+        padding: 5px;
+        z-index: 1000;
+    }
+
+    .menu-items.active {
+        display: flex; /* Show menu items when active */
+        text-align: left;  /* Ensure text is aligned left */
+    }
+
+    .menu-items li {
+        margin: 0px 0px; /* Adjust spacing for dropdown items */
+    }
+
+    .social {
+        list-style-type: none;
+        width: 30%;
+    }
+
+    .social-img {
+        display: none;
+    }
+}
+
+#scrollUp {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: red; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+#scrollUp:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
