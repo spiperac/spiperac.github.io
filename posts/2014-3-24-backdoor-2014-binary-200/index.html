@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spiperac&#x27;s blog</title>
+    <link rel="stylesheet" href="https://spiperac.dev/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                    <a href="https:&#x2F;&#x2F;spiperac.dev""><img class="logo-img" src="https://spiperac.dev/icons/avatar.png" ></a>
+            </div>
+            <div class="main-menu">
+                <ul class="menu-items">
+                    <li> <a href="https:&#x2F;&#x2F;spiperac.dev">[Home]</a></li>
+                    <li>󰒓 <a href="/projects/">[Projects]</a></li>
+                    <li>  <a href="/about/">[About]</a></li>
+                </ul>
+            </div>
+            <div class="social">
+                    <!-- Menu toggle button (only visible on mobile) -->
+                    <button class="menu-toggle" onclick="toggleMenu()">
+                        menu 
+                    </button>
+                    <a href="https://github.com/spiperac/" target="_blank"> 
+                       <img class="social-img"  src="https://spiperac.dev/icons/icons8-github.svg" >
+                    </a>
+                    <a href="mailto:spiperac@denkei.org">
+                       <img class="social-img"  src="https://spiperac.dev/icons/email.svg" >
+                    </a>
+                    <a href="/atom.xml">
+                       <img class="social-img"  src="https://spiperac.dev/icons/rss.svg" >
+                    </a>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main>
+            
+<article class="post-body">
+    <h1>Backdoor 2014 - Binary 200</h1>
+    <p class="icon">  2014-03-24 - 󰥔 1 min read</p>
+    <p>
+      
+        <a href="/tags/ctf"> ctf</a>
+      
+    </p>
+    <div>
+        <p>---------------------</p>
+        <p>This time, we had to deal with an alcoholic.</p>
+<h3 id="task">Task:</h3>
+<blockquote>
+<p>"Jill was high after consuming ( 2^3 ) glasses of alcohol. In this state, he wrote a C++ program to hide a message, but he doesn't remember it now.<br />
+Help him recover it. He managed to write a single line of comment."</p>
+</blockquote>
+<p>We received the source code in a file called <code>obfuscated.cpp</code>.</p>
+<h3 id="source-code">Source Code:</h3>
+<pre data-lang="c" style="background-color:#2b303b;color:#c0c5ce;" class="language-c "><code class="language-c" data-lang="c"><span>
+</span><span style="color:#b48ead;">#include</span><span>&lt;</span><span style="color:#a3be8c;">cstdio</span><span>&gt;
+</span><span style="color:#b48ead;">#include</span><span>&lt;</span><span style="color:#a3be8c;">cstdlib</span><span>&gt;
+</span><span style="color:#b48ead;">#define </span><span style="color:#8fa1b3;">l101</span><span>(</span><span style="color:#bf616a;">a</span><span>) </span><span style="color:#96b5b4;">rand</span><span>()%a
+</span><span style="color:#b48ead;">#define </span><span>zlz1 bbb
+</span><span style="color:#b48ead;">#define </span><span>zz mmm
+</span><span style="color:#b48ead;">#define </span><span>zzz mlm
+</span><span style="color:#b48ead;">#define </span><span>bsd gbbrsh
+</span><span style="color:#b48ead;">#define </span><span>xx </span><span style="color:#b48ead;">void
+</span><span style="color:#b48ead;">#define </span><span>backdoor \m/
+</span><span style="color:#b48ead;">#define </span><span>bbb cfc
+</span><span style="color:#b48ead;">#define </span><span>ffff ff
+</span><span style="color:#b48ead;">#define </span><span>ads using
+</span><span style="color:#b48ead;">#define </span><span>un unfortunately
+</span><span style="color:#b48ead;">#define </span><span>fff main
+</span><span style="color:#b48ead;">#define </span><span>gu brnf**k
+</span><span style="color:#b48ead;">#define </span><span>l10l cfc
+</span><span style="color:#b48ead;">#define </span><span>mmm </span><span style="color:#b48ead;">void
+</span><span style="color:#b48ead;">#define </span><span>bbbb cfc
+</span><span style="color:#b48ead;">#define </span><span>vgg </span><span style="color:#b48ead;">long long
+</span><span style="color:#b48ead;">#define </span><span>bub std
+</span><span style="color:#b48ead;">#define </span><span>mlm printf
+</span><span style="color:#b48ead;">#define </span><span>ffffff f
+</span><span style="color:#b48ead;">#define </span><span>lj1 dsnt
+</span><span style="color:#b48ead;">#define </span><span>bmB support
+</span><span style="color:#b48ead;">#define </span><span>cfc </span><span style="color:#b48ead;">int
+</span><span style="color:#b48ead;">#define </span><span>nv guu
+</span><span style="color:#b48ead;">#define </span><span>aa namespace
+</span><span style="color:#b48ead;">#define </span><span>m1m inff
+</span><span>ads aa bub;
+</span><span>xx </span><span style="color:#8fa1b3;">ffff</span><span>(), </span><span style="color:#bf616a;">fffff</span><span>();
+</span><span>mmm </span><span style="color:#8fa1b3;">ggg</span><span>();
+</span><span>vgg f = </span><span style="color:#d08770;">0x7265616c6c795f69</span><span>;
+</span><span>zlz1 ccc[] = {</span><span style="color:#d08770;">0x5a</span><span>,</span><span style="color:#d08770;">90</span><span>,</span><span style="color:#d08770;">0x5d</span><span>,</span><span style="color:#d08770;">89</span><span>,</span><span style="color:#d08770;">115</span><span>,</span><span style="color:#d08770;">74</span><span>,</span><span style="color:#d08770;">68</span><span>,</span><span style="color:#d08770;">70</span><span>,</span><span style="color:#d08770;">0x5c</span><span>,</span><span style="color:#d08770;">79</span><span>,</span><span style="color:#d08770;">0x43</span><span>,</span><span style="color:#d08770;">87</span><span>,</span><span style="color:#d08770;">123</span><span>,</span><span style="color:#d08770;">101</span><span>,</span><span style="color:#d08770;">110</span><span>,</span><span style="color:#d08770;">0x40</span><span>,</span><span style="color:#d08770;">0x67</span><span>};
+</span><span>bbbb </span><span style="color:#8fa1b3;">fff</span><span>() {
+</span><span>  l10l ll01 = </span><span style="color:#bf616a;">l101</span><span>((</span><span style="color:#d08770;">0x00f1b00</span><span>&gt;&gt;</span><span style="color:#d08770;">4</span><span>)+</span><span style="color:#d08770;">0x08ff08</span><span>-</span><span style="color:#d08770;">354</span><span>);
+</span><span>  bbbb aaa = </span><span style="color:#d08770;">0</span><span>;
+</span><span>  </span><span style="color:#bf616a;">mlm</span><span>(&quot;</span><span style="color:#d08770;">%f%l%</span><span style="color:#a3be8c;">lld</span><span style="color:#96b5b4;">\n</span><span>&quot;+</span><span style="color:#d08770;">4</span><span>, ffffff);
+</span><span>  f++;
+</span><span>  </span><span style="color:#b48ead;">if</span><span>(ll01&lt;(ll01&amp;-</span><span style="color:#d08770;">0x1</span><span>))??&lt;ff ggg=&quot;&quot;&gt;
+</span><span>}
+</span><span>zz </span><span style="color:#8fa1b3;">ff</span><span>(){
+</span><span>  </span><span style="color:#b48ead;">for</span><span>(bbbb guu=</span><span style="color:#d08770;">1</span><span>;guu&lt;</span><span style="color:#d08770;">18</span><span> data-blogger-escaped-guu=&quot;&quot;&gt;(guu&amp;</span><span style="color:#d08770;">0x0</span><span>));++guu</span><span style="background-color:#bf616a;color:#2b303b;">)</span><span> {
+</span><span>    ccc[nv-</span><span style="color:#d08770;">1</span><span>] = ((ccc[guu-(((</span><span style="color:#d08770;">8</span><span>*(</span><span style="color:#d08770;">0xd5f650</span><span>))+</span><span style="color:#d08770;">1</span><span>)&amp;</span><span style="color:#d08770;">1</span><span>)] ^ (</span><span style="color:#d08770;">0x31</span><span>-guu)));
+</span><span>  }
+</span><span>}
+</span><span>zz </span><span style="color:#8fa1b3;">ggg</span><span>()??&lt;
+</span><span>  </span><span style="color:#b48ead;">for</span><span>(l10l cc=</span><span style="color:#d08770;">0</span><span>;cc&lt;=</span><span style="color:#d08770;">0x11</span><span>;++cc)??&lt;mlm c=&quot;&quot; cc=&quot;&quot; ccc=&quot;&quot; x=&quot;&quot;&gt;
+</span><span>%&gt;
+</span><span style="color:#65737e;">// oops subtracted by 1 not keeping my base is mind&lt;/mlm&gt;&lt;!--18--&gt;&lt;/ff&gt;&lt;/cstdlib&gt;&lt;/cstdio&gt;
+</span><span>```		
+</span><span>And we also got a hint: Hint: Preprocess -&gt; Compile -&gt; Execute   
+</span><span>So we, basicly, did what they said. Firstly, we have preproceded file without a compilation. And then compiled, and executed the new preprocessed </span><span style="color:#bf616a;">file </span><span>(new.</span><span style="color:#bf616a;">cpp</span><span>).   
+</span><span>	
+</span><span>``` bash
+</span><span>wiremage@oxyz ~/c/b/bin200&gt; g++ -trigraphs -E obfuscated.</span><span style="color:#bf616a;">cpp </span><span>&gt; new.</span><span style="color:#bf616a;">cpp
+</span><span>wiremage@oxyz ~/c/b/bin200&gt; g++ new.</span><span style="color:#bf616a;">cpp 
+</span><span>wiremage@oxyz ~/c/b/bin200&gt; ./a.</span><span style="color:#bf616a;">out 
+</span><span style="color:#d08770;">8243101811275816809
+</span></code></pre>
+<p>That gave us a nice number, lol.</p>
+<p>Next, we took a peek inside the <code>new.cpp</code> source and found an unnecessary <code>if</code> statement, so we removed it.<br />
+We discovered that the number we got on the first run came from:</p>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#bf616a;">printf</span><span>(&quot;</span><span style="color:#d08770;">%f%l%</span><span style="color:#a3be8c;">lld</span><span style="color:#96b5b4;">\n</span><span>&quot; + </span><span style="color:#d08770;">4</span><span>, f);
+</span></code></pre>
+<p>However, if you look at the next two lines, you'll see calls to functions that also perform some <code>printf</code> operations.
+So, we decided to force their execution by removing the <code>if</code> condition.</p>
+<pre data-lang="c" style="background-color:#2b303b;color:#c0c5ce;" class="language-c "><code class="language-c" data-lang="c"><span>
+</span><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>  </span><span style="color:#b48ead;">int</span><span> ll01 = </span><span style="color:#96b5b4;">rand</span><span>()%(</span><span style="color:#d08770;">0x00f1b00</span><span>&gt;&gt;</span><span style="color:#d08770;">4</span><span>)+</span><span style="color:#d08770;">0x08ff08</span><span>-</span><span style="color:#d08770;">354</span><span>;
+</span><span>  </span><span style="color:#b48ead;">int</span><span> aaa = </span><span style="color:#d08770;">0</span><span>;
+</span><span>  </span><span style="color:#96b5b4;">printf</span><span>(&quot;</span><span style="color:#d08770;">%f%l%</span><span style="color:#a3be8c;">lld</span><span style="color:#96b5b4;">\n</span><span>&quot;+</span><span style="color:#d08770;">4</span><span>, f);
+</span><span>  f++;
+</span><span>  </span><span style="color:#b48ead;">if</span><span>(ll01&lt;(ll01&amp;-</span><span style="color:#d08770;">0x1</span><span>)){</span><span style="color:#bf616a;">ff</span><span>();</span><span style="color:#bf616a;">ggg</span><span>();</span><span style="color:#65737e;">//THIS IF HERE WE REMOVED LOL Remember remove only if part, so ff();ggg(); got executed!
+</span><span>}
+</span><span style="color:#b48ead;">void </span><span style="color:#bf616a;">ff</span><span>(){
+</span><span>  </span><span style="color:#b48ead;">for</span><span>(</span><span style="color:#b48ead;">int</span><span> guu=</span><span style="color:#d08770;">1</span><span>;guu&lt;</span><span style="color:#d08770;">18</span><span>&amp;&amp;(guu&gt;(guu&amp;</span><span style="color:#d08770;">0x0</span><span>));++guu) {
+</span><span>    ccc[guu-</span><span style="color:#d08770;">1</span><span>] = ((ccc[guu-(((</span><span style="color:#d08770;">8</span><span>*(</span><span style="color:#d08770;">0xd5f650</span><span>))+</span><span style="color:#d08770;">1</span><span>)&amp;</span><span style="color:#d08770;">1</span><span>)] ^ (</span><span style="color:#d08770;">0x31</span><span>-guu)));
+</span><span>  }
+</span><span>}
+</span><span style="color:#b48ead;">void </span><span style="color:#bf616a;">ggg</span><span>(){
+</span><span>  </span><span style="color:#b48ead;">for</span><span>(</span><span style="color:#b48ead;">int</span><span> cc=</span><span style="color:#d08770;">0</span><span>;cc&lt;=</span><span style="color:#d08770;">0x11</span><span>;++cc){</span><span style="color:#96b5b4;">printf</span><span>(&quot;</span><span style="color:#d08770;">%x%c</span><span>&quot;+</span><span style="color:#d08770;">2</span><span>, ccc&lt;:cc]);
+</span><span>%&gt;
+</span></code></pre>
+<p>After that -&gt; compiled file again -&gt; executed -&gt; got the flag.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">wiremage@oxyz ~</span><span>/c/b/bin</span><span style="color:#d08770;">200</span><span>&gt; g++ new.cpp 
+</span><span style="color:#bf616a;">wiremage@oxyz ~</span><span>/c/b/bin</span><span style="color:#d08770;">200</span><span>&gt; ./a.out 
+</span><span style="color:#bf616a;">8243101811275816809
+</span><span style="color:#bf616a;">just_another_FLaG
+</span></code></pre>
+<p>Encode just_another_FLaG with MD5 and thats it, you own the flag.</p>
+<p>The flag: <strong>a38834db6eb9d31e3c7e878bae3da748</strong></p>
+
+    </div>
+</article>
+
+        </main>
+
+    <button onclick="topFunction()" id="scrollUp" title="Go to top">Top</button>
+    </div>
+    <footer>
+        <p>© 2024 spiperac&#x27;s blog</p>
+    </footer>
+</body>
+
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector('.menu-items');
+        menu.classList.toggle('active');
+    }
+
+    // Get the button:
+    let mybutton = document.getElementById("scrollUp");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+</script>
+
+</html>
+
+

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spiperac&#x27;s blog</title>
+    <link rel="stylesheet" href="https://spiperac.dev/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                    <a href="https:&#x2F;&#x2F;spiperac.dev""><img class="logo-img" src="https://spiperac.dev/icons/avatar.png" ></a>
+            </div>
+            <div class="main-menu">
+                <ul class="menu-items">
+                    <li> <a href="https:&#x2F;&#x2F;spiperac.dev">[Home]</a></li>
+                    <li>󰒓 <a href="/projects/">[Projects]</a></li>
+                    <li>  <a href="/about/">[About]</a></li>
+                </ul>
+            </div>
+            <div class="social">
+                    <!-- Menu toggle button (only visible on mobile) -->
+                    <button class="menu-toggle" onclick="toggleMenu()">
+                        menu 
+                    </button>
+                    <a href="https://github.com/spiperac/" target="_blank"> 
+                       <img class="social-img"  src="https://spiperac.dev/icons/icons8-github.svg" >
+                    </a>
+                    <a href="mailto:spiperac@denkei.org">
+                       <img class="social-img"  src="https://spiperac.dev/icons/email.svg" >
+                    </a>
+                    <a href="/atom.xml">
+                       <img class="social-img"  src="https://spiperac.dev/icons/rss.svg" >
+                    </a>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main>
+            
+<h1># cat ~/about.md</h1>
+
+<p>Hi, im spiperac.</p>
+<ul>
+<li><p> 󰊤 Github: <a href="http://github.com/spiperac" target="_blank" rel="noopener noreferrer">github.com/spiperac</a></p>
+</li>
+<li><p> 󰇮 Email: < sp < at > spiperac.dev > </p>
+</li>
+</ul>
+<pre data-lang="txt" style="background-color:#2b303b;color:#c0c5ce;" class="language-txt "><code class="language-txt" data-lang="txt"><span>-----BEGIN PGP PUBLIC KEY BLOCK-----
+</span><span>
+</span><span>xjMEZ0pJ2hYJKwYBBAHaRw8BAQdARfY7v2tm/t2n0rYkATmFUZWoOwgQqpBk
+</span><span>aQobZuifqfjNIXNwQHNwaXBlcmFjLmRldiA8c3BAc3BpcGVyYWMuZGV2PsLA
+</span><span>EQQTFgoAgwWCZ0pJ2gMLCQcJkJr1J7Qj3E9yRRQAAAAAABwAIHNhbHRAbm90
+</span><span>YXRpb25zLm9wZW5wZ3Bqcy5vcmf9JGyShGDv+c5dHAl+D9fS7rWODDsPulB3
+</span><span>74eOi1xTMAMVCggEFgACAQIZAQKbAwIeARYhBKnF5iZsvUXYMCUtU5r1J7Qj
+</span><span>3E9yAACpWgD+JlBfS/EJexdCxzTjdz7NEtCy3zdPqnFHHdp8Pi6aii8A/RxX
+</span><span>Ll+PLZrsSBeGRP0fgukgmsx41WiTLZH6R+LLD9UEzjgEZ0pJ2hIKKwYBBAGX
+</span><span>VQEFAQEHQP2Ngy/3rYhn1bk59SAUD33Ur0DlfWn0KPmd/RaKv8M+AwEIB8K+
+</span><span>BBgWCgBwBYJnSknaCZCa9Se0I9xPckUUAAAAAAAcACBzYWx0QG5vdGF0aW9u
+</span><span>cy5vcGVucGdwanMub3JnrUPEJGMHmTmBIlpMoeRX/Pclkz20hua1uBKaooFU
+</span><span>xUQCmwwWIQSpxeYmbL1F2DAlLVOa9Se0I9xPcgAAdu4BAMkDrmUoVMOrjxHP
+</span><span>RpdF0EIwieo4glIrdBrAN/qqXRwLAQDzWNU3/qMCjQh6bkAdOb9CLj5fsTk4
+</span><span>DpOOC/EXQO5nAg==
+</span><span>=6CYq
+</span><span>-----END PGP PUBLIC KEY BLOCK-----
+</span></code></pre>
+
+
+
+        </main>
+
+    <button onclick="topFunction()" id="scrollUp" title="Go to top">Top</button>
+    </div>
+    <footer>
+        <p>© 2024 spiperac&#x27;s blog</p>
+    </footer>
+</body>
+
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector('.menu-items');
+        menu.classList.toggle('active');
+    }
+
+    // Get the button:
+    let mybutton = document.getElementById("scrollUp");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+</script>
+
+</html>
+
+
