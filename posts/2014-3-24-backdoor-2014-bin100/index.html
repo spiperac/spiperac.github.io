@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spiperac&#x27;s blog</title>
+    <link rel="stylesheet" href="https://spiperac.dev/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                    <a href="https:&#x2F;&#x2F;spiperac.dev""><img class="logo-img" src="https://spiperac.dev/icons/avatar.png" ></a>
+            </div>
+            <div class="main-menu">
+                <ul class="menu-items">
+                    <li> <a href="https:&#x2F;&#x2F;spiperac.dev">/Home</a></li>
+                    <li>󰒓 <a href="/projects/">/Projects</a></li>
+                    <li>  <a href="/about/">/About</a></li>
+                </ul>
+            </div>
+            <div class="social">
+                    <!-- Menu toggle button (only visible on mobile) -->
+                    <button class="menu-toggle" onclick="toggleMenu()">
+                        menu 
+                    </button>
+                    <a href="https://github.com/spiperac/" target="_blank"> 
+                       <img class="social-img"  src="https://spiperac.dev/icons/icons8-github.svg" >
+                    </a>
+                    <a href="mailto:spiperac@denkei.org">
+                       <img class="social-img"  src="https://spiperac.dev/icons/email.svg" >
+                    </a>
+                    <a href="/atom.xml">
+                       <img class="social-img"  src="https://spiperac.dev/icons/rss.svg" >
+                    </a>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main>
+            
+<article class="post-body">
+    <h1>Backdoor CTF 2014 - Bin100</h1>
+    <p class="icon">  2014-03-24 - 󰥔 3 min read</p>
+    <p>
+      
+        <a href="/tags/ctf"> ctf</a>
+      
+    </p>
+    <div>
+        <p>---------------------</p>
+        <h1 id="analysis-of-bin100-elf64-executable">Analysis of <code>bin100</code> ELF64 Executable</h1>
+<p>We received a file named <code>bin100</code>, which is an ELF64 executable.</p>
+<p>For this challenge, I decided to experiment a bit, and I was lucky. :)</p>
+<p>When I started, the program expected a password as an argument:</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">wiremage@oxyz ~</span><span>/c/b/bin</span><span style="color:#d08770;">100</span><span>&gt; ./bin100
+</span><span style="color:#bf616a;">bin100:</span><span> ELF 64-bit LSB executable, x86-64, version 1 (SYSV)</span><span style="color:#bf616a;">,</span><span> dynamically linked (uses shared libs)</span><span style="color:#bf616a;">,</span><span> for GNU/Linux 2.6.24, BuildID</span><span style="color:#b48ead;">[</span><span>sha1</span><span style="color:#b48ead;">]</span><span>=0xea1b902c778ccf6e42b1ded0232847950d3768f0, not stripped
+</span><span>
+</span><span style="color:#bf616a;">You</span><span> did not specify any password as part of the argument.
+</span><span style="color:#bf616a;">Try</span><span> again.
+</span></code></pre>
+<p>I had two ideas:</p>
+<ol>
+<li>Either Disassemble the program to find where it compares the user input with its internal password.</li>
+<li>Or guess or deduce the password based on some clues.</li>
+</ol>
+<p>I chose the second approach because of the information provided:</p>
+<blockquote>
+<p>"This file was created sometime between 14th March 2014, 8:20 PM, and 14th March 2014, 8:40 PM (Indian Standard Time)."</p>
+</blockquote>
+<p>It’s obvious that the password must be related to this time. So, I launched <em>dissy</em> to check what functions the program uses (or calls).</p>
+<p><img src="http://1.bp.blogspot.com/-a1dSM_VQQ9g/UzBNRg4RjCI/AAAAAAAAACg/XpJx7FsBvBc/s1600/writeup2.png" alt="" /></p>
+<p>And I saw this interesting function called passwordFromUnixTimestamp(long),</p>
+<pre data-lang="asm" style="background-color:#2b303b;color:#c0c5ce;" class="language-asm "><code class="language-asm" data-lang="asm"><span>
+</span><span style="color:#8fa1b3;">(gdb) disassemble passwordFromUnixTimestamp
+</span><span style="color:#8fa1b3;">Dump of assembler code for function _Z25passwordFromUnixTimestampl:
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000400fb4 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">0</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">push   </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rbp
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000400fb5 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">1</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rsp</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rbp
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000400fb8 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">4</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">push   </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rbx
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000400fb9 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">5</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">sub    </span><span style="color:#96b5b4;">$</span><span style="color:#d08770;">0x1a8</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rsp
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000400fc0 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">12</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rdi</span><span>,-</span><span style="color:#d08770;">0x1a8</span><span style="color:#8fa1b3;">(%</span><span style="color:#bf616a;">rbp</span><span style="color:#8fa1b3;">)
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000400fc7 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">19</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rsi</span><span>,-</span><span style="color:#d08770;">0x1b0</span><span style="color:#8fa1b3;">(%</span><span style="color:#bf616a;">rbp</span><span style="color:#8fa1b3;">)
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000400fce </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">26</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#96b5b4;">$</span><span style="color:#d08770;">0x8</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">esi
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000400fd3 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">31</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#96b5b4;">$</span><span style="color:#d08770;">0x10</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">edi
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000400fd8 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">36</span><span style="color:#8fa1b3;">&gt;: callq  </span><span style="color:#d08770;">0x40141d </span><span style="color:#8fa1b3;">&lt;_zstorst13_ios_openmodes_&gt;
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000400fdd </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">41</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">eax</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">edx
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000400fdf </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">43</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">lea    </span><span>-</span><span style="color:#d08770;">0x1a0</span><span style="color:#8fa1b3;">(%</span><span style="color:#bf616a;">rbp</span><span style="color:#8fa1b3;">)</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000400fe6 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">50</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">edx</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">esi
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000400fe8 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">52</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rdi
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000400feb </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">55</span><span style="color:#8fa1b3;">&gt;: callq  </span><span style="color:#d08770;">0x400df0 </span><span style="color:#8fa1b3;">&lt;_ZNSt18basic_stringstreamIcSt11char_traitsIcESaIcEEC1ESt13_Ios_Openmode@plt&gt;
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000400ff0 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">60</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span>-</span><span style="color:#d08770;">0x1b0</span><span style="color:#8fa1b3;">(%</span><span style="color:#bf616a;">rbp</span><span style="color:#8fa1b3;">)</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000400ff7 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">67</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">lea    </span><span>-</span><span style="color:#d08770;">0x1a0</span><span style="color:#8fa1b3;">(%</span><span style="color:#bf616a;">rbp</span><span style="color:#8fa1b3;">)</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rdx
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000400ffe </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">74</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">add    </span><span style="color:#96b5b4;">$</span><span style="color:#d08770;">0x10</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rdx
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401002 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">78</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rsi
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401005 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">81</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rdx</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rdi
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401008 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">84</span><span style="color:#8fa1b3;">&gt;: callq  </span><span style="color:#d08770;">0x400d10 </span><span style="color:#8fa1b3;">&lt;_ZNSolsEl@plt&gt;
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x000000000040100d </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">89</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">lea    </span><span>-</span><span style="color:#d08770;">0x30</span><span style="color:#8fa1b3;">(%</span><span style="color:#bf616a;">rbp</span><span style="color:#8fa1b3;">)</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax
+</span><span>---</span><span style="color:#8fa1b3;">Type &lt;return&gt; to continue</span><span>, </span><span style="color:#b48ead;">or </span><span style="color:#8fa1b3;">q &lt;return&gt; to quit</span><span>---
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401011 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">93</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">lea    </span><span>-</span><span style="color:#d08770;">0x1a0</span><span style="color:#8fa1b3;">(%</span><span style="color:#bf616a;">rbp</span><span style="color:#8fa1b3;">)</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rdx
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401018 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">100</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rdx</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rsi
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x000000000040101b </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">103</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rdi
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x000000000040101e </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">106</span><span style="color:#8fa1b3;">&gt;: callq  </span><span style="color:#d08770;">0x400ea0 </span><span style="color:#8fa1b3;">&lt;_ZNKSt18basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv@plt&gt;
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401023 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">111</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">lea    </span><span>-</span><span style="color:#d08770;">0x30</span><span style="color:#8fa1b3;">(%</span><span style="color:#bf616a;">rbp</span><span style="color:#8fa1b3;">)</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rdx
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401027 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">115</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">lea    </span><span>-</span><span style="color:#d08770;">0x20</span><span style="color:#8fa1b3;">(%</span><span style="color:#bf616a;">rbp</span><span style="color:#8fa1b3;">)</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x000000000040102b </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">119</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rdx</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rsi
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x000000000040102e </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">122</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rdi
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401031 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">125</span><span style="color:#8fa1b3;">&gt;: callq  </span><span style="color:#d08770;">0x400d70 </span><span style="color:#8fa1b3;">&lt;_ZNSsC1ERKSs@plt&gt;
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401036 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">130</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span>-</span><span style="color:#d08770;">0x1a8</span><span style="color:#8fa1b3;">(%</span><span style="color:#bf616a;">rbp</span><span style="color:#8fa1b3;">)</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x000000000040103d </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">137</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">lea    </span><span>-</span><span style="color:#d08770;">0x20</span><span style="color:#8fa1b3;">(%</span><span style="color:#bf616a;">rbp</span><span style="color:#8fa1b3;">)</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rdx
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401041 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">141</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rdx</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rsi
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401044 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">144</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rdi
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401047 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">147</span><span style="color:#8fa1b3;">&gt;: callq  </span><span style="color:#d08770;">0x402581 </span><span style="color:#8fa1b3;">&lt;_z3md5ss&gt;
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x000000000040104c </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">152</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">lea    </span><span>-</span><span style="color:#d08770;">0x20</span><span style="color:#8fa1b3;">(%</span><span style="color:#bf616a;">rbp</span><span style="color:#8fa1b3;">)</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401050 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">156</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rdi
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401053 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">159</span><span style="color:#8fa1b3;">&gt;: callq  </span><span style="color:#d08770;">0x400dc0 </span><span style="color:#8fa1b3;">&lt;_ZNSsD1Ev@plt&gt;
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401058 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">164</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">lea    </span><span>-</span><span style="color:#d08770;">0x30</span><span style="color:#8fa1b3;">(%</span><span style="color:#bf616a;">rbp</span><span style="color:#8fa1b3;">)</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x000000000040105c </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">168</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rdi
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x000000000040105f </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">171</span><span style="color:#8fa1b3;">&gt;: callq  </span><span style="color:#d08770;">0x400dc0 </span><span style="color:#8fa1b3;">&lt;_ZNSsD1Ev@plt&gt;
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401064 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">176</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">lea    </span><span>-</span><span style="color:#d08770;">0x1a0</span><span style="color:#8fa1b3;">(%</span><span style="color:#bf616a;">rbp</span><span style="color:#8fa1b3;">)</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x000000000040106b </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">183</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rdi
+</span><span>---</span><span style="color:#8fa1b3;">Type &lt;return&gt; to continue</span><span>, </span><span style="color:#b48ead;">or </span><span style="color:#8fa1b3;">q &lt;return&gt; to quit</span><span>---
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x000000000040106e </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">186</span><span style="color:#8fa1b3;">&gt;: callq  </span><span style="color:#d08770;">0x400e70 </span><span style="color:#8fa1b3;">&lt;_ZNSt18basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev@plt&gt;
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401073 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">191</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span>-</span><span style="color:#d08770;">0x1a8</span><span style="color:#8fa1b3;">(%</span><span style="color:#bf616a;">rbp</span><span style="color:#8fa1b3;">)</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x000000000040107a </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">198</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">add    </span><span style="color:#96b5b4;">$</span><span style="color:#d08770;">0x1a8</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rsp
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401081 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">205</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">pop    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rbx
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401082 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">206</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">pop    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rbp
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401083 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">207</span><span style="color:#8fa1b3;">&gt;: retq   
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401084 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">208</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rbx
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401087 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">211</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">lea    </span><span>-</span><span style="color:#d08770;">0x20</span><span style="color:#8fa1b3;">(%</span><span style="color:#bf616a;">rbp</span><span style="color:#8fa1b3;">)</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x000000000040108b </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">215</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rdi
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x000000000040108e </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">218</span><span style="color:#8fa1b3;">&gt;: callq  </span><span style="color:#d08770;">0x400dc0 </span><span style="color:#8fa1b3;">&lt;_ZNSsD1Ev@plt&gt;
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401093 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">223</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">jmp    </span><span style="color:#d08770;">0x401098 </span><span style="color:#8fa1b3;">&lt;_Z25passwordFromUnixTimestampl</span><span>+</span><span style="color:#d08770;">228</span><span style="color:#8fa1b3;">&gt;
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401095 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">225</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rbx
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x0000000000401098 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">228</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">lea    </span><span>-</span><span style="color:#d08770;">0x30</span><span style="color:#8fa1b3;">(%</span><span style="color:#bf616a;">rbp</span><span style="color:#8fa1b3;">)</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x000000000040109c </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">232</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rdi
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x000000000040109f </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">235</span><span style="color:#8fa1b3;">&gt;: callq  </span><span style="color:#d08770;">0x400dc0 </span><span style="color:#8fa1b3;">&lt;_ZNSsD1Ev@plt&gt;
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x00000000004010a4 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">240</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">jmp    </span><span style="color:#d08770;">0x4010a9 </span><span style="color:#8fa1b3;">&lt;_Z25passwordFromUnixTimestampl</span><span>+</span><span style="color:#d08770;">245</span><span style="color:#8fa1b3;">&gt;
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x00000000004010a6 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">242</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rbx
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x00000000004010a9 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">245</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">lea    </span><span>-</span><span style="color:#d08770;">0x1a0</span><span style="color:#8fa1b3;">(%</span><span style="color:#bf616a;">rbp</span><span style="color:#8fa1b3;">)</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x00000000004010b0 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">252</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rdi
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x00000000004010b3 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">255</span><span style="color:#8fa1b3;">&gt;: callq  </span><span style="color:#d08770;">0x400e70 </span><span style="color:#8fa1b3;">&lt;_ZNSt18basic_stringstreamIcSt11</span><span>---</span><span style="color:#8fa1b3;">Type &lt;return&gt; to continue</span><span>, </span><span style="color:#b48ead;">or </span><span style="color:#8fa1b3;">q &lt;return&gt; to quit</span><span>---
+</span><span style="color:#8fa1b3;">char_traitsIcESaIcEED1Ev@plt&gt;
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x00000000004010b8 </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">260</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rbx</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x00000000004010bb </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">263</span><span style="color:#8fa1b3;">&gt;: </span><span style="color:#b48ead;">mov    </span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rax</span><span>,</span><span style="color:#8fa1b3;">%</span><span style="color:#bf616a;">rdi
+</span><span style="color:#8fa1b3;">   </span><span style="color:#d08770;">0x00000000004010be </span><span style="color:#8fa1b3;">&lt;</span><span>+</span><span style="color:#d08770;">266</span><span style="color:#8fa1b3;">&gt;: callq  </span><span style="color:#d08770;">0x400eb0 </span><span style="color:#8fa1b3;">&lt;_Unwind_Resume@plt&gt;
+</span><span style="color:#8fa1b3;">End of assembler dump.
+</span><span style="color:#8fa1b3;"> 
+</span><span style="color:#8fa1b3;">End of assembler dump.
+</span></code></pre>
+<p>The unix time stamp is a way to track time as a running of total seconds. This count starts at the Unix Epoch on January 1st, 1970 at UTC. So firstly lets convert the time given in UTC (It's in Indian Standard Time). For conversion I used
+<a href="http://www.unixtimestamp.com/index.php">http://www.unixtimestamp.com/index.php</a>.</p>
+<p>When you convert it in UTC ( Universal time ) you get:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>DATE (M/D/Y @ h:m:s): 03 / 14 / 14 @ 2:50:00pm UTC 
+</span></code></pre>
+<p>And UnixTimestamp for this date and time is 1394808600.</p>
+<p>Ok, that should be useful, so I scrolled down a bit to check other functions, and I found this part interesting as well</p>
+<p><img src="http://2.bp.blogspot.com/-jFM8zABw-L0/UzBNU_tDIDI/AAAAAAAAACo/CTu-_h2Rr7M/s1600/writeup1.png" alt="" /></p>
+<p>The program uses the MD5 function to encode and decode something. Since it only has one input, it must be our user input or the password we need to provide as an argument (<code>argv</code>).</p>
+<p>I wrote a small Python script to calculate all Unix timestamps within a given period. It starts from the initial timestamp <code>1394808600</code><br />
+(this corresponds to the date and time <strong>03/14/2014 @ 2:50:00 PM UTC</strong>) and increments by 1 for each subsequent timestamp.</p>
+<p>The script encodes each timestamp in MD5, tries it as the password (<code>argv</code>), and repeats this process for every timestamp within the 20-minute period.<br />
+The last timestamp is <code>1394808600 + 20 * 60</code>.</p>
+<p>The script source is:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>
+</span><span style="color:#b48ead;">import </span><span>subprocess
+</span><span style="color:#b48ead;">import </span><span>os
+</span><span style="color:#b48ead;">import </span><span>hashlib
+</span><span> 
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">computeMD5hash</span><span>(</span><span style="color:#bf616a;">string</span><span>):
+</span><span>    m = hashlib.</span><span style="color:#bf616a;">md5</span><span>()
+</span><span>    m.</span><span style="color:#bf616a;">update</span><span>(string.</span><span style="color:#bf616a;">encode</span><span>(&#39;</span><span style="color:#a3be8c;">utf-8</span><span>&#39;))
+</span><span>    </span><span style="color:#b48ead;">return </span><span>m.</span><span style="color:#bf616a;">hexdigest</span><span>()
+</span><span> 
+</span><span>start_timestamp=</span><span style="color:#d08770;">1394808600
+</span><span> 
+</span><span style="color:#b48ead;">for </span><span>i </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range </span><span>(</span><span style="color:#d08770;">0</span><span>, </span><span style="color:#d08770;">1200</span><span>):
+</span><span> </span><span style="color:#b48ead;">print </span><span>&quot;</span><span style="color:#a3be8c;">trying with timestamp </span><span style="color:#d08770;">%d</span><span>&quot; % start_timestamp
+</span><span> execute=&quot;</span><span style="color:#a3be8c;">./bin100 </span><span>&quot; + </span><span style="color:#bf616a;">computeMD5hash</span><span>(</span><span style="color:#bf616a;">str</span><span>(start_timestamp))
+</span><span> os.</span><span style="color:#bf616a;">system</span><span>(execute)
+</span><span> start_timestamp+=</span><span style="color:#d08770;">1
+</span><span>
+</span></code></pre>
+<p>When I ran it I got the flag.</p>
+<p><img src="http://2.bp.blogspot.com/-pM78sUjs97s/UzBNYaDHGMI/AAAAAAAAACw/nDjuouLjyDA/s1600/writeup3.png" alt="" /></p>
+<p>Flag for bin100: <strong>94958e1c10707728ef965fe850eb98a1</strong></p>
+
+    </div>
+</article>
+
+        </main>
+
+    <button onclick="topFunction()" id="scrollUp" title="Go to top">Top</button>
+    </div>
+    <footer>
+        <p>© 2024 spiperac&#x27;s blog</p>
+    </footer>
+</body>
+
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector('.menu-items');
+        menu.classList.toggle('active');
+    }
+
+    // Get the button:
+    let mybutton = document.getElementById("scrollUp");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+</script>
+
+</html>
+
+

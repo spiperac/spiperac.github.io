@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spiperac&#x27;s blog</title>
+    <link rel="stylesheet" href="https://spiperac.dev/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                    <a href="https:&#x2F;&#x2F;spiperac.dev""><img class="logo-img" src="https://spiperac.dev/icons/avatar.png" ></a>
+            </div>
+            <div class="main-menu">
+                <ul class="menu-items">
+                    <li> <a href="https:&#x2F;&#x2F;spiperac.dev">/Home</a></li>
+                    <li>󰒓 <a href="/projects/">/Projects</a></li>
+                    <li>  <a href="/about/">/About</a></li>
+                </ul>
+            </div>
+            <div class="social">
+                    <!-- Menu toggle button (only visible on mobile) -->
+                    <button class="menu-toggle" onclick="toggleMenu()">
+                        menu 
+                    </button>
+                    <a href="https://github.com/spiperac/" target="_blank"> 
+                       <img class="social-img"  src="https://spiperac.dev/icons/icons8-github.svg" >
+                    </a>
+                    <a href="mailto:spiperac@denkei.org">
+                       <img class="social-img"  src="https://spiperac.dev/icons/email.svg" >
+                    </a>
+                    <a href="/atom.xml">
+                       <img class="social-img"  src="https://spiperac.dev/icons/rss.svg" >
+                    </a>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main>
+            
+
+<p class="icon"> Py projects: </p>
+<ul>
+    <!-- Add custom content about projects -->
+    <li>
+        <a href="https://github.com/spiperac/bCTF" target="_blank" rel="noopener noreferrer">bCTF</a> - CTF scoreboard and framework in django. - Archived</u>
+    </li>
+    <li>
+        <a href="https://github.com/spiperac/armroper" target="_blank" rel="noopener noreferrer">armroper</a> -  ARM rop chain gadget searcher - <u>Archived</u>
+    </li>
+    <li>
+        <a href="https://github.com/spiperac/virtapi" target="_blank" rel="noopener noreferrer">virtAPI ( libvirt) </a> -  libvirt/KVM python API wrapper with CLI - <u>Archived</u>
+    </li>
+</ul>
+<p class="icon">󱘗 Rust projects: </p>
+<ul>
+    <li>
+        <a href="https://github.com/spiperac/rfid-rc522-rs" target="_blank" rel="noopener noreferrer">rfid-rc522-rs</a> - rust MFRC522 implementation - ( WIP)
+    </li>
+</ul>
+
+
+
+        </main>
+
+    <button onclick="topFunction()" id="scrollUp" title="Go to top">Top</button>
+    </div>
+    <footer>
+        <p>© 2024 spiperac&#x27;s blog</p>
+    </footer>
+</body>
+
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector('.menu-items');
+        menu.classList.toggle('active');
+    }
+
+    // Get the button:
+    let mybutton = document.getElementById("scrollUp");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+</script>
+
+</html>
+
+
