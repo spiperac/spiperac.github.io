@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Backdoor CTF 2014 - Bin100</title>
+<meta name="description" content="Writeup for the Backdoor CTF 2014 - Bin100" />
+<meta name="generator" content="Org Mode" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div id="preamble" class="status">
+<nav id="top" class="navigation">
+    <ul class="nav-links">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/projects.html">Projects</a></li>
+        <li><a href="/about.html">About</a></li>
+    </ul>
+    <div class="nav-avatar">
+        <img src="/assets/avatar.png" alt="avatar" class="avatar">
+    </div>
+</nav>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Backdoor CTF 2014 - Bin100</h1>
+</header><p>
+This time, we are dealing with an alcoholic.
+</p>
+
+<div id="outline-container-task" class="outline-2">
+<h2 id="task">Task:</h2>
+<div class="outline-text-2" id="text-task">
+<blockquote>
+<p>
+"Jill was high after consuming ( 2<sup>3</sup> ) glasses of alcohol. In this
+state, he wrote a C++ program to hide a message, but he doesn't remember
+it now.<br>
+Help him recover it. He managed to write a single line of comment."
+</p>
+</blockquote>
+
+<p>
+We received the source code in a file called <code>obfuscated.cpp</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-source-code" class="outline-2">
+<h2 id="source-code">Source Code:</h2>
+<div class="outline-text-2" id="text-source-code">
+<div class="org-src-container">
+<pre class="src src-C">
+<span style="color: #51afef; font-weight: bold;">#include</span><span style="color: #51afef;">&lt;</span><span style="color: #98be65;">cstdio</span><span style="color: #51afef;">&gt;</span>
+<span style="color: #51afef; font-weight: bold;">#include</span><span style="color: #51afef;">&lt;</span><span style="color: #98be65;">cstdlib</span><span style="color: #51afef;">&gt;</span>
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #c678dd;">l101</span><span style="color: #51afef;">(</span><span style="color: #dcaeea;">a</span><span style="color: #51afef;">)</span> rand<span style="color: #51afef;">()</span>%a
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">zlz1</span> bbb
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">zz</span> mmm
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">zzz</span> mlm
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">bsd</span> gbbrsh
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">xx</span> <span style="color: #ECBE7B;">void</span>
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">backdoor</span> \m/
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">bbb</span> cfc
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">ffff</span> ff
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">ads</span> using
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">un</span> unfortunately
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">fff</span> main
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">gu</span> brnf**k
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">l10l</span> cfc
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">mmm</span> <span style="color: #ECBE7B;">void</span>
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">bbbb</span> cfc
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">vgg</span> <span style="color: #ECBE7B;">long</span> <span style="color: #ECBE7B;">long</span>
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">bub</span> std
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">mlm</span> printf
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">ffffff</span> f
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">lj1</span> dsnt
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">bmB</span> support
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">cfc</span> <span style="color: #ECBE7B;">int</span>
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">nv</span> guu
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">aa</span> namespace
+<span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #dcaeea;">m1m</span> inff
+ads <span style="color: #ECBE7B;">aa</span> <span style="color: #dcaeea;">bub</span>;
+<span style="color: #ECBE7B;">xx</span> <span style="color: #c678dd;">ffff</span><span style="color: #51afef;">()</span>, <span style="color: #c678dd;">fffff</span><span style="color: #51afef;">()</span>;
+<span style="color: #ECBE7B;">mmm</span> <span style="color: #c678dd;">ggg</span><span style="color: #51afef;">()</span>;
+<span style="color: #ECBE7B;">vgg</span> <span style="color: #dcaeea;">f</span> = 0x7265616c6c795f69;
+<span style="color: #ECBE7B;">zlz1</span> <span style="color: #dcaeea;">ccc</span><span style="color: #51afef;">[]</span> = <span style="color: #51afef;">{</span>0x5a,90,0x5d,89,115,74,68,70,0x5c,79,0x43,87,123,101,110,0x40,0x67<span style="color: #51afef;">}</span>;
+<span style="color: #ECBE7B;">bbbb</span> <span style="color: #c678dd;">fff</span><span style="color: #51afef;">()</span> <span style="color: #51afef;">{</span>
+&#160;&#160;l10l ll01 = l101<span style="color: #c678dd;">(</span><span style="color: #98be65;">(</span>0x00f1b00&gt;&gt;4<span style="color: #98be65;">)</span>+0x08ff08-354<span style="color: #c678dd;">)</span>;
+&#160;&#160;bbbb aaa = 0;
+&#160;&#160;mlm<span style="color: #c678dd;">(</span><span style="color: #98be65;">"%f%l%lld\n"</span>+4, ffffff<span style="color: #c678dd;">)</span>;
+&#160;&#160;f++;
+&#160;&#160;<span style="color: #51afef;">if</span><span style="color: #c678dd;">(</span>ll01&lt;<span style="color: #98be65;">(</span>ll01&amp;-0x1<span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span>??&lt;ff ggg=<span style="color: #98be65;">""</span>&gt;
+<span style="color: #51afef;">}</span>
+<span style="color: #ECBE7B;">zz</span> <span style="color: #c678dd;">ff</span><span style="color: #51afef;">(){</span>
+&#160;&#160;<span style="color: #51afef;">for</span><span style="color: #c678dd;">(</span><span style="color: #ECBE7B;">bbbb</span> <span style="color: #dcaeea;">guu</span>=1;guu&lt;18 data-blogger-escaped-guu=<span style="color: #98be65;">""</span>&gt;<span style="color: #98be65;">(</span>guu&amp;0x0<span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span>;++guu<span style="color: #ff6c6b; font-weight: bold;">)</span> <span style="color: #51afef;">{</span>
+&#160;&#160;&#160;&#160;ccc<span style="color: #c678dd;">[</span>nv-1<span style="color: #c678dd;">]</span> = <span style="color: #c678dd;">(</span><span style="color: #98be65;">(</span>ccc<span style="color: #a9a1e1;">[</span>guu-<span style="color: #4db5bd;">(</span><span style="color: #51afef;">(</span><span style="color: #c678dd;">(</span>8*<span style="color: #98be65;">(</span>0xd5f650<span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span>+1<span style="color: #51afef;">)</span>&amp;1<span style="color: #4db5bd;">)</span><span style="color: #a9a1e1;">]</span> ^ <span style="color: #a9a1e1;">(</span>0x31-guu<span style="color: #a9a1e1;">)</span><span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span>;
+&#160;&#160;<span style="color: #51afef;">}</span>
+<span style="color: #ff6c6b; font-weight: bold;">}</span>
+<span style="color: #ECBE7B;">zz</span> <span style="color: #c678dd;">ggg</span><span style="color: #ff6c6b; font-weight: bold;">()</span>??&lt;
+&#160;&#160;<span style="color: #51afef;">for</span><span style="color: #ff6c6b; font-weight: bold;">(</span><span style="color: #ECBE7B;">l10l</span> <span style="color: #dcaeea;">cc</span>=0;cc&lt;=0x11;++cc<span style="color: #ff6c6b; font-weight: bold;">)</span>??&lt;mlm c=<span style="color: #98be65;">""</span> cc=<span style="color: #98be65;">""</span> ccc=<span style="color: #98be65;">""</span> x=<span style="color: #98be65;">""</span>&gt;
+%&gt;
+<span style="color: #5B6268;">// </span><span style="color: #5B6268;">oops subtracted by 1 not keeping my base is mind&lt;/mlm&gt;&lt;!--18--&gt;&lt;/ff&gt;&lt;/cstdlib&gt;&lt;/cstdio&gt;</span>
+</pre>
+</div>
+
+<p>
+And we also got a hint: Hint: Preprocess -&gt; Compile -&gt; Execute<br>
+So we, basicly, did what they said. Firstly, we have preproceded file
+without a compilation. And then compiled, and executed the new
+preprocessed file (new.cpp).
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">wiremage@oxyz ~/c/b/bin200&gt; g++ -trigraphs -E obfuscated.cpp &gt; new.cpp
+wiremage@oxyz ~/c/b/bin200&gt; g++ new.cpp 
+wiremage@oxyz ~/c/b/bin200&gt; ./a.out 
+8243101811275816809
+</pre>
+</div>
+
+<p>
+That gave us a nice number, lol.
+</p>
+
+<p>
+Next, we took a peek inside the <code>new.cpp</code> source and found an
+unnecessary <code>if</code> statement, so we removed it.<br>
+We discovered that the number we got on the first run came from:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp">printf<span style="color: #51afef;">(</span><span style="color: #98be65;">"%f%l%lld\n"</span> + 4, f<span style="color: #51afef;">)</span>;
+</pre>
+</div>
+
+<p>
+However, if you look at the next two lines, you'll see calls to
+functions that also perform some <code>printf</code> operations. So, we decided to
+force their execution by removing the <code>if</code> condition.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C">
+<span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span><span style="color: #51afef;">()</span> <span style="color: #51afef;">{</span>
+  <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">ll01</span> = rand<span style="color: #c678dd;">()</span>%<span style="color: #c678dd;">(</span>0x00f1b00&gt;&gt;4<span style="color: #c678dd;">)</span>+0x08ff08-354;
+  <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">aaa</span> = 0;
+  printf<span style="color: #c678dd;">(</span><span style="color: #98be65;">"%f%l%lld\n"</span>+4, f<span style="color: #c678dd;">)</span>;
+  f++;
+  <span style="color: #51afef;">if</span><span style="color: #c678dd;">(</span>ll01&lt;<span style="color: #98be65;">(</span>ll01&amp;-0x1<span style="color: #98be65;">)</span><span style="color: #c678dd;">){</span>ff<span style="color: #98be65;">()</span>;ggg<span style="color: #98be65;">()</span>;<span style="color: #5B6268;">//</span><span style="color: #5B6268;">THIS IF HERE WE REMOVED LOL Remember remove only if part, so ff();ggg(); got executed!</span>
+<span style="color: #c678dd;">}</span>
+<span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">ff</span><span style="color: #c678dd;">(){</span>
+  <span style="color: #51afef;">for</span><span style="color: #98be65;">(</span><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">guu</span>=1;guu&lt;18&amp;&amp;<span style="color: #a9a1e1;">(</span>guu&gt;<span style="color: #4db5bd;">(</span>guu&amp;0x0<span style="color: #4db5bd;">)</span><span style="color: #a9a1e1;">)</span>;++guu<span style="color: #98be65;">)</span> <span style="color: #98be65;">{</span>
+    ccc<span style="color: #a9a1e1;">[</span>guu-1<span style="color: #a9a1e1;">]</span> = <span style="color: #a9a1e1;">(</span><span style="color: #4db5bd;">(</span>ccc<span style="color: #51afef;">[</span>guu-<span style="color: #c678dd;">(</span><span style="color: #98be65;">(</span><span style="color: #a9a1e1;">(</span>8*<span style="color: #51afef;">(</span>0xd5f650<span style="color: #51afef;">)</span><span style="color: #a9a1e1;">)</span>+1<span style="color: #98be65;">)</span>&amp;1<span style="color: #c678dd;">)</span><span style="color: #51afef;">]</span> ^ <span style="color: #51afef;">(</span>0x31-guu<span style="color: #51afef;">)</span><span style="color: #4db5bd;">)</span><span style="color: #a9a1e1;">)</span>;
+  <span style="color: #98be65;">}</span>
+<span style="color: #c678dd;">}</span>
+<span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">ggg</span><span style="color: #c678dd;">(){</span>
+  <span style="color: #51afef;">for</span><span style="color: #98be65;">(</span><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">cc</span>=0;cc&lt;=0x11;++cc<span style="color: #98be65;">){</span>printf<span style="color: #a9a1e1;">(</span><span style="color: #98be65;">"%x%c"</span>+2, ccc&lt;:cc<span style="color: #ff6c6b; font-weight: bold;">])</span>;
+%&gt;
+</pre>
+</div>
+
+<p>
+After that -&gt; compiled file again -&gt; executed -&gt; got the flag.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">
+wiremage@oxyz ~/c/b/bin200&gt; g++ new.cpp 
+wiremage@oxyz ~/c/b/bin200&gt; ./a.out 
+8243101811275816809
+just_another_FLaG
+</pre>
+</div>
+
+<p>
+Encode just<sub>another</sub><sub>FLaG</sub> with MD5 and thats it, you own the flag.
+</p>
+
+<p>
+The flag: <b>a38834db6eb9d31e3c7e878bae3da748</b>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<a href="#top" class="top-btn">⏫</a>
+<footer>
+  <p><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
+</footer>
+</div>
+</body>
+</html>

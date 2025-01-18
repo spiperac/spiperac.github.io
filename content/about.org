@@ -1,0 +1,21 @@
+#+OPTIONS: toc:nil
+
+* About
+:PROPERTIES:
+:ID:       2d624eba-0d3c-4475-8a08-fc27841870ba
+:END:
+
+
+#+DOWNLOADED: file:///home/spiperac/.config/wallpapers/avatar/avatar_transparent.png @ 2025-01-18 17:48:19
+[[file:posts/images/about/2025-01-18_17-48-19_avatar_transparent.png]]
+
+I'm a python developer and DevOps.
+Outside of work i like to write Lisp, Rust and work on stuff like [[https://github.com/spiperac/keymancer][Keymancer]].
+
+From time to time i like to play [[https://ctftime.org][CTFs]].
+
+If you want to contact me:
+
++ [[mailto:sp@spiperac.dev][EMail]]
+  - PGP: [[https://spiperac.dev/key/publickey.sp@spiperac.dev-a9c5e6266cbd45d830252d539af527b423dc4f72.asc][a9c5e6266cbd45d830252d539af527b423dc4f72.asc]]
+    
