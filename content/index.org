@@ -2,6 +2,7 @@
 :ID:       ae7ee5c3-f926-46cd-abb0-f951d07927aa
 :END:
 #+TITLE: spiperac's blog
+#+DESCRIPTION: spiperac's personal blog page
 #+OPTIONS: toc:nil
 
 My blog posts:
