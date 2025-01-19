@@ -1,10 +1,6 @@
 #+OPTIONS: toc:nil
 #+TITLE: About
 
-* About
-:PROPERTIES:
-:ID:       2d624eba-0d3c-4475-8a08-fc27841870ba
-:END:
 
 
 #+DOWNLOADED: file:///home/spiperac/.config/wallpapers/avatar/avatar_transparent.png @ 2025-01-18 17:48:19

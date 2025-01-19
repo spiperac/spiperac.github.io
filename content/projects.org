@@ -1,5 +1,4 @@
 #+OPTIONS: toc:nil
 #+TITLE: spiperac's projects
 
-* Projects
 Not yet uploaded.
