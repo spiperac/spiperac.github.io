@@ -99,9 +99,6 @@ img {
 
 /* org-ul style for blog post list */
 
-.org-ul > li::before {
-    content: '---> ';
-}
 /* end of org-ul */
 
 /* blog posts */
