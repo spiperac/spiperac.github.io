@@ -1,6 +1,7 @@
 :PROPERTIES:
 :ID:       ae7ee5c3-f926-46cd-abb0-f951d07927aa
 :END:
+#+TITLE: spiperac's blog
 #+OPTIONS: toc:nil
 
 My blog posts:
