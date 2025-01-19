@@ -17,3 +17,4 @@ If you want to contact me:
 + [[mailto:sp@spiperac.dev][EMail]]
   - PGP: [[https://spiperac.dev/key/publickey.sp@spiperac.dev-a9c5e6266cbd45d830252d539af527b423dc4f72.asc][a9c5e6266cbd45d830252d539af527b423dc4f72.asc]]
     
++ Mastodon: [[https://mastodon.social/@spiperac][@spiperac]] 
