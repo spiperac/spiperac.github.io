@@ -5,9 +5,18 @@ on:
     branches:
       - main
 
+# Add this permissions block at the root level
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -17,4 +26,5 @@ jobs:
         with:
           branch: gh-pages
           folder: public
-          clean: true # Automatically remove deleted files from the deployment
+          clean: true
+          force: true
