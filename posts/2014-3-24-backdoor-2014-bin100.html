@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Backdoor CTF 2014 - Bin100</title>
+<meta name="description" content="Writeup for the Backdoor CTF 2014 - Bin100" />
+<meta name="generator" content="Org Mode" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div id="preamble" class="status">
+<nav id="top" class="navigation">
+    <ul class="nav-links">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/projects.html">Projects</a></li>
+        <li><a href="/about.html">About</a></li>
+    </ul>
+    <div class="nav-avatar">
+        <img src="/assets/avatar.png" alt="avatar" class="avatar">
+    </div>
+</nav>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Backdoor CTF 2014 - Bin100</h1>
+</header><p>
+We received a file named <code>bin100</code>, which is an ELF64 executable.
+</p>
+
+<p>
+For this challenge, I decided to experiment a bit, and I was lucky. :)
+</p>
+
+<p>
+When I started, the program expected a password as an argument:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">
+wiremage@oxyz ~/c/b/bin100&gt; ./bin100
+bin100: ELF 64-bit LSB executable, x86-64, version 1 <span style="color: #51afef;">(</span>SYSV<span style="color: #51afef;">)</span>, dynamically linked <span style="color: #51afef;">(</span>uses shared libs<span style="color: #51afef;">)</span>, for GNU/Linux 2.6.24, <span style="color: #dcaeea;">BuildID</span><span style="color: #51afef;">[</span>sha1<span style="color: #51afef;">]</span>=0xea1b902c778ccf6e42b1ded0232847950d3768f0, not stripped
+
+You did not specify any password as part of the argument.
+Try again.
+</pre>
+</div>
+
+<p>
+I had two ideas:
+</p>
+
+<ol class="org-ol">
+<li>Either Disassemble the program to find where it compares the user
+input with its internal password.<br></li>
+<li>Or guess or deduce the password based on some clues.</li>
+</ol>
+
+<p>
+I chose the second approach because of the information provided:
+</p>
+
+<blockquote>
+<p>
+"This file was created sometime between 14th March 2014, 8:20 PM, and
+14th March 2014, 8:40 PM (Indian Standard Time)."
+</p>
+</blockquote>
+
+<p>
+It's obvious that the password must be related to this time. So, I
+launched <i>dissy</i> to check what functions the program uses (or calls).
+</p>
+
+
+<figure id="orgaaf0031">
+<img src="http://1.bp.blogspot.com/-a1dSM_VQQ9g/UzBNRg4RjCI/AAAAAAAAACg/XpJx7FsBvBc/s1600/writeup2.png" alt="writeup2.png">
+
+</figure>
+
+<p>
+And I saw this interesting function called
+passwordFromUnixTimestamp(long),
+</p>
+
+<div class="org-src-container">
+<pre class="src src-asm">
+<span style="color: #51afef;">(</span>gdb<span style="color: #51afef;">)</span> <span style="color: #51afef;">disassemble</span> passwordFromUnixTimestamp
+<span style="color: #c678dd;">Dump</span> <span style="color: #51afef;">of</span> assembler code for function _Z25passwordFromUnixTimestampl:
+   <span style="color: #51afef;">0x0000000000400fb4</span> &lt;+0&gt;: push   <span style="color: #dcaeea;">%rbp</span>
+   <span style="color: #51afef;">0x0000000000400fb5</span> &lt;+1&gt;: mov    <span style="color: #dcaeea;">%rsp</span>,<span style="color: #dcaeea;">%rbp</span>
+   <span style="color: #51afef;">0x0000000000400fb8</span> &lt;+4&gt;: push   <span style="color: #dcaeea;">%rbx</span>
+   <span style="color: #51afef;">0x0000000000400fb9</span> &lt;+5&gt;: sub    $0x1a8,<span style="color: #dcaeea;">%rsp</span>
+   <span style="color: #51afef;">0x0000000000400fc0</span> &lt;+12&gt;: mov    <span style="color: #dcaeea;">%rdi</span>,-0x1a8<span style="color: #51afef;">(</span><span style="color: #dcaeea;">%rbp</span><span style="color: #51afef;">)</span>
+   <span style="color: #51afef;">0x0000000000400fc7</span> &lt;+19&gt;: mov    <span style="color: #dcaeea;">%rsi</span>,-0x1b0<span style="color: #51afef;">(</span><span style="color: #dcaeea;">%rbp</span><span style="color: #51afef;">)</span>
+   <span style="color: #51afef;">0x0000000000400fce</span> &lt;+26&gt;: mov    $0x8,<span style="color: #dcaeea;">%esi</span>
+   <span style="color: #51afef;">0x0000000000400fd3</span> &lt;+31&gt;: mov    $0x10,<span style="color: #dcaeea;">%edi</span>
+   <span style="color: #51afef;">0x0000000000400fd8</span> &lt;+36&gt;: callq  0x40141d &lt;_zstorst13_ios_openmodes_&gt;
+   <span style="color: #51afef;">0x0000000000400fdd</span> &lt;+41&gt;: mov    <span style="color: #dcaeea;">%eax</span>,<span style="color: #dcaeea;">%edx</span>
+   <span style="color: #51afef;">0x0000000000400fdf</span> &lt;+43&gt;: lea    -0x1a0<span style="color: #51afef;">(</span><span style="color: #dcaeea;">%rbp</span><span style="color: #51afef;">)</span>,<span style="color: #dcaeea;">%rax</span>
+   <span style="color: #51afef;">0x0000000000400fe6</span> &lt;+50&gt;: mov    <span style="color: #dcaeea;">%edx</span>,<span style="color: #dcaeea;">%esi</span>
+   <span style="color: #51afef;">0x0000000000400fe8</span> &lt;+52&gt;: mov    <span style="color: #dcaeea;">%rax</span>,<span style="color: #dcaeea;">%rdi</span>
+   <span style="color: #51afef;">0x0000000000400feb</span> &lt;+55&gt;: callq  0x400df0 <a href="mailto:_ZNSt18basic_stringstreamIcSt11char_traitsIcESaIcEEC1ESt13_Ios_Openmode%40plt">&lt;_ZNSt18basic_stringstreamIcSt11char_traitsIcESaIcEEC1ESt13_Ios_Openmode@plt&gt;</a>
+   <span style="color: #51afef;">0x0000000000400ff0</span> &lt;+60&gt;: mov    -0x1b0<span style="color: #51afef;">(</span><span style="color: #dcaeea;">%rbp</span><span style="color: #51afef;">)</span>,<span style="color: #dcaeea;">%rax</span>
+   <span style="color: #51afef;">0x0000000000400ff7</span> &lt;+67&gt;: lea    -0x1a0<span style="color: #51afef;">(</span><span style="color: #dcaeea;">%rbp</span><span style="color: #51afef;">)</span>,<span style="color: #dcaeea;">%rdx</span>
+   <span style="color: #51afef;">0x0000000000400ffe</span> &lt;+74&gt;: add    $0x10,<span style="color: #dcaeea;">%rdx</span>
+   <span style="color: #51afef;">0x0000000000401002</span> &lt;+78&gt;: mov    <span style="color: #dcaeea;">%rax</span>,<span style="color: #dcaeea;">%rsi</span>
+   <span style="color: #51afef;">0x0000000000401005</span> &lt;+81&gt;: mov    <span style="color: #dcaeea;">%rdx</span>,<span style="color: #dcaeea;">%rdi</span>
+   <span style="color: #51afef;">0x0000000000401008</span> &lt;+84&gt;: callq  0x400d10 <a href="mailto:_ZNSolsEl%40plt">&lt;_ZNSolsEl@plt&gt;</a>
+   <span style="color: #51afef;">0x000000000040100d</span> &lt;+89&gt;: lea    -0x30<span style="color: #51afef;">(</span><span style="color: #dcaeea;">%rbp</span><span style="color: #51afef;">)</span>,<span style="color: #dcaeea;">%rax</span>
+<span style="color: #c678dd;">---Type</span> &lt;return&gt; to continue, or q &lt;return&gt; to quit---
+   <span style="color: #51afef;">0x0000000000401011</span> &lt;+93&gt;: lea    -0x1a0<span style="color: #51afef;">(</span><span style="color: #dcaeea;">%rbp</span><span style="color: #51afef;">)</span>,<span style="color: #dcaeea;">%rdx</span>
+   <span style="color: #51afef;">0x0000000000401018</span> &lt;+100&gt;: mov    <span style="color: #dcaeea;">%rdx</span>,<span style="color: #dcaeea;">%rsi</span>
+   <span style="color: #51afef;">0x000000000040101b</span> &lt;+103&gt;: mov    <span style="color: #dcaeea;">%rax</span>,<span style="color: #dcaeea;">%rdi</span>
+   <span style="color: #51afef;">0x000000000040101e</span> &lt;+106&gt;: callq  0x400ea0 <a href="mailto:_ZNKSt18basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv%40plt">&lt;_ZNKSt18basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv@plt&gt;</a>
+   <span style="color: #51afef;">0x0000000000401023</span> &lt;+111&gt;: lea    -0x30<span style="color: #51afef;">(</span><span style="color: #dcaeea;">%rbp</span><span style="color: #51afef;">)</span>,<span style="color: #dcaeea;">%rdx</span>
+   <span style="color: #51afef;">0x0000000000401027</span> &lt;+115&gt;: lea    -0x20<span style="color: #51afef;">(</span><span style="color: #dcaeea;">%rbp</span><span style="color: #51afef;">)</span>,<span style="color: #dcaeea;">%rax</span>
+   <span style="color: #51afef;">0x000000000040102b</span> &lt;+119&gt;: mov    <span style="color: #dcaeea;">%rdx</span>,<span style="color: #dcaeea;">%rsi</span>
+   <span style="color: #51afef;">0x000000000040102e</span> &lt;+122&gt;: mov    <span style="color: #dcaeea;">%rax</span>,<span style="color: #dcaeea;">%rdi</span>
+   <span style="color: #51afef;">0x0000000000401031</span> &lt;+125&gt;: callq  0x400d70 <a href="mailto:_ZNSsC1ERKSs%40plt">&lt;_ZNSsC1ERKSs@plt&gt;</a>
+   <span style="color: #51afef;">0x0000000000401036</span> &lt;+130&gt;: mov    -0x1a8<span style="color: #51afef;">(</span><span style="color: #dcaeea;">%rbp</span><span style="color: #51afef;">)</span>,<span style="color: #dcaeea;">%rax</span>
+   <span style="color: #51afef;">0x000000000040103d</span> &lt;+137&gt;: lea    -0x20<span style="color: #51afef;">(</span><span style="color: #dcaeea;">%rbp</span><span style="color: #51afef;">)</span>,<span style="color: #dcaeea;">%rdx</span>
+   <span style="color: #51afef;">0x0000000000401041</span> &lt;+141&gt;: mov    <span style="color: #dcaeea;">%rdx</span>,<span style="color: #dcaeea;">%rsi</span>
+   <span style="color: #51afef;">0x0000000000401044</span> &lt;+144&gt;: mov    <span style="color: #dcaeea;">%rax</span>,<span style="color: #dcaeea;">%rdi</span>
+   <span style="color: #51afef;">0x0000000000401047</span> &lt;+147&gt;: callq  0x402581 &lt;_z3md5ss&gt;
+   <span style="color: #51afef;">0x000000000040104c</span> &lt;+152&gt;: lea    -0x20<span style="color: #51afef;">(</span><span style="color: #dcaeea;">%rbp</span><span style="color: #51afef;">)</span>,<span style="color: #dcaeea;">%rax</span>
+   <span style="color: #51afef;">0x0000000000401050</span> &lt;+156&gt;: mov    <span style="color: #dcaeea;">%rax</span>,<span style="color: #dcaeea;">%rdi</span>
+   <span style="color: #51afef;">0x0000000000401053</span> &lt;+159&gt;: callq  0x400dc0 <a href="mailto:_ZNSsD1Ev%40plt">&lt;_ZNSsD1Ev@plt&gt;</a>
+   <span style="color: #51afef;">0x0000000000401058</span> &lt;+164&gt;: lea    -0x30<span style="color: #51afef;">(</span><span style="color: #dcaeea;">%rbp</span><span style="color: #51afef;">)</span>,<span style="color: #dcaeea;">%rax</span>
+   <span style="color: #51afef;">0x000000000040105c</span> &lt;+168&gt;: mov    <span style="color: #dcaeea;">%rax</span>,<span style="color: #dcaeea;">%rdi</span>
+   <span style="color: #51afef;">0x000000000040105f</span> &lt;+171&gt;: callq  0x400dc0 <a href="mailto:_ZNSsD1Ev%40plt">&lt;_ZNSsD1Ev@plt&gt;</a>
+   <span style="color: #51afef;">0x0000000000401064</span> &lt;+176&gt;: lea    -0x1a0<span style="color: #51afef;">(</span><span style="color: #dcaeea;">%rbp</span><span style="color: #51afef;">)</span>,<span style="color: #dcaeea;">%rax</span>
+   <span style="color: #51afef;">0x000000000040106b</span> &lt;+183&gt;: mov    <span style="color: #dcaeea;">%rax</span>,<span style="color: #dcaeea;">%rdi</span>
+<span style="color: #c678dd;">---Type</span> &lt;return&gt; to continue, or q &lt;return&gt; to quit---
+   <span style="color: #51afef;">0x000000000040106e</span> &lt;+186&gt;: callq  0x400e70 <a href="mailto:_ZNSt18basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev%40plt">&lt;_ZNSt18basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev@plt&gt;</a>
+   <span style="color: #51afef;">0x0000000000401073</span> &lt;+191&gt;: mov    -0x1a8<span style="color: #51afef;">(</span><span style="color: #dcaeea;">%rbp</span><span style="color: #51afef;">)</span>,<span style="color: #dcaeea;">%rax</span>
+   <span style="color: #51afef;">0x000000000040107a</span> &lt;+198&gt;: add    $0x1a8,<span style="color: #dcaeea;">%rsp</span>
+   <span style="color: #51afef;">0x0000000000401081</span> &lt;+205&gt;: pop    <span style="color: #dcaeea;">%rbx</span>
+   <span style="color: #51afef;">0x0000000000401082</span> &lt;+206&gt;: pop    <span style="color: #dcaeea;">%rbp</span>
+   <span style="color: #51afef;">0x0000000000401083</span> &lt;+207&gt;: retq   
+   <span style="color: #51afef;">0x0000000000401084</span> &lt;+208&gt;: mov    <span style="color: #dcaeea;">%rax</span>,<span style="color: #dcaeea;">%rbx</span>
+   <span style="color: #51afef;">0x0000000000401087</span> &lt;+211&gt;: lea    -0x20<span style="color: #51afef;">(</span><span style="color: #dcaeea;">%rbp</span><span style="color: #51afef;">)</span>,<span style="color: #dcaeea;">%rax</span>
+   <span style="color: #51afef;">0x000000000040108b</span> &lt;+215&gt;: mov    <span style="color: #dcaeea;">%rax</span>,<span style="color: #dcaeea;">%rdi</span>
+   <span style="color: #51afef;">0x000000000040108e</span> &lt;+218&gt;: callq  0x400dc0 <a href="mailto:_ZNSsD1Ev%40plt">&lt;_ZNSsD1Ev@plt&gt;</a>
+   <span style="color: #51afef;">0x0000000000401093</span> &lt;+223&gt;: jmp    0x401098 &lt;_Z25passwordFromUnixTimestampl+228&gt;
+   <span style="color: #51afef;">0x0000000000401095</span> &lt;+225&gt;: mov    <span style="color: #dcaeea;">%rax</span>,<span style="color: #dcaeea;">%rbx</span>
+   <span style="color: #51afef;">0x0000000000401098</span> &lt;+228&gt;: lea    -0x30<span style="color: #51afef;">(</span><span style="color: #dcaeea;">%rbp</span><span style="color: #51afef;">)</span>,<span style="color: #dcaeea;">%rax</span>
+   <span style="color: #51afef;">0x000000000040109c</span> &lt;+232&gt;: mov    <span style="color: #dcaeea;">%rax</span>,<span style="color: #dcaeea;">%rdi</span>
+   <span style="color: #51afef;">0x000000000040109f</span> &lt;+235&gt;: callq  0x400dc0 <a href="mailto:_ZNSsD1Ev%40plt">&lt;_ZNSsD1Ev@plt&gt;</a>
+   <span style="color: #51afef;">0x00000000004010a4</span> &lt;+240&gt;: jmp    0x4010a9 &lt;_Z25passwordFromUnixTimestampl+245&gt;
+   <span style="color: #51afef;">0x00000000004010a6</span> &lt;+242&gt;: mov    <span style="color: #dcaeea;">%rax</span>,<span style="color: #dcaeea;">%rbx</span>
+   <span style="color: #51afef;">0x00000000004010a9</span> &lt;+245&gt;: lea    -0x1a0<span style="color: #51afef;">(</span><span style="color: #dcaeea;">%rbp</span><span style="color: #51afef;">)</span>,<span style="color: #dcaeea;">%rax</span>
+   <span style="color: #51afef;">0x00000000004010b0</span> &lt;+252&gt;: mov    <span style="color: #dcaeea;">%rax</span>,<span style="color: #dcaeea;">%rdi</span>
+   <span style="color: #51afef;">0x00000000004010b3</span> &lt;+255&gt;: callq  0x400e70 &lt;_ZNSt18basic_stringstreamIcSt11---Type &lt;return&gt; to continue, or q &lt;return&gt; to quit---
+<span style="color: #c678dd;">char_traitsIcESaIcEED1Ev</span>@plt&gt;
+   <span style="color: #51afef;">0x00000000004010b8</span> &lt;+260&gt;: mov    <span style="color: #dcaeea;">%rbx</span>,<span style="color: #dcaeea;">%rax</span>
+   <span style="color: #51afef;">0x00000000004010bb</span> &lt;+263&gt;: mov    <span style="color: #dcaeea;">%rax</span>,<span style="color: #dcaeea;">%rdi</span>
+   <span style="color: #51afef;">0x00000000004010be</span> &lt;+266&gt;: callq  0x400eb0 <a href="mailto:_Unwind_Resume%40plt">&lt;_Unwind_Resume@plt&gt;</a>
+<span style="color: #c678dd;">End</span> <span style="color: #51afef;">of</span> assembler dump.
+
+<span style="color: #c678dd;">End</span> <span style="color: #51afef;">of</span> assembler dump.
+</pre>
+</div>
+
+<p>
+The unix time stamp is a way to track time as a running of total
+seconds. This count starts at the Unix Epoch on January 1st, 1970 at
+UTC. So firstly lets convert the time given in UTC (It's in Indian
+Standard Time). For conversion I used
+<a href="http://www.unixtimestamp.com/index.php">http://www.unixtimestamp.com/index.php</a>.
+</p>
+
+<p>
+When you convert it in UTC ( Universal time ) you get:
+</p>
+
+<pre class="example" id="orgf47b4e1">
+DATE (M/D/Y @ h:m:s): 03 / 14 / 14 @ 2:50:00pm UTC 
+</pre>
+
+<p>
+And UnixTimestamp for this date and time is 1394808600.
+</p>
+
+<p>
+Ok, that should be useful, so I scrolled down a bit to check other
+functions, and I found this part interesting as well
+</p>
+
+
+<figure id="orgb186412">
+<img src="http://2.bp.blogspot.com/-jFM8zABw-L0/UzBNU_tDIDI/AAAAAAAAACo/CTu-_h2Rr7M/s1600/writeup1.png" alt="writeup1.png">
+
+</figure>
+
+<p>
+The program uses the MD5 function to encode and decode something. Since
+it only has one input, it must be our user input or the password we need
+to provide as an argument (<code>argv</code>).
+</p>
+
+<p>
+I wrote a small Python script to calculate all Unix timestamps within a
+given period. It starts from the initial timestamp <code>1394808600</code><br>
+(this corresponds to the date and time <b>03/14/2014 @ 2:50:00 PM UTC</b>)
+and increments by 1 for each subsequent timestamp.
+</p>
+
+<p>
+The script encodes each timestamp in MD5, tries it as the password
+(<code>argv</code>), and repeats this process for every timestamp within the
+20-minute period.<br>
+The last timestamp is <code>1394808600 + 20 * 60</code>.
+</p>
+
+<p>
+The script source is:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python">
+<span style="color: #51afef;">import</span> subprocess
+<span style="color: #51afef;">import</span> os
+<span style="color: #51afef;">import</span> hashlib
+
+<span style="color: #51afef;">def</span> <span style="color: #c678dd;">computeMD5hash</span><span style="color: #51afef;">(</span>string<span style="color: #51afef;">)</span>:
+    <span style="color: #dcaeea;">m</span> = hashlib.md5<span style="color: #51afef;">()</span>
+    m.update<span style="color: #51afef;">(</span>string.encode<span style="color: #c678dd;">(</span><span style="color: #98be65;">'utf-8'</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+    <span style="color: #51afef;">return</span> m.hexdigest<span style="color: #51afef;">()</span>
+
+<span style="color: #dcaeea;">start_timestamp</span>=1394808600
+
+<span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span> <span style="color: #51afef;">(</span>0, 1200<span style="color: #51afef;">)</span>:
+ <span style="color: #c678dd;">print</span> <span style="color: #98be65;">"trying with timestamp %d"</span> % start_timestamp
+ <span style="color: #dcaeea;">execute</span>=<span style="color: #98be65;">"./bin100 "</span> + computeMD5hash<span style="color: #51afef;">(</span><span style="color: #c678dd;">str</span><span style="color: #c678dd;">(</span>start_timestamp<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+ os.system<span style="color: #51afef;">(</span>execute<span style="color: #51afef;">)</span>
+ <span style="color: #dcaeea;">start_timestamp</span>+=1
+</pre>
+</div>
+
+<p>
+When I ran it I got the flag.
+</p>
+
+
+<figure id="orgdb20403">
+<img src="http://2.bp.blogspot.com/-pM78sUjs97s/UzBNYaDHGMI/AAAAAAAAACw/nDjuouLjyDA/s1600/writeup3.png" alt="writeup3.png">
+
+</figure>
+
+<p>
+Flag for bin100: <b>94958e1c10707728ef965fe850eb98a1</b>
+</p>
+</div>
+<div id="postamble" class="status">
+<a href="#top" class="top-btn">⏫</a>
+<footer>
+  <p><a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.6.15)</p>
+</footer>
+</div>
+</body>
+</html>
