@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+<channel>
+<title>spiperac.dev blog</title>
+<link>https://spiperac.dev</link>
+
+<item>
+  <title>backdoor-2014-bin100</title>
+  <link>https://spiperac.dev/posts/2014-3-24-backdoor-2014-bin100.html</link>
+  <pubDate>2014-3-24</pubDate>
+</item>
+
+<item>
+  <title>backdoor-2014-bin200</title>
+  <link>https://spiperac.dev/posts/2014-3-24-backdoor-2014-bin200.html</link>
+  <pubDate>2014-3-24</pubDate>
+</item>
+</channel>
+</rss>
