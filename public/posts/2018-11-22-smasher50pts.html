@@ -31,19 +31,19 @@
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
 <li><a href="#vm-enumeration">VM Enumeration</a></li>
-<li><a href="#orgd8f4902">Path Traversal Vulnerability</a>
+<li><a href="#org2e267c8">Path Traversal Vulnerability</a>
 <ul>
-<li><a href="#org772f18f">Libc inspection</a></li>
+<li><a href="#orgf007090">Libc inspection</a></li>
 </ul>
 </li>
-<li><a href="#org2edc7de">Buffer Overflow</a></li>
+<li><a href="#org8842974">Buffer Overflow</a></li>
 <li><a href="#exploitation">Exploitation</a>
 <ul>
-<li><a href="#orgbbe1439">Test POC</a></li>
+<li><a href="#org89f438b">Test POC</a></li>
 </ul>
 </li>
-<li><a href="#orgd412866">Futher exploitation plan</a></li>
-<li><a href="#orgdd90aa7">Conclusion</a></li>
+<li><a href="#org4921dbf">Futher exploitation plan</a></li>
+<li><a href="#orgad1bf9d">Conclusion</a></li>
 </ul>
 </div>
 </nav>
@@ -203,9 +203,9 @@ smasher:x:1001:1001:,,,:/home/smasher:/bin/bash
 </div>
 </div>
 
-<div id="outline-container-orgd8f4902" class="outline-2">
-<h2 id="orgd8f4902">Path Traversal Vulnerability</h2>
-<div class="outline-text-2" id="text-orgd8f4902">
+<div id="outline-container-org2e267c8" class="outline-2">
+<h2 id="org2e267c8">Path Traversal Vulnerability</h2>
+<div class="outline-text-2" id="text-org2e267c8">
 <p>
 This is Path Traversal vulnerability in servers code. Nice, but what can
 we do with it? I'll cut all my failed searches and ideas, in the end i
@@ -255,9 +255,9 @@ wget http://10.10.10.89:1111//lib/x86_64-linux-gnu/libc.so.6
 </div>
 </div>
 
-<div id="outline-container-org772f18f" class="outline-3">
-<h3 id="org772f18f">Libc inspection</h3>
-<div class="outline-text-3" id="text-org772f18f">
+<div id="outline-container-orgf007090" class="outline-3">
+<h3 id="orgf007090">Libc inspection</h3>
+<div class="outline-text-3" id="text-orgf007090">
 <p>
 So, now, what i usually like to do is, identify version of libc, in this
 case i've had access to /etc/issue so i already know, i procceded futher
@@ -323,9 +323,9 @@ Yup, looks like only ASLR is enabled.
 </div>
 </div>
 
-<div id="outline-container-org2edc7de" class="outline-2">
-<h2 id="org2edc7de">Buffer Overflow</h2>
-<div class="outline-text-2" id="text-org2edc7de">
+<div id="outline-container-org8842974" class="outline-2">
+<h2 id="org8842974">Buffer Overflow</h2>
+<div class="outline-text-2" id="text-org8842974">
 <p>
 So let's take a step back, and
 check on tiny.c source code. If we take a look at our first vuln on this
@@ -482,7 +482,7 @@ it. Buffer overflow occures when url<sub>decoder</sub>() tries to 'decode'
 filename sent with a GET request. So our payload will be in:
 </p>
 
-<pre class="example" id="org5522403">
+<pre class="example" id="org4eb454d">
 GET /payloadpayloadpayload
 </pre>
 
@@ -493,7 +493,7 @@ because it get trimed before processing.
 
 
 
-<figure id="org4837374">
+<figure id="org042fbfc">
 <img src="images/smasher-2018-11-22/2025-01-18_19-09-55_image.png" alt="2025-01-18_19-09-55_image.png">
 
 </figure>
@@ -502,7 +502,7 @@ because it get trimed before processing.
 from the picture above we can calculate that our buffer is at:
 </p>
 
-<pre class="example" id="orgec49725">
+<pre class="example" id="orga6aef9a">
 0x298 - (0x90 - 0x30) = 0x238
 Converted to decimal 568
 </pre>
@@ -531,9 +531,9 @@ listen on port 9999, fd is 3
 </div>
 </div>
 
-<div id="outline-container-orgbbe1439" class="outline-3">
-<h3 id="orgbbe1439">Test POC</h3>
-<div class="outline-text-3" id="text-orgbbe1439">
+<div id="outline-container-org89f438b" class="outline-3">
+<h3 id="org89f438b">Test POC</h3>
+<div class="outline-text-3" id="text-org89f438b">
 <p>
 Run this simple POC:
 </p>
@@ -563,7 +563,7 @@ s.close<span style="color: #51afef;">()</span>
 As soon as we hit a break point:
 </p>
 
-<pre class="example" id="org72e3f1f">
+<pre class="example" id="org40c817c">
  ► f 0           40178b url_decode+107
    f 1           4018af parse_request+287
    f 2           401e23 process.part+67
@@ -580,7 +580,7 @@ pwndbg&gt; c
 We can se our 424242424242 on the stack, and continue:
 </p>
 
-<pre class="example" id="org2574d0b">
+<pre class="example" id="orga84748c">
 Program received signal SIGSEGV (fault address 0x424242424242)
 </pre>
 
@@ -590,7 +590,7 @@ And as expected:
 
 
 
-<figure id="org295896b">
+<figure id="org1908382">
 <img src="images/smasher-2018-11-22/2025-01-18_19-16-42_image.png" alt="2025-01-18_19-16-42_image.png">
 
 </figure>
@@ -603,9 +603,9 @@ We have overwritten RIP with our 0x424242424242 bytes.
 </div>
 
 
-<div id="outline-container-orgd412866" class="outline-2">
-<h2 id="orgd412866">Futher exploitation plan</h2>
-<div class="outline-text-2" id="text-orgd412866">
+<div id="outline-container-org4921dbf" class="outline-2">
+<h2 id="org4921dbf">Futher exploitation plan</h2>
+<div class="outline-text-2" id="text-org4921dbf">
 <p>
 Plan is: 1. Find gadget for pop rdi; pop rsi; ret.  2. Return to
 write@plt to leak read@got address so we can use that address from GOT
@@ -705,13 +705,13 @@ There's a call to it:
 
 
 
-<figure id="org35b0a75">
+<figure id="org1e534f5">
 <img src="images/smasher-2018-11-22/2025-01-18_19-17-16_image.png" alt="2025-01-18_19-17-16_image.png">
 
 </figure>
 
 
-<pre class="example" id="orgb531464">
+<pre class="example" id="orgb6ba47d">
 0x00000000004010e9 &lt;+41&gt;: call   0x400c50 &lt;write@plt&gt;
 </pre>
 
@@ -1041,7 +1041,7 @@ If you check your multi handler, you will see new session
 
 
 
-<figure id="org126e16a">
+<figure id="org208186e">
 <img src="images/smasher-2018-11-22/2025-01-18_19-17-56_image.png" alt="2025-01-18_19-17-56_image.png">
 
 </figure>
@@ -1049,9 +1049,9 @@ If you check your multi handler, you will see new session
 </div>
 
 
-<div id="outline-container-orgdd90aa7" class="outline-2">
-<h2 id="orgdd90aa7">Conclusion</h2>
-<div class="outline-text-2" id="text-orgdd90aa7">
+<div id="outline-container-orgad1bf9d" class="outline-2">
+<h2 id="orgad1bf9d">Conclusion</h2>
+<div class="outline-text-2" id="text-orgad1bf9d">
 <p>
 That's it. Now tha you have a shell it's time to move onto a second
 stage, which is fighting this guy
