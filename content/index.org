@@ -8,11 +8,11 @@
 My blog posts:
 @@html:<div class="blog-post-list">@@
 @@html:<div class="blog-post-item">@@
-@@html:<div class="blog-post-title">@@[[file:posts/smasher-2018-11-22.org][Smasher HTB 50pts]]@@html:</div>@@
+@@html:<div class="blog-post-title">@@[[file:posts/2018-11-22-smasher50pts.org][Smasher HTB 50pts]]@@html:</div>@@
 @@html:<div class="blog-post-date">@@2018-11-22@@html:</div>@@
 @@html:</div>@@
 @@html:<div class="blog-post-item">@@
-@@html:<div class="blog-post-title">@@[[file:posts/2014-3-24-backdoor-2014-bin200.org][Backdoor CTF 2014 - Bin100]]@@html:</div>@@
+@@html:<div class="blog-post-title">@@[[file:posts/2014-3-24-backdoor-2014-bin200.org][Backdoor CTF 2014 - Bin200]]@@html:</div>@@
 @@html:<div class="blog-post-date">@@2014-03-24@@html:</div>@@
 @@html:</div>@@
 @@html:<div class="blog-post-item">@@

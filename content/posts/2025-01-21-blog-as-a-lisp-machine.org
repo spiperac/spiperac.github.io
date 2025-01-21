@@ -1,0 +1,7 @@
+#+title: Blog as a Lisp Machine
+#+date: 2025-01-21
+#+description: Emacs as a static generator
+#+tags:
+#+draft: true
+
+Im writting this blog as a lisp machine.
