@@ -81,6 +81,7 @@ img {
     font-weight: 500;
     padding: 0.3rem 0.8rem;
     border: 2px solid var(--accent-primary);
+    border-bottom: 4px solid var(--accent-secondary);
     transition: all 0.2s ease;
 
 }
