@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/spiperac_io
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://spiperac.dev
+  * I am spiperac_io (https://keybase.io/spiperac_io) on keybase.
+  * I have a public key ASDFfR2Bg84mOggejnaf95l2xMwDqFQtVckFUCbIYw5Wowo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120c57d1d8183ce263a081e8e769ff79976c4cc03a8542d55c9055026c8630e56a30a",
+      "host": "keybase.io",
+      "kid": "0120c57d1d8183ce263a081e8e769ff79976c4cc03a8542d55c9055026c8630e56a30a",
+      "uid": "ab0531891125063921da28025cbd5c19",
+      "username": "spiperac_io"
+    },
+    "merkle_root": {
+      "ctime": 1733954834,
+      "hash": "1bc3fe20a63b109ce1a9fc4924336456afa432e369b7819d189e496a289543c966c8a70526e8999c5937380a886c26d7c3c9e8ed588632cfa460816921a3ef37",
+      "hash_meta": "c633a0c5070410b1d301cdcec43d3fb8ba38dff9cb6e95086307c927470a1e8c",
+      "seqno": 26369985
+    },
+    "service": {
+      "entropy": "MbQ1p4gONrMxtkA/4MQ4R1UO",
+      "hostname": "spiperac.dev",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.4.0"
+  },
+  "ctime": 1733954895,
+  "expire_in": 504576000,
+  "prev": "3aed25b8d0f070990b5f0927400029e9eab99aaef968b3545e5de7a70cac83da",
+  "seqno": 6,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgxX0dgYPOJjoIHo52n/eZdsTMA6hULVXJBVAmyGMOVqMKp3BheWxvYWTESpcCBsQgOu0luNDwcJkLXwknQAAp6eq5mq75aLNUXl3npwysg9rEIE8GLJXkB8PuvWP24mHZjXcG6aAd4gg9mM1kl4XuleXTAgHCo3NpZ8RAHFfyO6qks1+unzqPQxLiDI+58o0+DIFLSsFllIpCjFoWdiiZ9aPNbRO//6Obv8KqR0bdDRESm/+lqeL17G2CB6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIPJLZ3qvj5yJXTRKU2rsBP4f87SPJ8zrEgKdm/A7mLDIo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/spiperac_io
+
+==================================================================

