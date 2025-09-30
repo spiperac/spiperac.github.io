@@ -4,28 +4,17 @@ date = 2024-11-10
 template = "about.html"
 +++
 
-Hi, im spiperac.
+![](/images/about/2025-01-18_17-48-19_avatar_transparent.png)
 
-- <p> 󰊤 Github: <a href="http://github.com/spiperac" target="_blank" rel="noopener noreferrer">github.com/spiperac</a></p>
+I'm a python developer and DevOps. Outside of work i like to write Lisp,
+Rust and work on stuff like
+[Keymancer](https://github.com/spiperac/keymancer).
 
+From time to time i like to play [CTFs](https://ctftime.org).
 
-- <p> 󰇮 Email: < sp < at > spiperac.dev > </p>
-```txt
------BEGIN PGP PUBLIC KEY BLOCK-----
+If you want to contact me:
 
-xjMEZ0pJ2hYJKwYBBAHaRw8BAQdARfY7v2tm/t2n0rYkATmFUZWoOwgQqpBk
-aQobZuifqfjNIXNwQHNwaXBlcmFjLmRldiA8c3BAc3BpcGVyYWMuZGV2PsLA
-EQQTFgoAgwWCZ0pJ2gMLCQcJkJr1J7Qj3E9yRRQAAAAAABwAIHNhbHRAbm90
-YXRpb25zLm9wZW5wZ3Bqcy5vcmf9JGyShGDv+c5dHAl+D9fS7rWODDsPulB3
-74eOi1xTMAMVCggEFgACAQIZAQKbAwIeARYhBKnF5iZsvUXYMCUtU5r1J7Qj
-3E9yAACpWgD+JlBfS/EJexdCxzTjdz7NEtCy3zdPqnFHHdp8Pi6aii8A/RxX
-Ll+PLZrsSBeGRP0fgukgmsx41WiTLZH6R+LLD9UEzjgEZ0pJ2hIKKwYBBAGX
-VQEFAQEHQP2Ngy/3rYhn1bk59SAUD33Ur0DlfWn0KPmd/RaKv8M+AwEIB8K+
-BBgWCgBwBYJnSknaCZCa9Se0I9xPckUUAAAAAAAcACBzYWx0QG5vdGF0aW9u
-cy5vcGVucGdwanMub3JnrUPEJGMHmTmBIlpMoeRX/Pclkz20hua1uBKaooFU
-xUQCmwwWIQSpxeYmbL1F2DAlLVOa9Se0I9xPcgAAdu4BAMkDrmUoVMOrjxHP
-RpdF0EIwieo4glIrdBrAN/qqXRwLAQDzWNU3/qMCjQh6bkAdOb9CLj5fsTk4
-DpOOC/EXQO5nAg==
-=6CYq
------END PGP PUBLIC KEY BLOCK-----
-```
+- [EMail](mailto:sp@spiperac.dev)
+  - PGP:
+    [a9c5e6266cbd45d830252d539af527b423dc4f72.asc](https://spiperac.dev/key/publickey.sp@spiperac.dev-a9c5e6266cbd45d830252d539af527b423dc4f72.asc)
+- Mastodon: [@spiperac](https://mastodon.social/@spiperac)
