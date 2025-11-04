@@ -2,11 +2,12 @@
     --bg: #111111;
     --bg-secondary: #121212;
     --fg: #e0e0e0;
-    --hover: #5A3E2B;
+    --hover: #5a3e2b;
     --accent: #88c0d0;
     --muted: #888888;
     --code-bg: #1a1a1a;
     --code-fg: #d8dee9;
+    --border-color: #D79921;
     --svg-invert: 1; 
 }
 
@@ -73,6 +74,7 @@ nav.navigation {
     align-items: center;
     gap: 1.5em;
     padding: 1em 0;
+    border-bottom: 1px solid;
 }
 .nav-links {
     list-style: none;
@@ -133,17 +135,18 @@ article .blog-post-date {
 #table-of-contents {
     margin-bottom: 2em;
 }
+
 #table-of-contents h2 {
     font-weight: 500;
     color: var(--fg);
     margin-bottom: 0.5em;
 }
+
 #table-of-contents a {
     color: var(--accent);
 }
 
 /* Code blocks */
-
 pre {
     padding: 1rem;
     border-radius: 4px;
@@ -203,14 +206,17 @@ table {
     border-collapse: collapse;
     margin: 1em 0;
 }
+
 th, td {
     border: 1px solid var(--muted);
     padding: 0.5em;
 }
+
 th {
     background-color: var(--bg-secondary);
     color: var(--fg);
 }
+
 td {
     background-color: var(--bg);
     color: var(--fg);
