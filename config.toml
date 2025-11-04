@@ -1,14 +1,13 @@
 # The URL the site will be built for
 author = "spiperac"
 base_url = "https://spiperac.dev"
-#theme = "spiperac"
+#theme = "apollo"
 default_language = "en"
 
 # Title
 title = "spiperac's blog"
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
-
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
 

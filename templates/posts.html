@@ -11,9 +11,8 @@
         {% for page in section.pages %}
             <li class="blog-post-item">
                 <span class="blog-post-title">
-                    <a href="{{ page.permalink }}">{{ page.title }}</a>
+                    {{ page.date | date(format="%Y-%m-%d") }} # <a href="{{ page.permalink }}">{{ page.title }}</a>
                 </span>
-                <span class="blog-post-date">{{ page.date | date(format="%Y-%m-%d") }}</span>
             </li>
         {% endfor %}
     </ul>

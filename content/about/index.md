@@ -4,13 +4,11 @@ date = 2024-11-10
 template = "about.html"
 +++
 
-![](/images/about/2025-01-18_17-48-19_avatar_transparent.png)
-
-I'm a python developer and DevOps. Outside of work i like to write Lisp,
-Rust and work on stuff like
+I'm a DevOps engineer, and Python developer. 
+I like to write some rust for fun.
 [Keymancer](https://github.com/spiperac/keymancer).
 
-From time to time i like to play [CTFs](https://ctftime.org).
+Ocasionally i like to play [CTFs](https://ctftime.org).
 
 If you want to contact me:
 

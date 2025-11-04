@@ -9,12 +9,15 @@
     {% if posts_section %}
         <ul class="blog-post-list">
             {% for page in posts_section.pages | slice(end=5) %}
-                <li class="blog-post-item">
-                    <span class="blog-post-title">
-                        <a href="{{ page.permalink }}">{{ page.title }}</a>
-                    </span>
-                    <span class="blog-post-date">{{ page.date | date(format="%Y-%m-%d") }}</span>
-                </li>
+
+            <li class="blog-post-item">
+              <div class="blog-post-line">
+                <span class="blog-post-date">{{ page.date | date(format="%Y-%m-%d") }}</span>
+                #
+                <a class="blog-post-title" href="{{ page.permalink }}">{{ page.title }}</a>
+              </div>
+            </li>
+
             {% endfor %}
         </ul>
     {% endif %}
