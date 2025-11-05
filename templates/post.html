@@ -7,7 +7,13 @@
         <header>
             <h1>{{ page.title }}</h1>
             <div class="blog-post-date">
+
                 Published: {{ page.date | date(format="%Y-%m-%d") }}
+                <span style="margin-left:2em;">
+                    <img src="{{ get_url(path="images/read_time.svg") }}" class="svg" alt="Clock" style="width:1em; height:1em; vertical-align:middle;">
+                    Read time: {{ page.reading_time }} min
+                </span>
+
                 {% if page.updated %}
                     | Updated: {{ page.updated | date(format="%Y-%m-%d") }}
                 {% endif %}
