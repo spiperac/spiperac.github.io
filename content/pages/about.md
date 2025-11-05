@@ -1,7 +1,7 @@
 +++
 title = "About"
 date = 2024-11-10
-template = "about.html"
+template = "pages/about.html"
 +++
 
 I'm a DevOps engineer, and Python developer. 
