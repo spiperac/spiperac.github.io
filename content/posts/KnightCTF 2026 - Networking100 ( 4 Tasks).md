@@ -1,11 +1,141 @@
 +++
 date = 2026-01-21
-description ="KnightCTF 2026 - Network 100 - Vulnerability Exploitation"
-title = "KnightCTF 2026 - Network 100 - Vulnerability Exploitation"
+description ="KnightCTF 2026 - Networking100"
+title = "KnightCTF 2026 - Networking100"
 [taxonomies]
 tags = ["ctf", "networking", "wireshark", "tshark"]
 +++
-## Task
+
+## Task 1 - Exploitation
+
+```
+The attacker appears to have identified a web application running on our server. We need to determine what application was being targeted. Find the version and username associated with the application in the capture.
+
+Flag Format: KCTF{version_username}
+```
+
+Download: [pcap2.pcapng](https://drive.google.com/file/d/1r5Huq9jVrcNGMP-eX2qMgaHoD6bQpV6U/view?usp=sharing)
+### pcap2.pcapng - Finding Username
+
+Let’s analyze the pcap file with Wireshark by first looking for a username.  
+We want to check POST methods in login forms by filtering:
+```
+http.request.method==POST && http.request.uri contains "login.php"
+```
+
+![](/images/d13fb4465bab28210dd6afff732179a5.png)
+
+Right from the start we can see that the web application in question is WordPress, not only from this filter but also because, when we inspect the traffic, we see many WPScan requests.
+
+Since there are only two POST requests, it is easy to find the username.  
+If we inspect the first request’s HTML form data, we see:
+
+```
+HTML Form URL Encoded: application/x-www-form-urlencoded
+    Form item: "log" = "kadmin_user"
+    Form item: "pwd" = "f750d046"
+
+```
+
+![](/images/60c29f3547f2c82ff48d57daefa8a52a.png)
+
+So the username is: **kadmin_user**
+
+**Note:**  
+The second request also contains a user, but in the form of an email address:
+```
+HTML Form URL Encoded: application/x-www-form-urlencoded
+    Form item: "log" = "tushar@gmail.com"
+        Key: log
+        Value: tushar@gmail.com
+    Form item: "pwd" = "1234566"
+        Key: pwd
+        Value: 1234566
+    Form item: "rememberme" = "forever"
+        Key: rememberme
+        Value: forever
+    Form item: "wp-submit" = "Log In"
+        Key: wp-submit
+        Value: Log In
+    Form item: "redirect_to" = "http://192.168.1.102/wordpress/"
+        Key: redirect_to
+        Value: http://192.168.1.102/wordpress/
+    Form item: "testcookie" = "1"
+        Key: testcookie
+        Value: 1
+```
+
+This could be a fallback if the first attempt failed, but it looks like a brute-force attempt, since the cookie is strange and the password is `1234566`.
+### pcap2.pcapng - Finding WordPress version
+
+My approach here was, I basically dumped all HTML objects from the pcap file:
+```
+~/Vault/isec/ctf/knight2k26/net100-exploitation  ✓ $ tshark -r pcap2.pcapng --export-objects http,./dump
+
+```
+
+Then I ran a few `grep` commands, which quickly yielded a result:
+
+```
+~/Vault/isec/ctf/knight2k26/net100-exploitation  ✓ $ grep -R "generator" dump/wordpress*
+
+dump/wordpress:<meta name="generator" content="WordPress 6.9" />
+dump/wordpress(1):<meta name="generator" content="WordPress 6.9" />
+dump/wordpress(6):<meta name="generator" content="WordPress 6.9" />
+dump/wordpress(7):<meta name="generator" content="WordPress 6.9" />
+dump/wordpress(8):<meta name="generator" content="WordPress 6.9" />
+
+```
+
+So the WordPress version is: **6.9**
+
+#### Alternative method
+
+Another way to find this is by dumping all TCP streams, iterating through them, and grepping for the string `"WordPress"`:
+```shell-session
+~/Vault/isec/ctf/knight2k26/net100-exploitation  ✗1 $ for i in $(tshark -r pcap2.pcapng -T fields -e tcp.stream | sort -n | uniq); do
+  tshark -r pcap2.pcapng -q -z follow,tcp,ascii,$i;
+done | grep -a "WordPress"
+
+X-Redirect-By: WordPress
+X-Redirect-By: WordPress
+X-Redirect-By: WordPress
+X-Redirect-By: WordPress
+X-Redirect-By: WordPress
+X-Redirect-By: WordPress
+X-Redirect-By: WordPress
+X-Redirect-By: WordPress
+X-Redirect-By: WordPress
+X-Redirect-By: WordPress
+X-Redirect-By: WordPress
+X-Redirect-By: WordPress
+X-Redirect-By: WordPress
+.<generator uri="https://wordpress.org/" version="6.9">WordPress</generator>
+ type="html"><![CDATA[Welcome to WordPress. This is your first post. Edit or delete it, then start writing!]]></summary>
+<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>
+."description": "Displays a link to edit the comment in the WordPress Dashboard. This link is only visible to users with the edit comment capability.",
+## WordPress Modification - We prepend some unexpired 'legacy' 1024bit certificates
+X-Redirect-By: WordPress
+X-Redirect-By: WordPress
+X-Redirect-By: WordPress
+X-Redirect-By: WordPress
+
+```
+
+This also reveals:
+```html
+<generator uri="https://wordpress.org/" version="6.9">WordPress</generator>
+ type="html"><![CDATA[Welcome to WordPress. This is your first post. Edit or delete it, then start writing!]]></summary>
+```
+
+### Flag
+
+Flag is: **KCTF{6.9_kadmin_user}**
+
+![](/images/766d3fd32e5eac23a6cbb9f9d7ec5792.png)
+
+
+## Task 2 - Vulnerability Exploitation
 
 ```
 Our web application was compromised through a vulnerable plugin. The attacker exploited a known vulnerability to gain initial access. Identify the vulnerable plugin and its version that was exploited.
@@ -17,9 +147,11 @@ Our web application was compromised through a vulnerable plugin. The attacker ex
 
 
 
-## Assessment
+### pcap2.pcapng - WP Plugin Analysis
 
-Since we already know from previous task that it's WordPress, and we are looking for vulnerable plugin, i wanted to dump all of the requests that Wp scanner hit containing "wp-content/plugins" or similar.
+Since we already know from the previous task that the target is WordPress, and we are looking for a vulnerable plugin, I dumped all requests containing `"wp-content/plugins"`.
+
+The goal here is simply to identify which plugin was actually probed and exploited, rather than listing every possible path.
 
 ```shell-session
 ~/Vault/isec/ctf/knight2k26/net100-exploitation  ✓ $ tshark -r pcap2.pcapng -Y 'frame contains "wp-content/plugins"' -T fields -e frame.time -e ip.src -e http.request.uri
@@ -273,8 +405,173 @@ The most beautiful, responsive, lightning fast social share buttons built to boo
 
 We see that version is: **3.5.2**
 
-## Flag
+### Flag
 
 Flag is **KCTF{social_warfare_3.5.2}**
 
 ![](/images/26ccef2aed200123433953b4962922fc.png)
+
+
+## Task 3 - Post Exploitation
+
+```
+## Post-Exploitation
+
+### 100 Points
+
+Author
+
+After exploiting the vulnerability, the attacker established a persistent connection back to their command and control server. Analyze the traffic to identify the HTTP port used for the initial payload delivery and the port used for the reverse shell connection.
+
+Download: [pcap3.pcapng](https://drive.google.com/file/d/1Xr1onCDIvTvMviH1k16mIjH2P2tfQZuq/view?usp=sharing)
+
+**Flag Format: KCTF{httpPort_revshellPort}**
+```
+
+
+https://drive.google.com/file/d/1Xr1onCDIvTvMviH1k16mIjH2P2tfQZuq/view?usp=sharing
+
+
+### pcap3.pcapng - Payload Analysis
+
+Since it's wordpress in question, i assumed that shell was uploaded from that Social Warfare plugin we already figured out previously, which means by http.
+
+I started filtering out by POST and GET requests, and just looking around. It couldn't be more obvious:
+![](/images/2a7ba68a114d37e816a2f96a8b85285b.png)
+
+This already gives us HTTP port for the payload **8786**, which is half of the flag. Now we only need to find the reverse shell port.
+
+To narrow it down we want to:
+- look after timestamp of a payload, since revese shell can only be invoked after uploading obviously, in screenshot you can see timestamp: **882**
+   `( frame.time_relative > 882)`
+   
+- `!(tcp.port==80 || tcp.port==8767)` - exclude port 80 and payload port 8786
+ - `ip.src==192.168.1.102`  - Only traffic from the victim.
+- `ip.dst==192.168.1.104` - Only traffic going to the attacker.
+
+We will also filter multiple mentions of the same port number with sort -u :
+
+```bash
+~/Vault/isec/ctf/knight2k26/net100-exploitation  ✓ $ tshark -r pcap3.pcapng -Y "ip.src==192.168.1.102 && ip.dst==192.168.1.104 && tcp && frame.time_relative>882 && !(tcp.port==80 || tcp.port==8767)" -T fields -e tcp.srcport -e tcp.dstport | sort -u
+
+     9576
+
+```
+
+And there it is, reverse shell port **9576**
+
+**Note**:
+You can filter with `sort | uniq -c` if you want to display number of packets sent and ephemeral port.
+### Flag
+
+Flag is: KCTF{8767_9576}
+
+![](/images/7be91c4aef1cc1f6451c0cd389d0ef49.png)
+
+## Task 4 - Database Theft
+
+```
+## Database Credentials Theft
+
+### 100 Points
+
+Author
+
+The attacker's ultimate goal was to access our database. During the post-exploitation phase, they managed to extract database credentials from the compromised system. Find the database username and password that were exposed.
+
+> Use pcap3.pcapng file to solve this challenge.
+
+**Flag Format: KCTF{username_password}**
+
+_**Author: TareqAhamed (0xt4req)**_
+```
+
+### pcap3.pacpng -  Reverse Shell Data Analysis
+
+This was the easiest one so far.
+Since we know from previous task that reverse shell was running on 9576, lets only dump TCP stream from it, and convert it from HEX to Binary/ASCII.
+
+That way we can basically see what was the attacker running in the reverse shell:
+```bash
+tshark -r pcap3.pcapng -Y "tcp.port==9576" -T fields -e tcp.payload | xxd -r -p
+
+```
+
+Output:
+```bash
+www-data@ubuntu-server-2:/var/www/html/wordpress/wp-admin$ cd ..
+cd ..
+www-data@ubuntu-server-2:/var/www/html/wordpress$ ls
+ls
+index.php
+license.txt
+readme.html
+wp-activate.php
+wp-admin
+wp-blog-header.php
+wp-comments-post.php
+wp-config-sample.php
+wp-config.php
+wp-content
+wp-cron.php
+wp-includes
+wp-links-opml.php
+wp-load.php
+wp-login.php
+wp-mail.php
+wp-settings.php
+wp-signup.php
+wp-trackback.php
+xmlrpc.php
+.............
+www-data@ubuntu-server-2:/var/www/html/wordpress$ cat wp-config.php
+cat wp-config.php
+<?php
+/**
+ * The base configuration for WordPress
+ *
+ * The wp-config.php creation script uses this file during the installation.
+ * You don't have to use the website, you can copy this file to "wp-config.php"
+ * and fill in the values.
+ *
+ * This file contains the following configurations:
+ *
+ * * Database settings
+ * * Secret keys
+ * * Database table prefix
+ * * ABSPATH
+ *
+ * @link https://developer.wordpress.org/advanced-administration/wordpress/wp-config/
+ *
+ * @package WordPress
+ */
+
+// ** Database settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
+define( 'DB_NAME', 'wordpress_db' );
+
+/** Database username */
+define( 'DB_USER', 'wpuser' );
+
+/** Database password */
+define( 'DB_PASSWORD', 'wp@user123' );
+
+/** Database hostname */
+define( 'DB_HOST', 'localhost' );
+
+/** Database charset to use in creating database tables. */
+define( 'DB_CHARSET', 'utf8mb4' );
+
+/** The database collate type. Don't change this if in doubt. */
+define( 'DB_COLLATE', '' );
+
+....................
+```
+
+And, well, yes that's a password and username right there.
+
+### Flag
+
+Flag is: **KCTF{wpuser_wp@user123}**
+
+![](/images/7a483ecec97a116e2f38fc8f665e5570.png)
