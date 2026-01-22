@@ -26,7 +26,7 @@ File: https://drive.google.com/file/d/1WqG5W-UkDFf4pAeRf5tdTs9ClN1UD1K6/view
 
 It's and elf stripped file.
 
-```shell-session
+```shellsession
 ~/Vault/isec/ctf/knight2k26  ✓ $ file E4sy_P3asy.ks
 E4sy_P3asy.ks: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=ccaa420882d2b8eb1bf3a2cc82b527aa19911512, for GNU/Linux 4.4.0, stripped
 
@@ -34,7 +34,7 @@ E4sy_P3asy.ks: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamica
 
 It has some hashes in strings which may be useful later:
 
-```shell-session
+```shellsession
 ~/Vault/isec/ctf/knight2k26  ✓ $ strings E4sy_P3asy.ks
 ...
 flag>
@@ -92,7 +92,7 @@ GCC: (GNU) 15.2.1 20251112
 ```
 
 Also, regarding those hashes, md5 is also mentioned in strings:
-```shell-session
+```c
 EVP_MD_CTX_new
 EVP_md5
 EVP_DigestUpdate
@@ -100,13 +100,13 @@ EVP_DigestFinal_ex
 ```
 ### Reversing
 
-This binary does following in order:
+This binary does the following, in order:
 
 1.  Reads user input (flag)
 2. Extracts part of solution from KCTF{...}
 3. Using each character from submitted user flag and salt "KnightCTF_2026_s@lt" it builds a string in format **salt + index + char **
 
-```shell-session
+```c
 snprintf(&var_2c8, 0x80, "%s%zu%c", var_358, i, (&var_148)[i])
 sub_401660(&var_2c8, strlen(&var_2c8), &var_338)
 if (strcmp(&var_338, (&data_403ca0)[i]) != 0)
@@ -118,7 +118,7 @@ if (strcmp(&var_338, (&data_403ca0)[i]) != 0)
 
 
 
-````armasmf
+````asm
 00401140    int64_t sub_401140()
 
 00401151        void* fsbase
@@ -268,7 +268,7 @@ if (strcmp(&var_338, (&data_403ca0)[i]) != 0)
 
 ## Solution
 
-I wrote a python script which takes our salt, and index and brute-forces each char until it matches.
+I wrote a python script which takes our salt and index and brute-forces each char until it matches hash from the hash table.
 The binary checks:
 
 ```python
@@ -279,13 +279,14 @@ expected = [
 ]
 ```
 
-We are basically doing:
+The plan is following:
 ```
 for each position/index:
     try all ASCII chars
     find the one that matches
 ```
 
+Here is the python script implementation:
 ```python
 import hashlib
 
@@ -332,8 +333,8 @@ print("KCTF{" + flag + "}")
 ```
 
 
-Testing it out gives us the flag:
-```shell-session
+Running the python script above successfully brute-forces the flag:
+```console
 ~/Vault/isec/ctf/knight2k26  ✓ $ python crack3.py
 0 _
 1 L
