@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnightCTF 2026 - Web 100 - Knight Shop | spiperac&#x27;s blog</title>
+    
+    
+    <link rel="stylesheet" href="https://spiperac.dev/style.css">
+    <link rel="stylesheet" href="https://spiperac.dev/character.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://spiperac.dev/favicon.ico">
+    <link rel="apple-touch-icon" href="https://spiperac.dev/favicon.ico" />
+    
+    
+</head>
+<body>
+    <nav id="top" class="navigation">
+    <ul class="nav-links">
+        <li><a href="https://spiperac.dev">Home</a></li>
+        <li><a href="https://spiperac.dev/tags/ctf">CTF</a></li>
+        <li><a href="https://spiperac.dev/pages/projects">Projects</a></li>
+        <li><a href="https://spiperac.dev/pages/about">About</a></li>
+    </ul>
+    <div class="nav-avatar">
+        <img src="https://spiperac.dev/images/avatar.png" alt="avatar" class="avatar">
+    </div>
+
+    <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+</nav>
+
+    
+    <div class="content">
+        <div id="content">
+            
+    <article>
+        <header>
+            <h1>KnightCTF 2026 - Web 100 - Knight Shop</h1>
+            <div class="blog-post-date">
+
+                Published: 2026-01-21
+                <span style="margin-left:2em;">
+                    <img src="https://spiperac.dev/images/read_time.svg" class="svg" alt="Clock" style="width:1em; height:1em; vertical-align:middle;">
+                    Read time: 2 min
+                </span>
+
+                
+            </div>
+        </header>
+        
+        
+            <div id="table-of-contents">
+                <h2>Table of Contents</h2>
+                <ul>
+                    
+                        <li>
+                            <a href="https://spiperac.dev/posts/knightctf-2026-web-100-knight-shop/#task">Task</a>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://spiperac.dev/posts/knightctf-2026-web-100-knight-shop/#enumeration">Enumeration</a>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://spiperac.dev/posts/knightctf-2026-web-100-knight-shop/#vulnerability">Vulnerability</a>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://spiperac.dev/posts/knightctf-2026-web-100-knight-shop/#exploitation">Exploitation</a>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://spiperac.dev/posts/knightctf-2026-web-100-knight-shop/#flag">Flag</a>
+                            
+                        </li>
+                    
+                </ul>
+            </div>
+        
+        
+        <div class="blog-content">
+            <h2 id="task">Task</h2>
+<pre style="background-color:#212121;color:#eeffff;"><code><span>## Knight Shop Again
+</span><span>
+</span><span>### 100 Points
+</span><span>
+</span><span>Author
+</span><span>
+</span><span>A modern e-commerce platform for medieval equipment. I know you&#39;ll figure it out.
+</span><span>
+</span><span>&gt; [http://23.239.26.112:8087/](http://23.239.26.112:8087/)
+</span><span>
+</span><span>**Flag Format: KCTF{Fl4g_heR3}**
+</span><span>
+</span></code></pre>
+<h2 id="enumeration">Enumeration</h2>
+<pre style="background-color:#212121;color:#eeffff;"><code><span>~  ✓ $ whatweb http://23.239.26.112:8087
+</span><span>http://23.239.26.112:8087 [200 OK] Country[UNITED STATES][US], HTML5, IP[23.239.26.112], Script, Title[Knight Shop - Premium Medieval Equipment], X-Powered-By[Express]
+</span></code></pre>
+<p>View page source shows one JS file import:</p>
+<pre data-lang="html" style="background-color:#212121;color:#eeffff;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#89ddff;">&lt;</span><span style="color:#f07178;">script </span><span style="font-style:italic;color:#ffcb6b;">defer</span><span style="color:#89ddff;">=&quot;</span><span style="color:#c3e88d;">defer</span><span style="color:#89ddff;">&quot; </span><span style="font-style:italic;color:#ffcb6b;">src</span><span style="color:#89ddff;">=&quot;</span><span style="color:#c3e88d;">/static/js/main.b42977dd.js</span><span style="color:#89ddff;">&quot;&gt;&lt;/</span><span style="color:#f07178;">script</span><span style="color:#89ddff;">&gt;
+</span></code></pre>
+<p>Which further confirms that this is in fact <strong>ReactJS</strong> App:</p>
+<pre data-lang="js" style="background-color:#212121;color:#eeffff;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#4a4a4a;">/*! For license information please see main.b42977dd.js.LICENSE.txt */
+</span><span>(</span><span style="color:#89ddff;">()</span><span style="font-style:italic;color:#c792ea;">=&gt;</span><span style="color:#89ddff;">{&quot;</span><span style="color:#c3e88d;">use strict</span><span style="color:#89ddff;">&quot;;</span><span style="font-style:italic;color:#c792ea;">var </span><span>e</span><span style="color:#89ddff;">={</span><span style="color:#f78c6c;">43</span><span style="color:#89ddff;">(</span><span style="color:#f78c6c;">e</span><span style="color:#89ddff;">,</span><span style="color:#f78c6c;">t</span><span style="color:#89ddff;">,</span><span style="color:#f78c6c;">n</span><span style="color:#89ddff;">){</span><span>e</span><span style="color:#89ddff;">.</span><span>exports</span><span style="color:#89ddff;">=</span><span style="color:#82aaff;">n</span><span>(</span><span style="color:#f78c6c;">202</span><span>)</span><span style="color:#89ddff;">},</span><span style="color:#f78c6c;">153</span><span style="color:#89ddff;">(</span><span style="color:#f78c6c;">e</span><span style="color:#89ddff;">,</span><span style="color:#f78c6c;">t</span><span style="color:#89ddff;">,</span><span style="color:#f78c6c;">n</span><span style="color:#89ddff;">){</span><span style="font-style:italic;color:#c792ea;">var </span><span>r</span><span style="color:#89ddff;">=</span><span style="color:#82aaff;">n</span><span>(</span><span style="color:#f78c6c;">43</span><span>)</span><span style="color:#89ddff;">,</span><span>a</span><span style="color:#89ddff;">=</span><span style="color:#ffcb6b;">Symbol</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">for</span><span>(</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">react.element</span><span style="color:#89ddff;">&quot;</span><span>)</span><span style="color:#89ddff;">....
+</span></code></pre>
+<p>Since the file is <strong>minified</strong>, we can <strong>beautify</strong> it and also try to get the debug files if they're left after building the, those should be corresponding .js.map files:</p>
+<pre data-lang="console" style="background-color:#212121;color:#eeffff;" class="language-console "><code class="language-console" data-lang="console"><span>~/Vault/isec/ctf/knight2k26/web100-shop  ✓ $ wget http://23.239.26.112:8087/static/js/main.b42977dd.js.map
+</span><span>--2026-01-22 21:44:28--  http://23.239.26.112:8087/static/js/main.b42977dd.js.map
+</span><span>Connecting to 23.239.26.112:8087... connected.
+</span><span>HTTP request sent, awaiting response... 200 OK
+</span><span>Length: 839655 (820K) [application/json]
+</span><span>Saving to: ‘main.b42977dd.js.map.1’
+</span><span>
+</span><span>main.b42977dd.js.map          100%[=======================================================&gt;] 819.98K  1.08MB/s    in 0.7s
+</span><span>
+</span><span>2026-01-22 21:44:29 (1.08 MB/s) - ‘main.b42977dd.js.map.1’ saved [839655/839655]
+</span><span>
+</span></code></pre>
+<p><img src="/images/b274505293ae2b8b1cbd369ccea2b860.png" alt="" /></p>
+<p>Opening a .js.map file shows us all of the imports and their <strong>sources</strong> in this ReactJS app.
+Ignoring default imports, we're mostly interested in App.js, index.js and vendor.js.</p>
+<p>App.js obfuscation with <code>\n</code> instead of new lines, and all of the quotes escaped can be fixed easily in neovim ( or whatever you use).</p>
+<pre style="background-color:#212121;color:#eeffff;"><code><span>:%s/\\n//g
+</span><span>:%s/\\&quot;/&quot;/g
+</span></code></pre>
+<p>Running these two commands in neovim clears up the code, and makes it readable.</p>
+<h2 id="vulnerability">Vulnerability</h2>
+<p>Looking around App.js for "flag" string i've found interesting function inside a shop logic.</p>
+<pre data-lang="js" style="background-color:#212121;color:#eeffff;" class="language-js "><code class="language-js" data-lang="js"><span>  </span><span style="font-style:italic;color:#c792ea;">const </span><span style="color:#82aaff;">handleCheckout </span><span style="color:#89ddff;">= </span><span style="color:#c792ea;">async </span><span style="color:#89ddff;">() </span><span style="font-style:italic;color:#c792ea;">=&gt; </span><span style="color:#89ddff;">{
+</span><span>    </span><span style="color:#82aaff;">setMessage</span><span>(</span><span style="color:#89ddff;">&#39;&#39;</span><span>)</span><span style="color:#89ddff;">;
+</span><span>    
+</span><span>    </span><span style="font-style:italic;color:#c792ea;">const </span><span>res </span><span style="color:#89ddff;">= </span><span style="font-style:italic;color:#c792ea;">await </span><span style="color:#82aaff;">fetch</span><span>(</span><span style="color:#89ddff;">&#39;</span><span style="color:#c3e88d;">/api/checkout</span><span style="color:#89ddff;">&#39;, {
+</span><span>      method</span><span style="color:#89ddff;">: &#39;</span><span style="color:#c3e88d;">POST</span><span style="color:#89ddff;">&#39;,
+</span><span>      headers</span><span style="color:#89ddff;">: { &#39;</span><span style="color:#c3e88d;">Content-Type</span><span style="color:#89ddff;">&#39;: &#39;</span><span style="color:#c3e88d;">application/json</span><span style="color:#89ddff;">&#39; },
+</span><span>      body</span><span style="color:#89ddff;">: </span><span style="color:#f78c6c;">JSON</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">stringify</span><span>(</span><span style="color:#89ddff;">{ 
+</span><span>        discountCode</span><span style="color:#89ddff;">: </span><span>discountCount </span><span style="color:#89ddff;">&gt; </span><span style="color:#f78c6c;">0 </span><span style="color:#89ddff;">? </span><span>coupon </span><span style="color:#89ddff;">: &#39;&#39;,
+</span><span>        discountCount</span><span style="color:#89ddff;">: </span><span>discountCount 
+</span><span>      </span><span style="color:#89ddff;">}</span><span>)
+</span><span>    </span><span style="color:#89ddff;">}</span><span>)</span><span style="color:#89ddff;">;
+</span><span>    
+</span><span>    </span><span style="font-style:italic;color:#c792ea;">const </span><span>data </span><span style="color:#89ddff;">= </span><span style="font-style:italic;color:#c792ea;">await </span><span>res</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">json</span><span>()</span><span style="color:#89ddff;">;
+</span><span>    
+</span><span>    </span><span style="font-style:italic;color:#c792ea;">if </span><span>(res</span><span style="color:#89ddff;">.</span><span>ok) </span><span style="color:#89ddff;">{
+</span><span>      </span><span style="color:#82aaff;">setUser</span><span>(</span><span style="color:#89ddff;">{ ...</span><span>user</span><span style="color:#89ddff;">, </span><span>balance</span><span style="color:#89ddff;">: </span><span>data</span><span style="color:#89ddff;">.</span><span>balance </span><span style="color:#89ddff;">}</span><span>)</span><span style="color:#89ddff;">;
+</span><span>      </span><span style="color:#82aaff;">setCart</span><span>([])</span><span style="color:#89ddff;">;
+</span><span>      </span><span style="color:#82aaff;">setDiscountCount</span><span>(</span><span style="color:#f78c6c;">0</span><span>)</span><span style="color:#89ddff;">;
+</span><span>      
+</span><span>      </span><span style="font-style:italic;color:#c792ea;">if </span><span>(data</span><span style="color:#89ddff;">.</span><span>flag) </span><span style="color:#89ddff;">{
+</span><span>        </span><span style="color:#82aaff;">setMessage</span><span>(</span><span style="color:#89ddff;">`</span><span style="color:#c3e88d;">🎉 Purchase successful! Your flag: </span><span style="color:#89ddff;">${</span><span>data</span><span style="color:#89ddff;">.</span><span>flag</span><span style="color:#89ddff;">}`</span><span>)</span><span style="color:#89ddff;">;
+</span><span>      </span><span style="color:#89ddff;">} </span><span style="font-style:italic;color:#c792ea;">else </span><span style="color:#89ddff;">{
+</span><span>        </span><span style="color:#82aaff;">setMessage</span><span>(</span><span style="color:#89ddff;">&#39;</span><span style="color:#c3e88d;">✅ Purchase successful!</span><span style="color:#89ddff;">&#39;</span><span>)</span><span style="color:#89ddff;">;
+</span><span>      </span><span style="color:#89ddff;">}
+</span><span>      
+</span><span>      </span><span style="color:#82aaff;">setTimeout</span><span>(</span><span style="color:#89ddff;">() </span><span style="font-style:italic;color:#c792ea;">=&gt; </span><span style="color:#82aaff;">navigate</span><span>(</span><span style="color:#89ddff;">&#39;</span><span style="color:#c3e88d;">/orders</span><span style="color:#89ddff;">&#39;</span><span>)</span><span style="color:#89ddff;">, </span><span style="color:#f78c6c;">2000</span><span>)</span><span style="color:#89ddff;">;
+</span><span>    </span><span style="color:#89ddff;">} </span><span style="font-style:italic;color:#c792ea;">else </span><span style="color:#89ddff;">{
+</span><span>      </span><span style="color:#82aaff;">setMessage</span><span>(</span><span style="color:#89ddff;">`</span><span style="color:#c3e88d;">❌ </span><span style="color:#89ddff;">${</span><span>data</span><span style="color:#89ddff;">.</span><span>error</span><span style="color:#89ddff;">}`</span><span>)</span><span style="color:#89ddff;">;
+</span><span>    </span><span style="color:#89ddff;">}
+</span><span>  </span><span style="color:#89ddff;">};
+</span><span>
+</span></code></pre>
+<p>This function is used to handle checkout, calculate discount if discount code is applied.
+In case of purchase, and data returned as response containing <code>flag</code> it will print out the flag.</p>
+<p>Function which handles coupon application is <strong>applyCoupon</strong>:</p>
+<pre data-lang="js" style="background-color:#212121;color:#eeffff;" class="language-js "><code class="language-js" data-lang="js"><span>  </span><span style="font-style:italic;color:#c792ea;">const </span><span style="color:#82aaff;">applyCoupon </span><span style="color:#89ddff;">= () </span><span style="font-style:italic;color:#c792ea;">=&gt; </span><span style="color:#89ddff;">{
+</span><span>    </span><span style="font-style:italic;color:#c792ea;">const </span><span>result </span><span style="color:#89ddff;">= </span><span style="color:#82aaff;">processTransaction</span><span>(coupon)</span><span style="color:#89ddff;">;
+</span><span>    </span><span style="font-style:italic;color:#c792ea;">if </span><span>(result</span><span style="color:#89ddff;">.</span><span>valid) </span><span style="color:#89ddff;">{
+</span><span>      </span><span style="color:#82aaff;">setDiscountCount</span><span>(</span><span style="color:#f78c6c;">prev </span><span style="font-style:italic;color:#c792ea;">=&gt; </span><span>prev </span><span style="color:#89ddff;">+ </span><span style="color:#f78c6c;">1</span><span>)</span><span style="color:#89ddff;">;
+</span><span>      </span><span style="color:#82aaff;">setMessage</span><span>(</span><span style="color:#89ddff;">&#39;</span><span style="color:#c3e88d;">✅ Coupon applied! 25% discount added.</span><span style="color:#89ddff;">&#39;</span><span>)</span><span style="color:#89ddff;">;
+</span><span>    </span><span style="color:#89ddff;">} </span><span style="font-style:italic;color:#c792ea;">else </span><span style="color:#89ddff;">{
+</span><span>      </span><span style="color:#82aaff;">setMessage</span><span>(</span><span style="color:#89ddff;">&#39;</span><span style="color:#c3e88d;">❌ Invalid coupon code</span><span style="color:#89ddff;">&#39;</span><span>)</span><span style="color:#89ddff;">;
+</span><span>    </span><span style="color:#89ddff;">}
+</span><span>  </span><span style="color:#89ddff;">};
+</span></code></pre>
+<p>and <strong>processTransaction</strong> is imported at the top from <strong>vendor</strong>.js:</p>
+<pre data-lang="js" style="background-color:#212121;color:#eeffff;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#c792ea;">import </span><span style="color:#89ddff;">{ </span><span>processTransaction </span><span style="color:#89ddff;">} </span><span style="font-style:italic;color:#c792ea;">from </span><span style="color:#89ddff;">&#39;</span><span style="color:#c3e88d;">./utils/vendor</span><span style="color:#89ddff;">&#39;;
+</span></code></pre>
+<p>Opening vendor.js file, we also need to replace <code>\n</code> with proper new lines.
+Looking for <strong>processTransaction</strong> leads us to:</p>
+<pre data-lang="js" style="background-color:#212121;color:#eeffff;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#c792ea;">export function </span><span style="color:#82aaff;">processTransaction</span><span style="color:#89ddff;">(</span><span style="color:#f78c6c;">input</span><span style="color:#89ddff;">) {
+</span><span>  </span><span style="font-style:italic;color:#c792ea;">const </span><span>result </span><span style="color:#89ddff;">= </span><span style="color:#82aaff;">_0x1a8c</span><span>(input)</span><span style="color:#89ddff;">;
+</span><span>  </span><span style="font-style:italic;color:#c792ea;">return </span><span>result</span><span style="color:#89ddff;">;
+</span><span style="color:#89ddff;">}
+</span><span>
+</span><span style="color:#89ddff;">...
+</span><span>
+</span><span style="font-style:italic;color:#c792ea;">function </span><span style="color:#82aaff;">_0x1a8c</span><span style="color:#89ddff;">(</span><span style="color:#f78c6c;">input</span><span style="color:#89ddff;">) {
+</span><span>  </span><span style="font-style:italic;color:#c792ea;">const </span><span>base </span><span style="color:#89ddff;">= </span><span>[</span><span style="color:#f78c6c;">75</span><span style="color:#89ddff;">, </span><span style="color:#f78c6c;">78</span><span style="color:#89ddff;">, </span><span style="color:#f78c6c;">73</span><span style="color:#89ddff;">, </span><span style="color:#f78c6c;">71</span><span style="color:#89ddff;">, </span><span style="color:#f78c6c;">72</span><span style="color:#89ddff;">, </span><span style="color:#f78c6c;">84</span><span>]</span><span style="color:#89ddff;">;
+</span><span>  </span><span style="font-style:italic;color:#c792ea;">const </span><span>suffix </span><span style="color:#89ddff;">= </span><span>[</span><span style="color:#f78c6c;">50</span><span style="color:#89ddff;">, </span><span style="color:#f78c6c;">53</span><span>]</span><span style="color:#89ddff;">;
+</span><span>  
+</span><span>  </span><span style="font-style:italic;color:#c792ea;">if </span><span>(</span><span style="color:#89ddff;">!</span><span>input </span><span style="color:#89ddff;">|| </span><span>input</span><span style="color:#89ddff;">.</span><span>length </span><span style="color:#89ddff;">&lt; </span><span style="color:#f78c6c;">5</span><span>) </span><span style="font-style:italic;color:#c792ea;">return </span><span style="color:#89ddff;">{ </span><span>valid</span><span style="color:#89ddff;">: </span><span style="color:#f78c6c;">false </span><span style="color:#89ddff;">};
+</span><span>  
+</span><span>  </span><span style="font-style:italic;color:#c792ea;">const </span><span>prefix </span><span style="color:#89ddff;">= </span><span>input</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">substring</span><span>(</span><span style="color:#f78c6c;">0</span><span style="color:#89ddff;">, </span><span style="color:#f78c6c;">6</span><span>)</span><span style="color:#89ddff;">;
+</span><span>  </span><span style="font-style:italic;color:#c792ea;">const </span><span>ending </span><span style="color:#89ddff;">= </span><span>input</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">substring</span><span>(</span><span style="color:#f78c6c;">6</span><span>)</span><span style="color:#89ddff;">;
+</span><span>  
+</span><span>  </span><span style="font-style:italic;color:#c792ea;">let </span><span>match </span><span style="color:#89ddff;">= </span><span style="color:#f78c6c;">true</span><span style="color:#89ddff;">;
+</span><span>  </span><span style="font-style:italic;color:#c792ea;">for </span><span>(</span><span style="font-style:italic;color:#c792ea;">let </span><span>i </span><span style="color:#89ddff;">= </span><span style="color:#f78c6c;">0</span><span style="color:#89ddff;">; </span><span>i </span><span style="color:#89ddff;">&lt; </span><span style="color:#f78c6c;">6</span><span style="color:#89ddff;">; </span><span>i</span><span style="color:#89ddff;">++</span><span>) </span><span style="color:#89ddff;">{
+</span><span>    </span><span style="font-style:italic;color:#c792ea;">if </span><span>(prefix</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">charCodeAt</span><span>(i) </span><span style="color:#89ddff;">!== </span><span>base[i]) </span><span style="color:#89ddff;">{
+</span><span>      match </span><span style="color:#89ddff;">= </span><span style="color:#f78c6c;">false</span><span style="color:#89ddff;">;
+</span><span>      </span><span style="font-style:italic;color:#c792ea;">break</span><span style="color:#89ddff;">;
+</span><span>    </span><span style="color:#89ddff;">}
+</span><span>  </span><span style="color:#89ddff;">}
+</span><span>  
+</span><span>  </span><span style="font-style:italic;color:#c792ea;">if </span><span>(match </span><span style="color:#89ddff;">&amp;&amp; </span><span>ending</span><span style="color:#89ddff;">.</span><span>length </span><span style="color:#89ddff;">=== </span><span style="color:#f78c6c;">2</span><span>) </span><span style="color:#89ddff;">{
+</span><span>    </span><span style="font-style:italic;color:#c792ea;">if </span><span>(ending</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">charCodeAt</span><span>(</span><span style="color:#f78c6c;">0</span><span>) </span><span style="color:#89ddff;">=== </span><span>suffix[</span><span style="color:#f78c6c;">0</span><span>] </span><span style="color:#89ddff;">&amp;&amp; </span><span>ending</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">charCodeAt</span><span>(</span><span style="color:#f78c6c;">1</span><span>) </span><span style="color:#89ddff;">=== </span><span>suffix[</span><span style="color:#f78c6c;">1</span><span>]) </span><span style="color:#89ddff;">{
+</span><span>      </span><span style="font-style:italic;color:#c792ea;">const </span><span>cookieName </span><span style="color:#89ddff;">= &#39;</span><span style="color:#c3e88d;">promo_applied</span><span style="color:#89ddff;">&#39;;
+</span><span>      </span><span style="font-style:italic;color:#c792ea;">const </span><span>existingCookie </span><span style="color:#89ddff;">= </span><span style="color:#82aaff;">document</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">cookie</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">split</span><span>(</span><span style="color:#89ddff;">&#39;</span><span style="color:#c3e88d;">;</span><span style="color:#89ddff;">&#39;</span><span>)</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">find</span><span>(</span><span style="color:#f78c6c;">c </span><span style="font-style:italic;color:#c792ea;">=&gt; </span><span>c</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">trim</span><span>()</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">startsWith</span><span>(cookieName </span><span style="color:#89ddff;">+ &#39;</span><span style="color:#c3e88d;">=</span><span style="color:#89ddff;">&#39;</span><span>))</span><span style="color:#89ddff;">;
+</span><span>      
+</span><span>      </span><span style="font-style:italic;color:#c792ea;">if </span><span>(existingCookie) </span><span style="color:#89ddff;">{
+</span><span>        </span><span style="font-style:italic;color:#c792ea;">return </span><span style="color:#89ddff;">{ </span><span>valid</span><span style="color:#89ddff;">: </span><span style="color:#f78c6c;">false </span><span style="color:#89ddff;">};
+</span><span>      </span><span style="color:#89ddff;">}
+</span><span>      
+</span><span>      document</span><span style="color:#89ddff;">.</span><span>cookie </span><span style="color:#89ddff;">= </span><span>cookieName </span><span style="color:#89ddff;">+ &#39;</span><span style="color:#c3e88d;">=1; path=/</span><span style="color:#89ddff;">&#39;;
+</span><span>      </span><span style="font-style:italic;color:#c792ea;">return </span><span style="color:#89ddff;">{ </span><span>valid</span><span style="color:#89ddff;">: </span><span style="color:#f78c6c;">true</span><span style="color:#89ddff;">, </span><span>code</span><span style="color:#89ddff;">: </span><span>input </span><span style="color:#89ddff;">};
+</span><span>    </span><span style="color:#89ddff;">}
+</span><span>  </span><span style="color:#89ddff;">}
+</span><span>  
+</span><span>  </span><span style="font-style:italic;color:#c792ea;">return </span><span style="color:#89ddff;">{ </span><span>valid</span><span style="color:#89ddff;">: </span><span style="color:#f78c6c;">false </span><span style="color:#89ddff;">};
+</span><span style="color:#89ddff;">}
+</span></code></pre>
+<p>So what <strong>_0x1a8c</strong> basically does is:</p>
+<ul>
+<li>
+<p>Just converts prefix and suffix from decimal value to ascii string</p>
+<pre style="background-color:#212121;color:#eeffff;"><code><span>  base = [75,78,73,71,72,84] → ASCII = K N I G H T 
+</span><span>  suffix = [50,53] → ASCII = 2 5
+</span></code></pre>
+<ul>
+<li>If the discount code is applied successfully it will set the cookie promo_applied to prevent reuse of the same coupon code.</li>
+</ul>
+</li>
+</ul>
+<p>The problem is <strong>promo_applied</strong> cookie is set on a client side, and can be manipulated.
+From here on, it's pretty trivial to exploit this.</p>
+<h2 id="exploitation">Exploitation</h2>
+<p>First we need to create an account.</p>
+<p><img src="/images/aa8e6936e0a3dbd74def96680c8ae214.png" alt="" /></p>
+<p>Add an item to the card and go the the Cart page:</p>
+<p><img src="/images/a42a257330ce2c6d51d4a1ce433296db.png" alt="" /></p>
+<p>Now we will apply the coupon code: <strong>KNIGHT25</strong>.
+But even with that discount we wont have enough balance to place an order.</p>
+<p><img src="/images/514208b8adc53c06be123441054240bb.png" alt="" /></p>
+<p>And if we try to apply coupon again we get <code>Invalid Coupon code</code>
+<img src="/images/023a695faa6cb166c317e6ea5380f1b7.png" alt="" /></p>
+<p>Now we can just clear out the cookie set by the App from the browser, and reapply the same coupon.
+<img src="/images/3ccbba232e6f4a7d1ef5017b2ad11492.png" alt="" /></p>
+<p>And it works!
+Clicking on checkout should give us the flag:</p>
+<p><img src="/images/b1524d955909d3b3092b433fbd5b13c4.png" alt="" /></p>
+<h2 id="flag">Flag</h2>
+<p>Flag is: <strong>KCTF{kn1ght_c0up0n_m4st3r_2026}</strong></p>
+
+        </div>
+    </article>
+
+        </div>
+    </div>
+    
+    <a href="#top" class="top-btn">⏫</a>
+<footer>
+    <a href="https://mastodon.social/@spiperac" target="_blank" rel="noopener noreferrer">
+        <img src="/icons/mastodon.svg" alt="Mastodon" id="svg" />
+    </a>
+
+    <a href="https://github.com/spiperac" target="_blank" rel="noopener noreferrer">
+        <img src="/icons/github.svg" alt="GitHub" id="svg" />
+    </a>
+
+    <a href="mailto:sp@spiperac.dev">
+        <img src="/icons/email.svg" alt="Email" id="svg" />
+    </a>
+
+    <p>© 2026 spiperac</p>
+</footer>
+
+
+<script>
+  const toggle = document.getElementById('theme-toggle');
+  const root = document.documentElement;
+
+  // Load saved theme or default to dark
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  root.setAttribute('data-theme', savedTheme);
+  toggle.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+
+  toggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      toggle.textContent = next === 'light' ? '🌙' : '☀️';
+      localStorage.setItem('theme', next);
+  });
+</script>
+</body>
+</html>

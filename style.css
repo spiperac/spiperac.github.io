@@ -1,0 +1,258 @@
+:root {
+    --bg: #111111;
+    --bg-secondary: #121212;
+    --fg: #e0e0e0;
+    --hover: #5a3e2b;
+    --accent: #88c0d0;
+    --muted: #888888;
+    --code-bg: #1a1a1a;
+    --code-fg: #d8dee9;
+    --border-color: #D79921;
+    --svg-invert: 1; 
+}
+
+/* Light theme - when data-theme is light */
+:root[data-theme="light"] {
+    --bg: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --fg: #1a1a1a;
+    --hover: #f0e6d2;
+    --accent: #0066cc;
+    --muted: #666666;
+    --code-bg: #f5f5f5;
+    --code-fg: #2e3440;
+    --svg-invert: 0; 
+}
+
+#theme-toggle {
+    background: var(--code-bg);
+    color: var(--fg);
+    border: none;
+    padding: 0.5em 0.75em;
+    border-radius: 4px;
+    margin-left: auto;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+#theme-toggle:hover {
+    background: var(--hover);
+}
+
+/* Main content wrapper */
+.content {
+   flex: 1; 
+}
+/* Base */
+body {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    height: 100%;
+    min-height: 100vh;
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: "Inter", sans-serif;
+    line-height: 1.6;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Links */
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+a:hover {
+  background: var(--hover);
+}
+
+/* Navigation: centered */
+nav.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+    padding: 1em 0;
+    border-bottom: 1px solid;
+}
+.nav-links {
+    list-style: none;
+    /* margin-left: auto; */
+    padding: 0;
+    display: flex;
+    gap: 1.5em;
+}
+.nav-links li a {
+    color: var(--fg);
+    font-weight: 500;
+    font-size: 1.2em;
+}
+.nav-avatar .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Blog post list: DATE # TITLE only */
+.blog-post-list {
+    list-style: none;
+    padding: 0;
+    margin: 2em 0;
+}
+.blog-post-item {
+    margin-bottom: 1em;
+}
+.blog-post-line {
+    display: inline;
+}
+.blog-post-date {
+    color: var(--muted);
+    margin-right: 0.5em;
+}
+.blog-post-title {
+    color: var(--fg);
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+/* Post page */
+article header h1 {
+    color: var(--fg);
+    font-weight: 600;
+    margin-bottom: 0.3em;
+}
+article .blog-post-date {
+    color: var(--muted);
+    font-size: 0.85em;
+    margin-bottom: 1.5em;
+}
+.blog-content {
+    margin-top: 1.5em;
+}
+
+/* Table of contents */
+#table-of-contents {
+    margin-bottom: 2em;
+}
+
+#table-of-contents h2 {
+    font-weight: 500;
+    color: var(--fg);
+    margin-bottom: 0.5em;
+}
+
+#table-of-contents a {
+    color: var(--accent);
+}
+
+/* Code blocks */
+pre {
+    padding: 1rem;
+    border-radius: 4px;
+    border-left: 3px solid var(--accent-primary);
+    overflow-x: auto;
+    margin: 1rem 0;
+    white-space: pre; /* preserve spacing */
+}
+
+code {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    background: none; /* remove conflicting background */
+    padding: 0;       /* remove padding so inline code stays normal */
+}
+
+blockquote {
+    border-left: 3px solid var(--accent);
+    padding-left: 1em;
+    color: var(--muted);
+    margin: 1em 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: auto;
+    padding: 2em 0;
+    color: var(--muted);
+    font-size: 0.85em;
+}
+
+footer a img {
+    margin: 0 0.5em;
+}
+
+footer #svg {
+  width: 24px; 
+  height: 24px;
+  filter: brightness(0) invert(var(--svg-invert));
+}
+
+.svg {
+  width: 24px; 
+  height: 24px;
+  filter: brightness(0) invert(var(--svg-invert));
+}
+
+/* Back-to-top button */
+.top-btn {
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    background: var(--code-bg);
+    color: var(--fg);
+    padding: 0.5em;
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em 0;
+}
+
+th, td {
+    border: 1px solid var(--muted);
+    padding: 0.5em;
+}
+
+th {
+    background-color: var(--bg-secondary);
+    color: var(--fg);
+}
+
+td {
+    background-color: var(--bg);
+    color: var(--fg);
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    border-radius: 6px;
+}
+
+
+/* Projects tds */
+.ghtd a::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  background: url("/icons/github.svg") no-repeat center;
+  background-size: contain;
+}
+
+.cbtd a::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  background: url("/icons/codeberg.svg") no-repeat center;
+  background-size: contain;
+}
+

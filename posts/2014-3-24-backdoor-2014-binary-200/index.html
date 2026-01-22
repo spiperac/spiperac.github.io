@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backdoor 2014 - Binary 200 | spiperac&#x27;s blog</title>
+    
+    
+    <link rel="stylesheet" href="https://spiperac.dev/style.css">
+    <link rel="stylesheet" href="https://spiperac.dev/character.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://spiperac.dev/favicon.ico">
+    <link rel="apple-touch-icon" href="https://spiperac.dev/favicon.ico" />
+    
+    
+</head>
+<body>
+    <nav id="top" class="navigation">
+    <ul class="nav-links">
+        <li><a href="https://spiperac.dev">Home</a></li>
+        <li><a href="https://spiperac.dev/tags/ctf">CTF</a></li>
+        <li><a href="https://spiperac.dev/pages/projects">Projects</a></li>
+        <li><a href="https://spiperac.dev/pages/about">About</a></li>
+    </ul>
+    <div class="nav-avatar">
+        <img src="https://spiperac.dev/images/avatar.png" alt="avatar" class="avatar">
+    </div>
+
+    <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+</nav>
+
+    
+    <div class="content">
+        <div id="content">
+            
+    <article>
+        <header>
+            <h1>Backdoor 2014 - Binary 200</h1>
+            <div class="blog-post-date">
+
+                Published: 2014-03-24
+                <span style="margin-left:2em;">
+                    <img src="https://spiperac.dev/images/read_time.svg" class="svg" alt="Clock" style="width:1em; height:1em; vertical-align:middle;">
+                    Read time: 1 min
+                </span>
+
+                
+            </div>
+        </header>
+        
+        
+            <div id="table-of-contents">
+                <h2>Table of Contents</h2>
+                <ul>
+                    
+                        <li>
+                            <a href="https://spiperac.dev/posts/2014-3-24-backdoor-2014-binary-200/#task">Task:</a>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://spiperac.dev/posts/2014-3-24-backdoor-2014-binary-200/#source-code">Source Code:</a>
+                            
+                        </li>
+                    
+                </ul>
+            </div>
+        
+        
+        <div class="blog-content">
+            <p>This time, we had to deal with an alcoholic.</p>
+<h3 id="task">Task:</h3>
+<blockquote>
+<p>"Jill was high after consuming ( 2^3 ) glasses of alcohol. In this state, he wrote a C++ program to hide a message, but he doesn't remember it now.<br />
+Help him recover it. He managed to write a single line of comment."</p>
+</blockquote>
+<p>We received the source code in a file called <code>obfuscated.cpp</code>.</p>
+<h3 id="source-code">Source Code:</h3>
+<pre data-lang="c" style="background-color:#212121;color:#eeffff;" class="language-c "><code class="language-c" data-lang="c"><span>
+</span><span style="font-style:italic;color:#c792ea;">#include</span><span style="color:#89ddff;">&lt;</span><span style="color:#c3e88d;">cstdio</span><span style="color:#89ddff;">&gt;
+</span><span style="font-style:italic;color:#c792ea;">#include</span><span style="color:#89ddff;">&lt;</span><span style="color:#c3e88d;">cstdlib</span><span style="color:#89ddff;">&gt;
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span style="color:#82aaff;">l101</span><span style="color:#89ddff;">(</span><span style="color:#f78c6c;">a</span><span style="color:#89ddff;">) </span><span style="color:#82aaff;">rand</span><span style="color:#89ddff;">()%</span><span>a
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>zlz1 bbb
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>zz mmm
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>zzz mlm
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>bsd gbbrsh
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>xx </span><span style="font-style:italic;color:#c792ea;">void
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>backdoor \m</span><span style="color:#89ddff;">/
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>bbb cfc
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>ffff ff
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>ads using
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>un unfortunately
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>fff main
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>gu brnf</span><span style="color:#89ddff;">**</span><span>k
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>l10l cfc
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>mmm </span><span style="font-style:italic;color:#c792ea;">void
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>bbbb cfc
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>vgg </span><span style="font-style:italic;color:#c792ea;">long long
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>bub std
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>mlm printf
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>ffffff f
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>lj1 dsnt
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>bmB support
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>cfc </span><span style="font-style:italic;color:#c792ea;">int
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>nv guu
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>aa namespace
+</span><span style="font-style:italic;color:#c792ea;">#define </span><span>m1m inff
+</span><span>ads aa bub</span><span style="color:#89ddff;">;
+</span><span>xx </span><span style="color:#82aaff;">ffff</span><span style="color:#89ddff;">(), </span><span style="color:#82aaff;">fffff</span><span style="color:#89ddff;">();
+</span><span>mmm </span><span style="color:#82aaff;">ggg</span><span style="color:#89ddff;">();
+</span><span>vgg f </span><span style="color:#89ddff;">= 0x</span><span style="color:#f78c6c;">7265616c6c795f69</span><span style="color:#89ddff;">;
+</span><span>zlz1 ccc</span><span style="color:#89ddff;">[] = {0x</span><span style="color:#f78c6c;">5a</span><span style="color:#89ddff;">,</span><span style="color:#f78c6c;">90</span><span style="color:#89ddff;">,0x</span><span style="color:#f78c6c;">5d</span><span style="color:#89ddff;">,</span><span style="color:#f78c6c;">89</span><span style="color:#89ddff;">,</span><span style="color:#f78c6c;">115</span><span style="color:#89ddff;">,</span><span style="color:#f78c6c;">74</span><span style="color:#89ddff;">,</span><span style="color:#f78c6c;">68</span><span style="color:#89ddff;">,</span><span style="color:#f78c6c;">70</span><span style="color:#89ddff;">,0x</span><span style="color:#f78c6c;">5c</span><span style="color:#89ddff;">,</span><span style="color:#f78c6c;">79</span><span style="color:#89ddff;">,0x</span><span style="color:#f78c6c;">43</span><span style="color:#89ddff;">,</span><span style="color:#f78c6c;">87</span><span style="color:#89ddff;">,</span><span style="color:#f78c6c;">123</span><span style="color:#89ddff;">,</span><span style="color:#f78c6c;">101</span><span style="color:#89ddff;">,</span><span style="color:#f78c6c;">110</span><span style="color:#89ddff;">,0x</span><span style="color:#f78c6c;">40</span><span style="color:#89ddff;">,0x</span><span style="color:#f78c6c;">67</span><span style="color:#89ddff;">};
+</span><span>bbbb </span><span style="color:#82aaff;">fff</span><span style="color:#89ddff;">() {
+</span><span>  l10l ll01 </span><span style="color:#89ddff;">= </span><span style="color:#82aaff;">l101</span><span style="color:#89ddff;">((0x</span><span style="color:#f78c6c;">00f1b00</span><span style="color:#89ddff;">&gt;&gt;</span><span style="color:#f78c6c;">4</span><span style="color:#89ddff;">)+0x</span><span style="color:#f78c6c;">08ff08</span><span style="color:#89ddff;">-</span><span style="color:#f78c6c;">354</span><span style="color:#89ddff;">);
+</span><span>  bbbb aaa </span><span style="color:#89ddff;">= </span><span style="color:#f78c6c;">0</span><span style="color:#89ddff;">;
+</span><span>  </span><span style="color:#82aaff;">mlm</span><span style="color:#89ddff;">(&quot;</span><span>%f%l%</span><span style="color:#c3e88d;">lld</span><span style="color:#89ddff;">\n&quot;+</span><span style="color:#f78c6c;">4</span><span style="color:#89ddff;">,</span><span style="color:#82aaff;"> ffffff</span><span style="color:#89ddff;">);
+</span><span>  f</span><span style="color:#89ddff;">++;
+</span><span>  </span><span style="font-style:italic;color:#c792ea;">if</span><span style="color:#89ddff;">(</span><span>ll01</span><span style="color:#89ddff;">&lt;(</span><span>ll01</span><span style="color:#89ddff;">&amp;-0x</span><span style="color:#f78c6c;">1</span><span style="color:#89ddff;">))??&lt;</span><span>ff ggg</span><span style="color:#89ddff;">=&quot;&quot;&gt;
+</span><span style="color:#89ddff;">}
+</span><span>zz </span><span style="color:#82aaff;">ff</span><span style="color:#89ddff;">(){
+</span><span>  </span><span style="font-style:italic;color:#c792ea;">for</span><span style="color:#89ddff;">(</span><span>bbbb guu</span><span style="color:#89ddff;">=</span><span style="color:#f78c6c;">1</span><span style="color:#89ddff;">;</span><span>guu</span><span style="color:#89ddff;">&lt;</span><span style="color:#f78c6c;">18</span><span> data</span><span style="color:#89ddff;">-</span><span>blogger</span><span style="color:#89ddff;">-</span><span>escaped</span><span style="color:#89ddff;">-</span><span>guu</span><span style="color:#89ddff;">=&quot;&quot;&gt;(</span><span>guu</span><span style="color:#89ddff;">&amp;0x</span><span style="color:#f78c6c;">0</span><span style="color:#89ddff;">));++</span><span>guu</span><span style="background-color:#ff5370;color:#ffffff;">)</span><span> </span><span style="color:#89ddff;">{
+</span><span>    ccc</span><span style="color:#89ddff;">[</span><span>nv</span><span style="color:#89ddff;">-</span><span style="color:#f78c6c;">1</span><span style="color:#89ddff;">] = ((</span><span>ccc</span><span style="color:#89ddff;">[</span><span>guu</span><span style="color:#89ddff;">-(((</span><span style="color:#f78c6c;">8</span><span style="color:#89ddff;">*(0x</span><span style="color:#f78c6c;">d5f650</span><span style="color:#89ddff;">))+</span><span style="color:#f78c6c;">1</span><span style="color:#89ddff;">)&amp;</span><span style="color:#f78c6c;">1</span><span style="color:#89ddff;">)] ^ (0x</span><span style="color:#f78c6c;">31</span><span style="color:#89ddff;">-</span><span>guu</span><span style="color:#89ddff;">)));
+</span><span>  </span><span style="color:#89ddff;">}
+</span><span style="color:#89ddff;">}
+</span><span>zz </span><span style="color:#82aaff;">ggg</span><span style="color:#89ddff;">()??&lt;
+</span><span>  </span><span style="font-style:italic;color:#c792ea;">for</span><span style="color:#89ddff;">(</span><span>l10l cc</span><span style="color:#89ddff;">=</span><span style="color:#f78c6c;">0</span><span style="color:#89ddff;">;</span><span>cc</span><span style="color:#89ddff;">&lt;=0x</span><span style="color:#f78c6c;">11</span><span style="color:#89ddff;">;++</span><span>cc</span><span style="color:#89ddff;">)??&lt;</span><span>mlm c</span><span style="color:#89ddff;">=&quot;&quot;</span><span> cc</span><span style="color:#89ddff;">=&quot;&quot;</span><span> ccc</span><span style="color:#89ddff;">=&quot;&quot;</span><span> x</span><span style="color:#89ddff;">=&quot;&quot;&gt;
+</span><span style="color:#89ddff;">%&gt;
+</span><span style="font-style:italic;color:#4a4a4a;">// oops subtracted by 1 not keeping my base is mind&lt;/mlm&gt;&lt;!--18--&gt;&lt;/ff&gt;&lt;/cstdlib&gt;&lt;/cstdio&gt;
+</span><span>```		
+</span><span>And we also got a hint</span><span style="color:#89ddff;">:</span><span> Hint</span><span style="color:#89ddff;">:</span><span> Preprocess </span><span style="color:#89ddff;">-&gt;</span><span> Compile </span><span style="color:#89ddff;">-&gt;</span><span> Execute   
+</span><span>So we</span><span style="color:#89ddff;">,</span><span> basicly</span><span style="color:#89ddff;">,</span><span> did what they said</span><span style="color:#89ddff;">.</span><span> Firstly</span><span style="color:#89ddff;">,</span><span> we have preproceded file without a compilation</span><span style="color:#89ddff;">.</span><span> And then compiled</span><span style="color:#89ddff;">,</span><span> and executed the new preprocessed </span><span style="color:#82aaff;">file </span><span style="color:#89ddff;">(</span><span style="color:#82aaff;">new</span><span style="color:#89ddff;">.</span><span>cpp</span><span style="color:#89ddff;">).   
+</span><span>	
+</span><span>``` bash
+</span><span>wiremage@oxyz </span><span style="color:#89ddff;">~/</span><span>c</span><span style="color:#89ddff;">/</span><span>b</span><span style="color:#89ddff;">/</span><span>bin200</span><span style="color:#89ddff;">&gt;</span><span> g</span><span style="color:#89ddff;">++ -</span><span>trigraphs </span><span style="color:#89ddff;">-</span><span>E obfuscated</span><span style="color:#89ddff;">.</span><span>cpp </span><span style="color:#89ddff;">&gt;</span><span> new</span><span style="color:#89ddff;">.</span><span>cpp
+</span><span>wiremage@oxyz </span><span style="color:#89ddff;">~/</span><span>c</span><span style="color:#89ddff;">/</span><span>b</span><span style="color:#89ddff;">/</span><span>bin200</span><span style="color:#89ddff;">&gt;</span><span> g</span><span style="color:#89ddff;">++</span><span> new</span><span style="color:#89ddff;">.</span><span>cpp 
+</span><span>wiremage@oxyz </span><span style="color:#89ddff;">~/</span><span>c</span><span style="color:#89ddff;">/</span><span>b</span><span style="color:#89ddff;">/</span><span>bin200</span><span style="color:#89ddff;">&gt; ./</span><span>a</span><span style="color:#89ddff;">.</span><span>out 
+</span><span style="color:#f78c6c;">8243101811275816809
+</span></code></pre>
+<p>That gave us a nice number, lol.</p>
+<p>Next, we took a peek inside the <code>new.cpp</code> source and found an unnecessary <code>if</code> statement, so we removed it.<br />
+We discovered that the number we got on the first run came from:</p>
+<pre data-lang="cpp" style="background-color:#212121;color:#eeffff;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#82aaff;">printf</span><span style="color:#89ddff;">(&quot;</span><span>%f%l%</span><span style="color:#c3e88d;">lld</span><span style="color:#89ddff;">\n&quot; + </span><span style="color:#f78c6c;">4</span><span style="color:#89ddff;">,</span><span style="color:#82aaff;"> f</span><span style="color:#89ddff;">);
+</span></code></pre>
+<p>However, if you look at the next two lines, you'll see calls to functions that also perform some <code>printf</code> operations.
+So, we decided to force their execution by removing the <code>if</code> condition.</p>
+<pre data-lang="c" style="background-color:#212121;color:#eeffff;" class="language-c "><code class="language-c" data-lang="c"><span>
+</span><span style="font-style:italic;color:#c792ea;">int </span><span style="color:#82aaff;">main</span><span style="color:#89ddff;">() {
+</span><span>  </span><span style="font-style:italic;color:#c792ea;">int</span><span> ll01 </span><span style="color:#89ddff;">= </span><span style="color:#82aaff;">rand</span><span style="color:#89ddff;">()%(0x</span><span style="color:#f78c6c;">00f1b00</span><span style="color:#89ddff;">&gt;&gt;</span><span style="color:#f78c6c;">4</span><span style="color:#89ddff;">)+0x</span><span style="color:#f78c6c;">08ff08</span><span style="color:#89ddff;">-</span><span style="color:#f78c6c;">354</span><span style="color:#89ddff;">;
+</span><span>  </span><span style="font-style:italic;color:#c792ea;">int</span><span> aaa </span><span style="color:#89ddff;">= </span><span style="color:#f78c6c;">0</span><span style="color:#89ddff;">;
+</span><span>  </span><span style="color:#82aaff;">printf</span><span style="color:#89ddff;">(&quot;</span><span>%f%l%</span><span style="color:#c3e88d;">lld</span><span style="color:#89ddff;">\n&quot;+</span><span style="color:#f78c6c;">4</span><span style="color:#89ddff;">,</span><span style="color:#82aaff;"> f</span><span style="color:#89ddff;">);
+</span><span>  f</span><span style="color:#89ddff;">++;
+</span><span>  </span><span style="font-style:italic;color:#c792ea;">if</span><span style="color:#89ddff;">(</span><span>ll01</span><span style="color:#89ddff;">&lt;(</span><span>ll01</span><span style="color:#89ddff;">&amp;-0x</span><span style="color:#f78c6c;">1</span><span style="color:#89ddff;">)){</span><span style="color:#82aaff;">ff</span><span style="color:#89ddff;">();</span><span style="color:#82aaff;">ggg</span><span style="color:#89ddff;">();</span><span style="font-style:italic;color:#4a4a4a;">//THIS IF HERE WE REMOVED LOL Remember remove only if part, so ff();ggg(); got executed!
+</span><span style="color:#89ddff;">}
+</span><span style="font-style:italic;color:#c792ea;">void </span><span style="color:#82aaff;">ff</span><span style="color:#89ddff;">(){
+</span><span>  </span><span style="font-style:italic;color:#c792ea;">for</span><span style="color:#89ddff;">(</span><span style="font-style:italic;color:#c792ea;">int</span><span> guu</span><span style="color:#89ddff;">=</span><span style="color:#f78c6c;">1</span><span style="color:#89ddff;">;</span><span>guu</span><span style="color:#89ddff;">&lt;</span><span style="color:#f78c6c;">18</span><span style="color:#89ddff;">&amp;&amp;(</span><span>guu</span><span style="color:#89ddff;">&gt;(</span><span>guu</span><span style="color:#89ddff;">&amp;0x</span><span style="color:#f78c6c;">0</span><span style="color:#89ddff;">));++</span><span>guu</span><span style="color:#89ddff;">) {
+</span><span>    ccc</span><span style="color:#89ddff;">[</span><span>guu</span><span style="color:#89ddff;">-</span><span style="color:#f78c6c;">1</span><span style="color:#89ddff;">] = ((</span><span>ccc</span><span style="color:#89ddff;">[</span><span>guu</span><span style="color:#89ddff;">-(((</span><span style="color:#f78c6c;">8</span><span style="color:#89ddff;">*(0x</span><span style="color:#f78c6c;">d5f650</span><span style="color:#89ddff;">))+</span><span style="color:#f78c6c;">1</span><span style="color:#89ddff;">)&amp;</span><span style="color:#f78c6c;">1</span><span style="color:#89ddff;">)] ^ (0x</span><span style="color:#f78c6c;">31</span><span style="color:#89ddff;">-</span><span>guu</span><span style="color:#89ddff;">)));
+</span><span>  </span><span style="color:#89ddff;">}
+</span><span style="color:#89ddff;">}
+</span><span style="font-style:italic;color:#c792ea;">void </span><span style="color:#82aaff;">ggg</span><span style="color:#89ddff;">(){
+</span><span>  </span><span style="font-style:italic;color:#c792ea;">for</span><span style="color:#89ddff;">(</span><span style="font-style:italic;color:#c792ea;">int</span><span> cc</span><span style="color:#89ddff;">=</span><span style="color:#f78c6c;">0</span><span style="color:#89ddff;">;</span><span>cc</span><span style="color:#89ddff;">&lt;=0x</span><span style="color:#f78c6c;">11</span><span style="color:#89ddff;">;++</span><span>cc</span><span style="color:#89ddff;">){</span><span style="color:#82aaff;">printf</span><span style="color:#89ddff;">(&quot;</span><span>%x%c</span><span style="color:#89ddff;">&quot;+</span><span style="color:#f78c6c;">2</span><span style="color:#89ddff;">,</span><span style="color:#82aaff;"> ccc</span><span style="color:#89ddff;">&lt;:</span><span style="color:#82aaff;">cc]</span><span style="color:#89ddff;">);
+</span><span style="color:#89ddff;">%&gt;
+</span></code></pre>
+<p>After that -&gt; compiled file again -&gt; executed -&gt; got the flag.</p>
+<pre data-lang="bash" style="background-color:#212121;color:#eeffff;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#82aaff;">wiremage@oxyz </span><span style="font-style:italic;color:#ff5370;">~</span><span style="color:#82aaff;">/c/b/bin</span><span style="color:#f78c6c;">200</span><span style="color:#89ddff;">&gt;</span><span style="color:#82aaff;"> g++ new.cpp 
+</span><span style="color:#82aaff;">wiremage@oxyz </span><span style="font-style:italic;color:#ff5370;">~</span><span style="color:#82aaff;">/c/b/bin</span><span style="color:#f78c6c;">200</span><span style="color:#89ddff;">&gt;</span><span style="color:#82aaff;"> ./a.out 
+</span><span style="color:#82aaff;">8243101811275816809
+</span><span style="color:#82aaff;">just_another_FLaG
+</span></code></pre>
+<p>Encode just_another_FLaG with MD5 and thats it, you own the flag.</p>
+<p>The flag: <strong>a38834db6eb9d31e3c7e878bae3da748</strong></p>
+
+        </div>
+    </article>
+
+        </div>
+    </div>
+    
+    <a href="#top" class="top-btn">⏫</a>
+<footer>
+    <a href="https://mastodon.social/@spiperac" target="_blank" rel="noopener noreferrer">
+        <img src="/icons/mastodon.svg" alt="Mastodon" id="svg" />
+    </a>
+
+    <a href="https://github.com/spiperac" target="_blank" rel="noopener noreferrer">
+        <img src="/icons/github.svg" alt="GitHub" id="svg" />
+    </a>
+
+    <a href="mailto:sp@spiperac.dev">
+        <img src="/icons/email.svg" alt="Email" id="svg" />
+    </a>
+
+    <p>© 2026 spiperac</p>
+</footer>
+
+
+<script>
+  const toggle = document.getElementById('theme-toggle');
+  const root = document.documentElement;
+
+  // Load saved theme or default to dark
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  root.setAttribute('data-theme', savedTheme);
+  toggle.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+
+  toggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      toggle.textContent = next === 'light' ? '🌙' : '☀️';
+      localStorage.setItem('theme', next);
+  });
+</script>
+</body>
+</html>

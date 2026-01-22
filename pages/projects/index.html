@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | spiperac&#x27;s blog</title>
+    
+    
+    <link rel="stylesheet" href="https://spiperac.dev/style.css">
+    <link rel="stylesheet" href="https://spiperac.dev/character.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://spiperac.dev/favicon.ico">
+    <link rel="apple-touch-icon" href="https://spiperac.dev/favicon.ico" />
+    
+    
+</head>
+<body>
+    <nav id="top" class="navigation">
+    <ul class="nav-links">
+        <li><a href="https://spiperac.dev">Home</a></li>
+        <li><a href="https://spiperac.dev/tags/ctf">CTF</a></li>
+        <li><a href="https://spiperac.dev/pages/projects">Projects</a></li>
+        <li><a href="https://spiperac.dev/pages/about">About</a></li>
+    </ul>
+    <div class="nav-avatar">
+        <img src="https://spiperac.dev/images/avatar.png" alt="avatar" class="avatar">
+    </div>
+
+    <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+</nav>
+
+    
+    <div class="content">
+        <div id="content">
+            
+    <article>
+        <h1>Projects</h1>
+        <h2 id="active">Active</h2>
+<table class="table">
+	<tr>
+		<td class="cbtd"><a href="https://codeberg.org/spiperac/proxctl" target="_blank">proxctl</td>
+		<td>Simple, minimal client for managing Qemu instances with Proxmox REST API.</td>
+    </tr>
+    <tr>
+		<td class="ghtd"><a href="https://github.com/spiperac/spire.nvim" target="_blank">spire.nvim</td>
+		<td>Simple picker plugin for Neovim — files, grep, buffers and a project "jumper".</td>
+    </tr>
+</table>
+<h2 id="archived">Archived</h2>
+<table class="table">
+	<tr>
+		<td class="ghtd"><a href="https://github.com/spiperac/armroper" target="_blank">ARMRoper.py</td>
+		<td>ROP Gadget finder for ARM.</td>
+    </tr>
+	<tr>
+		<td class="ghtd"><a href="https://github.com/spiperac/bCTF" target="_blank">bCTF</td>
+		<td>CTF Scoreboard system, previously used in BalCCon CTF.</td>
+    </tr>
+	<tr>
+		<td class="ghtd"><a href="https://github.com/spiperac/virtapi" target="_blank">virtapi</td>
+		<td>VirtAPI is a Libvirt KVM/QEMU wrapper for API(web) and also comes with CLI tool ( vatool).</td>
+    </tr>
+</table>
+
+    </article>
+
+        </div>
+    </div>
+    
+    <a href="#top" class="top-btn">⏫</a>
+<footer>
+    <a href="https://mastodon.social/@spiperac" target="_blank" rel="noopener noreferrer">
+        <img src="/icons/mastodon.svg" alt="Mastodon" id="svg" />
+    </a>
+
+    <a href="https://github.com/spiperac" target="_blank" rel="noopener noreferrer">
+        <img src="/icons/github.svg" alt="GitHub" id="svg" />
+    </a>
+
+    <a href="mailto:sp@spiperac.dev">
+        <img src="/icons/email.svg" alt="Email" id="svg" />
+    </a>
+
+    <p>© 2026 spiperac</p>
+</footer>
+
+
+<script>
+  const toggle = document.getElementById('theme-toggle');
+  const root = document.documentElement;
+
+  // Load saved theme or default to dark
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  root.setAttribute('data-theme', savedTheme);
+  toggle.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+
+  toggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      toggle.textContent = next === 'light' ? '🌙' : '☀️';
+      localStorage.setItem('theme', next);
+  });
+</script>
+</body>
+</html>

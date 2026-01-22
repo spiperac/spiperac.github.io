@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnightCTF 2026 - Reversing50 - E4sy P3asy | spiperac&#x27;s blog</title>
+    
+    
+    <link rel="stylesheet" href="https://spiperac.dev/style.css">
+    <link rel="stylesheet" href="https://spiperac.dev/character.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://spiperac.dev/favicon.ico">
+    <link rel="apple-touch-icon" href="https://spiperac.dev/favicon.ico" />
+    
+    
+</head>
+<body>
+    <nav id="top" class="navigation">
+    <ul class="nav-links">
+        <li><a href="https://spiperac.dev">Home</a></li>
+        <li><a href="https://spiperac.dev/tags/ctf">CTF</a></li>
+        <li><a href="https://spiperac.dev/pages/projects">Projects</a></li>
+        <li><a href="https://spiperac.dev/pages/about">About</a></li>
+    </ul>
+    <div class="nav-avatar">
+        <img src="https://spiperac.dev/images/avatar.png" alt="avatar" class="avatar">
+    </div>
+
+    <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+</nav>
+
+    
+    <div class="content">
+        <div id="content">
+            
+    <article>
+        <header>
+            <h1>KnightCTF 2026 - Reversing50 - E4sy P3asy</h1>
+            <div class="blog-post-date">
+
+                Published: 2026-01-21
+                <span style="margin-left:2em;">
+                    <img src="https://spiperac.dev/images/read_time.svg" class="svg" alt="Clock" style="width:1em; height:1em; vertical-align:middle;">
+                    Read time: 2 min
+                </span>
+
+                
+            </div>
+        </header>
+        
+        
+            <div id="table-of-contents">
+                <h2>Table of Contents</h2>
+                <ul>
+                    
+                        <li>
+                            <a href="https://spiperac.dev/posts/knightctf-2026-reversing50-e4sy-p3asy/#task">Task</a>
+                            
+                                <ul>
+                                    
+                                        <li>
+                                            <a href="https://spiperac.dev/posts/knightctf-2026-reversing50-e4sy-p3asy/#reversing">Reversing</a>
+                                        </li>
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://spiperac.dev/posts/knightctf-2026-reversing50-e4sy-p3asy/#solution">Solution</a>
+                            
+                        </li>
+                    
+                </ul>
+            </div>
+        
+        
+        <div class="blog-content">
+            <h2 id="task">Task</h2>
+<pre style="background-color:#212121;color:#eeffff;"><code><span>## E4sy P3asy
+</span><span>
+</span><span>### 50 Points
+</span><span>
+</span><span>Author
+</span><span>
+</span><span>NomanProdhan
+</span><span>
+</span><span>An easy RE...
+</span><span>
+</span><span>Flag Format : KCTF{flag}
+</span></code></pre>
+<p>File: https://drive.google.com/file/d/1WqG5W-UkDFf4pAeRf5tdTs9ClN1UD1K6/view</p>
+<p>It's and elf stripped file.</p>
+<pre data-lang="shellsession" style="background-color:#212121;color:#eeffff;" class="language-shellsession "><code class="language-shellsession" data-lang="shellsession"><span>~/Vault/isec/ctf/knight2k26  ✓ $ file E4sy_P3asy.ks
+</span><span>E4sy_P3asy.ks: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=ccaa420882d2b8eb1bf3a2cc82b527aa19911512, for GNU/Linux 4.4.0, stripped
+</span><span>
+</span></code></pre>
+<p>It has some hashes in strings which may be useful later:</p>
+<pre data-lang="shellsession" style="background-color:#212121;color:#eeffff;" class="language-shellsession "><code class="language-shellsession" data-lang="shellsession"><span>~/Vault/isec/ctf/knight2k26  ✓ $ strings E4sy_P3asy.ks
+</span><span>...
+</span><span>flag&gt;
+</span><span>GoogleCTF{
+</span><span>%s%zu%c
+</span><span>Try again!
+</span><span>FLAG{
+</span><span>KCTF{
+</span><span>Good job! You got it!
+</span><span>========================================
+</span><span>   E4sy P3asy - KnightCTF 2026
+</span><span>[*] Enter the flag to prove your worth!
+</span><span>[!] Interesting... but that&#39;s a decoy flag from a different universe.
+</span><span>[!] You&#39;re in KnightCTF, not GoogleCTF :)
+</span><span>[?] Format looks suspicious... but not quite.
+</span><span>781011edfb2127ee5ff82b06bb1d2959
+</span><span>4cf891e0ddadbcaae8e8c2dc8bb15ea0
+</span><span>d06d0cbe140d0a1de7410b0b888f22b4
+</span><span>d44c9a9b9f9d1c28d0904d6a2ee3e109
+</span><span>e20ab37bee9d2a1f9ca3d914b0e98f09
+</span><span>d0beea4ce1c12190db64d10a82b96ef8
+</span><span>ac87da74d381d253820bcf4e5f19fcea
+</span><span>ce3f3a34a04ba5e5142f5db272b6cb1f
+</span><span>13843aca227ef709694bbfe4e5a32203
+</span><span>ca19a4c4eb435cb44d74c1e589e51a10
+</span><span>19edec8e46bdf97e3018569c0a60baa3
+</span><span>972e078458ce3cb6e32f795ff4972718
+</span><span>071824f6039981e9c57725453e005beb
+</span><span>66cd6098426b0e69e30e7fa360310728
+</span><span>f78d152df5d277d0ab7d25fb7d1841f3
+</span><span>dba3a36431c4aaf593566f7421abaa22
+</span><span>8820bbdad85ebee06632c379231cfb6b
+</span><span>722bc7cde7d548b81c5996519e1b0f0f
+</span><span>c2862c390c830eb3c740ade576d64773
+</span><span>94da978fe383b341f9588f9bab246774
+</span><span>bea3bb724dbd1704cf45aea8e73c01e1
+</span><span>ade2289739760fa27fd4f7d4ffbc722d
+</span><span>3cd0538114fe416b32cdd814e2ee57b3
+</span><span>8af7f29b21564b87336ed4e4cdfb1a20
+</span><span>4d3f509284784ab67818b13e74fd5ebe
+</span><span>5a45666e1387ff739eb470f840532099
+</span><span>c96997e23323e502d5d0b07d24a68d50
+</span><span>efb388057adc3fe734d8b6ffb2bdd1e1
+</span><span>6df2aaf58e39f89d7a31a72e19e0efbf
+</span><span>9bbd077d3df7faedfd22fae85043d6c0
+</span><span>dc72837ea6ba778eebbd0401a35182f4
+</span><span>efa0bc7c5da3545ba15548b4b85eaf76
+</span><span>1c36dbad9144b1e1d23ddecb5d4df3e9
+</span><span>980663d212aed1ba720f7735873fa73c
+</span><span>9df295c8874bcac93c98babe78b9c946
+</span><span>2672e4d30c7da0d30749f09bc1b1eefa
+</span><span>;*3$&quot;
+</span><span>GCC: (GNU) 15.2.1 20251112
+</span><span>.....
+</span></code></pre>
+<p>Also, regarding those hashes, md5 is also mentioned in strings:</p>
+<pre data-lang="c" style="background-color:#212121;color:#eeffff;" class="language-c "><code class="language-c" data-lang="c"><span>EVP_MD_CTX_new
+</span><span style="color:#82aaff;">EVP_md5
+</span><span>EVP_DigestUpdate
+</span><span style="color:#82aaff;">EVP_DigestFinal_ex
+</span></code></pre>
+<h3 id="reversing">Reversing</h3>
+<p>This binary does the following, in order:</p>
+<ol>
+<li>Reads user input (flag)</li>
+<li>Extracts part of solution from KCTF{...}</li>
+<li>Using each character from submitted user flag and salt "KnightCTF_2026_s@lt" it builds a string in format **salt + index + char **</li>
+</ol>
+<pre data-lang="c" style="background-color:#212121;color:#eeffff;" class="language-c "><code class="language-c" data-lang="c"><span style="color:#82aaff;">snprintf</span><span style="color:#89ddff;">(&amp;</span><span style="color:#82aaff;">var_2c8</span><span style="color:#89ddff;">, 0x</span><span style="color:#f78c6c;">80</span><span style="color:#89ddff;">, &quot;</span><span>%s%zu%c</span><span style="color:#89ddff;">&quot;,</span><span style="color:#82aaff;"> var_358</span><span style="color:#89ddff;">,</span><span style="color:#82aaff;"> i</span><span style="color:#89ddff;">, (&amp;</span><span style="color:#82aaff;">var_148</span><span style="color:#89ddff;">)[</span><span style="color:#82aaff;">i</span><span style="color:#89ddff;">])
+</span><span style="color:#82aaff;">sub_401660</span><span style="color:#89ddff;">(&amp;</span><span style="color:#f78c6c;">var_2c8</span><span style="color:#89ddff;">, </span><span style="color:#82aaff;">strlen</span><span style="color:#89ddff;">(&amp;</span><span style="color:#82aaff;">var_2c8</span><span style="color:#89ddff;">), &amp;</span><span style="color:#f78c6c;">var_338</span><span style="color:#89ddff;">)
+</span><span style="font-style:italic;color:#c792ea;">if </span><span style="color:#89ddff;">(</span><span style="color:#82aaff;">strcmp</span><span style="color:#89ddff;">(&amp;</span><span style="color:#82aaff;">var_338</span><span style="color:#89ddff;">, (&amp;</span><span style="color:#82aaff;">data_403ca0</span><span style="color:#89ddff;">)[</span><span style="color:#82aaff;">i</span><span style="color:#89ddff;">]) != </span><span style="color:#f78c6c;">0</span><span style="color:#89ddff;">)
+</span><span>    fail
+</span><span>
+</span></code></pre>
+<ol start="4">
+<li>Hashes it with MD5 and compares it to the hash table which we saw in strings</li>
+<li>If all hashes are ok, profit!</li>
+</ol>
+<pre data-lang="asm" style="background-color:#212121;color:#eeffff;" class="language-asm "><code class="language-asm" data-lang="asm"><span style="color:#f78c6c;">00401140    </span><span style="color:#82aaff;">int64_t sub_401140()
+</span><span>
+</span><span style="color:#f78c6c;">00401151        </span><span style="color:#82aaff;">void</span><span>* </span><span style="color:#82aaff;">fsbase
+</span><span style="color:#f78c6c;">00401151        </span><span style="color:#82aaff;">int64_t </span><span style="color:#f78c6c;">rdi </span><span style="color:#82aaff;">= </span><span>*</span><span style="color:#82aaff;">(fsbase </span><span>+ </span><span style="color:#f78c6c;">0x28</span><span style="color:#82aaff;">)
+</span><span style="color:#f78c6c;">00401171        </span><span style="color:#82aaff;">puts(</span><span style="color:#c3e88d;">&quot;========================================&quot;</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">0040117d        puts(</span><span style="color:#c3e88d;">&quot;   E4sy P3asy - KnightCTF 2026&quot;</span><span style="color:#82aaff;">)
+</span><span style="color:#f78c6c;">00401189        </span><span style="color:#82aaff;">puts(</span><span style="color:#c3e88d;">&quot;========================================&quot;</span><span style="color:#82aaff;">)
+</span><span style="color:#f78c6c;">00401195        </span><span style="color:#82aaff;">puts(</span><span style="color:#c3e88d;">&quot;[*] Enter the flag to prove your worth!&quot;</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">004011a1        puts(&amp;data_402009</span><span>[</span><span style="color:#f78c6c;">6</span><span>]</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">004011af        printf(</span><span style="color:#c3e88d;">&quot;flag&gt; &quot;</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">004011cb        void var_248
+</span><span style="color:#82aaff;">004011cb        
+</span><span style="color:#82aaff;">004011cb        if (fgets(&amp;var_248</span><span>, </span><span style="color:#f78c6c;">0x100</span><span>, </span><span style="color:#82aaff;">stdin) != </span><span style="color:#f78c6c;">0</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">004011d4            int64_t rax_2 = strlen(&amp;var_248)
+</span><span style="color:#82aaff;">004011dc            int32_t</span><span>* </span><span style="color:#82aaff;">var_358
+</span><span style="color:#82aaff;">004011dc            
+</span><span style="color:#82aaff;">004011dc            if (rax_2 != </span><span style="color:#f78c6c;">0</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">004011e3                char</span><span>* </span><span style="color:#82aaff;">rax_3 = &amp;var_358 </span><span>+ </span><span style="color:#82aaff;">rax_2 </span><span>+ </span><span style="color:#f78c6c;">0x10f
+</span><span style="color:#82aaff;">004011e3                
+</span><span style="color:#82aaff;">0040120d                do
+</span><span style="color:#82aaff;">0040120f                    char rdx_1 = </span><span>*</span><span style="color:#82aaff;">rax_3
+</span><span style="color:#82aaff;">0040120f                    
+</span><span style="color:#82aaff;">0040121a                    if (rdx_1 != </span><span style="color:#f78c6c;">0xa </span><span style="color:#82aaff;">&amp;&amp; rdx_1 != </span><span style="color:#f78c6c;">0xd</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">0040121a                        break
+</span><span style="color:#82aaff;">0040121a                    
+</span><span style="color:#f78c6c;">00401200                    </span><span>*</span><span style="color:#82aaff;">rax_3 = </span><span style="color:#f78c6c;">0
+</span><span style="color:#f78c6c;">00401206                    </span><span style="color:#82aaff;">rax_3 </span><span>-</span><span style="color:#82aaff;">= </span><span style="color:#f78c6c;">1
+</span><span style="color:#82aaff;">0040120d                while (</span><span style="color:#f78c6c;">1 </span><span>- </span><span style="color:#82aaff;">&amp;var_248 != </span><span style="font-style:italic;color:#c792ea;">neg</span><span style="color:#82aaff;">.q(rax_3))
+</span><span style="color:#82aaff;">0040120d            
+</span><span style="color:#f78c6c;">00401235            </span><span style="color:#82aaff;">char var_148
+</span><span style="color:#f78c6c;">00401235            </span><span style="color:#82aaff;">sub_401660(&amp;var_248</span><span>, </span><span style="color:#82aaff;">strlen(&amp;var_248)</span><span>, </span><span style="color:#82aaff;">&amp;var_148)
+</span><span style="color:#82aaff;">0040124b            char var_147
+</span><span style="color:#82aaff;">0040124b            
+</span><span style="color:#82aaff;">0040124b            if ((var_148 ^ var_147) == </span><span style="color:#f78c6c;">0x5a</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">0040132b                int32_t var_33c_1 = </span><span style="color:#f78c6c;">1
+</span><span style="color:#82aaff;">0040133c                int32_t var_33c_2 = </span><span style="color:#f78c6c;">0x1336
+</span><span style="color:#82aaff;">0040133c            
+</span><span style="color:#f78c6c;">00401262            </span><span style="color:#82aaff;">void var_338
+</span><span style="color:#f78c6c;">00401262            </span><span style="color:#82aaff;">int32_t var_308
+</span><span style="color:#f78c6c;">00401262            </span><span style="color:#82aaff;">void var_2c8
+</span><span style="color:#f78c6c;">00401262            
+</span><span style="color:#f78c6c;">00401262            </span><span style="color:#82aaff;">if (sub_401760(&amp;var_248</span><span>, </span><span style="color:#c3e88d;">&quot;GoogleCTF{&quot;</span><span style="color:#82aaff;">) == </span><span style="color:#f78c6c;">0</span><span style="color:#82aaff;">)
+</span><span style="color:#f78c6c;">00401293            </span><span style="color:#82aaff;">label_401293:
+</span><span style="color:#f78c6c;">00401293                </span><span style="color:#82aaff;">int32_t rax_9 = sub_401760(&amp;var_248</span><span>, </span><span style="color:#c3e88d;">&quot;CTF{&quot;</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">0040129a                int32_t rax_10
+</span><span style="color:#82aaff;">0040129a                
+</span><span style="color:#82aaff;">0040129a                if (rax_9 == </span><span style="color:#f78c6c;">0</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">004012aa                    rax_10 = sub_401760(&amp;var_248</span><span>, </span><span style="color:#c3e88d;">&quot;FLAG{&quot;</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">004012aa                
+</span><span style="color:#82aaff;">004012b4                if (rax_9 != </span><span style="color:#f78c6c;">0 </span><span style="color:#82aaff;">|| rax_10 != </span><span style="color:#f78c6c;">0</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">0040134c                    puts(</span><span style="color:#c3e88d;">&quot;[?] Format looks suspicious... but not quite.&quot;</span><span style="color:#82aaff;">)
+</span><span style="color:#f78c6c;">00401358                    </span><span style="color:#82aaff;">puts(</span><span style="color:#c3e88d;">&quot;Try again!&quot;</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">004012b4                else if (sub_401760(&amp;var_248</span><span>, </span><span style="color:#c3e88d;">&quot;KCTF{&quot;</span><span style="color:#82aaff;">) == </span><span style="color:#f78c6c;">0</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">004012f9                labelid_3:
+</span><span style="color:#82aaff;">004012f9                    puts(</span><span style="color:#c3e88d;">&quot;Try again!&quot;</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">004012cb                else if (sub_4017a0(&amp;var_248) == </span><span style="color:#f78c6c;">0</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">004012f9                label_4012f9:
+</span><span style="color:#82aaff;">004012f9                    puts(</span><span style="color:#c3e88d;">&quot;Try again!&quot;</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">004012d7                else
+</span><span style="color:#82aaff;">004012dc                    int64_t rax_13 = strlen(&amp;var_248)
+</span><span style="color:#82aaff;">004012dc                    
+</span><span style="color:#82aaff;">004012ec                    if (rax_13 </span><span>- </span><span style="color:#f78c6c;">6 </span><span style="color:#82aaff;">u&lt;= </span><span style="color:#f78c6c;">0xff</span><span style="color:#82aaff;">)
+</span><span style="color:#f78c6c;">00401476                        </span><span style="color:#82aaff;">void var_243
+</span><span style="color:#f78c6c;">00401476                        </span><span style="color:#82aaff;">__builtin_memcpy(dest: &amp;var_148</span><span>, </span><span style="color:#82aaff;">src: &amp;var_243</span><span>, </span><span style="color:#82aaff;">count: rax_13 </span><span>- </span><span style="color:#f78c6c;">6</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">0040147d                        char var_14e</span><span>[</span><span style="color:#f78c6c;">0x6</span><span>]
+</span><span style="color:#82aaff;">0040147d                        var_14e</span><span>[</span><span style="color:#82aaff;">rax_13</span><span>] </span><span style="color:#82aaff;">= </span><span style="color:#f78c6c;">0
+</span><span style="color:#82aaff;">0040148d                        var_358 = &amp;var_308
+</span><span style="color:#f78c6c;">00401491                        </span><span style="color:#82aaff;">int64_t rcx_5
+</span><span style="color:#f78c6c;">00401491                        </span><span style="color:#82aaff;">int64_t rdi_17
+</span><span style="color:#f78c6c;">00401491                        </span><span style="color:#82aaff;">rdi_17</span><span>, </span><span style="color:#82aaff;">rcx_5 = __memfill_u32(&amp;var_308</span><span>, </span><span style="color:#82aaff;">rax_10</span><span>, </span><span style="color:#f78c6c;">0x10</span><span style="color:#82aaff;">)
+</span><span style="color:#f78c6c;">00401493                        </span><span style="color:#82aaff;">__builtin_strncpy(dest: &amp;var_308</span><span>, </span><span style="color:#82aaff;">src: </span><span style="color:#c3e88d;">&quot;KnightCTF_2026_s@lt&quot;</span><span>, 
+</span><span style="color:#f78c6c;">00401493                            </span><span style="color:#82aaff;">count: </span><span style="color:#f78c6c;">0x13</span><span style="color:#82aaff;">)
+</span><span style="color:#f78c6c;">00401493                        
+</span><span style="color:#82aaff;">004014c2                        if (rax_13 != </span><span style="color:#f78c6c;">0x1d</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">004012f9                        label_4012f9_1:
+</span><span style="color:#82aaff;">004012f9                            puts(</span><span style="color:#c3e88d;">&quot;Try again!&quot;</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">004014c2                        else
+</span><span style="color:#82aaff;">004014cf                            int64_t i = </span><span style="color:#f78c6c;">0
+</span><span style="color:#82aaff;">004014d9                            char const</span><span>* </span><span style="color:#82aaff;">const var_350_2 = </span><span style="color:#c3e88d;">&quot;%s%zu%c&quot;
+</span><span style="color:#82aaff;">004014d9                            
+</span><span style="color:#82aaff;">004014e8                            do
+</span><span style="color:#82aaff;">0040150b                                snprintf(&amp;var_2c8</span><span>, </span><span style="color:#f78c6c;">0x80</span><span>, </span><span style="color:#82aaff;">var_350_2</span><span>, </span><span style="color:#82aaff;">var_358</span><span>, </span><span style="color:#82aaff;">i</span><span>, 
+</span><span style="color:#82aaff;">0040150b                                    zx.q(sx.d((&amp;var_148)</span><span>[</span><span style="color:#82aaff;">i</span><span>]</span><span style="color:#82aaff;">)))
+</span><span style="color:#82aaff;">0040152d                                sub_401660(&amp;var_2c8</span><span>, </span><span style="color:#82aaff;">strlen(&amp;var_2c8)</span><span>, </span><span style="color:#82aaff;">&amp;var_338)
+</span><span style="color:#82aaff;">0040152d                                
+</span><span style="color:#f78c6c;">00401542                                </span><span style="color:#82aaff;">if (strcmp(&amp;var_338</span><span>, </span><span style="color:#82aaff;">(&amp;data_403ca0)</span><span>[</span><span style="color:#82aaff;">i</span><span>]</span><span style="color:#82aaff;">) != </span><span style="color:#f78c6c;">0</span><span style="color:#82aaff;">)
+</span><span style="color:#f78c6c;">00401542                                    </span><span style="color:#82aaff;">goto label_4012f9_2
+</span><span style="color:#f78c6c;">00401542                                
+</span><span style="color:#82aaff;">004014e0                                i </span><span>+</span><span style="color:#82aaff;">= </span><span style="color:#f78c6c;">1
+</span><span style="color:#82aaff;">004014e8                            while (i != </span><span style="color:#f78c6c;">0x17</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">004014e8                            
+</span><span style="color:#f78c6c;">00401550                            </span><span style="color:#82aaff;">puts(</span><span style="color:#c3e88d;">&quot;Good job! You got it!&quot;</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">004012ec                    else
+</span><span style="color:#82aaff;">004012f9                    label_4012f9_2:
+</span><span style="color:#82aaff;">004012f9                        puts(</span><span style="color:#c3e88d;">&quot;Try again!&quot;</span><span style="color:#82aaff;">)
+</span><span style="color:#f78c6c;">00401262            </span><span style="color:#82aaff;">else
+</span><span style="color:#82aaff;">0040126e                if (sub_4017a0(&amp;var_248) == </span><span style="color:#f78c6c;">0</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">0040126e                    goto label_401293
+</span><span style="color:#82aaff;">0040126e                
+</span><span style="color:#f78c6c;">00401273                </span><span style="color:#82aaff;">int64_t rax_8 = strlen(&amp;var_248)
+</span><span style="color:#f78c6c;">00401273                
+</span><span style="color:#f78c6c;">00401283                </span><span style="color:#82aaff;">if (rax_8 </span><span>- </span><span style="color:#f78c6c;">0xb </span><span style="color:#82aaff;">u&gt; </span><span style="color:#f78c6c;">0xff</span><span style="color:#82aaff;">)
+</span><span style="color:#f78c6c;">00401283                    </span><span style="color:#82aaff;">goto label_401293
+</span><span style="color:#f78c6c;">00401283                
+</span><span style="color:#82aaff;">0040136d                void var_23e
+</span><span style="color:#82aaff;">0040136d                __builtin_memcpy(dest: &amp;var_148</span><span>, </span><span style="color:#82aaff;">src: &amp;var_23e</span><span>, </span><span style="color:#82aaff;">count: rax_8 </span><span>- </span><span style="color:#f78c6c;">0xb</span><span style="color:#82aaff;">)
+</span><span style="color:#f78c6c;">00401374                </span><span style="color:#82aaff;">char var_153</span><span>[</span><span style="color:#f78c6c;">0x5</span><span>]
+</span><span style="color:#f78c6c;">00401374                </span><span style="color:#82aaff;">var_153</span><span>[</span><span style="color:#82aaff;">rax_8</span><span>] </span><span style="color:#82aaff;">= </span><span style="color:#f78c6c;">0
+</span><span style="color:#f78c6c;">00401383                </span><span style="color:#82aaff;">var_358 = &amp;var_308
+</span><span style="color:#f78c6c;">00401387                </span><span style="color:#82aaff;">__builtin_memset(dest: &amp;var_308</span><span>, </span><span style="color:#f78c6c;">ch</span><span style="color:#82aaff;">: </span><span style="color:#f78c6c;">0</span><span>, </span><span style="color:#82aaff;">count: </span><span style="color:#f78c6c;">0x40</span><span style="color:#82aaff;">)
+</span><span style="color:#f78c6c;">00401389                </span><span style="color:#82aaff;">__builtin_strcpy(dest: &amp;var_308</span><span>, </span><span style="color:#82aaff;">src: </span><span style="color:#c3e88d;">&quot;G00gleCTF_s@lt_2026&quot;</span><span style="color:#82aaff;">)
+</span><span style="color:#f78c6c;">00401389                
+</span><span style="color:#82aaff;">004013ba                if (rax_8 != </span><span style="color:#f78c6c;">0x18</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">004013ba                    goto label_401293
+</span><span style="color:#82aaff;">004013ba                
+</span><span style="color:#82aaff;">004013c7                int64_t i_1 = </span><span style="color:#f78c6c;">0
+</span><span style="color:#82aaff;">004013d1                char const</span><span>* </span><span style="color:#82aaff;">const var_350_1 = </span><span style="color:#c3e88d;">&quot;%s%zu%c&quot;
+</span><span style="color:#82aaff;">004013d1                
+</span><span style="color:#82aaff;">0040143d                do
+</span><span style="color:#82aaff;">004013f7                    snprintf(&amp;var_2c8</span><span>, </span><span style="color:#f78c6c;">0x80</span><span>, </span><span style="color:#82aaff;">var_350_1</span><span>, </span><span style="color:#82aaff;">var_358</span><span>, </span><span style="color:#82aaff;">i_1</span><span>, 
+</span><span style="color:#82aaff;">004013f7                        zx.q(sx.d((&amp;var_148)</span><span>[</span><span style="color:#82aaff;">i_1</span><span>]</span><span style="color:#82aaff;">)))
+</span><span style="color:#f78c6c;">00401419                    </span><span style="color:#82aaff;">sub_401660(&amp;var_2c8</span><span>, </span><span style="color:#82aaff;">strlen(&amp;var_2c8)</span><span>, </span><span style="color:#82aaff;">&amp;var_338)
+</span><span style="color:#f78c6c;">00401419                    
+</span><span style="color:#82aaff;">0040142f                    if (strcmp(&amp;var_338</span><span>, </span><span style="color:#82aaff;">(&amp;data_403d60)</span><span>[</span><span style="color:#82aaff;">i_1</span><span>]</span><span style="color:#82aaff;">) != </span><span style="color:#f78c6c;">0</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">0040142f                        goto label_401293
+</span><span style="color:#82aaff;">0040142f                    
+</span><span style="color:#f78c6c;">00401435                    </span><span style="color:#82aaff;">i_1 </span><span>+</span><span style="color:#82aaff;">= </span><span style="color:#f78c6c;">1
+</span><span style="color:#82aaff;">0040143d                while (i_1 != </span><span style="color:#f78c6c;">0xd</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">0040143d                
+</span><span style="color:#f78c6c;">00401446                </span><span style="color:#82aaff;">puts(&quot;
+</span><span style="color:#f78c6c;">00401446                    </span><span>[</span><span style="color:#82aaff;">!</span><span>] </span><span style="color:#82aaff;">Interesting... but that</span><span style="color:#c3e88d;">&#39;s a decoy flag from a different universe.&quot;</span><span style="color:#82aaff;">)
+</span><span style="color:#f78c6c;">00401452                </span><span style="color:#82aaff;">puts(</span><span style="color:#c3e88d;">&quot;[!] You&#39;</span><span style="color:#82aaff;">re </span><span style="font-style:italic;color:#c792ea;">in </span><span style="color:#82aaff;">KnightCTF</span><span>, </span><span style="font-style:italic;color:#c792ea;">not </span><span style="color:#82aaff;">GoogleCTF :)&quot;)
+</span><span style="color:#82aaff;">0040145e                puts(</span><span style="color:#c3e88d;">&quot;Try again!&quot;</span><span style="color:#82aaff;">)
+</span><span style="color:#82aaff;">0040145e        
+</span><span style="color:#f78c6c;">00401308        </span><span>*</span><span style="color:#82aaff;">(fsbase </span><span>+ </span><span style="color:#f78c6c;">0x28</span><span style="color:#82aaff;">)
+</span><span style="color:#f78c6c;">00401308        
+</span><span style="color:#f78c6c;">00401311        </span><span style="color:#82aaff;">if (</span><span style="color:#f78c6c;">rdi </span><span style="color:#82aaff;">== </span><span>*</span><span style="color:#82aaff;">(fsbase </span><span>+ </span><span style="color:#f78c6c;">0x28</span><span style="color:#82aaff;">))
+</span><span style="color:#82aaff;">0040132a            return </span><span style="color:#f78c6c;">0
+</span><span style="color:#82aaff;">0040132a        
+</span><span style="color:#82aaff;">0040155a        int64_t rdx_9
+</span><span style="color:#82aaff;">0040155a        int64_t rsi_7
+</span><span style="color:#82aaff;">0040155a        int64_t rdi_22
+</span><span style="color:#82aaff;">0040155a        rdx_9</span><span>, </span><span style="color:#82aaff;">rsi_7</span><span>, </span><span style="color:#82aaff;">rdi_22 = __stack_chk_fail()
+</span><span style="color:#82aaff;">0040155f        noreturn _start(rdi_22</span><span>, </span><span style="color:#82aaff;">rsi_7</span><span>, </span><span style="color:#82aaff;">rdx_9) __tailcall
+</span><span>
+</span></code></pre>
+<h2 id="solution">Solution</h2>
+<p>I wrote a python script which takes our salt and index and brute-forces each char until it matches hash from the hash table.
+The binary checks:</p>
+<pre data-lang="python" style="background-color:#212121;color:#eeffff;" class="language-python "><code class="language-python" data-lang="python"><span>expected </span><span style="color:#89ddff;">= [
+</span><span>  </span><span style="color:#82aaff;">MD5</span><span style="color:#89ddff;">(&quot;</span><span style="color:#c3e88d;">KnightCTF_2026_s@lt0</span><span style="color:#89ddff;">&quot; + </span><span style="color:#82aaff;">flag</span><span style="color:#89ddff;">[</span><span style="color:#f78c6c;">0</span><span style="color:#89ddff;">]),
+</span><span>  </span><span style="color:#82aaff;">MD5</span><span style="color:#89ddff;">(&quot;</span><span style="color:#c3e88d;">KnightCTF_2026_s@lt1</span><span style="color:#89ddff;">&quot; + </span><span style="color:#82aaff;">flag</span><span style="color:#89ddff;">[</span><span style="color:#f78c6c;">1</span><span style="color:#89ddff;">]),
+</span><span>  </span><span style="color:#f78c6c;">...
+</span><span style="color:#89ddff;">]
+</span></code></pre>
+<p>The plan is following:</p>
+<pre style="background-color:#212121;color:#eeffff;"><code><span>for each position/index:
+</span><span>    try all ASCII chars
+</span><span>    find the one that matches
+</span></code></pre>
+<p>Here is the python script implementation:</p>
+<pre data-lang="python" style="background-color:#212121;color:#eeffff;" class="language-python "><code class="language-python" data-lang="python"><span style="font-style:italic;color:#c792ea;">import </span><span>hashlib
+</span><span>
+</span><span>targets </span><span style="color:#89ddff;">= [
+</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">781011edfb2127ee5ff82b06bb1d2959</span><span style="color:#89ddff;">&quot;,
+</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">4cf891e0ddadbcaae8e8c2dc8bb15ea0</span><span style="color:#89ddff;">&quot;,
+</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">d06d0cbe140d0a1de7410b0b888f22b4</span><span style="color:#89ddff;">&quot;,
+</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">d44c9a9b9f9d1c28d0904d6a2ee3e109</span><span style="color:#89ddff;">&quot;,
+</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">e20ab37bee9d2a1f9ca3d914b0e98f09</span><span style="color:#89ddff;">&quot;,
+</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">d0beea4ce1c12190db64d10a82b96ef8</span><span style="color:#89ddff;">&quot;,
+</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">ac87da74d381d253820bcf4e5f19fcea</span><span style="color:#89ddff;">&quot;,
+</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">ce3f3a34a04ba5e5142f5db272b6cb1f</span><span style="color:#89ddff;">&quot;,
+</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">13843aca227ef709694bbfe4e5a32203</span><span style="color:#89ddff;">&quot;,
+</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">ca19a4c4eb435cb44d74c1e589e51a10</span><span style="color:#89ddff;">&quot;,
+</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">19edec8e46bdf97e3018569c0a60baa3</span><span style="color:#89ddff;">&quot;,
+</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">972e078458ce3cb6e32f795ff4972718</span><span style="color:#89ddff;">&quot;,
+</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">071824f6039981e9c57725453e005beb</span><span style="color:#89ddff;">&quot;,
+</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">66cd6098426b0e69e30e7fa360310728</span><span style="color:#89ddff;">&quot;,
+</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">f78d152df5d277d0ab7d25fb7d1841f3</span><span style="color:#89ddff;">&quot;,
+</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">dba3a36431c4aaf593566f7421abaa22</span><span style="color:#89ddff;">&quot;,
+</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">8820bbdad85ebee06632c379231cfb6b</span><span style="color:#89ddff;">&quot;,
+</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">722bc7cde7d548b81c5996519e1b0f0f</span><span style="color:#89ddff;">&quot;,
+</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">c2862c390c830eb3c740ade576d64773</span><span style="color:#89ddff;">&quot;,
+</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">94da978fe383b341f9588f9bab246774</span><span style="color:#89ddff;">&quot;,
+</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">bea3bb724dbd1704cf45aea8e73c01e1</span><span style="color:#89ddff;">&quot;,
+</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">ade2289739760fa27fd4f7d4ffbc722d</span><span style="color:#89ddff;">&quot;,
+</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">3cd0538114fe416b32cdd814e2ee57b3</span><span style="color:#89ddff;">&quot;,
+</span><span style="color:#89ddff;">]
+</span><span>
+</span><span>salt </span><span style="color:#89ddff;">= &quot;</span><span style="color:#c3e88d;">KnightCTF_2026_s@lt</span><span style="color:#89ddff;">&quot;
+</span><span>flag </span><span style="color:#89ddff;">= &quot;&quot;
+</span><span>
+</span><span style="font-style:italic;color:#c792ea;">for </span><span>i </span><span style="font-style:italic;color:#c792ea;">in </span><span style="color:#82aaff;">range</span><span style="color:#89ddff;">(</span><span style="color:#82aaff;">len</span><span style="color:#89ddff;">(</span><span style="color:#82aaff;">targets</span><span style="color:#89ddff;">)):
+</span><span>    </span><span style="font-style:italic;color:#c792ea;">for </span><span>c </span><span style="font-style:italic;color:#c792ea;">in </span><span style="color:#82aaff;">range</span><span style="color:#89ddff;">(</span><span style="color:#f78c6c;">32</span><span style="color:#89ddff;">, </span><span style="color:#f78c6c;">127</span><span style="color:#89ddff;">):
+</span><span>        s </span><span style="color:#89ddff;">= </span><span style="font-style:italic;color:#c792ea;">f</span><span style="color:#89ddff;">&quot;{</span><span>salt</span><span style="color:#89ddff;">}{</span><span>i</span><span style="color:#89ddff;">}{</span><span style="color:#82aaff;">chr</span><span style="color:#89ddff;">(</span><span style="color:#82aaff;">c</span><span style="color:#89ddff;">)}&quot;.</span><span style="color:#82aaff;">encode</span><span style="color:#89ddff;">()
+</span><span>        h </span><span style="color:#89ddff;">= </span><span style="color:#82aaff;">hashlib</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">md5</span><span style="color:#89ddff;">(</span><span style="color:#82aaff;">s</span><span style="color:#89ddff;">).</span><span style="color:#82aaff;">hexdigest</span><span style="color:#89ddff;">()
+</span><span>        </span><span style="font-style:italic;color:#c792ea;">if </span><span>h </span><span style="color:#89ddff;">== </span><span>targets</span><span style="color:#89ddff;">[</span><span>i</span><span style="color:#89ddff;">]:
+</span><span>            flag </span><span style="color:#89ddff;">+= </span><span style="color:#82aaff;">chr</span><span style="color:#89ddff;">(</span><span style="color:#82aaff;">c</span><span style="color:#89ddff;">)
+</span><span>            </span><span style="color:#82aaff;">print</span><span style="color:#89ddff;">(</span><span style="color:#82aaff;">i</span><span style="color:#89ddff;">, </span><span style="color:#82aaff;">chr</span><span style="color:#89ddff;">(</span><span style="color:#82aaff;">c</span><span style="color:#89ddff;">))
+</span><span>            </span><span style="font-style:italic;color:#c792ea;">break
+</span><span>
+</span><span style="color:#82aaff;">print</span><span style="color:#89ddff;">(&quot;</span><span style="color:#c3e88d;">KCTF{</span><span style="color:#89ddff;">&quot; + </span><span style="color:#82aaff;">flag </span><span style="color:#89ddff;">+ &quot;</span><span style="color:#c3e88d;">}</span><span style="color:#89ddff;">&quot;)
+</span><span>
+</span></code></pre>
+<p>Running the python script above successfully brute-forces the flag:</p>
+<pre data-lang="console" style="background-color:#212121;color:#eeffff;" class="language-console "><code class="language-console" data-lang="console"><span>~/Vault/isec/ctf/knight2k26  ✓ $ python crack3.py
+</span><span>0 _
+</span><span>1 L
+</span><span>2 0
+</span><span>3 T
+</span><span>4 S
+</span><span>5 _
+</span><span>6 o
+</span><span>7 F
+</span><span>8 _
+</span><span>9 b
+</span><span>10 R
+</span><span>11 u
+</span><span>12 T
+</span><span>13 E
+</span><span>14 _
+</span><span>15 f
+</span><span>16 o
+</span><span>17 R
+</span><span>18 C
+</span><span>19 E
+</span><span>20 _
+</span><span>21 :
+</span><span>22 P
+</span><span>KCTF{_L0TS_oF_bRuTE_foRCE_:P}
+</span><span>~/Vault/isec/ctf/knight2k26  ✓ $ ./E4sy_P3asy.ks
+</span><span>========================================
+</span><span>   E4sy P3asy - KnightCTF 2026
+</span><span>========================================
+</span><span>[*] Enter the flag to prove your worth!
+</span><span>
+</span><span>flag&gt; KCTF{_L0TS_oF_bRuTE_foRCE_:P}
+</span><span>Good job! You got it!
+</span><span>
+</span></code></pre>
+<p>Flag: <strong>KCTF{<em>L0TS_oF_bRuTE_foRCE</em>:P}</strong></p>
+<p><img src="/images/14c27ddac401a76eff2848bd6f809604.png" alt="" /></p>
+
+        </div>
+    </article>
+
+        </div>
+    </div>
+    
+    <a href="#top" class="top-btn">⏫</a>
+<footer>
+    <a href="https://mastodon.social/@spiperac" target="_blank" rel="noopener noreferrer">
+        <img src="/icons/mastodon.svg" alt="Mastodon" id="svg" />
+    </a>
+
+    <a href="https://github.com/spiperac" target="_blank" rel="noopener noreferrer">
+        <img src="/icons/github.svg" alt="GitHub" id="svg" />
+    </a>
+
+    <a href="mailto:sp@spiperac.dev">
+        <img src="/icons/email.svg" alt="Email" id="svg" />
+    </a>
+
+    <p>© 2026 spiperac</p>
+</footer>
+
+
+<script>
+  const toggle = document.getElementById('theme-toggle');
+  const root = document.documentElement;
+
+  // Load saved theme or default to dark
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  root.setAttribute('data-theme', savedTheme);
+  toggle.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+
+  toggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      toggle.textContent = next === 'light' ? '🌙' : '☀️';
+      localStorage.setItem('theme', next);
+  });
+</script>
+</body>
+</html>

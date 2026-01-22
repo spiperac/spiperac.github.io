@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>spiperac&#x27;s blog - tshark</title>
+    <link rel="self" type="application/atom+xml" href="https://spiperac.dev/tags/tshark/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://spiperac.dev"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2026-01-21T00:00:00+00:00</updated>
+    <id>https://spiperac.dev/tags/tshark/atom.xml</id>
+    <entry xml:lang="en">
+        <title>KnightCTF 2026 - Networking100</title>
+        <published>2026-01-21T00:00:00+00:00</published>
+        <updated>2026-01-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              spiperac
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://spiperac.dev/posts/knightctf-2026-networking100-4-tasks/"/>
+        <id>https://spiperac.dev/posts/knightctf-2026-networking100-4-tasks/</id>
+        
+        <content type="html" xml:base="https://spiperac.dev/posts/knightctf-2026-networking100-4-tasks/">&lt;h2 id=&quot;task-1-exploitation&quot;&gt;Task 1 - Exploitation&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#212121;color:#eeffff;&quot;&gt;&lt;code&gt;&lt;span&gt;The attacker appears to have identified a web application running on our server. 
+&lt;&#x2F;span&gt;&lt;span&gt;We need to determine what application was being targeted. 
+&lt;&#x2F;span&gt;&lt;span&gt;Find the version and username associated with the application in the capture.
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Flag Format: KCTF{version_username}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Download: &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;drive.google.com&#x2F;file&#x2F;d&#x2F;1r5Huq9jVrcNGMP-eX2qMgaHoD6bQpV6U&#x2F;view?usp=sharing&quot;&gt;pcap2.pcapng&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;pcap2-pcapng-finding-username&quot;&gt;pcap2.pcapng - Finding Username&lt;&#x2F;h3&gt;
+&lt;p&gt;Let’s analyze the pcap file with Wireshark by first looking for a username.&lt;br &#x2F;&gt;
+We want to check POST methods in login forms by filtering:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#212121;color:#eeffff;&quot;&gt;&lt;code&gt;&lt;span&gt;http.request.method==POST &amp;amp;&amp;amp; http.request.uri contains &amp;quot;login.php&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;d13fb4465bab28210dd6afff732179a5.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Right from the start we can see that the web application in question is WordPress, not only from this filter but also because, when we inspect the traffic, we see many WPScan requests.&lt;&#x2F;p&gt;
+&lt;p&gt;Since there are only two POST requests, it is easy to find the username.&lt;br &#x2F;&gt;
+If we inspect the first request’s HTML form data, we see:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#212121;color:#eeffff;&quot;&gt;&lt;code&gt;&lt;span&gt;HTML Form URL Encoded: application&#x2F;x-www-form-urlencoded
+&lt;&#x2F;span&gt;&lt;span&gt;    Form item: &amp;quot;log&amp;quot; = &amp;quot;kadmin_user&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;    Form item: &amp;quot;pwd&amp;quot; = &amp;quot;f750d046&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;60c29f3547f2c82ff48d57daefa8a52a.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;So the username is: &lt;strong&gt;kadmin_user&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;&#x2F;strong&gt;&lt;br &#x2F;&gt;
+The second request also contains a user, but in the form of an email address:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#212121;color:#eeffff;&quot;&gt;&lt;code&gt;&lt;span&gt;HTML Form URL Encoded: application&#x2F;x-www-form-urlencoded
+&lt;&#x2F;span&gt;&lt;span&gt;    Form item: &amp;quot;log&amp;quot; = &amp;quot;tushar@gmail.com&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;        Key: log
+&lt;&#x2F;span&gt;&lt;span&gt;        Value: tushar@gmail.com
+&lt;&#x2F;span&gt;&lt;span&gt;    Form item: &amp;quot;pwd&amp;quot; = &amp;quot;1234566&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;        Key: pwd
+&lt;&#x2F;span&gt;&lt;span&gt;        Value: 1234566
+&lt;&#x2F;span&gt;&lt;span&gt;    Form item: &amp;quot;rememberme&amp;quot; = &amp;quot;forever&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;        Key: rememberme
+&lt;&#x2F;span&gt;&lt;span&gt;        Value: forever
+&lt;&#x2F;span&gt;&lt;span&gt;    Form item: &amp;quot;wp-submit&amp;quot; = &amp;quot;Log In&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;        Key: wp-submit
+&lt;&#x2F;span&gt;&lt;span&gt;        Value: Log In
+&lt;&#x2F;span&gt;&lt;span&gt;    Form item: &amp;quot;redirect_to&amp;quot; = &amp;quot;http:&#x2F;&#x2F;192.168.1.102&#x2F;wordpress&#x2F;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;        Key: redirect_to
+&lt;&#x2F;span&gt;&lt;span&gt;        Value: http:&#x2F;&#x2F;192.168.1.102&#x2F;wordpress&#x2F;
+&lt;&#x2F;span&gt;&lt;span&gt;    Form item: &amp;quot;testcookie&amp;quot; = &amp;quot;1&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;        Key: testcookie
+&lt;&#x2F;span&gt;&lt;span&gt;        Value: 1
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This could be a fallback if the first attempt failed, but it looks like a brute-force attempt, since the cookie is strange and the password is &lt;code&gt;1234566&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;pcap2-pcapng-finding-wordpress-version&quot;&gt;pcap2.pcapng - Finding WordPress version&lt;&#x2F;h3&gt;
+&lt;p&gt;My approach here was, I basically dumped all HTML objects from the pcap file:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#212121;color:#eeffff;&quot;&gt;&lt;code&gt;&lt;span&gt;~&#x2F;Vault&#x2F;isec&#x2F;ctf&#x2F;knight2k26&#x2F;net100-exploitation  ✓ $ tshark -r pcap2.pcapng --export-objects http,.&#x2F;dump
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Then I ran a few &lt;code&gt;grep&lt;&#x2F;code&gt; commands, which quickly yielded a result:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#212121;color:#eeffff;&quot;&gt;&lt;code&gt;&lt;span&gt;~&#x2F;Vault&#x2F;isec&#x2F;ctf&#x2F;knight2k26&#x2F;net100-exploitation  ✓ $ grep -R &amp;quot;generator&amp;quot; dump&#x2F;wordpress*
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;dump&#x2F;wordpress:&amp;lt;meta name=&amp;quot;generator&amp;quot; content=&amp;quot;WordPress 6.9&amp;quot; &#x2F;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;dump&#x2F;wordpress(1):&amp;lt;meta name=&amp;quot;generator&amp;quot; content=&amp;quot;WordPress 6.9&amp;quot; &#x2F;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;dump&#x2F;wordpress(6):&amp;lt;meta name=&amp;quot;generator&amp;quot; content=&amp;quot;WordPress 6.9&amp;quot; &#x2F;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;dump&#x2F;wordpress(7):&amp;lt;meta name=&amp;quot;generator&amp;quot; content=&amp;quot;WordPress 6.9&amp;quot; &#x2F;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;dump&#x2F;wordpress(8):&amp;lt;meta name=&amp;quot;generator&amp;quot; content=&amp;quot;WordPress 6.9&amp;quot; &#x2F;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;So the WordPress version is: &lt;strong&gt;6.9&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;alternative-method&quot;&gt;Alternative method&lt;&#x2F;h4&gt;
+&lt;p&gt;Another way to find this is by dumping all TCP streams, iterating through them, and grepping for the string &lt;code&gt;&quot;WordPress&quot;&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell-session&quot; style=&quot;background-color:#212121;color:#eeffff;&quot; class=&quot;language-shell-session &quot;&gt;&lt;code class=&quot;language-shell-session&quot; data-lang=&quot;shell-session&quot;&gt;&lt;span&gt;~&#x2F;Vault&#x2F;isec&#x2F;ctf&#x2F;knight2k26&#x2F;net100-exploitation  ✗1 $ for i in $(tshark -r pcap2.pcapng -T fields -e tcp.stream | sort -n | uniq); do
+&lt;&#x2F;span&gt;&lt;span&gt;  tshark -r pcap2.pcapng -q -z follow,tcp,ascii,$i;
+&lt;&#x2F;span&gt;&lt;span&gt;done | grep -a &amp;quot;WordPress&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;X-Redirect-By: WordPress
+&lt;&#x2F;span&gt;&lt;span&gt;X-Redirect-By: WordPress
+&lt;&#x2F;span&gt;&lt;span&gt;X-Redirect-By: WordPress
+&lt;&#x2F;span&gt;&lt;span&gt;X-Redirect-By: WordPress
+&lt;&#x2F;span&gt;&lt;span&gt;X-Redirect-By: WordPress
+&lt;&#x2F;span&gt;&lt;span&gt;X-Redirect-By: WordPress
+&lt;&#x2F;span&gt;&lt;span&gt;X-Redirect-By: WordPress
+&lt;&#x2F;span&gt;&lt;span&gt;X-Redirect-By: WordPress
+&lt;&#x2F;span&gt;&lt;span&gt;X-Redirect-By: WordPress
+&lt;&#x2F;span&gt;&lt;span&gt;X-Redirect-By: WordPress
+&lt;&#x2F;span&gt;&lt;span&gt;X-Redirect-By: WordPress
+&lt;&#x2F;span&gt;&lt;span&gt;X-Redirect-By: WordPress
+&lt;&#x2F;span&gt;&lt;span&gt;X-Redirect-By: WordPress
+&lt;&#x2F;span&gt;&lt;span&gt;.&amp;lt;generator uri=&amp;quot;https:&#x2F;&#x2F;wordpress.org&#x2F;&amp;quot; version=&amp;quot;6.9&amp;quot;&amp;gt;WordPress&amp;lt;&#x2F;generator&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt; type=&amp;quot;html&amp;quot;&amp;gt;&amp;lt;![CDATA[Welcome to WordPress. This is your first post. Edit or delete it, then start writing!]]&amp;gt;&amp;lt;&#x2F;summary&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;p&amp;gt;Welcome to WordPress. This is your first post. Edit or delete it, then start writing!&amp;lt;&#x2F;p&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;.&amp;quot;description&amp;quot;: &amp;quot;Displays a link to edit the comment in the WordPress Dashboard. This link is only visible to users with the edit comment capability.&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;## WordPress Modification - We prepend some unexpired &amp;#39;legacy&amp;#39; 1024bit certificates
+&lt;&#x2F;span&gt;&lt;span&gt;X-Redirect-By: WordPress
+&lt;&#x2F;span&gt;&lt;span&gt;X-Redirect-By: WordPress
+&lt;&#x2F;span&gt;&lt;span&gt;X-Redirect-By: WordPress
+&lt;&#x2F;span&gt;&lt;span&gt;X-Redirect-By: WordPress
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This also reveals:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;html&quot; style=&quot;background-color:#212121;color:#eeffff;&quot; class=&quot;language-html &quot;&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07178;&quot;&gt;generator &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#ffcb6b;&quot;&gt;uri&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;https:&#x2F;&#x2F;wordpress.org&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#ffcb6b;&quot;&gt;version&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;6.9&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;quot;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;WordPress&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07178;&quot;&gt;generator&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt; type=&amp;quot;html&amp;quot;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;lt;![&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c792ea;&quot;&gt;CDATA&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;Welcome to WordPress. This is your first post. Edit or delete it, then start writing!&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;]]&amp;gt;&amp;lt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07178;&quot;&gt;summary&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;flag&quot;&gt;Flag&lt;&#x2F;h3&gt;
+&lt;p&gt;Flag is: &lt;strong&gt;KCTF{6.9_kadmin_user}&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;766d3fd32e5eac23a6cbb9f9d7ec5792.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;task-2-vulnerability-exploitation&quot;&gt;Task 2 - Vulnerability Exploitation&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#212121;color:#eeffff;&quot;&gt;&lt;code&gt;&lt;span&gt;Our web application was compromised through a vulnerable plugin. 
+&lt;&#x2F;span&gt;&lt;span&gt;The attacker exploited a known vulnerability to gain initial access.
+&lt;&#x2F;span&gt;&lt;span&gt;Identify the vulnerable plugin and its version that was exploited.
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; Use pcap2.pcapng to solve this challenge.
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;**Flag Format KCTF{plugin_name_version}**
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;pcap2-pcapng-wp-plugin-analysis&quot;&gt;pcap2.pcapng - WP Plugin Analysis&lt;&#x2F;h3&gt;
+&lt;p&gt;Since we already know from the previous task that the target is WordPress, and we are looking for a vulnerable plugin, I dumped all requests containing &lt;code&gt;&quot;wp-content&#x2F;plugins&quot;&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The goal here is simply to identify which plugin was actually probed and exploited, rather than listing every possible path.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell-session&quot; style=&quot;background-color:#212121;color:#eeffff;&quot; class=&quot;language-shell-session &quot;&gt;&lt;code class=&quot;language-shell-session&quot; data-lang=&quot;shell-session&quot;&gt;&lt;span&gt;~&#x2F;Vault&#x2F;isec&#x2F;ctf&#x2F;knight2k26&#x2F;net100-exploitation  ✓ $ tshark -r pcap2.pcapng -Y &amp;#39;frame contains &amp;quot;wp-content&#x2F;plugins&amp;quot;&amp;#39; -T fields -e frame.time -e ip.src -e http.request.uri
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:37:53.390368000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:37:53.390880000+0100	192.168.1.102	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:46.967469000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;social-warfare&#x2F;readme.txt
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:46.974850000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;social-warfare&#x2F;readme.txt
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:46.984270000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;thim-blocks&#x2F;readme.txt
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:46.990432000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;thim-blocks&#x2F;readme.txt
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.251135000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;themes&#x2F;TheStyle&#x2F;wp-content&#x2F;plugins&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.467320000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;add-new-default-avatar-emrikols-fork&#x2F;includes&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.467956000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;add-new-default-avatar-emrikols-fork&#x2F;includes&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.470145000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;a-gallery&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.471617000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;a-gallery&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.472238000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;auto-attachments&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.475310000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;auto-attachments&#x2F;thumb.phpthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.475948000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;auto-attachments&#x2F;thumb.phptimthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.477189000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;cac-featured-content&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.477818000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;category-grid-view-gallery&#x2F;includes&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.477818000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;category-grid-view-gallery&#x2F;includes&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.479677000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;category-grid-view-gallery&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.480316000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;category-list-portfolio-page&#x2F;scripts&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.480952000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;cms-pack&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.482188000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;communitypress&#x2F;cp-themes&#x2F;cp-default&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.483538000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;communitypress&#x2F;cp-wp-content&#x2F;themes&#x2F;cp-default&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.485121000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;db-toolkit&#x2F;libs&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.487843000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;dp-thumbnail&#x2F;timthumb&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.488476000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;db-toolkit&#x2F;libs&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.488476000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;dp-thumbnail&#x2F;timthumb&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.491115000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;dp-thumbnail&#x2F;timthumb&#x2F;timthumb.phpthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.491141000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;dp-thumbnail&#x2F;timthumb&#x2F;timthumb.phptimthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.491781000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;dukapress&#x2F;lib&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.492424000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;dukapress&#x2F;lib&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.493063000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;dukapress&#x2F;lib&#x2F;timthumb.phpthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.496749000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;dukapress&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.496785000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;dukapress&#x2F;lib&#x2F;timthumb.phptimthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.497402000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;ecobiz&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.499551000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;event-espresso-free&#x2F;includes&#x2F;functions&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.500177000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;ePhoto&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.500832000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;events-manager&#x2F;includes&#x2F;thumbnails&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.501458000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;extend-wordpress&#x2F;helpers&#x2F;timthumb&#x2F;image.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.502085000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;featured-post-with-thumbnail&#x2F;scripts&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.502709000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;feature-slideshow&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.503326000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;fotoslide&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.504565000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;front-slider&#x2F;scripts&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.505914000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;geotag&#x2F;tools&#x2F;timthumb&#x2F;timthumb.phptimthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.506546000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;geotag&#x2F;tools&#x2F;timthumb&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.508705000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;hungred-image-fit&#x2F;scripts&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.508707000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;highlighter&#x2F;libs&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.511118000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;igit-related-posts-with-thumb-images-after-posts&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.511118000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;igit-posts-slider-widget&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.511118000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;igit-related-posts-widget&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.515031000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;igit-related-posts-with-thumb-images-after-posts&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.515655000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;custom&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.515656000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-rotator-widget&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.516280000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;custom&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.516286000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;framework&#x2F;includes&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.519871000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;framework&#x2F;includes&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.521208000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;framework&#x2F;thumb&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.521208000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;functions&#x2F;scripts&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.521208000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;framework&#x2F;thumb&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.521837000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;functions&#x2F;scripts&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.523076000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;functions&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.525902000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;functions&#x2F;thumb&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.528024000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;functions&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.528643000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;images&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.528644000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;functions&#x2F;timthumb&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.528644000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;images&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.529885000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;includes&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.531114000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;includes&#x2F;thumb&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.532347000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;includes&#x2F;thumb&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.532351000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;includes&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.534192000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;includes&#x2F;timthumb&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.534192000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;inc&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.534811000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;inc&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.537895000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;js&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.541149000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;js&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.541174000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;layouts&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.541794000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;layouts&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.541799000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;lib&#x2F;custom&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.542420000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;lib&#x2F;custom&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.545819000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;library&#x2F;functions&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.548452000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;library&#x2F;resource&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.549082000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;library&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.549083000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;library&#x2F;resource&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.549083000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;library&#x2F;functions&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.549707000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;library&#x2F;thumb&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.552357000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;library&#x2F;thumb&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.554714000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;library&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.555339000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;lib&#x2F;script&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.555339000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;library&#x2F;timthumb&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.555340000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;lib&#x2F;script&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.555968000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;lib&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.558033000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;lib&#x2F;thumb&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.560428000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;lib&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.561054000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;lib&#x2F;thumb&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.562889000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;lib&#x2F;timthumb&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.563512000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;modules&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.563512000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;modules&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.565376000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;options&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.565377000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;options&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.565376000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;scripts&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.566614000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;scripts&#x2F;thumb&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.568858000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;scripts&#x2F;thumb&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.569488000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;scripts&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.571313000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;scripts&#x2F;timthumb&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.571942000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;thumb&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.571942000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.573181000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;thumb&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.573934000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.578049000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.578683000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;tools&#x2F;thumb&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.578683000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;tools&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.578683000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;timthumb&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.588083000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;tools&#x2F;thumb&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.588717000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;tools&#x2F;timthumb&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.588719000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;islidex&#x2F;js&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.588718000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;islidex&#x2F;includes&#x2F;timthumb&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.588718000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;image-symlinks&#x2F;tools&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.594033000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;islidex&#x2F;js&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.594667000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;islidex&#x2F;js&#x2F;timthumb.phpthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.595906000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;islidex&#x2F;js&#x2F;timthumb.phptimthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.595906000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;jquery-slider-for-featured-content&#x2F;scripts&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.595906000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;js-multihotel&#x2F;includes&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.598410000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;kc-related-posts-by-category&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.602097000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;lisl-last-image-slider&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.602124000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;logo-management&#x2F;includes&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.602751000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;mangapress&#x2F;includes&#x2F;mangapress-timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.602750000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;kino-gallery&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.603376000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;mediarss-external-gallery&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.605344000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;meenews-newsletter&#x2F;inc&#x2F;classes&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.606839000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;mobileposty-mobile-site-generator&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.608791000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;pictmobi-widget&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.608823000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;mobile-smart&#x2F;includes&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.609462000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;pointelle-slider&#x2F;includes&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.611390000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;premium-list-magnet&#x2F;inc&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.611390000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;premium-list-magnet&#x2F;inc&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.613964000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;really-easy-slider&#x2F;inc&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.616390000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;rent-a-car&#x2F;libs&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.616458000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;seo-image-galleries&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.617083000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;sharepulse&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.619344000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;shortcodes-ultimate&#x2F;lib&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.619970000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;simple-coverflow&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.619970000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;sh-slideshow&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.621827000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;simple-post-thumbnails&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.623066000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;sliceshow-slideshow&#x2F;scripts&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.624550000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;smart-related-posts-thumbnails&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.624550000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;simple-slide-show&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.624550000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;slider-pro&#x2F;includes&#x2F;timthumb&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.625838000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;tag-gallery&#x2F;timthumb&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.626482000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;thethe-image-slider&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.630133000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;timthumb-meets-tinymce&#x2F;ttplugin&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.630752000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;thumbnails-anywhere&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.633189000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;todo-espaco-online-links-felipe&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.633219000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;tim-widget&#x2F;scripts&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.633834000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;timthumb-vulnerability-scanner&#x2F;cg-tvs-admin-panel.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.635065000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;uBillboard&#x2F;cache&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.635065000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;uBillboard&#x2F;lib&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.637272000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;uBillboard&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.637897000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;uBillboard&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.637899000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;uBillboard&#x2F;timthumb.phpthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.639746000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;ultimate-posts-widget&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.639746000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;uBillboard&#x2F;timthumb.phptimthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.640377000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;verve-meta-boxes&#x2F;tools&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.641625000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;vk-gallery&#x2F;lib&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.641625000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;vk-gallery&#x2F;lib&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.644264000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;vslider&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.645122000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;vslider&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.645751000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;woo-tumblog&#x2F;functions&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.646980000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;woo-tumblog&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.646980000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;woo-tumblog&#x2F;functions&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.647609000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wordpress-gallery-plugin&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.649743000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wordpress-popular-posts&#x2F;scripts&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.650366000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wordpress-news-ticker-plugin&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.651657000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wordpress-thumbnail-slider&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.652286000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp-featured-post-with-thumbnail&#x2F;scripts&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.652288000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp-dailybooth&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.654138000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp-marketplace&#x2F;libs&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.654763000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp-marketplace&#x2F;libs&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.655383000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp-marketplace&#x2F;libs&#x2F;timthumb.phpthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.655384000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp-marketplace&#x2F;libs&#x2F;timthumb.phptimthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.656619000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wpmarketplace&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.658868000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp-mobile-detector&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.658889000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp-mobile-detector&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.661059000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp-pagenavi&#x2F;functions&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.661060000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp-pagenavi&#x2F;functions&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.661061000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp-pagenavi&#x2F;inc&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.662948000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp-pagenavi&#x2F;inc&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.663571000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp-pagenavi&#x2F;scripts&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.664200000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp-pagenavi&#x2F;scripts&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.665449000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp-pagenavi&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.667482000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp-pagenavi&#x2F;timthumb.phptimthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.667503000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp-pagenavi&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.671314000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp_rokbox&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.671937000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp_rokbox&#x2F;thumb.phpthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.671937000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp_rokbox&#x2F;thumb.phptimthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.672563000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp_rokbox&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.672565000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp_rokintroscroller&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.675465000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp_rokintroscroller&#x2F;thumb.phpthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.676095000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp_rokintroscroller&#x2F;thumb.phptimthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.677332000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp_rokmicronews&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.677332000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp_rokintroscroller&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.680282000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp_rokmicronews&#x2F;thumb.phpthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.680316000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp_rokmicronews&#x2F;thumb.phptimthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.680935000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp_rokmicronews&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.681554000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp_roknewspager&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.682173000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp_roknewspager&#x2F;thumb.phpthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.683408000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp_roknewspager&#x2F;thumb.phptimthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.685040000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp_roknewspager&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.686538000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp_rokstories&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.687166000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp_rokstories&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.687166000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp_rokstories&#x2F;thumb.phptimthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.687168000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp_rokstories&#x2F;thumb.phpthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.689530000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wps3slider&#x2F;scripts&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.691967000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wptap-news-press-themeplugin-for-iphone&#x2F;include&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.691992000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp-thumbie&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.692613000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;wp-slick-slider&#x2F;includes&#x2F;timthumb&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.692613000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;yd-export2email&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.696362000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;yd-recent-posts-widget&#x2F;timthumb&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.697688000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;zingiri-web-shop&#x2F;fws&#x2F;addons&#x2F;timthumb&#x2F;thumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.697687000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;zingiri-web-shop&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:50.697688000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;zingiri-web-shop&#x2F;fws&#x2F;addons&#x2F;timthumb&#x2F;timthumb.php
+&lt;&#x2F;span&gt;&lt;span&gt;2026-01-19T17:40:51.015656000+0100	192.168.1.104	&#x2F;wordpress&#x2F;wp-content&#x2F;plugins&#x2F;dump.sql
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Or in WireShark GUI:
+&lt;img src=&quot;&#x2F;images&#x2F;7b2ddc62cccc994c0168347b16feb434.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Starting from the top lets dump content of social warfare plugins ( first on the list) readme.txt, and convert it from hex to binary&#x2F;ascii with xxd -r -p:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#212121;color:#eeffff;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;font-style:italic;color:#ff5370;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;&#x2F;Vault&#x2F;isec&#x2F;ctf&#x2F;knight2k26&#x2F;net100-exploitation  ✓ $ tshark&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt; -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f78c6c;&quot;&gt;r&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt; pcap2.pcapng&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt; -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f78c6c;&quot;&gt;Y &lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;http.request.uri contains &amp;quot;social-warfare&#x2F;readme.txt&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39; -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f78c6c;&quot;&gt;T&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt; fields&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt; -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f78c6c;&quot;&gt;e&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt; http.file_data &lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;xxd&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt; -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f78c6c;&quot;&gt;r&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt; -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f78c6c;&quot;&gt;p
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;== &lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;WordPress Social Sharing Plugin - Social Warfare ===
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;Contributors: holas84, dustinwstout, webinator, warfareplugins, nutsandboltsmedia, cdegraff1, ckmahoney
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;Tags: sharing buttons, social media share, floating share buttons, facebook share, google plus share, linkedin share, pin it, pinterest save, mix button, tweet button, twitter share, click to tweet, social sharing buttons, social share, social sharing, social media sharing, wordpress social sharing plugin, social sharing plugin, share buttons, share counts
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;Requires at least: 4.5.0
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;Tested up to: 5.1
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;Stable tag: 3.5.2
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;Requires PHP: 5.6
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;License: GNU General Public License v2.0 or later
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;The most beautiful, responsive, lightning fast social share buttons built to boost shares and drive more traffic without slowing down your site.
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;Description ==
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;We see that version is: &lt;strong&gt;3.5.2&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-1&quot;&gt;Flag&lt;&#x2F;h3&gt;
+&lt;p&gt;Flag is &lt;strong&gt;KCTF{social_warfare_3.5.2}&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;26ccef2aed200123433953b4962922fc.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;task-3-post-exploitation&quot;&gt;Task 3 - Post Exploitation&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#212121;color:#eeffff;&quot;&gt;&lt;code&gt;&lt;span&gt;## Post-Exploitation
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;### 100 Points
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Author
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;After exploiting the vulnerability, the attacker established a persistent connection back to their command and control server. Analyze the traffic to identify the HTTP port used for the initial payload delivery and the port used for the reverse shell connection.
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Download: [pcap3.pcapng](https:&#x2F;&#x2F;drive.google.com&#x2F;file&#x2F;d&#x2F;1Xr1onCDIvTvMviH1k16mIjH2P2tfQZuq&#x2F;view?usp=sharing)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;**Flag Format: KCTF{httpPort_revshellPort}**
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;https:&#x2F;&#x2F;drive.google.com&#x2F;file&#x2F;d&#x2F;1Xr1onCDIvTvMviH1k16mIjH2P2tfQZuq&#x2F;view?usp=sharing&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;pcap3-pcapng-payload-analysis&quot;&gt;pcap3.pcapng - Payload Analysis&lt;&#x2F;h3&gt;
+&lt;p&gt;Since it&#x27;s wordpress in question, i assumed that shell was uploaded from that Social Warfare plugin we already figured out previously, which means by http.&lt;&#x2F;p&gt;
+&lt;p&gt;I started filtering out by POST and GET requests, and just looking around. It couldn&#x27;t be more obvious:
+&lt;img src=&quot;&#x2F;images&#x2F;2a7ba68a114d37e816a2f96a8b85285b.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;This already gives us HTTP port for the payload &lt;strong&gt;8786&lt;&#x2F;strong&gt;, which is half of the flag. Now we only need to find the reverse shell port.&lt;&#x2F;p&gt;
+&lt;p&gt;To narrow it down we want to:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;look after timestamp of a payload, since revese shell can only be invoked after uploading obviously, in screenshot you can see timestamp: &lt;strong&gt;882&lt;&#x2F;strong&gt;
+&lt;code&gt;( frame.time_relative &amp;gt; 882)&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;!(tcp.port==80 || tcp.port==8767)&lt;&#x2F;code&gt; - exclude port 80 and payload port 8786&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;ip.src==192.168.1.102&lt;&#x2F;code&gt;  - Only traffic from the victim.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;ip.dst==192.168.1.104&lt;&#x2F;code&gt; - Only traffic going to the attacker.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;We will also filter multiple mentions of the same port number with sort -u :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#212121;color:#eeffff;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;font-style:italic;color:#ff5370;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;&#x2F;Vault&#x2F;isec&#x2F;ctf&#x2F;knight2k26&#x2F;net100-exploitation  ✓ $ tshark&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt; -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f78c6c;&quot;&gt;r&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt; pcap3.pcapng&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt; -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f78c6c;&quot;&gt;Y &lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;ip.src==192.168.1.102 &amp;amp;&amp;amp; ip.dst==192.168.1.104 &amp;amp;&amp;amp; tcp &amp;amp;&amp;amp; frame.time_relative&amp;gt;882 &amp;amp;&amp;amp; !(tcp.port==80 || tcp.port==8767)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;quot; -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f78c6c;&quot;&gt;T&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt; fields&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt; -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f78c6c;&quot;&gt;e&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt; tcp.srcport&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt; -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f78c6c;&quot;&gt;e&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt; tcp.dstport &lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;sort&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt; -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f78c6c;&quot;&gt;u
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;9576
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And there it is, reverse shell port &lt;strong&gt;9576&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;&#x2F;strong&gt;:
+You can filter with &lt;code&gt;sort | uniq -c&lt;&#x2F;code&gt; if you want to display number of packets sent and ephemeral port.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-2&quot;&gt;Flag&lt;&#x2F;h3&gt;
+&lt;p&gt;Flag is: KCTF{8767_9576}&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;7be91c4aef1cc1f6451c0cd389d0ef49.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;task-4-database-theft&quot;&gt;Task 4 - Database Theft&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#212121;color:#eeffff;&quot;&gt;&lt;code&gt;&lt;span&gt;## Database Credentials Theft
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;### 100 Points
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Author
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;The attacker&amp;#39;s ultimate goal was to access our database. During the post-exploitation phase, they managed to extract database credentials from the compromised system. Find the database username and password that were exposed.
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; Use pcap3.pcapng file to solve this challenge.
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;**Flag Format: KCTF{username_password}**
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;_**Author: TareqAhamed (0xt4req)**_
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;pcap3-pacpng-reverse-shell-data-analysis&quot;&gt;pcap3.pacpng -  Reverse Shell Data Analysis&lt;&#x2F;h3&gt;
+&lt;p&gt;This was the easiest one so far.
+Since we know from previous task that reverse shell was running on 9576, lets only dump TCP stream from it, and convert it from HEX to Binary&#x2F;ASCII.&lt;&#x2F;p&gt;
+&lt;p&gt;That way we can basically see what was the attacker running in the reverse shell:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#212121;color:#eeffff;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;tshark&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt; -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f78c6c;&quot;&gt;r&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt; pcap3.pcapng&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt; -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f78c6c;&quot;&gt;Y &lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;tcp.port==9576&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;quot; -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f78c6c;&quot;&gt;T&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt; fields&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt; -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f78c6c;&quot;&gt;e&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt; tcp.payload &lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;xxd&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt; -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f78c6c;&quot;&gt;r&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt; -&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f78c6c;&quot;&gt;p
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Output:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#212121;color:#eeffff;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;www-data@ubuntu-server-2:&#x2F;var&#x2F;www&#x2F;html&#x2F;wordpress&#x2F;wp-admin$ cd ..
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;cd ..
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;www-data@ubuntu-server-2:&#x2F;var&#x2F;www&#x2F;html&#x2F;wordpress$ ls
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;ls
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;index.php
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;license.txt
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;readme.html
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;wp-activate.php
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;wp-admin
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;wp-blog-header.php
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;wp-comments-post.php
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;wp-config-sample.php
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;wp-config.php
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;wp-content
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;wp-cron.php
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;wp-includes
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;wp-links-opml.php
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;wp-load.php
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;wp-login.php
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;wp-mail.php
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;wp-settings.php
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;wp-signup.php
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;wp-trackback.php
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;xmlrpc.php
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;.............
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;www-data@ubuntu-server-2:&#x2F;var&#x2F;www&#x2F;html&#x2F;wordpress$ cat wp-config.php
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;cat wp-config.php
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;lt;?&lt;&#x2F;span&gt;&lt;span&gt;php
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;&#x2F;**
+&lt;&#x2F;span&gt;&lt;span&gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;* The base configuration for WordPress
+&lt;&#x2F;span&gt;&lt;span&gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;*
+&lt;&#x2F;span&gt;&lt;span&gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;* The wp-config.php creation script uses this file during the installation.
+&lt;&#x2F;span&gt;&lt;span&gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;* You don&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;t have to use the website, you can copy this file to &amp;quot;wp-config.php&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt; * and fill in the values.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt; *
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt; * This file contains the following configurations:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt; *
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt; * * Database settings
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt; * * Secret keys
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt; * * Database table prefix
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt; * * ABSPATH
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt; *
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt; * @link https:&#x2F;&#x2F;developer.wordpress.org&#x2F;advanced-administration&#x2F;wordpress&#x2F;wp-config&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt; *
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt; * @package WordPress
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt; *&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;&#x2F;&#x2F; ** Database settings - You can get this info from your web host ** &#x2F;&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;&#x2F;** The name of the database for WordPress *&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;define( &lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;DB_NAME&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;wordpress_db&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt; );
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;&#x2F;** Database username *&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;define( &lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;DB_USER&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;wpuser&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt; );
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;&#x2F;** Database password *&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;define( &lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;DB_PASSWORD&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;wp@user123&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt; );
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;&#x2F;** Database hostname *&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;define( &lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;DB_HOST&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;localhost&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt; );
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;&#x2F;** Database charset to use in creating database tables. *&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;define( &lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;DB_CHARSET&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;utf8mb4&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt; );
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;&#x2F;** The database collate type. Don&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;t change this if in doubt. &lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;&#x2F;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;define( &lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c3e88d;&quot;&gt;DB_COLLATE&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;&amp;#39;&amp;#39; &lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#89ddff;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#82aaff;&quot;&gt;....................
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And, well, yes that&#x27;s a password and username right there.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;flag-3&quot;&gt;Flag&lt;&#x2F;h3&gt;
+&lt;p&gt;Flag is: &lt;strong&gt;KCTF{wpuser_wp@user123}&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;images&#x2F;7a483ecec97a116e2f38fc8f665e5570.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

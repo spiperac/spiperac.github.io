@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spiperac&#x27;s blog</title>
+    
+    
+    <link rel="stylesheet" href="https://spiperac.dev/style.css">
+    <link rel="stylesheet" href="https://spiperac.dev/character.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://spiperac.dev/favicon.ico">
+    <link rel="apple-touch-icon" href="https://spiperac.dev/favicon.ico" />
+    
+    
+</head>
+<body>
+    <nav id="top" class="navigation">
+    <ul class="nav-links">
+        <li><a href="https://spiperac.dev">Home</a></li>
+        <li><a href="https://spiperac.dev/tags/ctf">CTF</a></li>
+        <li><a href="https://spiperac.dev/pages/projects">Projects</a></li>
+        <li><a href="https://spiperac.dev/pages/about">About</a></li>
+    </ul>
+    <div class="nav-avatar">
+        <img src="https://spiperac.dev/images/avatar.png" alt="avatar" class="avatar">
+    </div>
+
+    <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+</nav>
+
+    
+    <div class="content">
+        <div id="content">
+            
+<h1>Tag: wireshark</h1>
+<ul>
+
+<li><a href="https:&#x2F;&#x2F;spiperac.dev&#x2F;posts&#x2F;knightctf-2026-networking100-4-tasks&#x2F;">KnightCTF 2026 - Networking100</a></li>
+
+</ul>
+
+        </div>
+    </div>
+    
+    <a href="#top" class="top-btn">⏫</a>
+<footer>
+    <a href="https://mastodon.social/@spiperac" target="_blank" rel="noopener noreferrer">
+        <img src="/icons/mastodon.svg" alt="Mastodon" id="svg" />
+    </a>
+
+    <a href="https://github.com/spiperac" target="_blank" rel="noopener noreferrer">
+        <img src="/icons/github.svg" alt="GitHub" id="svg" />
+    </a>
+
+    <a href="mailto:sp@spiperac.dev">
+        <img src="/icons/email.svg" alt="Email" id="svg" />
+    </a>
+
+    <p>© 2026 spiperac</p>
+</footer>
+
+
+<script>
+  const toggle = document.getElementById('theme-toggle');
+  const root = document.documentElement;
+
+  // Load saved theme or default to dark
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  root.setAttribute('data-theme', savedTheme);
+  toggle.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+
+  toggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      toggle.textContent = next === 'light' ? '🌙' : '☀️';
+      localStorage.setItem('theme', next);
+  });
+</script>
+</body>
+</html>

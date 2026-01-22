@@ -1,0 +1,43 @@
+.character-note {
+	 display: flex;
+	 flex-direction: row;
+	 margin-block: 1.5rem;
+	 margin-inline-start: auto;
+	 margin-inline-end: auto;
+}
+ .character-note.character-right {
+	 flex-direction: row-reverse;
+}
+ .character-note.character-right .character-avatar img {
+	 transform: scaleX(-1);
+}
+ .character-note.character-left {
+	 flex-direction: row;
+}
+ .character-note .character-avatar {
+	 font-size: 2rem;
+	 align-self: flex-start;
+	 flex-shrink: 0;
+}
+ .character-note .character-avatar img {
+	 --head-size: 3.2em;
+	 width: var(--head-size);
+	 height: var(--head-size);
+}
+ .character-note .character-content {
+	 font-size: var(--font-size);
+	 align-self: flex-start;
+   max-width: 90%;
+	 overflow: hidden;
+}
+ .character-note .character-bubble {
+	 --character-bubble-bg: var(--bg);
+	 --character-bubble-border: var(--border-color);
+	 --character-code-bg: var(--bg);
+	 background: var(--character-bubble-bg);
+	 border: 1px solid var(--character-bubble-border);
+	 border-radius: 0.5rem;
+	 padding-inline: 0.9em;
+	 padding-block: 0.2em;
+}
+ 

