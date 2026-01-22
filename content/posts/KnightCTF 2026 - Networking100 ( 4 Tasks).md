@@ -9,7 +9,9 @@ tags = ["ctf", "networking", "wireshark", "tshark"]
 ## Task 1 - Exploitation
 
 ```
-The attacker appears to have identified a web application running on our server. We need to determine what application was being targeted. Find the version and username associated with the application in the capture.
+The attacker appears to have identified a web application running on our server. 
+We need to determine what application was being targeted. 
+Find the version and username associated with the application in the capture.
 
 Flag Format: KCTF{version_username}
 ```
@@ -138,7 +140,9 @@ Flag is: **KCTF{6.9_kadmin_user}**
 ## Task 2 - Vulnerability Exploitation
 
 ```
-Our web application was compromised through a vulnerable plugin. The attacker exploited a known vulnerability to gain initial access. Identify the vulnerable plugin and its version that was exploited.
+Our web application was compromised through a vulnerable plugin. 
+The attacker exploited a known vulnerability to gain initial access.
+Identify the vulnerable plugin and its version that was exploited.
 
 > Use pcap2.pcapng to solve this challenge.
 

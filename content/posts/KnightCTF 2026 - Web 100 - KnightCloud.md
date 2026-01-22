@@ -16,7 +16,9 @@ Author
 
 TareqAhamed
 
-Your startup just signed up for KnightCloud's enterprise SaaS platform, but the premium features are locked behind a paywall. As a security researcher, you've been tasked to test their platform's security. Can you find a way to access the premium analytics dashboard without paying?
+Your startup just signed up for KnightCloud's enterprise SaaS platform, but the premium features are locked behind a paywall. 
+As a security researcher, you've been tasked to test their platform's security.
+Can you find a way to access the premium analytics dashboard without paying?
 
 > [http://23.239.26.112:8091/](http://23.239.26.112:8091/)
 

@@ -5,8 +5,6 @@ template = "pages/about.html"
 +++
 
 I'm a DevOps engineer, and Python developer. 
-I write Rust for fun.
-[Keymancer](https://github.com/spiperac/keymancer).
 
 Ocasionally i like to play [CTFs](https://ctftime.org).
 

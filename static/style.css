@@ -233,3 +233,26 @@ img {
     max-width: 100%;
     border-radius: 6px;
 }
+
+
+/* Projects tds */
+.ghtd a::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  background: url("/icons/github.svg") no-repeat center;
+  background-size: contain;
+}
+
+.cbtd a::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  background: url("/icons/codeberg.svg") no-repeat center;
+  background-size: contain;
+}
+
